@@ -1,0 +1,3 @@
+[submodule "exampleSite/landing-page-hugo"]
+	path = exampleSite/landing-page-hugo
+	url = https://github.com/crakjie/landing-page-hugo.git

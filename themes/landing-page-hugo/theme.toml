@@ -1,0 +1,17 @@
+name = "Landing Page"
+license = "MIT"
+licenselink = "https://github.com/crakjie/landing-page-hugo/blob/master/LICENSE.md"
+description = "An elegant open source landing page theme."
+homepage = "https://github.com/crakjie/landing-page-hugo"
+tags = ["company", "products", "landing page"]
+features = ["social", "images" ]
+min_version= 0.14
+
+[author]
+     name = "crakjie"
+
+[original]
+    author =  "swcool"
+    homepage = "https://github.com/swcool/landing-page-theme"
+    repo = "https://github.com/swcool/landing-page-theme"
+

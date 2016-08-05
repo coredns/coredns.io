@@ -1,0 +1,15 @@
+<!-- About Section -->
+<section id="about" class="container content-section text-center">
+{{ range where .Data.Pages "Section" "about" | first 1 }}
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2">
+			<br/>
+			<br/>
+			<h2>{{ .Title }}</h2>
+			<br/>
+			{{ .Content }}
+			<br/>
+		</div>
+	</div>
+{{ end }}
+</section>

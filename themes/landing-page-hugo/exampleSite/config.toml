@@ -1,0 +1,24 @@
+baseurl = "http://yourdomain.com"
+languageCode = "en-us"
+title = "WidgetCo Inc"
+canonifyUrls = "true"
+
+[params]
+    description = "The best widgets in the world!"
+
+[[params.social]]
+    title = "email"
+    icon = "envelope-o"
+    url = "mailto:bushbama@whitehouse.gov"
+[[params.social]]
+    title = "twitter"
+    icon = "twitter"
+    url = "https://twitter.com/SBootstrap"
+[[params.social]]
+    title = "github"
+    icon = "github"
+    url = "https://github.com/IronSummitMedia/startbootstrap"
+[[params.social]]
+    title = "linkedin"
+    icon = "linkedin"
+    url = "http://linkedin.com/in/yourusername"

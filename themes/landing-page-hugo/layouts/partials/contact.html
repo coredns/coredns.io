@@ -1,0 +1,21 @@
+{{ if isset .Site.Params "social" }}
+<section id="contact">
+<div class="contact">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-lg-6">
+				<h2>Stay In Touch:</h2>
+			</div>
+
+			<div class="col-lg-6">
+				<ul class="list-inline contact-social-buttons">
+					{{ partial "social.html" . }}
+				</ul>
+			</div>
+
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</div><!-- /.contact -->
+</section>
+{{ end }}
