@@ -1,20 +1,20 @@
 # Site settings
 baseurl = "https://coredns.io"
 languageCode = "en-us"
-title = "WidgetCo Inc"
+title = "CoreDNS"
 theme = "landing-page-hugo"
 
 [params]
-	description = "The best widgets in the world!"
+	description = "Service discovery for the cloud, and (much) more!"
 
 [[params.social]]
 	title = "email"
 	icon = "envelope-o"
-	url = "mailto:bushbama@whitehouse.gov"
+	url = "mailto:coredns@miek.nl"
 [[params.social]]
 	title = "twitter"
 	icon = "twitter"
-	url = "https://twitter.com/SBootstrap"
+	url = "https://twitter.com/corednsio"
 [[params.social]]
 	title = "github"
 	icon = "github"
