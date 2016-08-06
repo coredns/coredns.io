@@ -43,7 +43,7 @@ h6 {
 
 .intro-message > h1 {
     margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    text-shadow: 4px 4px 6px rgba(0,0,0,5.8);
     font-size: 5em;
 }
 
@@ -54,7 +54,7 @@ h6 {
 }
 
 .intro-message > h3 {
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    text-shadow: 3px 3px 4px rgba(0,0,0,5.0);
 }
 
 @media(max-width:767px) {
