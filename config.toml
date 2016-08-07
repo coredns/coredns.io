@@ -5,17 +5,21 @@ title = "CoreDNS"
 theme = "landing-page-hugo"
 
 [params]
-	description = "Service discovery for the cloud, and (much) more!"
+	description = "DNS service discovery for the cloud, and (much) more!"
 
 [[params.social]]
-	title = "email"
-	icon = "envelope-o"
-	url = "mailto:coredns@miek.nl"
-[[params.social]]
-	title = "twitter"
-	icon = "twitter"
-	url = "https://twitter.com/corednsio"
-[[params.social]]
-	title = "github"
-	icon = "github"
+	title = "docs"
+	icon = "book"
 	url = "https://github.com/miekg/coredns"
+[[params.social]]
+	title = "source"
+	icon = "code"
+	url = "https://github.com/miekg/coredns"
+[[params.social]]
+        title = "download"
+        icon = "download"
+	url = "https://github.com/miekg/coredns"
+#[[params.social]]
+#	title = "twitter"
+#	icon = "twitter"
+#	url = "https://twitter.com/corednsio"
