@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "https://coredns.io"
+baseurl = "https://www.coredns.io"
 languageCode = "en-us"
 title = "CoreDNS"
 theme = "landing-page-hugo"
