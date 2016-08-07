@@ -9,7 +9,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="page-scroll navbar-brand" href="#intro">{{ .Site.Title }}</a>
+            <a class="page-scroll navbar-brand" href="https://coredns.io">
+                <img class="img-responsive navbar-left" src=/img/coredns-logo.png alt="CoreDNS logo">
+            </a>
+            <a class="page-scroll navbar-brand" href="https://coredns.io">{{ .Site.Title }}</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -50,6 +53,12 @@
 				        {{ partial "social.html" . }}
 			    </ul>
 			    {{ end }}
+                            {{ range where .Data.Pages "Section" "wip" | first 1 }}
+                                    <hr class="intro-divider">
+                                    <br/>
+                                    {{ .Content }}
+                                    <br/>
+                            {{ end }}
 			</div>
 		    </div>
 		</div>
