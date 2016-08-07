@@ -8,16 +8,16 @@ theme = "landing-page-hugo"
 	description = "DNS service discovery for the cloud, and (much) more!"
 
 [[params.social]]
+        title = "download"
+        icon = "download"
+	url = "https://github.com/miekg/coredns"
+[[params.social]]
 	title = "docs"
 	icon = "book"
 	url = "https://github.com/miekg/coredns"
 [[params.social]]
 	title = "source"
 	icon = "code"
-	url = "https://github.com/miekg/coredns"
-[[params.social]]
-        title = "download"
-        icon = "download"
 	url = "https://github.com/miekg/coredns"
 #[[params.social]]
 #	title = "twitter"

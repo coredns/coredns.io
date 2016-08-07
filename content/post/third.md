@@ -9,4 +9,7 @@ img = "disk.jpg"
 weight = 3
 +++
 
-Serving DNS from a set of files or enabling on-the-fly DNSSEC signing.
+Serve DNS data [from a set of
+files](https://github.com/miekg/coredns/tree/master/middleware/file/README.md) or 
+[enable on-the-fly DNSSEC
+signing](https://github.com/miekg/coredns/tree/master/middleware/dnssec/README.md).

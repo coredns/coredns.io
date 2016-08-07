@@ -8,4 +8,4 @@ title = "Build upon Caddy"
 weight = 4
 img = "mountain.jpg"
 +++
-CoreDNS builds upon the solid foundations of Caddy as a server type plugin.
+CoreDNS builds upon the solid foundations of [Caddy](https://caddyserver.com) as a server type plugin.
