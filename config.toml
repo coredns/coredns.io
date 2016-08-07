@@ -14,7 +14,7 @@ theme = "landing-page-hugo"
 [[params.social]]
 	title = "docs"
 	icon = "book"
-	url = "https://github.com/miekg/coredns"
+	url = "https://miek.nl/tags/coredns"
 [[params.social]]
 	title = "source"
 	icon = "code"
