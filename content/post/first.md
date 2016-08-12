@@ -6,7 +6,7 @@ Tags = []
 date = "2016-08-01T08:25:02-07:00"
 title = "Service Discovery"
 img = "cloud.jpg"
-weight = 1
+weight = 2
 +++
 
 CoreDNS integrates with [Kubernetes](http://kubernetes.io) via the

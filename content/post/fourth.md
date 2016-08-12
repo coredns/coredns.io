@@ -1,0 +1,36 @@
++++
+Categories = []
+Description = ""
+Keywords = []
+Tags = []
+date = "2016-08-06T21:00:36-07:00"
+title = "Middlewares"
+weight = 5
+img = "mountain.jpg"
++++
+
+Currently CoreDNS supports (among others) the following
+[middlewares](https://github.com/miekg/coredns/tree/master/middleware):
+
+[chaos](https://github.com/miekg/coredns/tree/master/middleware/chaos/README.md): respond to CH
+class queries,
+[dnssec](https://github.com/miekg/coredns/tree/master/middleware/dnssec/README.md): on-the-fly
+DNSSEC signing of records,
+[etcd](https://github.com/miekg/coredns/tree/master/middleware/etcd/README.md): skyDNS replacement,
+[file](https://github.com/miekg/coredns/tree/master/middleware/file/README.md): serve DNS from a set
+of files,
+[health](https://github.com/miekg/coredns/tree/master/middleware/health/README.md): simple health
+web page,
+[kubernetes](https://github.com/miekg/coredns/tree/master/middleware/kubernetes/README.md): use
+CoreDNS as a KubeDNS replacement,
+[loadbalance](https://github.com/miekg/coredns/tree/master/middleware/loadbalance/README.md):
+shuffle A and AAAA records,
+[metrics](https://github.com/miekg/coredns/tree/master/middleware/metrics/README.md): prometheus
+metrics,
+[pprof](https://github.com/miekg/coredns/tree/master/middleware/pprof/README.md): golang profiling,
+[proxy](https://github.com/miekg/coredns/tree/master/middleware/proxy/README.md): forward queries to
+an upstream (recursive) server,
+[rewrite](https://github.com/miekg/coredns/tree/master/middleware/rewrite/README.md): rewrite
+incoming queries,
+[secondary](https://github.com/miekg/coredns/tree/master/middleware/secondary/README.md): be
+a secondary nameserver and retrieve zones from a primary.
