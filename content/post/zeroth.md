@@ -10,6 +10,8 @@ img = "lava.jpg"
 +++
 
 CoreDNS is a [DNS server](https://en.wikipedia.org/wiki/Name_server) that started its life as a fork of
-the [Caddy](https://caddyserver.com) web(!)server. It chains middleware, where each middleware
-implements some DNS feature. CoreDNS should be a complete replacement (with *more* features) for
+the [Caddy](https://caddyserver.com) web(!)server.
+
+It chains middleware, where each middleware
+implements some DNS feature. CoreDNS is a complete replacement (with *more* features) for
 [SkyDNS](https://github.com/skynetservices/skydns).
