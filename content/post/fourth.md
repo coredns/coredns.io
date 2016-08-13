@@ -16,18 +16,18 @@ Currently CoreDNS supports (among others) the following
 class queries,
 [dnssec](https://github.com/miekg/coredns/tree/master/middleware/dnssec/README.md): on-the-fly
 DNSSEC signing of records,
-[etcd](https://github.com/miekg/coredns/tree/master/middleware/etcd/README.md): skyDNS replacement,
+[etcd](https://github.com/miekg/coredns/tree/master/middleware/etcd/README.md): SkyDNS replacement,
 [file](https://github.com/miekg/coredns/tree/master/middleware/file/README.md): serve DNS from a set
 of files,
 [health](https://github.com/miekg/coredns/tree/master/middleware/health/README.md): simple health
-web page,
+check,
 [kubernetes](https://github.com/miekg/coredns/tree/master/middleware/kubernetes/README.md): use
 CoreDNS as a KubeDNS replacement,
 [loadbalance](https://github.com/miekg/coredns/tree/master/middleware/loadbalance/README.md):
 shuffle A and AAAA records,
-[metrics](https://github.com/miekg/coredns/tree/master/middleware/metrics/README.md): prometheus
-metrics,
-[pprof](https://github.com/miekg/coredns/tree/master/middleware/pprof/README.md): golang profiling,
+[metrics](https://github.com/miekg/coredns/tree/master/middleware/metrics/README.md):
+[Prometheus](https://prometheus.io) metrics,
+[pprof](https://github.com/miekg/coredns/tree/master/middleware/pprof/README.md): Go profiling,
 [proxy](https://github.com/miekg/coredns/tree/master/middleware/proxy/README.md): forward queries to
 an upstream (recursive) server,
 [rewrite](https://github.com/miekg/coredns/tree/master/middleware/rewrite/README.md): rewrite

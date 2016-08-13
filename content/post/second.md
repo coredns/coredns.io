@@ -16,7 +16,6 @@ The following `Corefile` snippet shows the configuration for `miek.nl`:
 miek.nl:53 {
     file /var/lib/coredns/miek.nl.signed {
         transfer to *
-        transfer to 185.49.141.42
     }
     prometheus
     errors stdout
