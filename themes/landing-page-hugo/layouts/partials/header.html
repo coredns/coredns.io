@@ -18,16 +18,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="" href="https://github.com/miekg/coredns">
+                    <a class="" href="https://github.com/miekg/coredns/releases">
                         <span class="fa fa-download"></span> Download</a>
                 </li>
                 <li>
-                    <a class="" href="https://miek.nl/tags/coredns">
+                    <a class="" href="https://blog.coredns.io">
                         <span class="fa fa-book"></span> Docs</a>
                 </li>
                 <li>
                     <a class="" href="https://github.com/miekg/coredns">
-                        <span class="fa fa-question"></span> FAQ</a>
+                        <span class="fa fa-code"></span> Source</a>
                 </li>
             </ul>
         </div>
@@ -53,9 +53,11 @@
 				        {{ partial "social.html" . }}
 			    </ul>
 			    {{ end }}
-                            {{ range where .Data.Pages "Section" "wip" | first 1 }}
+                            {{ range where .Data.Pages "Section" "banner" | first 1 }}
                                     <hr class="intro-divider">
+                                    <div class="banner">
                                     {{ .Content }}
+                                </div>
                             {{ end }}
 			</div>
 		    </div>

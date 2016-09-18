@@ -10,16 +10,12 @@ theme = "landing-page-hugo"
 [[params.social]]
         title = "download"
         icon = "download"
-	url = "https://github.com/miekg/coredns"
+	url = "https://github.com/miekg/coredns/releases"
 [[params.social]]
 	title = "docs"
 	icon = "book"
-	url = "https://miek.nl/tags/coredns"
+	url = "https://blog.coredns.io"
 [[params.social]]
 	title = "source"
 	icon = "code"
 	url = "https://github.com/miekg/coredns"
-#[[params.social]]
-#	title = "twitter"
-#	icon = "twitter"
-#	url = "https://twitter.com/corednsio"

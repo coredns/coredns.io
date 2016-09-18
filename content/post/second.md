@@ -10,11 +10,11 @@ weight = 3
 +++
 Simple to configure. Sane defaults.
 
-The following `Corefile` snippet shows the configuration for `miek.nl`:
+The following `Corefile` snippet shows the configuration for `example.org`:
 
 ~~~ txt
-miek.nl:53 {
-    file /var/lib/coredns/miek.nl.signed {
+example.org:53 {
+    file /var/lib/coredns/example.org.signed {
         transfer to *
     }
     prometheus
