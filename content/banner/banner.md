@@ -3,7 +3,7 @@ Categories = []
 Description = ""
 Keywords = []
 Tags = []
-date = "2016-08-07T08:48:08-07:00"
-title = "CoreDNS-001 Released!"
+date = "2016-11-1qT08:48:08-07:00"
+title = "CoreDNS-003 Released!"
 +++
-[CoreDNS-002](https://blog.coredns.io/2016/10/19/coredns-002-release/) is released.
+[CoreDNS-003](https://blog.coredns.io/2016/11/11/coredns-003-release/) is released.
