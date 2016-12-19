@@ -12,7 +12,7 @@ theme = "landing-page-hugo"
         icon = "download"
 	url = "https://github.com/miekg/coredns/releases"
 [[params.social]]
-	title = "docs"
+	title = "blog"
 	icon = "book"
 	url = "https://blog.coredns.io"
 [[params.social]]
