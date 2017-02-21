@@ -10,9 +10,9 @@ weight = 4
 +++
 
 Serve DNS data [from a set of
-files](https://github.com/miekg/coredns/tree/master/middleware/file/README.md), DNSSEC signed
+files](https://github.com/coredns/coredns/tree/master/middleware/file/README.md), DNSSEC signed
 or not.
 
 Or just
 [enable on-the-fly DNSSEC
-signing](https://github.com/miekg/coredns/tree/master/middleware/dnssec/README.md).
+signing](https://github.com/coredns/coredns/tree/master/middleware/dnssec/README.md).
