@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="https://coredns.io">
-                <img class="img-responsive navbar-left" width="100px" src=/img/coredns-logo.png alt="CoreDNS logo">
+                <img class="navbar-left logo" src=/img/coredns-logo.png alt="CoreDNS logo">
             </a>
             <a class="navbar-brand" href="https://coredns.io">{{ .Site.Title }}</a>
         </div>
@@ -45,8 +45,7 @@
 		<div class="row">
 		    <div class="col-lg-12">
 			<div class="intro-message">
-			    <h1>{{ .Site.Title }}</h1>
-			    <h3>{{ .Site.Params.description }}</h3>
+                            <!-- <h1>{{ .Site.Title }}</h1> No title, only the logo -->
 			    <hr class="intro-divider">
 			    {{ if isset .Site.Params "social" }}
 			    <ul class="list-inline intro-social-buttons">
@@ -59,6 +58,7 @@
                                     {{ .Content }}
                                 </div>
                             {{ end }}
+			    <h3>{{ .Site.Params.description }}</h3>
 			</div>
 		    </div>
 		</div>

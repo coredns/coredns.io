@@ -6,12 +6,10 @@ Tags = []
 date = "2016-08-12T09:15:22-06:00"
 title = "CoreDNS"
 weight = 1
-img = "lava.jpg"
+img = "coredns-logo.png"
 +++
 
-CoreDNS is a [DNS server](https://en.wikipedia.org/wiki/Name_server) that started its life as a fork of
-the [Caddy](https://caddyserver.com) web(!)server.
+CoreDNS is a [DNS server](https://en.wikipedia.org/wiki/Name_server) that chains middleware. Each
+middleware implements some DNS feature, like service discovery.
 
-It chains middleware, where each middleware
-implements some DNS feature. CoreDNS is a complete replacement (with *more* features) for
-[SkyDNS](https://github.com/skynetservices/skydns).
+# [CoreDNS-006](https://blog.coredns.io/2017/02/22/coredns-006-release/) is released.

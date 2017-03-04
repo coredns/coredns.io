@@ -31,8 +31,8 @@ h6 {
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(../img/intro-bg.jpg) no-repeat center center;
-    background-size: cover;
+    background: url(/img/CoreDNS_Colour.png) no-repeat center center;
+/*    background-size: cover; */
 }
 
 .intro-message {
@@ -168,4 +168,8 @@ footer {
 
 p.copyright {
     margin: 15px 0 0;
+}
+
+.logo {
+    width: 32px;
 }
