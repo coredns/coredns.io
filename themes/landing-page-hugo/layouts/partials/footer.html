@@ -5,10 +5,6 @@
             <div class="col-md-8">
                 <ul class="list-inline">
                     <li>
-                        <a href="https://coredns.io">Home</a>
-                    </li>
-                    <li class="footer-menu-divider">&sdot;</li>
-                    <li>
                         <a href="https://github.com/coredns/coredns">Github</a>
                     </li>
                     <li class="footer-menu-divider">&sdot;</li>
@@ -19,8 +15,16 @@
                     <li>
                         <a href="https://twitter.com/corednsio">@corednsio</a>
                     </li>
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li>
+                        <a href="https://cncf.io">cncf.io</a>
+                    </li>
                 </ul>
-                <p class="copyright text-muted small">Copyright &copy; {{ .Title }} All Rights Reserved</p>
+                <p class="copyright text-muted small">
+                &copy; {{.Now.Year }} The {{ .Title }} Authors<br/>Documentation Distributed under CC BY 4.0<br/>
+                Copyright &copy; {{.Now.Year}} The Linux Foundation®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The
+                Linux Foundation <a href="https://www.linuxfoundation.org/trademark-usage">please see our Trademark Usage page</a>.
+                </p>
             </div>
             <div class="col-md-4">
                 Built with <a href="https://gohugo.io">Hugo</a>, resolved via
@@ -34,3 +38,5 @@
 {{ partial "js.html" . }}
 </body>
 </html>
+
+
