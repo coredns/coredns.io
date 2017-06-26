@@ -55,7 +55,10 @@ In Grafana, for each defined benchmark, we've setup a templated dashboard:
 
 {{< figure src="/images/grafana-coredns-selector.png" title="Branch and benchmark selectors in Grafana.">}}
 
-so we can easily select that branch and compare it with whatever other branch.
+So we can easily select that branch and compare it with whatever other branch.
+
+And to get each benchmark function name we use: `benchmark_coredns_names_counter` which has all the
+used names in the `benchmark` label.
 
 Thus in the end leading to a dashboard where you can easily compare your performance against the
 *master* branch: <https://snapshot.raintank.io/dashboard/snapshot/0er0u40KAZ1YM4dl0KgDUkeD3KhzZqFj>
