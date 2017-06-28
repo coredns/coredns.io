@@ -1,5 +1,5 @@
 +++
-date = "2017-06-25T10:44:37+01:00"
+date = "2017-08-01T10:44:37+01:00"
 slug = "CoreDNS performance testing"
 tags = ["Performance", "Testing", "Automation", "CI"]
 title = "CoreDNS Performance Testing"
@@ -30,7 +30,7 @@ request](https://developer.github.com/v3/activity/events/types/#pullrequestevent
 script](https://github.com/miekg/mbench/blob/94c2d4d13a5d0ab6eaa5ed26d9bc992c1f28a10c/scripts/coredns-benchmark-pull),
 that pulls down CoreDNS' repo and the correct pull request.
 ^[Yes, this script parses the JSON with grep, ultimately that was the only way to make it reliably
-work. ]
+work.]
 
 This benchmark script does nothing more
 than run the bench mark tests: `go test -run='' -bench=. -benchmem ./... 2>/dev/null)`.
@@ -46,7 +46,11 @@ and converted into prometheus metrics:
 2017/06/25 09:21:51 [INFO] Parsed line: {branch="pr-753",cpu="8",subsystem="coredns"}requestdo_coredns: 1000000000 2.110000 0 0
 ~~~
 
-There is also cron.hourly that tests master on a continous basis.
+The latest known branches are found by using a "recording rule" that (ab)uses an existing benchmark,
+so we only see the active branches from the last *n* day(s): `benchmark_coredns_branches_1d
+= rate(benchmark_coredns_proxylookup_bytes_gauge[1d])`
+
+There is also `cron.hourly` that tests master on a continous basis.
 
 # Grafana
 
@@ -56,9 +60,6 @@ In Grafana, for each defined benchmark, we've setup a templated dashboard:
 {{< figure src="/images/grafana-coredns-selector.png" title="Branch and benchmark selectors in Grafana.">}}
 
 So we can easily select that branch and compare it with whatever other branch.
-
-And to get each benchmark function name we use: `benchmark_coredns_names_counter` which has all the
-used names in the `benchmark` label.
 
 Thus in the end leading to a dashboard where you can easily compare your performance against the
 *master* branch: <https://snapshot.raintank.io/dashboard/snapshot/0er0u40KAZ1YM4dl0KgDUkeD3KhzZqFj>
