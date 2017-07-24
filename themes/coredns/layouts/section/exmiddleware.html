@@ -1,0 +1,43 @@
+{{ define "title"}} External Middleware {{end}}
+{{ define "header"}} {{ partial "header" .}} {{end}}
+{{ define "main"}}
+<div id="main">
+  <div id="hero">
+    <h1>External Middleware</h1>
+    {{ .Site.Data.subtext.exmiddleware.content | markdownify }}
+    <p></p>
+
+    {{ .Scratch.Add "url1" "/2016/12/19/writing-middleware-for-coredns/" }}
+    {{ .Scratch.Add "link1" "How to Write Middleware" }}
+    {{ .Scratch.Add "class1" "primary" }}
+
+    {{ .Scratch.Add "url2" "/2017/07/23/when-should-middleware-be-external/" }}
+    {{ .Scratch.Add "link2" "When External" }}
+    {{ .Scratch.Add "class2" "outline" }}
+
+    {{ .Scratch.Add "url3" "/2017/07/23/add-external-middleware/" }}
+    {{ .Scratch.Add "link3" "Add Yours" }}
+    {{ .Scratch.Add "class3" "outline" }}
+
+    {{ partial "middleware-action-button" . }}
+
+  </div>
+  <div id="components">
+    <div class="row gutters">
+      {{ range .Data.Pages.ByWeight }}
+      <div class="col col-4 item">
+        <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+        <p>{{ .Params.description | markdownify }}</p>
+        <p>
+            <i class="fa fa-code-fork" aria-hidden="true"></i> <a href="{{ .Params.repo }} ">Source</a>
+            <i class="fa fa-home" aria-hidden="true"></i> <a href="{{ .Params.home }} ">Home</a>
+        </p>
+      </div>
+      {{ end }}
+
+    </div>
+  </div>
+</div>
+{{ end }}
+
+{{ define "footer"}} {{ partial "footer" .}} {{end}}

@@ -1,0 +1,47 @@
+<div class="show-sm">
+    <div id="nav-toggle-box">
+        <div id="nav-toggle-brand">
+            <a href="/" title="home">
+                <img src="/images/CoreDNS_Colour_Horizontal.png" alt="CoreDNS logo"/>
+            </a>
+        </div>
+        <a data-component="toggleme" data-target="#top" href="#" id="nav-toggle"><i class="kube-menu"></i></a>
+    </div>
+</div>
+<div class="hide-sm" id="top">
+    <div id="top-brand">
+        <a href="/" title="home">
+            <img src="/images/CoreDNS_Colour_Horizontal.png" alt="CoreDNS logo"/>
+        </a>
+    </div>
+    <nav id="top-nav-main">
+        <ul>
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+            <li>
+                {{ if hasPrefix .URL "http" }}
+                <a class="external" href="{{ .URL }}"
+                    {{if  $currentPage.IsMenuCurrent "main" . }} class="active"{{end}}>{{ .Name }}
+                </a>
+
+                {{ else }}
+                <a href="{{ .URL }}"
+                    {{if  $currentPage.IsMenuCurrent "main" . }} class="active"{{end}}>{{ .Name }}
+                </a>
+                {{ end }}
+            </li>
+            {{end}}
+        </ul>
+    </nav>
+    <nav id="top-nav-extra">
+        <ul>
+            <li>
+                <a href="{{ .Site.Params.twitter }}">@corednsio</a>
+            </li>
+
+            <li>
+                <a href="/index.xml">Subscribe</a>
+            </li>
+        </ul>
+    </nav>
+</div>

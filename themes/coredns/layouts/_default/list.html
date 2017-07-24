@@ -1,0 +1,44 @@
+{{ define "title"}} {{ .Title}} {{end}}
+{{ define "header"}} {{ partial "header" .}} {{end}}
+
+{{ define "main" }}
+
+<div id="hero" class="wrap">
+    {{ if eq .Type "blog" }}
+    <h1> Blog </h1>
+        {{ .Site.Data.subtext.blog.content | markdownify }}
+        <p></p>
+    {{ end }}
+
+    <!-- Hacky: look at URL -->
+    {{ if eq .Data.Singular "tag" }}
+        {{ $last := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
+        {{ if eq $last "documentation" }}
+            <h1>Documentation</h1>
+        {{ end }}
+        {{ .Site.Data.subtext.docs.content | markdownify }}
+        <p/>
+
+        {{ .Scratch.Add "url1" "/2017/07/23/corefile-explained/" }}
+        {{ .Scratch.Add "link1" "Corefile Explained" }}
+        {{ .Scratch.Add "class1" "primary" }}
+
+        {{ .Scratch.Add "url2" "/2017/06/08/how-queries-are-processed-in-coredns/" }}
+        {{ .Scratch.Add "link2" "Query Processing" }}
+        {{ .Scratch.Add "class2" "outline" }}
+
+        {{ partial "middleware-action-button" . }}
+
+
+    {{ end }}
+</div>
+
+<ul id="posts">
+
+ {{ range .Paginator.Pages.ByWeight }} {{ partial "page-summary" . }} {{ end }}
+  <section>{{ partial "pagination" .}}</section>
+
+</ul>
+
+{{ end }}
+{{ define "footer" }} {{ partial "footer" . }} {{ end }}

@@ -1,0 +1,101 @@
+{{ define "title"}} {{ .Site.Title}} {{end}}
+{{ define "header"}} {{ partial "header" .}} {{end}}
+{{ define "main"}}
+
+<div id="main">
+  <div id="hero">
+    <h1>{{.Title}}</h1>
+    <p>{{.Description}}</p>
+  </div>
+
+  <div id="action-buttons">
+      <a class="button primary big" href="https://github.com/coredns/coredns/releases/latest">Download</a>
+      <a class="button outline big" href="https://github.com/coredns/coredns">View on Github</a>
+      <a class="button outline big" href="/2017/07/24/quick-start/">Quick Start</a>
+      <p>
+        {{ range where .Site.Pages "Params.release" "eq" .Site.Data.coredns.release.version }}
+         Version {{ .Params.release }} released {{ dateFormat "January 2, 2006" .Date }}.
+         <a href="{{ .URL }}">Release notes</a>.
+        {{ end }}
+      </p>
+ </div>
+
+  {{ partial "popup.html" . }}
+
+    <div class="row gutters">
+
+      <div class="col col-4 item">
+        <figure>
+            <i class="fa fa-link fa-5x" aria-hidden="true"></i>
+        </figure>
+
+        <h3>Middleware</h3>
+        <p>
+            CoreDNS (written in <a href="https://golang.org">Go</a>)
+            chains <a href="/middleware">middleware</a>.
+            Each middleware performs a DNS function, such as
+            <a href="/middleware/kubernetes">Kubernetes service discovery</a>,
+            <a href="/middleware/metrics">Prometheus metrics</a> or
+            <a href="/middleware/rewrite">rewriting queries</a>.
+            And many more.
+        </p>
+      </div>
+
+      <div class="col col-4 item">
+        <figure>
+            <i class="fa fa-circle-thin fa-5x" aria-hidden="true"></i>
+        </figure>
+        <h3>Simplicity</h3>
+        <p>
+        We strive keep things a simple as possible and have sane defaults.
+        Here the <code>Corefile</code> for coredns.io:
+        </p>
+        <pre>
+coredns.io {
+    file coredns.io.signed {
+        transfer to * 185.49.140.62
+    }
+    prometheus
+    errors stdout
+    log stdout
+}
+        </pre>
+      </div>
+
+      <div class="col col-4 item">
+        <figure>
+            <i class="fa fa-cloud fa-5x" aria-hidden="true"></i>
+        </figure>
+        <h3>Service Discovery</h3>
+        <p>
+        CoreDNS integrates with <a href="http://kubernetes.io">Kubernetes</a> via the
+        <a href="/middleware/kubernetes/">Kubernetes middleware</a>,
+        or directly with <a href="https://coreos.com/etcd/">etcd</a> with the
+        <a href="/middleware/etcd/">etcd middleware</a>.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="row gutters">
+
+        <div class="col col-4 item"></div>
+
+      <div class="col col-4 item">
+        <figure>
+          <img alt="Cloud Native Computing Foundation Logo" src="/images/cncf-logo.png">
+        </figure>
+        <h3>CNCF</h3>
+        <p>
+           We are a <a href="https://cncf.io">Cloud Native Computing
+           Foundation</a> member project.
+        </p>
+      </div>
+
+        <div class="col col-4 item"></div>
+
+    </div>
+
+</div>
+{{ end }}
+{{ define "footer"}} {{ partial "footer" .}} {{end}}

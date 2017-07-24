@@ -1,0 +1,12 @@
+footer a {
+    color: white;
+}
+footer nav ul li a {
+    color: white;
+}
+
+.external:after {
+    font-family: FontAwesome;
+    font-size: x-small;
+    content: " \f08e";
+}

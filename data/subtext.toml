@@ -1,0 +1,27 @@
+# Oneliners for subtext on the different pages.
+# Don't create new paragraphs, because each <p> adds a read line.
+
+[docs]
+  content = """
+How to use CoreDNS.
+  """
+
+[blog]
+  content = """
+News covering CoreDNS.
+  """
+
+[middleware]
+  content = """
+Here you can find all [in-tree](https://github.com/coredns/coredns/tree/master/middleware) middleware for CoreDNS.
+  """
+
+[exmiddleware]
+  content = """
+Here you can find all out-of-tree middleware for CoreDNS.
+  """
+
+[community]
+  content = """
+CoreDNS is developed in the open. Here are some of the channels we use to communicate and contribute.
+  """

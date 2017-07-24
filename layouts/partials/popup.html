@@ -1,0 +1,10 @@
+{{ if .Site.Params.popup }}
+
+<div class="message focus text-center" data-component="message"> <span class="close small"></span>
+    Currently we are aware of <mark>issues</mark> with CoreDNS.
+    See <a href="https://coredns.io/-">this page</a> for more info.
+</div>
+
+{{else}}
+    <!-- empty -->
+{{ end }}

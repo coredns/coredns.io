@@ -1,0 +1,59 @@
+baseurl = "https://new.coredns.io/"  # CHANGE WHEN DONE TODO(miek)
+languageCode = "en-us"
+title = "CoreDNS: DNS and Service Discovery"
+copyright = "CoreDNS - All Rights Reserved"
+theme = "coredns"
+
+[permalinks]
+  blog = "/:year/:month/:day/:title/"
+  page = "/:title/"
+
+[params]
+  popup    = "" # enable with non empty string to show banner on home page
+  logo     = "/images/CoreDNS_Colour_Icon.png"
+  twitter  = "https://twitter.com/corednsio"
+  github   = "https://github.com/coredns/coredns"
+  email    = "info@coredns.io"
+
+[params.authors.miek]
+  name = "Miek Gieben"
+  location = "London"
+  email = "miek@miek.nl"
+  twitter = "https://twitter.com/miekg"
+  github = "https://github.com/miekg"
+
+[params.authors.john]
+  name = "John Belamaric"
+  location = "Washington DC"
+  email = "jbelamaric@infoblox.com"
+  twitter = "https://twitter.com/johnbelamaric"
+  github = "https://github.com/johnbelamaric"
+
+[params.authors.chris]
+  name = "Chris O'Haver"
+  location = "Annapolis, MD"
+  email = "cohaver@infoblox.com"
+  twitter = "https://twitter.com/chrisohaver"
+  github = "https://github.com/chrisohaver"
+
+[[menu.main]]
+    name = "Middleware"
+    weight = -200
+    url = "/middleware/"
+[[menu.main]]
+    name = "External Middleware"
+    weight = -190
+    url = "/exmiddleware/"
+    external = ""
+[[menu.main]]
+    name = "Blog"
+    weight = -180
+    url = "/blog/"
+[[menu.main]]
+    name = "Docs"
+    weight = -160
+    url = "/tags/documentation/"
+[[menu.main]]
+    name = "Community"
+    weight = -120
+    url = "/community/"

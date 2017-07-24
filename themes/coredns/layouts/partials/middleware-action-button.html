@@ -1,0 +1,30 @@
+<!--
+    url1: first url
+    link1: first link
+    class1: first class (primary or outline)
+
+    Up to 3 buttons
+-->
+
+<div id="action-buttons">
+    {{ $a := len (string (.Scratch.Get "url1")) }}
+    {{ if ne $a 0 }}
+    <a class="button {{ .Scratch.Get "class1" }} big" href="{{ .Scratch.Get "url1" }}">
+        {{ .Scratch.Get "link1" }}
+    </a>
+    {{ end }}
+
+    {{ $a := len (string (.Scratch.Get "url2")) }}
+    {{ if ne $a 0 }}
+    <a class="button {{ .Scratch.Get "class2" }} big" href="{{ .Scratch.Get "url2" }}">
+        {{ .Scratch.Get "link2" }}
+    </a>
+    {{ end }}
+
+    {{ $a := len (string (.Scratch.Get "url3")) }}
+    {{ if ne $a 0 }}
+    <a class="button {{ .Scratch.Get "class3" }} big" href="{{ .Scratch.Get "url3" }}">
+        {{ .Scratch.Get "link3" }}
+    </a>
+    {{ end }}
+</div>
