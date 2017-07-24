@@ -248,5 +248,5 @@ There are already a lot of different middleware in CoreDNS. New, exciting ones, 
 have an idea open an issue on the tracker.
 
 This is an updated version of the [previous
-blog](https://blog.coredns.io/2016/12/19/writing-middleware-for-coredns/) about writing CoreDNS
+blog](/2016/12/19/writing-middleware-for-coredns/) about writing CoreDNS
 middleware.

@@ -6,7 +6,7 @@ title = "Custom DNS Entries For Kubernetes"
 author = "john"
 +++
 
-As described in our [previous post](https://blog.coredns.io/2017/03/01/coredns-for-kubernetes-service-discovery-take-2/),
+As described in our [previous post](/2017/03/01/coredns-for-kubernetes-service-discovery-take-2/),
 CoreDNS can be used in place of Kube-DNS for service discovery in Kubernetes clusters. Because of the flexible architecture
 of CoreDNS, this can enable some interesting use cases. In this blog, we'll show how to solve a common problem - creating
 custom DNS entries for your services.

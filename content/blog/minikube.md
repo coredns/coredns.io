@@ -6,7 +6,7 @@ title = "CoreDNS for Minikube"
 author = "john"
 +++
 
-In our [previous post](https://blog.coredns.io/2017/03/01/coredns-for-kubernetes-service-discovery-take-2/),
+In our [previous post](/2017/03/01/coredns-for-kubernetes-service-discovery-take-2/),
 we showed how CoreDNS can be used in place of Kube-DNS for service discovery in Kubernetes clusters.
 In that blog, there is a footnote about issues trying to replace Kube-DNS when using Google Container Engine (GKE).
 As it so happens, there is a similar issue with [minikube](https://github.com/kubernetes/minikube), which is a local

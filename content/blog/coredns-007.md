@@ -14,7 +14,7 @@ CoreDNS is a DNS server that chains middleware, where each middleware implements
 # News
 
 CoreDNS is accepted as an inception project by the [CNCF](https://cncf.io)! Which means a lot to us.
-See [this blog post](https://blog.coredns.io/2017/03/02/why-cncf-for-coredns/) on why we wanted/did this.
+See [this blog post](/2017/03/02/why-cncf-for-coredns/) on why we wanted/did this.
 
 Because of this we moved repos: <https://github.com/coredns> is the main overarching repo. There is
 an automatic redirect in place from the old repo.

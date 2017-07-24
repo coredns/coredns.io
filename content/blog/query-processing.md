@@ -6,7 +6,7 @@ title = "How Queries Are Processed in CoreDNS"
 author = "john"
 +++
 
-In the [last post](https://blog.coredns.io/2017/05/08/custom-dns-entries-for-kubernetes/), we described three different use
+In the [last post](/2017/05/08/custom-dns-entries-for-kubernetes/), we described three different use
 cases for custom DNS entries in Kubernetes:
 
 * [Making an alias](https://github.com/kubernetes/kubernetes/issues/39792) for an external name
@@ -17,7 +17,7 @@ In that post we covered the first two. In this post, we'll show you how to use t
 middleware to satisfy the third case.
 
 To understand how this works, we first need to look at how CoreDNS processes requests. This was previously
-addressed in [Query Routing](https://blog.coredns.io/2016/10/13/query-routing/), but we'll go into a bit
+addressed in [Query Routing](/2016/10/13/query-routing/), but we'll go into a bit
 more detail here.
 
 We all know that CoreDNS chains middleware. But what exactly does that mean? To find out, we'll dissect a
@@ -92,7 +92,7 @@ When `fallthrough` is enabled, instead of returning NXDOMAIN when a record is no
 request down the chain. A backend further down the chain then has the opportunity to handle the request.
 
 Coming back to our original discussion of the three use cases in Kubernetes, we can now understand how we can use
-`fallthrough` to meet the third use case. Remember the initial Corefile from [that blog](https://blog.coredns.io/2017/05/08/custom-dns-entries-for-kubernetes/):
+`fallthrough` to meet the third use case. Remember the initial Corefile from [that blog](/2017/05/08/custom-dns-entries-for-kubernetes/):
 
 ~~~ txt
 .:53 {
@@ -190,5 +190,5 @@ resolve to the record from our zone file. So, we now have a way to create custom
 
 In the standard CoreDNS release, the `kubernetes` middleware comes before `file` and `etcd`. This means that it gets the
 first chance to handle the query. You can rebuild CoreDNS to change that ordering if you wish - take a look at
-Miek's post on [How to Add Middleware to CoreDNS](https://blog.coredns.io/2017/03/01/how-to-add-middleware-to-coredns/)
+Miek's post on [How to Add Middleware to CoreDNS](/2017/03/01/how-to-add-middleware-to-coredns/)
 if you want to see how that's done.
