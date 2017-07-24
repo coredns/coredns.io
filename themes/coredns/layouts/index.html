@@ -14,7 +14,7 @@
       <a class="button outline big" href="/2017/07/24/quick-start/">Quick Start</a>
       <p>
         {{ range where .Site.Pages "Params.release" "eq" .Site.Data.coredns.release.version }}
-         Version {{ .Params.release }} released {{ dateFormat "January 2, 2006" .Date }}.
+         <a href="https://github.com/coredns/coredns/releases/latest">Version {{ .Params.release }}</a> released {{ dateFormat "January 2, 2006" .Date }}.
          <a href="{{ .URL }}">Release notes</a>.
         {{ end }}
       </p>
