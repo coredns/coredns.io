@@ -1,4 +1,4 @@
-baseurl = "https://new.coredns.io/"  # CHANGE WHEN DONE TODO(miek)
+baseurl = "https://coredns.io/"
 languageCode = "en-us"
 title = "CoreDNS: DNS and Service Discovery"
 copyright = "CoreDNS - All Rights Reserved"
