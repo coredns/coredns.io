@@ -7,7 +7,7 @@ author = "miek"
 +++
 
 If you want to have your external middleware listed here send an email to the coredns-discuss email
-list with the details or create [a pull request](https;//github.com/coredns/coredns.io).
+list with the details or create [a pull request](https://github.com/coredns/coredns.io).
 
 In that email or pull request you'll need to add a file to `content/blog/exmiddleware/` that looks
 like this:
