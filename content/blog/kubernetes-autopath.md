@@ -1,8 +1,8 @@
 +++
 date = "2017-07-17T18:12:12Z"
 title = "CoreDNS Kubernetes Autopath pt 1"
-tags = ["CoreDNS","Kubernetes"]
-slug = "CoreDNS Kubernetes Autopath pt 1"
+tags = ["Autopath","Kubernetes"]
+description = "CoreDNS Kubernetes Autopath pt 1"
 author = "chris"
 +++
 
@@ -13,9 +13,9 @@ In this blog post, I'll frame the problem by covering how DNS search paths work,
 
 ## Short name resolution and search paths
 
-DNS resolvers allow for name resolution relative to their local domain. Clients can also be configured with a list of domains to define a search path instead of just the local domain.  When resolving a name, the client prefixes the name to each domain in the search path and queries the DNS server until a successful response is returned. If none of the queries are successful then a search on the absolute name is attempted.  
+DNS resolvers allow for name resolution relative to their local domain. Clients can also be configured with a list of domains to define a search path instead of just the local domain.  When resolving a name, the client prefixes the name to each domain in the search path and queries the DNS server until a successful response is returned. If none of the queries are successful then a search on the absolute name is attempted.
 
-The following example shows a search for `apple`, 
+The following example shows a search for `apple`,
 
 ```
 $ host -ta -v apple
@@ -44,7 +44,7 @@ See the [resolv.conf(5)](http://man7.org/linux/man-pages/man5/resolv.conf.5.html
 
 ## Short name resolution in Kubernetes
 
-Kubernetes has controls the resolv.conf configuration of pods using two different DNS Policies: *ClusterFirst*, and *Default*.  
+Kubernetes has controls the resolv.conf configuration of pods using two different DNS Policies: *ClusterFirst*, and *Default*.
 
  - *ClusterFirst* - Causes the pod to use a special cluster oriented search path, enabling short name resolution.
  - *Default* - Causes the pod to inherit the resolv.conf from the node it’s running on.
@@ -68,13 +68,13 @@ This search path allows a pod to query a service by name, e.g. `service1`, and g
 
 In addition to the three base domains, the search path configured on the pod’s node are added (limited to 3 more). So, search path can get quite deep, up to 6 domains long.
 
-The ClusterFirst DNS Policy also sets ndots to 5. This means that virtually every query a pod makes is run through the search path. A query name would need to contain 5 dots to “skip” the search path. 
+The ClusterFirst DNS Policy also sets ndots to 5. This means that virtually every query a pod makes is run through the search path. A query name would need to contain 5 dots to “skip” the search path.
 
 So, why 5 ndots? The reason for this high ndots setting is the due to the potentially high number of dots in a local service’s name.  For example, consider an SRV query for `_http._tcp.service.namespace.svc`.  This query can be resolved using the 3rd domain in the search path, trying `_http._tcp.service.namespace.svc.cluster.local`.  If ndots was set to something less than 5, then the query would be the absolute name `_http._tcp.service.namespace.svc.` which would not produce an answer.
 
 The most dots possible in a Kubernetes short name is 6. A name like that would look something like `_http._tcp.endpoint.service.namespace.federation.svc`.  To permit this name to be checked in the search path, ndots would have to be set to 7. This is a `SRV` record query of an endpoint of a federated service.
 
-If you omit queries for `SRV` records, and disregard federation, the most number of dots you would have in a local service would be 3 `endpoint.service.namespace.svc`.  So an ndots of 4 would probably suffice 99% of the time.  Presumably, an ndots of 5 was considered a fair middle ground. 
+If you omit queries for `SRV` records, and disregard federation, the most number of dots you would have in a local service would be 3 `endpoint.service.namespace.svc`.  So an ndots of 4 would probably suffice 99% of the time.  Presumably, an ndots of 5 was considered a fair middle ground.
 
 In summary, the Kubernetes DNS Policy configures a long search path and high ndots for pods.  In the next section I'll cover why this is a problematic combination.
 
@@ -100,6 +100,6 @@ coredns.io.		600	IN	A	176.58.119.54
 ```
 
 Note the three unsuccessful queries before the final successful result. All of these attempts are complete round trip DNS queries, which puts more load on the system (both client an server).  From the server's perspective, this looks like three independent queries from the same remote client.
-With negative cache enabled, this also increases the number of cache entries in the DNS server, filling the cache with a significant percentage of nonsense entries that normally would not be searched for.  
+With negative cache enabled, this also increases the number of cache entries in the DNS server, filling the cache with a significant percentage of nonsense entries that normally would not be searched for.
 
 This problem can manifest itself as scaling problems, such as high latency of DNS responses, high load on the DNS server, and network congestion.
