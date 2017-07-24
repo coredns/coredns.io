@@ -1,7 +1,7 @@
 +++
 date = "2017-08-01T10:44:37+01:00"
 slug = "CoreDNS performance testing"
-tags = ["Performance", "Testing", "Automation", "CI"]
+description = ["Performance", "Testing", "Automation", "CI"]
 title = "CoreDNS Performance Testing"
 author = "miek"
 +++
