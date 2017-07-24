@@ -1,9 +1,9 @@
 all:
-	hugo -d /opt/www/new.coredns.io
+	hugo -d /opt/www/coredns.io
 
 .PHONY: clean
 clean:
-	rm -rf /opt/www/new.coredns.io/*
+	rm -rf /opt/www/coredns.io/*
 
 .PHONY: test
 test:
