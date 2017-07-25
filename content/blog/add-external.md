@@ -29,6 +29,6 @@ The *<middleware name>* middleware is a ...
 <rest of your README.md>
 ~~~
 
-See [example.md for an example]
-(https://github.com/coredns/new.coredns.io/blob/master/content/exmiddleware/example.md) on how to do
+See [shutdown.md for an example]
+(https://github.com/coredns/new.coredns.io/blob/master/content/exmiddleware/shutdown.md) on how to do
 this.
