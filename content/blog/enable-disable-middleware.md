@@ -8,9 +8,9 @@ author = "miek"
 +++
 
 CoreDNS' [middleware](/middleware) (or [external middleware](/exmiddleware)) can be enabled or
-disabled on the fly by (not) specifying it in the [Corefile](/2017/07/23/corefile-explained/).
-But you can also compile CoreDNS with only the middleware you *need* and leave the rest completely
-out.
+disabled on the fly by specifying (or not specifying) it in the
+[Corefile](/2017/07/23/corefile-explained/). But you can also compile CoreDNS with only the
+middleware you *need* and leave the rest completely out.
 
 All this is done via one compile-time configuration file,
 [`middleware.cfg`](https://github.com/coredns/coredns/blob/master/middleware.cfg). It looks like this:
