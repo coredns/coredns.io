@@ -36,4 +36,4 @@ this.
 
 Note that **description** needs to be a full sentence, and that **repo** must be a Go-gettable link
 that can be put in `middleware.cfg`. Also document in your README.md what would be suitable position
-for your middleware in `middleware.cfg` (beginning, middleware, end or give it a specific number).
+for your middleware in `middleware.cfg` (beginning, middl, end or give it a specific number).
