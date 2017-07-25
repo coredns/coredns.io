@@ -3,6 +3,7 @@ date = "2017-08-01T10:44:37+01:00"
 description = "CoreDNS performance testing"
 tags = ["Performance", "Testing", "Automation", "CI"]
 title = "CoreDNS Performance Testing"
+draft = true
 author = "miek"
 +++
 
