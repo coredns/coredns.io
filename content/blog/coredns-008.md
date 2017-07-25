@@ -63,11 +63,4 @@ Yong Tang
 If you want to help, please check out one of the [issues](https://github.com/coredns/coredns/issues/)
 and start coding!
 
-## Community
-
-You find CoreDNS's community in the following places:
-
-- Mailing list/group: <coredns-discuss@googlegroups.com>
-- Slack: #coredns on <https://slack.cncf.io>
-- Twitter: [@corednsio](https://twitter.com/corednsio)
-- Github: <https://github.com/coredns/coredns>
+For documentation and help, see our [community page](https://coredns.io/community/).

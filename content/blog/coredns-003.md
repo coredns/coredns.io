@@ -47,8 +47,4 @@ Yong Tang.
 If you want to help, please check out one of the [issues](https://github.com/coredns/coredns/issues/)
 and start coding!
 
-# Documentation and Help
-
-The forum on <https://forum.caddyserver.com> has section for
-[CoreDNS](https://forum.caddyserver.com/c/coredns), where you can submit questions and get answers.
-Use [Twitter](https://twitter.com/corednsio), or file an issue.
+For documentation and help, see our [community page](https://coredns.io/community/).
