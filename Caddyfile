@@ -1,0 +1,17 @@
+# Caddyfile for CoreDNS's websites.
+https://coredns.io https://www.coredns.io {
+    root /opt/www/coredns.io
+
+    log / stdout "{remote} - {host} {method} {path} {proto} {status} {size} {>Referer}"
+    errors stdout {
+        404 404.html
+    }
+
+    ext .html
+    prometheus
+}
+
+https://blog.coredns.io {
+	redir https://coredns.io{uri}
+}
+
