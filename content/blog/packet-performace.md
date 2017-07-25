@@ -1,7 +1,7 @@
 +++
 date = "2017-08-01T10:44:37+01:00"
-slug = "CoreDNS performance testing"
-description = ["Performance", "Testing", "Automation", "CI"]
+description = "CoreDNS performance testing"
+tags = ["Performance", "Testing", "Automation", "CI"]
 title = "CoreDNS Performance Testing"
 author = "miek"
 +++
@@ -52,7 +52,7 @@ so we only see the active branches from the last *n* day(s): `benchmark_coredns_
 
 There is also `cron.hourly` that tests master on a continous basis.
 
-# Grafana
+## Grafana
 
 In Grafana, for each defined benchmark, we've setup a templated dashboard:
 `benchmark_coredns_[[benchmark]]_run_gauge{branch=~"$branch"}`:
