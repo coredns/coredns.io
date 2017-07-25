@@ -1,6 +1,6 @@
 +++
 title = "alias"
-description = "*alias* replaces zone apex CNAMEs"
+description = "*alias* replaces zone apex CNAMEs."
 weight = 10
 tags = [  "middleware" , "alias" ]
 categories = [ "middleware", "external" ]

@@ -32,3 +32,5 @@ The *<middleware name>* middleware is a ...
 See [shutdown.md for an example]
 (https://github.com/coredns/new.coredns.io/blob/master/content/exmiddleware/shutdown.md) on how to do
 this.
+
+Note that **description** need to be a full sentence.

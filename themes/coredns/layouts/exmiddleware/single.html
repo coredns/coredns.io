@@ -3,7 +3,9 @@
 {{ define "main"}}
   <div id="main">
     <div id="hero">
-      <h1> {{ .Title}} </h1>
+        <h1> {{ .Title}} </h1>
+            <i class="fa fa-code-fork" aria-hidden="true"></i> <a href="{{ .Params.repo }} ">Source</a>
+            <i class="fa fa-home" aria-hidden="true"></i> <a href="{{ .Params.home }} ">Home</a>
       <p class="hero-lead">
            {{ .Params.description | markdownify }}
       </p>
