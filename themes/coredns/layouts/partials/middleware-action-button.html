@@ -26,6 +26,7 @@
     <a class="button {{ .Scratch.Get "class3" }} big" href="{{ .Scratch.Get "url3" }}">
         {{ .Scratch.Get "link3" }}
     </a>
+    {{end}}
 
     {{ $a := len (string (.Scratch.Get "url4")) }}
     {{ if ne $a 0 }}
