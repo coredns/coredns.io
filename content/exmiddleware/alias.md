@@ -5,7 +5,7 @@ weight = 10
 tags = [  "middleware" , "alias" ]
 categories = [ "middleware", "external" ]
 date = "2017-07-25T21:57:00+08:00"
-repo = "https://github.com/serverwentdown/coredns"
+repo = "https://github.com/serverwentdown/coredns/middleware/alias"
 home = "https://github.com/serverwentdown/coredns/blob/master/middleware/alias/README.md"
 +++
 
