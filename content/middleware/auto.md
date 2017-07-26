@@ -4,7 +4,7 @@ description = "*auto* enables serving zone data from an RFC 1035-style master fi
 weight = 1
 tags = [  "middleware" , "auto" ]
 categories = [ "middleware" ]
-date = "2017-07-26T08:45:58+01:00"
+date = "2017-07-24T15:25:40+00:00"
 +++
 
 The *auto* middleware is used for an "old-style" DNS server. It serves from a preloaded file that exists

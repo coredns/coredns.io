@@ -4,7 +4,7 @@ description = "This module enables a simple health check endpoint. By default it
 weight = 12
 tags = [  "middleware" , "health" ]
 categories = [ "middleware" ]
-date = "2017-07-26T08:45:58+01:00"
+date = "2017-07-24T15:25:40+00:00"
 +++
 
 ## Syntax

@@ -4,7 +4,7 @@ description = "The *reverse* middleware allows CoreDNS to respond dynamically to
 weight = 20
 tags = [  "middleware" , "reverse" ]
 categories = [ "middleware" ]
-date = "2017-07-26T08:45:58+01:00"
+date = "2017-07-24T15:25:40+00:00"
 +++
 
 ## Syntax

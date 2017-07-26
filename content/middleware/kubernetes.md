@@ -4,7 +4,7 @@ description = "The *kubernetes* middleware enables the reading zone data from a 
 weight = 14
 tags = [  "middleware" , "kubernetes" ]
 categories = [ "middleware" ]
-date = "2017-07-26T08:45:58+01:00"
+date = "2017-07-24T15:25:40+00:00"
 +++
 
 CoreDNS running the kubernetes middleware can be used as a replacement of kube-dns in a kubernetes cluster.  See the [deployment](https://github.com/coredns/deployment) repository for details on [how to deploy CoreDNS in Kubernetes](https://github.com/coredns/deployment/tree/master/kubernetes).

@@ -4,7 +4,7 @@ description = "*etcd* enables reading zone data from an etcd instance. The data 
 weight = 10
 tags = [  "middleware" , "etcd" ]
 categories = [ "middleware" ]
-date = "2017-07-26T08:45:58+01:00"
+date = "2017-07-24T15:25:40+00:00"
 +++
 
 The etcd middleware makes extensive use of the proxy middleware to forward and query other servers

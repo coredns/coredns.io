@@ -4,7 +4,7 @@ description = "*tls* allows you to configure the server certificates for the TLS
 weight = 24
 tags = [  "middleware" , "tls" ]
 categories = [ "middleware" ]
-date = "2017-07-26T08:45:58+01:00"
+date = "2017-07-24T15:25:40+00:00"
 +++
 
 ## Syntax

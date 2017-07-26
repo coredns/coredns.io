@@ -4,7 +4,7 @@ description = "The *chaos* middleware allows CoreDNS to respond to TXT queries i
 weight = 4
 tags = [  "middleware" , "chaos" ]
 categories = [ "middleware" ]
-date = "2017-07-26T08:45:58+01:00"
+date = "2017-07-24T15:25:40+00:00"
 +++
 
 This is useful for retrieving version or author information from the server.

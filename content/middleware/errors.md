@@ -4,7 +4,7 @@ description = "*errors* enables error logging. "
 weight = 9
 tags = [  "middleware" , "errors" ]
 categories = [ "middleware" ]
-date = "2017-07-26T08:45:58+01:00"
+date = "2017-07-24T15:25:40+00:00"
 +++
 
 Any errors encountered during the query processing will be printed on standard output.

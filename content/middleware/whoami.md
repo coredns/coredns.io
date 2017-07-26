@@ -4,7 +4,7 @@ description = "*whoami* returns your local IP address, port and transport used. 
 weight = 26
 tags = [  "middleware" , "whoami" ]
 categories = [ "middleware" ]
-date = "2017-07-26T08:45:58+01:00"
+date = "2017-07-24T15:25:40+00:00"
 +++
 
 The port and transport are included in the additional section as a SRV record, transport can be
