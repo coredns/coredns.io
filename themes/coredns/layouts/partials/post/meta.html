@@ -5,6 +5,7 @@
 <span class="icon">
  <i class="fa fa-pencil" aria-hidden="true"></i>
 </span>
+
 {{ if .PublishDate.IsZero }}
   Published: <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date.Format "2 Jan, 2006" }}</time>
 {{ else if lt .PublishDate .Lastmod }}
@@ -12,3 +13,6 @@
 {{ else }}
   Published: <time datetime="{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" }}">{{ .PublishDate.Format "2 Jan, 2006" }}</time>
 {{ end }}
+
+{{ partial "post/author" . }}
+

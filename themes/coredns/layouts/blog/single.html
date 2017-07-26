@@ -9,11 +9,16 @@
     {{ if .Description }}
 <blockquote itemprop="description">{{ .Description }}</blockquote>
 {{ end }}
-<time class="post-time">{{ partial "post/meta" . }}</time>
+<time class="post-time">
+
+    {{ partial "post/meta" . }}
+
+</time>
+
 </div>
 <div id="post-box">
 <div id="post" itemprop="articleBody">
-    
+
     {{.Content | safeHTML}}
 
 </div>
@@ -22,13 +27,13 @@
         {{ partial "post/byauthor" . }}
         {{ partial "post/related-content" . }}
     </div>
-    
+
     {{ if .Site.DisqusShortname }}
     <article>
         {{ template "_internal/disqus.html" . }}
     </article>
     {{ end }}
-    
+
 </div>
 </div>
 {{ end }}

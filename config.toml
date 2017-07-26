@@ -18,7 +18,7 @@ theme = "coredns"
 [params.authors.miek]
   name = "Miek Gieben"
   location = "London"
-  email = "miek@miek.nl"
+  email = "miek@coredns.io"
   twitter = "https://twitter.com/miekg"
   github = "https://github.com/miekg"
 

@@ -1,20 +1,29 @@
 <p>
   {{ $author := index .Site.Params.authors .Params.author }}
 
-  Published
   {{ if ne .Site.Params.hide_author true }}
     {{ with .Params.author }}
-      {{ with $author }}<a href="mailto:{{ .email }}" target="_blank">
-        <span itemprop="author">{{ index .name }}</span>
-      </a>
+
+      {{ $author.name }} 
+        <a href="mailto:{{ $author.email }}"><i class="fa fa-envelope-o"></i></a>
+
+      {{ if $author.twitter }}
+        <a href="{{ $author.twitter }}"><i class="fa fa-twitter"></i></a>
       {{ end }}
+
+      {{ if $author.github }}
+        <a href="{{ $author.github }}"><i class="fa fa-github"></i></a>
+      {{ end }}
+
 
     {{ else }}
 
-      by <span itemprop="author">{{ .Site.Params.author }}</span>
+      <span itemprop="author">{{ .Site.Params.author }}</span>
 
     {{ end }}
   {{ end }}
+  <br/>
+  Published:
   <time datetime="{{ dateFormat "2006-01-02T15:04:05-07:00" (default .Date (.PublishDate)) }}">
     {{ dateFormat "2 Jan, 2006" (default .Date (.PublishDate)) }}
   </time>
