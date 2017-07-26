@@ -1,10 +1,10 @@
 +++
 title = "erratic"
 description = "*erratic* is a middleware useful for testing client behavior. It returns a static response to all queries, but the responses can be delayed, dropped or truncated. "
-weight = 7
+weight = 8
 tags = [  "middleware" , "erratic" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-26T08:45:58+01:00"
 +++
 
 The *erratic* middleware will respond to every A or AAAA query. For any other type it will return

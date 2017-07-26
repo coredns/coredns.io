@@ -4,7 +4,7 @@ description = "*bind* overrides the host to which the server should bind. "
 weight = 2
 tags = [  "middleware" , "bind" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-26T08:45:58+01:00"
 +++
 
 Normally, the listener binds to the wildcard host. However, you may force the listener to bind to

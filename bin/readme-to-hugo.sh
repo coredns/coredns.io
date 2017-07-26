@@ -17,7 +17,8 @@ function header() {
     echo "weight = $weight"
     echo "tags = [ " \"$tags\" "," \"$middleware\" "]"
     echo "categories = [ \"middleware\" ]"
-    echo "date = \"$(date --iso-8601=seconds)\""
+    echo "date = \"2017-07-24T15:25:40+00:00\""
+#    echo "date = \"$(date --iso-8601=seconds)\""
     echo "+++"
 }
 
