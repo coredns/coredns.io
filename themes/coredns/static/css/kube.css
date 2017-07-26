@@ -1013,19 +1013,19 @@ button:hover,
   font-size: 13px;
   min-height: 36px;
   padding: 6px 20px;
-  border-radius: 3px; }
+  border-radius: 7px; }
 
 .button.big {
   font-size: 17px;
   min-height: 48px;
   padding: 13px 24px;
-  border-radius: 3px; }
+  border-radius: 7px; }
 
 .button.large {
   font-size: 19px;
   min-height: 56px;
   padding: 20px 36px;
-  border-radius: 3px; }
+  border-radius: 7px; }
 
 .button.outline {
   background: none;
