@@ -82,7 +82,7 @@ As we've enabled logging the query should be show up there as well:
 
 From here you can enable CoreDNS to run on port 53 and have it start from systemd (when on Linux),
 see [the deployment repo](https://github.com/coredns/deployment) for example scripts.
-Or read more about the *file* middleware on [this website](/middleware/file/).
+Or read more about the [*file* middleware](/middleware/file/).
 
 ## CoreDNS as proxy
 
