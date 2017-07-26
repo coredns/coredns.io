@@ -19,6 +19,8 @@ First get CoreDNS, either
 
   You should now have a "coredns" executable.
 
+* *Get the Docker container* from [docker hub](https://hub.docker.com/r/coredns/coredns/).
+
 If you want to use CoreDNS in Kubernetes, please check [this post about SD with the *kuberneters*
 middleware](/2017/03/01/coredns-for-kubernetes-service-discovery-take-2/).
 
