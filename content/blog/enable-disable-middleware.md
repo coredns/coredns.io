@@ -23,8 +23,10 @@ All this is done via one compile-time configuration file,
 ...
 ~~~
 
-The number specifies the ordering of the middleware (they are called in this order - *if* enabled - by
-CoreDNS). Then a **name** and a **repository**. Just add or remove your middleware in this file.
+The number specifies the ordering of the middleware (they are called in this order - *if* enabled in
+the [Corefile](/2017/07/23/corefile-explained/) - by CoreDNS). Then a **name** and a **repository**.
+Just add or remove your middleware in this file.
 
-Then do a `go get` if you need to get the external middleware's source code. And then just compile
-CoreDNS with `go generate` and a `go build`.
+Then do a `go get <middleware-repo-path>` if you need to get the external middleware's source code.
+And then just compile CoreDNS with `go generate` and a `go build`. You can then check if CoreDNS has
+the new middleware with `coredns -plugins`.
