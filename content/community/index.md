@@ -2,7 +2,7 @@
 title = "Community"
 +++
 
-**Mailing list**: [coredns-discuss@googlegroups.com](coredns-discuss@googlegroups.com) - discussion
+**Mailing list**: [coredns-discuss@googlegroups.com](mailto:coredns-discuss@googlegroups.com) - discussion
 around CoreDNS usage, community support and developer discussion.
 
 **Slack**: #coredns on https://slack.cncf.io
