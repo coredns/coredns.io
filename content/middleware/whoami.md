@@ -1,10 +1,10 @@
 +++
 title = "whoami"
-description = "*whoami* returns your local IP address, port and transport used. Your local IP address is returned in the additional section as either an A or AAAA record. "
+description = "*whoami* returns your local IP address, port and transport used. Your local IP address is returned in the additional section as either an A or AAAA record."
 weight = 26
-tags = [  "middleware" , "whoami" ]
+tags = [ "middleware", "whoami" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.841767"
 +++
 
 The port and transport are included in the additional section as a SRV record, transport can be
@@ -40,4 +40,3 @@ When queried for "example.org A", CoreDNS will respond with:
 example.org.            0       IN      A       10.240.0.1
 _udp.example.org.       0       IN      SRV     0 0 40212
 ~~~
-

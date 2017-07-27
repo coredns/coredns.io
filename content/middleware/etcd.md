@@ -1,10 +1,10 @@
 +++
 title = "etcd"
-description = "*etcd* enables reading zone data from an etcd instance. The data in etcd has to be encoded as a [message](https://github.com/skynetservices/skydns/blob/2fcff74cdc9f9a7dd64189a447ef27ac354b725f/msg/service.go#L26) like [SkyDNS](https://github.com/skynetservices/skydns). It should also work just like SkyDNS. "
+description = "*etcd* enables reading zone data from an etcd instance. The data in etcd has to be encoded as a [message](https://github.com/skynetservices/skydns/blob/2fcff74cdc9f9a7dd64189a447ef27ac354b725f/msg/service.go#L26) like [SkyDNS](https://github.com/skynetservices/skydns). It should also work just like SkyDNS."
 weight = 10
-tags = [  "middleware" , "etcd" ]
+tags = [ "middleware", "etcd" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.835659"
 +++
 
 The etcd middleware makes extensive use of the proxy middleware to forward and query other servers
@@ -152,4 +152,3 @@ Any errors seen doing parsing will show up like this:
     . 0 CH TXT "/skydns/local/skydns/r/a: invalid character '.' after object key:value pair"
 
 which shows `a.r.skydns.local.` has a json encoding problem.
-

@@ -1,10 +1,10 @@
 +++
 title = "chaos"
-description = "The *chaos* middleware allows CoreDNS to respond to TXT queries in the CH class. "
+description = "The *chaos* middleware allows CoreDNS to respond to TXT queries in the CH class."
 weight = 4
-tags = [  "middleware" , "chaos" ]
+tags = [ "middleware", "chaos" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.833526"
 +++
 
 This is useful for retrieving version or author information from the server.
@@ -27,4 +27,3 @@ following zones: `version.bind`, `version.server`, `authors.bind`, `hostname.bin
 ~~~
 chaos CoreDNS-001 "Miek Gieben" miek@miek.nl
 ~~~
-

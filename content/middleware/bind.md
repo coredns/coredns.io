@@ -1,10 +1,10 @@
 +++
 title = "bind"
-description = "*bind* overrides the host to which the server should bind. "
+description = "*bind* overrides the host to which the server should bind."
 weight = 2
-tags = [  "middleware" , "bind" ]
+tags = [ "middleware", "bind" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.832799"
 +++
 
 Normally, the listener binds to the wildcard host. However, you may force the listener to bind to
@@ -25,4 +25,3 @@ To make your socket accessible only to that machine, bind to IP 127.0.0.1 (local
 ~~~ txt
 bind 127.0.0.1
 ~~~
-

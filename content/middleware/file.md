@@ -1,10 +1,10 @@
 +++
 title = "file"
-description = "*file* enables serving zone data from an RFC 1035-style master file. "
+description = "*file* enables serving zone data from an RFC 1035-style master file."
 weight = 11
-tags = [  "middleware" , "file" ]
+tags = [ "middleware", "file" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.836054"
 +++
 
 The file middleware is used for an "old-style" DNS server. It serves from a preloaded file that exists
@@ -57,4 +57,3 @@ file example.org.signed example.org {
     transfer to 10.240.1.1
 }
 ~~~
-

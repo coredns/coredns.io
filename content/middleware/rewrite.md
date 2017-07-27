@@ -1,10 +1,10 @@
 +++
 title = "rewrite"
-description = "*rewrite* performs internal message rewriting. "
+description = "*rewrite* performs internal message rewriting."
 weight = 21
-tags = [  "middleware" , "rewrite" ]
+tags = [ "middleware", "rewrite" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.840010"
 +++
 
 Rewrites are invisible to the client. There are simple rewrites (fast) and complex rewrites
@@ -63,4 +63,3 @@ rewrite edns0 local set 0xffee abcd
 
 This has no fields; it will add an NSID option with an empty string for the NSID. If the option already exists
 and the action is `replace` or `set`, then the NSID in the option will be set to the empty string.
-

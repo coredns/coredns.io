@@ -1,10 +1,10 @@
 +++
 title = "secondary"
-description = "*secondary* enables serving a zone retrieved from a primary server. "
+description = "*secondary* enables serving a zone retrieved from a primary server."
 weight = 23
-tags = [  "middleware" , "secondary" ]
+tags = [ "middleware", "secondary" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.840628"
 +++
 
 ## Syntax
@@ -41,4 +41,3 @@ secondary example.org {
     transfer from 10.1.2.1
 }
 ~~~
-

@@ -1,10 +1,10 @@
 +++
 title = "tls"
-description = "*tls* allows you to configure the server certificates for the TLS and gRPC servers. For other types of servers it is ignored. "
+description = "*tls* allows you to configure the server certificates for the TLS and gRPC servers. For other types of servers it is ignored."
 weight = 24
-tags = [  "middleware" , "tls" ]
+tags = [ "middleware", "tls" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.840973"
 +++
 
 ## Syntax
@@ -33,4 +33,3 @@ grpc://.:443 {
 	proxy . /etc/resolv.conf
 }
 ~~~
-

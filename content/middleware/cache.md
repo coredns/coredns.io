@@ -1,10 +1,10 @@
 +++
 title = "cache"
-description = "*cache* enables a frontend cache. It will cache all records except zone transfers and metadata records. "
+description = "*cache* enables a frontend cache. It will cache all records except zone transfers and metadata records."
 weight = 3
-tags = [  "middleware" , "cache" ]
+tags = [ "middleware", "cache" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.833163"
 +++
 
 ## Syntax
@@ -71,4 +71,3 @@ Proxy to Google Public DNS and only cache responses for example.org (or below).
 proxy . 8.8.8.8:53
 cache example.org
 ~~~
-

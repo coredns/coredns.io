@@ -1,10 +1,10 @@
 +++
 title = "reverse"
-description = "The *reverse* middleware allows CoreDNS to respond dynamically to a PTR request and the related A/AAAA request. "
+description = "The *reverse* middleware allows CoreDNS to respond dynamically to a PTR request and the related A/AAAA request."
 weight = 20
-tags = [  "middleware" , "reverse" ]
+tags = [ "middleware", "reverse" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.839592"
 +++
 
 ## Syntax
@@ -89,4 +89,3 @@ arpa compute.internal {
     }
 }
 ~~~
-

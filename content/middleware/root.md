@@ -1,10 +1,10 @@
 +++
 title = "root"
-description = "*root* simply specifies the root of where CoreDNS finds (e.g.) zone files. "
+description = "*root* simply specifies the root of where CoreDNS finds (e.g.) zone files."
 weight = 22
-tags = [  "middleware" , "root" ]
+tags = [ "middleware", "root" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.840317"
 +++
 
 The default root is the current working directory of CoreDNS. A relative root path is relative to
@@ -25,4 +25,3 @@ Serve zone data (when the *file* middleware is used) from `/etc/coredns/zones`:
 ~~~ txt
 root /etc/coredns/zones
 ~~~
-

@@ -1,10 +1,10 @@
 +++
 title = "trace"
-description = "This module enables OpenTracing-based tracing of DNS requests as they go through the middleware chain. "
+description = "This module enables OpenTracing-based tracing of DNS requests as they go through the middleware chain."
 weight = 25
-tags = [  "middleware" , "trace" ]
+tags = [ "middleware", "trace" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.841398"
 +++
 
 ## Syntax
@@ -75,4 +75,3 @@ trace tracinghost:9411 {
 	client_server
 }
 ~~~
-

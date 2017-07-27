@@ -1,10 +1,10 @@
 +++
 title = "proxy"
-description = "*proxy* facilitates both a basic reverse proxy and a robust load balancer. "
+description = "*proxy* facilitates both a basic reverse proxy and a robust load balancer."
 weight = 19
-tags = [  "middleware" , "proxy" ]
+tags = [ "middleware", "proxy" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.839061"
 +++
 
 The proxy has support for multiple backends. The load balancing features include multiple policies,
@@ -178,4 +178,3 @@ example.org {
     proxy . 8.8.8.8:53
 }
 ~~~
-

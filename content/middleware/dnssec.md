@@ -1,10 +1,10 @@
 +++
 title = "dnssec"
-description = "*dnssec* enables on-the-fly DNSSEC signing of served data. "
+description = "*dnssec* enables on-the-fly DNSSEC signing of served data."
 weight = 6
-tags = [  "middleware" , "dnssec" ]
+tags = [ "middleware", "dnssec" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.834105"
 +++
 
 ## Syntax
@@ -52,4 +52,3 @@ If monitoring is enabled (via the *prometheus* directive) then the following met
 * coredns_dnssec_cache_misses_total - Counter of cache misses.
 
 ## Examples
-

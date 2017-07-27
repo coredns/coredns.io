@@ -1,10 +1,10 @@
 +++
 title = "auto"
-description = "*auto* enables serving zone data from an RFC 1035-style master file which is automatically picked up from disk. "
+description = "*auto* enables serving zone data from an RFC 1035-style master file which is automatically picked up from disk."
 weight = 1
-tags = [  "middleware" , "auto" ]
+tags = [ "middleware", "auto" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.832323"
 +++
 
 The *auto* middleware is used for an "old-style" DNS server. It serves from a preloaded file that exists
@@ -69,4 +69,3 @@ auto org {
     directory /etc/coredns/zones/org www\.db\.(.*) {1} 45
 }
 ~~~
-

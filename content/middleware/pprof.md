@@ -1,10 +1,10 @@
 +++
 title = "pprof"
-description = "*pprof* publishes runtime profiling data at endpoints under /debug/pprof. "
+description = "*pprof* publishes runtime profiling data at endpoints under /debug/pprof."
 weight = 18
-tags = [  "middleware" , "pprof" ]
+tags = [ "middleware", "pprof" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.838633"
 +++
 
 You can visit `/debug/pprof` on your site for an index of the available endpoints. By default it
@@ -44,4 +44,3 @@ Listen on an all addresses on port 6060:
 ~~~
 pprof :6060
 ~~~
-

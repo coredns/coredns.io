@@ -1,10 +1,10 @@
 +++
 title = "kubernetes"
-description = "The *kubernetes* middleware enables the reading zone data from a Kubernetes cluster.  It implements the [Kubernetes DNS-Based Service Discovery Specification](https://github.com/kubernetes/dns/blob/master/docs/specification.md).  "
+description = "The *kubernetes* middleware enables the reading zone data from a Kubernetes cluster.  It implements the [Kubernetes DNS-Based Service Discovery Specification](https://github.com/kubernetes/dns/blob/master/docs/specification.md)."
 weight = 14
-tags = [  "middleware" , "kubernetes" ]
+tags = [ "middleware", "kubernetes" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.837165"
 +++
 
 CoreDNS running the kubernetes middleware can be used as a replacement of kube-dns in a kubernetes cluster.  See the [deployment](https://github.com/coredns/deployment) repository for details on [how to deploy CoreDNS in Kubernetes](https://github.com/coredns/deployment/tree/master/kubernetes).
@@ -270,4 +270,3 @@ Some query labels accept a wildcard value to match any value.  If a label is a v
    * e.g. `_http.*.service.ns.svc.`
  * multiple wild cards are allowed in a single query.
    * e.g. `A` Request `*.*.svc.zone.` or `SRV` request `*.*.*.*.svc.zone.`
-

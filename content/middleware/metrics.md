@@ -1,10 +1,10 @@
 +++
 title = "prometheus"
-description = "This module enables prometheus metrics for CoreDNS. "
+description = "This module enables prometheus metrics for CoreDNS."
 weight = 17
-tags = [  "middleware" , "metrics" ]
+tags = [ "middleware", "metrics" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.838248"
 +++
 
 The default location for the metrics is `localhost:9153`. The metrics path is fixed to `/metrics`.
@@ -56,4 +56,3 @@ prometheus localhost:9253
 
 When reloading, we keep the handler running, meaning that any changes to the handler's address
 aren't picked up. You'll need to restart CoreDNS for that to happen.
-

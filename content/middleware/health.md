@@ -1,10 +1,10 @@
 +++
 title = "health"
-description = "This module enables a simple health check endpoint. By default it will listen on port 8080. "
+description = "This module enables a simple health check endpoint. By default it will listen on port 8080."
 weight = 12
-tags = [  "middleware" , "health" ]
+tags = [ "middleware", "health" ]
 categories = [ "middleware" ]
-date = "2017-07-24T15:25:40+00:00"
+date = "2017-07-27T12:53:47.836352"
 +++
 
 ## Syntax
@@ -23,4 +23,3 @@ This middleware only needs to be enabled once.
 ~~~
 health localhost:8091
 ~~~
-
