@@ -39,3 +39,7 @@ Imports any files found in the zones directory:
 ~~~
 import ../zones/*
 ~~~
+
+## How to Enable
+
+This external middleware is included in the default CoreDNS configuration.

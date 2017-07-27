@@ -27,7 +27,13 @@ home = "https://link-to-your-homepage-or-readme"
 
 The *<middleware name>* middleware is a ...
 
-<rest of your README.md>
+## Syntax
+
+## Example
+
+## How to Enable
+
+Follow [these](/2017/07/25/compile-time-enabling-or-disabling-middleware/) steps.
 ~~~
 
 See [shutdown.md for an example]

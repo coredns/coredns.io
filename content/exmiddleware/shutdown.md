@@ -37,3 +37,7 @@ Stop command when the server quits:
 ~~~
 shutdown /etc/init.d/command stop
 ~~~
+
+## How to Enable
+
+This external middleware is included in the default CoreDNS configuration.
