@@ -9,11 +9,10 @@ import re
 import sys
 
 def header(middleware, title, description, weight):
-  h = """
-+++
+  h = """+++
 title = "%(title)s"
 description = "%(description)s"
-weight = "%(weight)s"
+weight = %(weight)s
 tags = [ "middleware", "%(middleware)s" ]
 categories = [ "middleware" ]
 date = "%(date)s"
@@ -69,7 +68,7 @@ if len(sys.argv) < 2:
   sys.exit("%s: Need containing directory of CoreDNS middleware" % sys.argv[0])
 
 
-for middleware in os.listdir(sys.argv[1]):
+for middleware in sorted(os.listdir(sys.argv[1])):
   dir = os.path.join(sys.argv[1], middleware)
   readme = os.path.join(dir, "README.md")
   page = os.path.join(content, middleware) + ".md"
