@@ -33,5 +33,5 @@ example.com {
 
 ## How to Enable
 
-Follow [these](/2017/07/25/compile-time-enabling-or-disabling-middleware/) steps.
+Follow [these](/2017/07/25/compile-time-enabling-or-disabling-middleware/) steps,
 *example* should be put relatively early in the middleware chain.
