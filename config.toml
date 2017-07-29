@@ -33,7 +33,6 @@ theme = "coredns"
   twitter = "https://twitter.com/chrisohaver"
   github = "https://github.com/chrisohaver"
 
-
 [params.authors.jonathan]
   name = "Jonathan Dickinson"
   github = "https://github.com/jcdickinson"
