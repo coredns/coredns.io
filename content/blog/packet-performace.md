@@ -8,7 +8,7 @@ author = "miek"
 +++
 
 As CoreDNS is an inception level project under the [CNCF](https://www.cncf.io/) which means we have
-access to the physical cloud infrastructure of [Packet](https://www.packet.net/), a *bare metal*
+access to the physical cloud infrastructure of [Packet](https://www.packet.net/), a *bare metal*(!)
 cloud provider. Physical machines imply performace and also because you get an *entire* machine you
 can use them for performance *metrics*.
 
