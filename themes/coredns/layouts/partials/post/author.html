@@ -6,7 +6,10 @@
 
     <br/>
       {{ $author.name }} 
+
+      {{ if $author.email }}
         <a href="mailto:{{ $author.email }}"><i class="fa fa-envelope"></i></a>
+      {{ end }}
 
       {{ if $author.twitter }}
         <a href="{{ $author.twitter }}"><i class="fa fa-twitter"></i></a>

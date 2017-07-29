@@ -17,24 +17,26 @@ theme = "coredns"
 
 [params.authors.miek]
   name = "Miek Gieben"
-  location = "London"
   email = "miek@coredns.io"
   twitter = "https://twitter.com/miekg"
   github = "https://github.com/miekg"
 
 [params.authors.john]
   name = "John Belamaric"
-  location = "Washington DC"
   email = "jbelamaric@infoblox.com"
   twitter = "https://twitter.com/johnbelamaric"
   github = "https://github.com/johnbelamaric"
 
 [params.authors.chris]
   name = "Chris O'Haver"
-  location = "Annapolis, MD"
   email = "cohaver@infoblox.com"
   twitter = "https://twitter.com/chrisohaver"
   github = "https://github.com/chrisohaver"
+
+
+[params.authors.jonathan]
+  name = "Jonathan Dickinson"
+  github = "https://github.com/jcdickinson"
 
 [[menu.main]]
     name = "Middleware"
