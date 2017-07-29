@@ -70,3 +70,9 @@ Thus in the end leading to a dashboard where you can easily compare your perform
 The end result of all this is that if someone adds an optimization it will be immediately visible
 in the stats. Any new pull request shows up automatically and any new benchmark function will also
 be automatically discovered by having the `benchmark_coredns_names_counter`.
+
+Other things a like about Packet:
+
+* Native IPv6
+* Fast networ.
+* Awesome crew that are happy to help
