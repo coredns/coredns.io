@@ -9,7 +9,9 @@ theme = "coredns"
   page = "/:title/"
 
 [params]
-  popup    = "" # enable with non empty string to show banner on home page
+  # popup enables a in-page banner for important announcement: see ./layouts/partials/popup.html
+  # Enable with non empty string.
+  popup    = ""
   logo     = "/images/CoreDNS_Colour_Icon.png"
   twitter  = "https://twitter.com/corednsio"
   github   = "https://github.com/coredns/coredns"
