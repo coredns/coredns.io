@@ -7,21 +7,21 @@
     {{ .Site.Data.subtext.exmiddleware.content | markdownify }}
     <p></p>
 
-    {{ .Scratch.Add "url1" "/2016/12/19/writing-middleware-for-coredns/" }}
-    {{ .Scratch.Add "link1" "How to Write Middleware" }}
-    {{ .Scratch.Add "class1" "primary" }}
+    {{ .Scratch.Set "url1" "/2016/12/19/writing-middleware-for-coredns/" }}
+    {{ .Scratch.Set "link1" "How to Write Middleware" }}
+    {{ .Scratch.Set "class1" "primary" }}
 
-    {{ .Scratch.Add "url2" "/2017/07/25/compile-time-enabling-or-disabling-middleware/" }}
-    {{ .Scratch.Add "link2" "How to Enable Middleware" }}
-    {{ .Scratch.Add "class2" "primary" }}
+    {{ .Scratch.Set "url2" "/2017/07/25/compile-time-enabling-or-disabling-middleware/" }}
+    {{ .Scratch.Set "link2" "How to Enable Middleware" }}
+    {{ .Scratch.Set "class2" "primary" }}
 
-    {{ .Scratch.Add "url3" "/2017/07/23/when-should-middleware-be-external/" }}
-    {{ .Scratch.Add "link3" "When External" }}
-    {{ .Scratch.Add "class3" "outline" }}
+    {{ .Scratch.Set "url3" "/2017/07/23/when-should-middleware-be-external/" }}
+    {{ .Scratch.Set "link3" "When External" }}
+    {{ .Scratch.Set "class3" "outline" }}
 
-    {{ .Scratch.Add "url4" "/2017/07/23/add-external-middleware/" }}
-    {{ .Scratch.Add "link4" "Add Yours" }}
-    {{ .Scratch.Add "class4" "outline" }}
+    {{ .Scratch.Set "url4" "/2017/07/23/add-external-middleware/" }}
+    {{ .Scratch.Set "link4" "Add Yours" }}
+    {{ .Scratch.Set "class4" "outline" }}
 
     {{ partial "middleware-action-button" . }}
 

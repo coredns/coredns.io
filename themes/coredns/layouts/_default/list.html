@@ -19,13 +19,13 @@
         {{ .Site.Data.subtext.docs.content | markdownify }}
         <p/>
 
-        {{ .Scratch.Add "url1" "/2017/07/23/corefile-explained/" }}
-        {{ .Scratch.Add "link1" "Corefile Explained" }}
-        {{ .Scratch.Add "class1" "primary" }}
+        {{ .Scratch.Set "url1" "/2017/07/23/corefile-explained/" }}
+        {{ .Scratch.Set "link1" "Corefile Explained" }}
+        {{ .Scratch.Set "class1" "primary" }}
 
-        {{ .Scratch.Add "url2" "/2017/06/08/how-queries-are-processed-in-coredns/" }}
-        {{ .Scratch.Add "link2" "Query Processing" }}
-        {{ .Scratch.Add "class2" "outline" }}
+        {{ .Scratch.Set "url2" "/2017/06/08/how-queries-are-processed-in-coredns/" }}
+        {{ .Scratch.Set "link2" "Query Processing" }}
+        {{ .Scratch.Set "class2" "outline" }}
 
         {{ partial "middleware-action-button" . }}
 
