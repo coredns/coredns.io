@@ -16,7 +16,7 @@ theme = "coredns"
   twitter  = "https://twitter.com/corednsio"
   github   = "https://github.com/coredns/coredns"
   email    = "info@coredns.io"
-  slack    = "https://cloud-native.slack.com/messages/C4DF7FP71"
+  slack    = "https://slack.cncf.io/"
 
 [params.authors.miek]
   name = "Miek Gieben"
