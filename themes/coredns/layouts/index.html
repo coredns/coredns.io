@@ -10,7 +10,7 @@
 
   <div id="action-buttons">
       <a class="button primary big" href="https://github.com/coredns/coredns/releases/latest">Download</a>
-      <a class="button outline big" href="https://github.com/coredns/coredns">View on Github</a>
+      <a class="button outline big" href="{{ .Site.Params.github }}">View on Github</a>
       <a class="button outline big" href="/2017/07/24/quick-start/">Quick Start</a>
       <p>
         {{ range where .Site.Pages "Params.release" "eq" .Site.Data.coredns.release.version }}
