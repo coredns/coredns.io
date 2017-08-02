@@ -47,9 +47,9 @@ and converted into prometheus metrics:
 2017/06/25 09:21:51 [INFO] Parsed line: {branch="pr-753",cpu="8",subsystem="coredns"}requestdo_coredns: 1000000000 2.110000 0 0
 ~~~
 
-The latest known branches are found by using a "recording rule" that (ab)uses an extra metrics that
+The latest known branches are found by using a "recording rule" that uses an extra metrics that
 `mbench` exports: `_start_time_seconds`:
-So we only see the active branches from the last *n* branches: `benchmark_coredns_branches_10
+So we only see the active branches from the last *n* branches: `benchmark_coredns_branches_topk10
 = topk(10, benchmark_coredns_proxylookup_bytes_gauge{branch != "master"})`
 
 There is also `cron.hourly` that tests master on a continous basis, which we display separately in
@@ -72,6 +72,3 @@ Thus in the end leading to a dashboard where you can easily compare your perform
 The end result of all this is that if someone adds an optimization it will be immediately visible
 in the stats. Any new pull request shows up automatically and any new benchmark function will also
 be automatically discovered by having the `benchmark_coredns_names_counter`.
-
-Other things a like about Packet: native IPv6, fast network and an awesome crew that is happy to
-help.
