@@ -10,13 +10,10 @@ author = "varyoo"
 *dnstap* is a flexible, structured binary log format for DNS software.
 It uses [Protocol Buffers](https://developers.google.com/protocol-buffers/) to encode events that occur inside DNS software in an implementation-neutral format.
 
-*dnstap* can log any DNS message exchanged by the server, along with information about the remote computer (IP address, port) and time.
+*dnstap* can encode any DNS message exchanged by the server, along with information about the remote computer (IP address, port) and time.
 It includes client queries and responses, but also proxied requests or information requested from other name servers.
 
-A [*dnstap* middleware] has been added in [CoreDNS-010]({{< relref "blog/coredns-010.md" >}}).
-Currently it can only log client level messages. Logging additional type of exchanges is being experimented.
-
-Check out this example output from the *dnstap* command-line tool to get an idea of the kind of information that *dnstap* logs:
+Check out this example output from the *dnstap* command-line tool to get an idea of the kind of information that *dnstap* can encode:
 
 ~~~ text
 type: MESSAGE
@@ -37,21 +34,37 @@ message:
     example.org.        86339   IN      A       93.184.216.34
 ~~~
 
-The [*dnstap* middleware] is used in combinaison with the *dnstap* command-line tool.
-The latest listen the same socket the other is logging to.
+A [*dnstap* middleware] has been added in [CoreDNS-010]({{< relref "blog/coredns-010.md" >}}).
+Currently it can only log client level messages. Logging additional type of exchanges is being experimented.
 
-# Quick start
+The [*dnstap* middleware] is used in combination with the *dnstap* command-line tool.
+They use a socket to communicate:
+the middleware will send the logs as long as the CLI tool is listening.
 
-1. Listen on the *dnstap* socket:
+# Examples
 
-    ~~~ text
-    $ dnstap -u /tmp/dnstap.sock
-    ~~~
+Add *dnstap* to the *Corefile*:
 
-2. Add *dnstap* to the *Corefile*:
+~~~ text
+dnstap /tmp/dnstap.sock full
+~~~
 
-    ~~~ text
-    dnstap /tmp/dnstap.sock full
-    ~~~
+Listen on the *dnstap* socket and write message payloads to *stdout*:
+
+~~~ text
+$ dnstap -u /tmp/dnstap.sock
+~~~
+
+Listen on the *dnstap* socket and store message payloads to a binary *dnstap*-format log file:
+
+~~~ text
+$ dnstap -u /tmp/dnstap.sock -w /tmp/july.dnstap
+~~~
+
+Read July's logs in the YAML-format:
+
+~~~ text
+$ dnstap -r /tmp/july.dnstap -y
+~~~
 
 [*dnstap* middleware]: {{< relref "middleware/dnstap.md" >}}

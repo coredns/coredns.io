@@ -37,6 +37,10 @@ theme = "coredns"
   name = "Jonathan Dickinson"
   github = "https://github.com/jcdickinson"
 
+[params.authors.varyoo]
+  name = "Antoine D."
+  github = "https://github.com/varyoo"
+
 [[menu.main]]
     name = "Middleware"
     weight = -200
