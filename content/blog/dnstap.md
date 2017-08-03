@@ -7,7 +7,9 @@ date = "2017-08-01T16:25:28+02:00"
 author = "varyoo"
 +++
 
-*dnstap* is a flexible, structured binary log format for DNS software.
+[^dnstap]: http://dnstap.info
+
+*dnstap* is a flexible, structured binary log format for DNS software[^dnstap].
 It uses [Protocol Buffers](https://developers.google.com/protocol-buffers/) to encode events that occur inside DNS software in an implementation-neutral format.
 
 *dnstap* can encode any DNS message exchanged by the server, along with information about the remote computer (IP address, port) and time.
@@ -34,10 +36,10 @@ message:
     example.org.        86339   IN      A       93.184.216.34
 ~~~
 
-A [*dnstap* middleware] has been added in [CoreDNS-010]({{< relref "blog/coredns-010.md" >}}).
-Currently it can only log client level messages. Logging additional type of exchanges is being experimented.
+A [*dnstap* middleware]({{< relref "middleware/dnstap.md" >}}) has been added in [CoreDNS-010]({{< relref "blog/coredns-010.md" >}}).
+Currently it can only log client level messages. Logging additional type of exchanges is being implemented.
 
-The [*dnstap* middleware] is used in combination with the *dnstap* command-line tool.
+The *dnstap* middleware is used in combination with the *dnstap* command-line tool.
 They use a socket to communicate:
 the middleware will send the logs as long as the CLI tool is listening.
 
@@ -49,7 +51,7 @@ Add *dnstap* to the *Corefile*:
 dnstap /tmp/dnstap.sock full
 ~~~
 
-Listen on the *dnstap* socket and write message payloads to *stdout*:
+Now you can use the *dnstap* tool to read from the socket where CoreDNS write to. With the full option given to the *dnstap* middleware you will also include the full (binary) data of the DNS message:
 
 ~~~ text
 $ dnstap -u /tmp/dnstap.sock
@@ -66,5 +68,3 @@ Read July's logs in the YAML-format:
 ~~~ text
 $ dnstap -r /tmp/july.dnstap -y
 ~~~
-
-[*dnstap* middleware]: {{< relref "middleware/dnstap.md" >}}
