@@ -8,7 +8,7 @@ author = "miek"
 
 The `Corefile` is CoreDNS's configuration file. It defines:
 
-* What servers listen on what ports.
+* What servers listen on what ports and which protocol.
 * For which zone each server is authoritative.
 * What middleware is loaded in a server.
 
@@ -25,7 +25,7 @@ ZONE:[PORT] {
 * **MIDDLEWARE** defines the middleware we want to load. This is optional as well, but as server
   with no middleware will just return SERVFAIL for all queries.
 
-So this is a minimum Corefile:
+This is the most minimal Corefile:
 
 ~~~ txt
 . { }
@@ -68,6 +68,24 @@ org {
 
 Note that most specific zone wins when a query comes in, so any `example.org` queries are going
 through the middleware defined for `example.org` above. The rest is handled by `.`.
+
+## Reverse Zones
+
+Normally when you want to serve a reverse zone you'll have to say something:
+
+~~~ txt
+0.0.10.in-addr.arpa {
+    whoami
+}
+~~~
+
+To make this easier CoreDNS just allows you to say:
+
+~~~ txt
+10.0.0.0/24 {
+    whoami
+}
+~~~
 
 ## Default Corefile
 
