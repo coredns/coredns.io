@@ -1,15 +1,14 @@
 +++
-date = "2017-08-01T10:44:37+01:00"
+date = "2017-08-08T22:50:37+01:00"
 description = "CoreDNS performance testing"
 tags = ["Performance", "Testing", "Automation", "CI"]
 title = "CoreDNS Performance Testing"
-draft = true
 author = "miek"
 +++
 
 As CoreDNS is an inception level project under the [CNCF](https://www.cncf.io/) which means we have
 access to the physical cloud infrastructure of [Packet](https://www.packet.net/), a *bare metal*(!)
-cloud provider. Physical machines imply performace and also because you get an *entire* machine you
+cloud provider. Physical machines imply performance and also because you get an *entire* machine you
 can use them for performance *metrics*.
 
 For CoreDNS we have a few `Benchmark` tests (from the [Go standard
@@ -18,7 +17,7 @@ Typically you run these before your change and then after your and then use a to
 [benchcmp](https://godoc.org/golang.org/x/tools/cmd/benchcmp) to compare the results and impress
 your PR's reviewers. This is all pretty manual, a more automated (and visual!) way would be welcome.
 
-Our new *Packet* machines to the rescue. We've setup the following workflow:
+Our new *Packet* machines to the rescue. We've setup the following work flow:
 
 ~~~ txt
 GitHub > webhook > mbench > prometheus > grafana
@@ -41,7 +40,7 @@ The output from these tests, i.e:
 BenchmarkRequestDo-8   1000000000	 2.11 ns/op	  0 B/op    0 allocs/op
 ~~~
 ... is written into the named pipe which is then picked up by [mbench](https://github.com/miekg/mbench)
-and converted into prometheus metrics:
+and converted into Prometheus metrics:
 
 ~~~
 2017/06/25 09:21:51 [INFO] Parsed line: {branch="pr-753",cpu="8",subsystem="coredns"}requestdo_coredns: 1000000000 2.110000 0 0
@@ -52,7 +51,7 @@ The latest known branches are found by using a "recording rule" that uses an ext
 So we only see the active branches from the last *n* branches: `benchmark_coredns_branches_topk10
 = topk(10, benchmark_coredns_proxylookup_bytes_gauge{branch != "master"})`
 
-There is also `cron.hourly` that tests master on a continous basis, which we display separately in
+There is also `cron.hourly` that tests master on a continuous basis, which we display separately in
 Grafana.
 
 ## Grafana
