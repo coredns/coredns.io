@@ -48,8 +48,10 @@ and converted into Prometheus metrics:
 
 The latest known branches are found by using a "recording rule" that uses an extra metrics that
 `mbench` exports: `_start_time_seconds`:
-So we only see the active branches from the last *n* branches: `benchmark_coredns_branches_topk10
-= topk(10, benchmark_coredns_proxylookup_bytes_gauge{branch != "master"})`
+So we only see the active branches from the last *n* branches:
+~~~ txt
+benchmark_coredns_branches_topk10 = topk(10, benchmark_coredns_cacheresponse_start_time_seconds{branch != "master"})
+~~~
 
 There is also `cron.hourly` that tests master on a continuous basis, which we display separately in
 Grafana.
@@ -70,4 +72,4 @@ Thus in the end leading to a dashboard where you can easily compare your perform
 
 The end result of all this is that if someone adds an optimization it will be immediately visible
 in the stats. Any new pull request shows up automatically and any new benchmark function will also
-be automatically discovered by having the `benchmark_coredns_names_counter`.
+be automatically discovered.
