@@ -36,9 +36,7 @@ used in the last blog:
     errors
     log stdout
     health
-    kubernetes cluster.local {
-      cidrs 10.0.0.0/24
-    }
+    kubernetes cluster.local 10.0.0.0/24
     proxy . /etc/resolv.conf
     cache 30
 }
@@ -52,9 +50,7 @@ To get the behavior we want, we just need to add a rewrite rule mapping `foo.exa
     log stdout
     health
     rewrite name foo.example.com foo.default.svc.cluster.local
-    kubernetes cluster.local {
-      cidrs 10.0.0.0/24
-    }
+    kubernetes cluster.local 10.0.0.0/24
     proxy . /etc/resolv.conf
     cache 30
 }
@@ -107,9 +103,7 @@ data:
         log stdout
         health
         rewrite name foo.example.com foo.default.svc.cluster.local
-        kubernetes cluster.local {
-          cidrs 10.0.0.0/24
-        }
+        kubernetes cluster.local 10.0.0.0/24
         file /etc/coredns/example.db example.org
         proxy . /etc/resolv.conf
         cache 30

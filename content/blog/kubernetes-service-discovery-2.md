@@ -71,9 +71,7 @@ data:
         errors
         log stdout
         health
-        kubernetes cluster.local {
-          cidrs 10.3.0.0/24
-        }
+        kubernetes cluster.local 10.3.0.0/24
         proxy . /etc/resolv.conf
         cache 30
     }
@@ -163,15 +161,13 @@ previous blog post.
     errors
     log stdout
     health
-    kubernetes cluster.local {
-      cidrs 10.3.0.0/24
-    }
+    kubernetes cluster.local 10.3.0.0/24
     proxy . /etc/resolv.conf
     cache 30
 }
 ~~~
 
-The one difference though, is the `cidrs 10.3.0.0/24` directive. This tells the
+The one difference though, is the additions of `10.3.0.0/24` zone. This tells the
 Kubernetes middleware that it is responsible for serving `PTR` requests for the reverse
 zone `0.3.10.in-addr.arpa.`. In other words, this is what allows reverse DNS
 resolution of services. Let's give that a try:
