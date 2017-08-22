@@ -5,8 +5,8 @@ weight = 10
 tags = [  "middleware" , "alias" ]
 categories = [ "middleware", "external" ]
 date = "2017-07-25T21:57:00+08:00"
-repo = "https://github.com/serverwentdown/coredns/middleware/alias"
-home = "https://github.com/serverwentdown/coredns/blob/master/middleware/alias/README.md"
+repo = "https://github.com/serverwentdown/alias"
+home = "https://github.com/serverwentdown/alias/blob/master/README.md"
 +++
 
 The *alias* middleware eliminates CNAME records from zone apex by making the subsequent resolved
