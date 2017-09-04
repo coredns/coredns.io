@@ -17,4 +17,4 @@ which may be backwards incompatible, in a sane manor:
 > PATCH version when you make backwards-compatible bug fixes.
 
 With respect to Go, we will support the **last two** released version. At the time of the writing
-this means we develop in Go1.9, but still support Go1.8.
+this means we develop in Go1.9, and support Go1.8.
