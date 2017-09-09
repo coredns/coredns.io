@@ -120,3 +120,28 @@ CoreDNS: `kill -SIGUSR1 <pid_of_coredns>`. And query again:
 
 Read more about the [*cache*](/middleware/cache) and [*proxy*](/middleware/proxy) middleware on
 this website. And find all other documentation [here](/tags/documentation).
+
+## Possible errors and how to get around them
+
+The [*health*](/middleware/health)'s documention states "This middleware only needs to be enabled
+once.", which might lead you to think:
+
+~~~ txt
+health
+
+. {
+    whoami
+}
+~~~
+Which doesn't work and leads to the somewhat cryptic error: "Corefile:3 - Error during parsing:
+Unknown directive '.'". What happens here? `Health` is seen as zone (i.e. `.health`) and now the
+parser expect to see directives (`cache`, `etcd`, etc.), but instead the next token is `.`, which
+isn't a directive. The Corefile should be constructed as follows:
+~~~ txt
+. {
+    whoami
+    health
+}
+~~~
+That line in the *health*'s documentation means that once *health* is specified, it is global for
+the entire CoreDNS process, even though you've only specified it for one server.
