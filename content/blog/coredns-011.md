@@ -16,7 +16,8 @@ Release v011 is a major release, with backwards incompatible changes in the *kub
 
 ## Core
 
-**This release has backwards incompatible changes** for the *kubernetes* middleware
+**This release has backwards incompatible changes** for the *kubernetes* middleware.
+
 * Stop vendoring `github.com/miekg/dns` and `golang.org/x/net/context`. This enables external middleware to compile without tripping over vendored types that mismatch.
 * Allow an easy way to specify reverse zones in the Corefile, just use (e.g) `10.0.0.0/24` as the zone name,
   CoreDNS translates this to 0.0.10.in-addr.arpa. This is only done when the netmask is a multiple of 8 and for both IPv4 and IPv6.
