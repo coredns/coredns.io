@@ -1,10 +1,10 @@
 +++
 title = "cache"
 description = "*cache* enables a frontend cache. It will cache all records except zone transfers and metadata records."
-weight = 3
+weight = 4
 tags = [ "middleware", "cache" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.833163"
+date = "2017-09-10T18:11:52.762512"
 +++
 
 ## Syntax

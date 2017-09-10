@@ -1,10 +1,10 @@
 +++
 title = "file"
 description = "*file* enables serving zone data from an RFC 1035-style master file."
-weight = 11
+weight = 13
 tags = [ "middleware", "file" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.836054"
+date = "2017-09-10T18:11:52.763913"
 +++
 
 The file middleware is used for an "old-style" DNS server. It serves from a preloaded file that exists
@@ -44,7 +44,8 @@ file DBFILE [ZONES... ] {
   file. This option disables that behavior.
 * `upstream` defines upstream resolvers to be used resolve external names found (think CNAMEs)
   pointing to external names. This is only really useful when CoreDNS is configured as a proxy, for
-  normal authoritative serving you don't need *or* want to use this.
+  normal authoritative serving you don't need *or* want to use this. **ADDRESS** can be an IP
+  address, and IP:port or a string pointing to a file that is structured as /etc/resolv.conf.
 
 ## Examples
 

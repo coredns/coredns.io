@@ -1,10 +1,10 @@
 +++
 title = "hosts"
 description = "*hosts* enables serving zone data from a `/etc/hosts` style file."
-weight = 13
+weight = 15
 tags = [ "middleware", "hosts" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.836685"
+date = "2017-09-10T18:11:52.764175"
 +++
 
 The hosts middleware is useful for serving zones from a /etc/hosts file. It serves from a preloaded

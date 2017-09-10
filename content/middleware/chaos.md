@@ -1,10 +1,10 @@
 +++
 title = "chaos"
 description = "The *chaos* middleware allows CoreDNS to respond to TXT queries in the CH class."
-weight = 4
+weight = 5
 tags = [ "middleware", "chaos" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.833526"
+date = "2017-09-10T18:11:52.762643"
 +++
 
 This is useful for retrieving version or author information from the server.

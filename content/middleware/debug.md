@@ -1,10 +1,10 @@
 +++
 title = "debug"
 description = "*debug* disables the automatic recovery upon a CoreDNS crash so that you'll get a nice stack trace."
-weight = 5
+weight = 6
 tags = [ "middleware", "debug" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.833872"
+date = "2017-09-10T18:11:52.762769"
 +++
 
 Note that the *errors* middleware (if loaded) will also set a `recover` negating this setting.

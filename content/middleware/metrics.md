@@ -1,10 +1,10 @@
 +++
 title = "prometheus"
 description = "This module enables prometheus metrics for CoreDNS."
-weight = 17
+weight = 19
 tags = [ "middleware", "metrics" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.838248"
+date = "2017-09-10T18:11:52.764877"
 +++
 
 The default location for the metrics is `localhost:9153`. The metrics path is fixed to `/metrics`.
