@@ -1,10 +1,10 @@
 +++
 title = "etcd"
 description = "*etcd* enables reading zone data from an etcd instance. The data in etcd has to be encoded as a [message](https://github.com/skynetservices/skydns/blob/2fcff74cdc9f9a7dd64189a447ef27ac354b725f/msg/service.go#L26) like [SkyDNS](https://github.com/skynetservices/skydns). It should also work just like SkyDNS."
-weight = 10
+weight = 11
 tags = [ "middleware", "etcd" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.835659"
+date = "2017-09-10T18:11:52.763610"
 +++
 
 The etcd middleware makes extensive use of the proxy middleware to forward and query other servers
@@ -26,16 +26,18 @@ If you want to `round robin` A and AAAA responses look at the `loadbalance` midd
 ~~~
 etcd [ZONES...] {
     stubzones
+    fallthrough
     path PATH
     endpoint ENDPOINT...
     upstream ADDRESS...
-    tls CERT KEY CACERt
+    tls CERT KEY CACERT
     debug
 }
 ~~~
 
 * `stubzones` enables the stub zones feature. The stubzone is *only* done in the etcd tree located
     under the *first* zone specified.
+* `fallthrough` If zone matches but no record can be generated, pass request to the next middleware.
 * **PATH** the path inside etcd. Defaults to "/skydns".
 * **ENDPOINT** the etcd endpoints. Defaults to "http://localhost:2397".
 * `upstream` upstream resolvers to be used resolve external names found in etcd (think CNAMEs)

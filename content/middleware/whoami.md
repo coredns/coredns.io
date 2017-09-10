@@ -1,10 +1,10 @@
 +++
 title = "whoami"
 description = "*whoami* returns your local IP address, port and transport used. Your local IP address is returned in the additional section as either an A or AAAA record."
-weight = 26
+weight = 28
 tags = [ "middleware", "whoami" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.841767"
+date = "2017-09-10T18:11:52.767138"
 +++
 
 The port and transport are included in the additional section as a SRV record, transport can be

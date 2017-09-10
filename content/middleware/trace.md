@@ -1,10 +1,10 @@
 +++
 title = "trace"
 description = "This module enables OpenTracing-based tracing of DNS requests as they go through the middleware chain."
-weight = 25
+weight = 27
 tags = [ "middleware", "trace" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.841398"
+date = "2017-09-10T18:11:52.766958"
 +++
 
 ## Syntax

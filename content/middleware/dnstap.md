@@ -1,10 +1,10 @@
 +++
 title = "dnstap"
 description = "*dnstap* enables logging to dnstap, a flexible, structured binary log format for DNS software: http://dnstap.info."
-weight = 7
+weight = 8
 tags = [ "middleware", "dnstap" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.834421"
+date = "2017-09-10T18:11:52.763093"
 +++
 
 There is a buffer, expect at least 13 requests before the server sends its dnstap messages to the socket.
@@ -29,7 +29,13 @@ dnstap /tmp/dnstap.sock
 Log information including the wire-format DNS message about client requests and responses to */tmp/dnstap.sock*.
 
 ~~~ txt
-dnstap /tmp/dnstap.sock full
+dnstap unix:///tmp/dnstap.sock full
+~~~
+
+Log to a remote endpoint.
+
+~~~ txt
+dnstap tcp://127.0.0.1:6000 full
 ~~~
 
 ## Dnstap command line tool
@@ -51,4 +57,10 @@ The following command listens on the given socket and saves message payloads to 
 
 ~~~ sh
 dnstap -u /tmp/dnstap.sock -w /tmp/test.dnstap
+~~~
+
+Listen for dnstap messages on port 6000.
+
+~~~ sh
+dnstap -l 127.0.0.1:6000
 ~~~

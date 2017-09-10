@@ -1,10 +1,10 @@
 +++
 title = "loadbalance"
 description = "*loadbalance* acts as a round-robin DNS loadbalancer by randomizing the order of A and AAAA records  in the answer."
-weight = 15
+weight = 17
 tags = [ "middleware", "loadbalance" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.837565"
+date = "2017-09-10T18:11:52.764551"
 +++
  
  See [Wikipedia](https://en.wikipedia.org/wiki/Round-robin_DNS) about the pros and cons on this

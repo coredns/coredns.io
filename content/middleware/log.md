@@ -1,10 +1,10 @@
 +++
 title = "log"
 description = "*log* enables query logging to standard output."
-weight = 16
+weight = 18
 tags = [ "middleware", "log" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.837906"
+date = "2017-09-10T18:11:52.764725"
 +++
 
 ## Syntax
@@ -60,26 +60,28 @@ response placeholders.
 
 The following place holders are supported:
 
-* `{type}`: qtype of the request.
-* `{name}`: qname of the request.
-* `{class}`: qclass of the request.
-* `{proto}`: protocol used (tcp or udp).
-* `{when}`: time of the query.
-* `{remote}`: client's IP address.
-* `{size}`: request size in bytes.
-* `{port}`: client's port.
-* `{duration}`: response duration.
-* `{>bufsize}`: the EDNS0 buffer size advertised.
-* `{>do}`: is the EDNS0 DO (DNSSEC OK) bit set.
+* `{type}`: qtype of the request
+* `{name}`: qname of the request
+* `{class}`: qclass of the request
+* `{proto}`: protocol used (tcp or udp)
+* `{when}`: time of the query
+* `{remote}`: client's IP address
+* `{size}`: request size in bytes
+* `{port}`: client's port
+* `{duration}`: response duration
+* `{rcode}`: response RCODE
+* `{rsize}`: response size
+* `{>rflags}`: response flags, each set flag will be displayed, e.g. "aa, tc". This includes the qr
+  bit as well.
+* `{>bufsize}`: the EDNS0 buffer size advertised in the query
+* `{>do}`: is the EDNS0 DO (DNSSEC OK) bit set in the query
 * `{>id}`: query ID
-* `{>opcode}`: query OPCODE.
-* `{rcode}`: response RCODE.
-* `{rsize}`: response size.
+* `{>opcode}`: query OPCODE
 
 The default Common Log Format is:
 
 ~~~ txt
-`{remote} - [{when}] "{type} {class} {name} {proto} {size} {>do} {>bufsize}" {rcode} {rsize} {duration}`
+`{remote} - [{when}] "{type} {class} {name} {proto} {size} {>do} {>bufsize}" {rcode} {>rflags} {rsize} {duration}`
 ~~~
 
 ## Examples

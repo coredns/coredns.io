@@ -1,10 +1,10 @@
 +++
 title = "errors"
 description = "*errors* enables error logging."
-weight = 9
+weight = 10
 tags = [ "middleware", "errors" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.835148"
+date = "2017-09-10T18:11:52.763391"
 +++
 
 Any errors encountered during the query processing will be printed on standard output.

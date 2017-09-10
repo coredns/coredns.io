@@ -4,7 +4,7 @@ description = "*auto* enables serving zone data from an RFC 1035-style master fi
 weight = 1
 tags = [ "middleware", "auto" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.832323"
+date = "2017-09-10T18:11:52.761867"
 +++
 
 The *auto* middleware is used for an "old-style" DNS server. It serves from a preloaded file that exists
@@ -35,7 +35,8 @@ are used.
 * `no_reload` by default CoreDNS will reload a zone from disk whenever it detects a change to the
   file. This option disables that behavior.
 * `upstream` defines upstream resolvers to be used resolve external names found (think CNAMEs)
-  pointing to external names.
+  pointing to external names. **ADDRESS** can be an IP address, and IP:port or a string pointing to
+  a file that is structured as /etc/resolv.conf.
 
 All directives from the *file* middleware are supported. Note that *auto* will load all zones found,
 even though the directive might only receive queries for a specific zone. I.e:

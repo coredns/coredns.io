@@ -1,10 +1,10 @@
 +++
 title = "tls"
 description = "*tls* allows you to configure the server certificates for the TLS and gRPC servers. For other types of servers it is ignored."
-weight = 24
+weight = 26
 tags = [ "middleware", "tls" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.840973"
+date = "2017-09-10T18:11:52.766707"
 +++
 
 ## Syntax

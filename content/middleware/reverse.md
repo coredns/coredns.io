@@ -1,10 +1,10 @@
 +++
 title = "reverse"
 description = "The *reverse* middleware allows CoreDNS to respond dynamically to a PTR request and the related A/AAAA request."
-weight = 20
+weight = 22
 tags = [ "middleware", "reverse" ]
 categories = [ "middleware" ]
-date = "2017-07-27T12:53:47.839592"
+date = "2017-09-10T18:11:52.765679"
 +++
 
 ## Syntax
