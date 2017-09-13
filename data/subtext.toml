@@ -13,7 +13,7 @@ News covering CoreDNS.
 
 [plugin]
   content = """
-Here you can find all [in-tree](https://github.com/coredns/coredns/tree/master/plugins) plugins for CoreDNS.
+Here you can find all [in-tree](https://github.com/coredns/coredns/tree/master/plugin) plugins for CoreDNS.
   """
 
 [explugin]
