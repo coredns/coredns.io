@@ -38,7 +38,7 @@ message:
     example.org.        86339   IN      A       93.184.216.34
 ~~~
 
-A [*dnstap* plugin]({{< relref "plugin/dnstap.md" >}}) has been added in [CoreDNS-010]({{< relref "blog/coredns-010.md" >}}).
+A [*dnstap* plugin]({{< relref "plugins/dnstap.md" >}}) has been added in [CoreDNS-010]({{< relref "blog/coredns-010.md" >}}).
 Currently it can only log client level messages. Logging for additional types of exchanges is being implemented.
 
 The *dnstap* plugin is used in combination with the **dnstap** command-line tool.

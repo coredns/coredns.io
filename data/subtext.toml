@@ -11,14 +11,14 @@ How to use CoreDNS.
 News covering CoreDNS.
   """
 
-[middleware]
+[plugin]
   content = """
-Here you can find all [in-tree](https://github.com/coredns/coredns/tree/master/middleware) middleware for CoreDNS.
+Here you can find all [in-tree](https://github.com/coredns/coredns/tree/master/plugins) plugins for CoreDNS.
   """
 
-[exmiddleware]
+[explugin]
   content = """
-Here you can find all out-of-tree middleware for CoreDNS.
+Here you can find all out-of-tree plugins for CoreDNS.
   """
 
 [community]

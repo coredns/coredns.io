@@ -166,7 +166,7 @@ cfg := dnsserver.GetConfig(c)
 mid := func(next plugin.Handler) plugin.Handler {
   return MyHandler{Next: next}
 }
-cfg.AddMiddleware(mid)
+cfg.AddPlugin(mid)
 ```
 
 And you're done! Of course, in this example, we simply allocated a `MyHandler` with no special

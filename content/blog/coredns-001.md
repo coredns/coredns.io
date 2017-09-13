@@ -32,7 +32,7 @@ The core (ghe!) of CoreDNS is now in a good shape. Future work will focus on mak
 plugin better, e.g. the proxy implementation is slow and needs to be
 [faster](https://github.com/coredns/coredns/issues/184).
 
-## New Middlewares
+## New Plugins
 
 * There is now a [specific
   plugin](https://github.com/coredns/coredns/tree/master/plugin/kubernetes) to deal with [Kubernetes](https://kubernetes.io).
