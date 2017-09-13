@@ -3,19 +3,19 @@
 {{ define "main"}}
 <div id="main">
   <div id="hero">
-    <h1>Middleware</h1>
-    {{ .Site.Data.subtext.middleware.content | markdownify }}
+    <h1>Plugins</h1>
+    {{ .Site.Data.subtext.plugin.content | markdownify }}
     <p></p>
 
-    {{ .Scratch.Set "url1" "/2017/03/01/how-to-add-middleware-to-coredns/" }}
-    {{ .Scratch.Set "link1" "How to Write Middleware" }}
+    {{ .Scratch.Set "url1" "/2017/03/01/how-to-add-plugins-to-coredns/" }}
+    {{ .Scratch.Set "link1" "How to Write Plugins" }}
     {{ .Scratch.Set "class1" "primary" }}
 
-    {{ .Scratch.Set "url2" "/2017/07/25/compile-time-enabling-or-disabling-middleware/" }}
-    {{ .Scratch.Set "link2" "How to Enable Middleware" }}
+    {{ .Scratch.Set "url2" "/2017/07/25/compile-time-enabling-or-disabling-plugins/" }}
+    {{ .Scratch.Set "link2" "How to Enable Plugins" }}
     {{ .Scratch.Set "class2" "outline" }}
 
-    {{ partial "middleware-action-button" . }}
+    {{ partial "plugin-action-button" . }}
 
   </div>
   <div id="components">

@@ -13,7 +13,7 @@ We have three types of pages.
 
 * Home - `themes/coredns/layouts/index.html`
 * Blog/News/Documentation - `content/blog/*` (depends on params, see `archetypes`)
-* Middleware - `content/middleware/*` and `content/exmiddleware/*`
+* Plugins - `content/plugins/*` and `content/explugins/*`
 
 Any blog post you'll tag with 'documentation' will also become visible on the "Documentation"
 link on the website.
@@ -21,7 +21,7 @@ link on the website.
 Releases should be tagged with 'release = "number" and `data/coredns.toml` should be updated
 with the number.
 
-`data/subtext.toml` controls the buttons for "Docs", "Middleware" and "External Middleware".
+`data/subtext.toml` controls the buttons for "Docs", "Plugins" and "External Plugins".
 
 Create:
 
