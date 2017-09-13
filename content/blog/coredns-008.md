@@ -9,9 +9,9 @@ author = "john"
 
 CoreDNS-008 has been [released](https://github.com/coredns/coredns/releases/tag/v008)!
 
-CoreDNS is a DNS server that chains middleware, where each middleware implements a DNS feature.
+CoreDNS is a DNS server that chains plugins, where each plugin implements a DNS feature.
 
-Release v008 has a lot of content, with new middleware and major features added to existing middleware.
+Release v008 has a lot of content, with new plugin and major features added to existing plugin.
 
 Please note there is an *incompatible* change to the `log` directive - it now only logs to `stdout` and so
 only allows `stdout` as the file name (which of course may be omitted).
@@ -20,7 +20,7 @@ only allows `stdout` as the file name (which of course may be omitted).
 
 * `-log` flag was changed into a boolean as all logging will be written to standard output.
 
-# Middleware
+# Plugin
 
 ## New
 

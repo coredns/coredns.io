@@ -10,7 +10,7 @@ The `Corefile` is CoreDNS's configuration file. It defines:
 
 * What servers listen on what ports and which protocol.
 * For which zone each server is authoritative.
-* What middleware is loaded in a server.
+* What plugin is loaded in a server.
 
 To explain more, let take a look at this "Corefile":
 
@@ -22,8 +22,8 @@ ZONE:[PORT] {
 
 * **ZONE** defines the zone this server. The optional **PORT** defaults to 53, if not given (or
   whatever the `-dns.port` flag has as a value.
-* **MIDDLEWARE** defines the middleware we want to load. This is optional as well, but as server
-  with no middleware will just return SERVFAIL for all queries.
+* **MIDDLEWARE** defines the plugin we want to load. This is optional as well, but as server
+  with no plugin will just return SERVFAIL for all queries.
 
 This is the most minimal Corefile:
 
@@ -54,8 +54,8 @@ number on the second server and thereby creating *another* server, it is OK:
 ~~~
 
 When defining a new zone, you either create a new server, or add it to an existing one - but you can
-redefine the middleware for it. Here we define *one* server that handles two zones; that potentially
-chain different middleware:
+redefine the plugin for it. Here we define *one* server that handles two zones; that potentially
+chain different plugin:
 
 ~~~ txt
 example.org {
@@ -67,7 +67,7 @@ org {
 ~~~
 
 Note that most specific zone wins when a query comes in, so any `example.org` queries are going
-through the middleware defined for `example.org` above. The rest is handled by `.`.
+through the plugin defined for `example.org` above. The rest is handled by `.`.
 
 ## Reverse Zones
 

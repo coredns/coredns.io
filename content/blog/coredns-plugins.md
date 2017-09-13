@@ -1,29 +1,29 @@
 +++
 date = "2016-12-19T08:00:24Z"
-description = "A introduction into writing middleware for CoreDNS"
-tags = ["middleware", "coredns", "plugins", "documentation"]
-title = "Writing Middleware for CoreDNS"
+description = "A introduction into writing plugin for CoreDNS"
+tags = ["plugin", "coredns", "plugins", "documentation"]
+title = "Writing Plugin for CoreDNS"
 author = "miek"
 +++
 
-As CoreDNS uses Caddy for setting up and using middleware, the process of writing middleware is
+As CoreDNS uses Caddy for setting up and using plugin, the process of writing plugin is
 remarkably [similar](https://github.com/mholt/caddy/wiki/Writing-a-Plugin:-Directives). This post
 slightly reworks (and simplifies in some cases) those pages.
 
-A new middleware adds new functionality to CoreDNS, i.e. *caching*, *metrics* and basic *zone* file
+A new plugin adds new functionality to CoreDNS, i.e. *caching*, *metrics* and basic *zone* file
 serving are all middlewares.
 
-If you want to write a new middleware and want it to be included by default, i.e. merged in the code
+If you want to write a new plugin and want it to be included by default, i.e. merged in the code
 base please open an [issue](https://github.com/coredns/coredns/issues) first to discuss initial design
 and other things that may come up.
 
-## How to Register a CoreDNS Middleware
+## How to Register a CoreDNS Plugin
 
 [Caddy](https://caddyserver.com) supports different type of plugins, CoreDNS, for instance,
 registers itself as a Caddy server type plugin. CoreDNS currently supports one type of plugins;
-a *middleware*.
+a *plugin*.
 
-Start a new Go package with an init function. Then register your middleware:
+Start a new Go package with an init function. Then register your plugin:
 
 ```go
 import "github.com/mholt/caddy"
@@ -36,7 +36,7 @@ func init() {
 }
 ```
 
-Every middleware must have a name, `foo`, in this case. The *ServerType* must be `dns`. The *Action*
+Every plugin must have a name, `foo`, in this case. The *ServerType* must be `dns`. The *Action*
 speficied here is to say it will call a function called `setup` whenever the *directive* `foo` is
 encountered in the Corefile.
 
@@ -46,13 +46,13 @@ The *Action* field of the `caddy.Plugin` struct is what makes a directive plugin
 function to run when CoreDNS is parsing and executing the Corefile.
 
 The action is simply a function that takes a caddy.Controller and returns an error:
-(We use [middleware.Error](https://godoc.org/github.com/coredns/coredns/middleware#Error) to prefix
-returned error with `middleware/foo: ` to improve error reporting).
+(We use [plugin.Error](https://godoc.org/github.com/coredns/coredns/plugin#Error) to prefix
+returned error with `plugin/foo: ` to improve error reporting).
 
 ``` go
 func setup(c *caddy.Controller) error {
   if err != nil {
-    return middleware.Error("foo", err)
+    return plugin.Error("foo", err)
   }
 
   return nil
@@ -84,7 +84,7 @@ directive name).
 
 ### Adding to CoreDNS
 
-To plug your middleware into CoreDNS, import it. This is done in
+To plug your plugin into CoreDNS, import it. This is done in
 [core/coredns.go](https://github.com/coredns/coredns/blob/master/core/coredns.go):
 
 
@@ -95,35 +95,35 @@ import _ "your/plugin/package/path/here"
 This makes CoreDNS compile your plugin, but it is still not available, so the second step is
 to add it to [directives.go](https://github.com/coredns/coredns/blob/master/core/dnsserver/directives.go):
 
-Add the name (`foo`) of your middleware at the end of the file in the `directives` string slice.
+Add the name (`foo`) of your plugin at the end of the file in the `directives` string slice.
 Note the ordering is important, because this is determines how the plugins are chained together.
 
-## How DNS Middleware Works in CoreDNS
+## How DNS Plugin Works in CoreDNS
 
-Check out the [godoc for the middleware
-package](http://godoc.org/github.com/coredns/coredns/middleware). The most important type is
-[middleware.Handler](https://godoc.org/github.com/coredns/coredns/middleware#Handler).
+Check out the [godoc for the plugin
+package](http://godoc.org/github.com/coredns/coredns/plugin). The most important type is
+[plugin.Handler](https://godoc.org/github.com/coredns/coredns/plugin#Handler).
 
 A `Handler` is a function that handles a DNS request. CoreDNS will do all the bookkeeping of setting
 up an DNS server for you, but you need to implement these two types.
 
 ### Writing a Handler
 
-`middleware.Handler` is an interface similar to `http.Handler` except that it deals with DNS and the
+`plugin.Handler` is an interface similar to `http.Handler` except that it deals with DNS and the
 `ServeDNS` method returns `(int, error)`. The `int` is the DNS rcode, and the `error` is one that
 should be handled and/or logged. Read the
-[middleware.md](https://github.com/coredns/coredns/blob/master/middleware.md) doc for more details
+[plugin.md](https://github.com/coredns/coredns/blob/master/plugin.md) doc for more details
 about these return values.
 
 Handlers are usually a struct with at least one field, the next Handler in the chain:
 
 ```go
 type MyHandler struct {
-  Next middleware.Handler
+  Next plugin.Handler
 }
 ```
 
-To implement the `middleware.Handler` interface, we write a method called `ServeDNS`.
+To implement the `plugin.Handler` interface, we write a method called `ServeDNS`.
 This method is the actual handler function, and, unless it fully handles the request by itself, it
 should call the next handler in the chain:
 
@@ -133,8 +133,8 @@ func (h MyHandler) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dns.Ms
 }
 ```
 
-The interface also needs a method `func Name() string`, this is mainly used to see if an middleware
-is active, i.e. the *auto* middleware used this to detect if *metrics* are active and if so, adds
+The interface also needs a method `func Name() string`, this is mainly used to see if an plugin
+is active, i.e. the *auto* plugin used this to detect if *metrics* are active and if so, adds
 updates the zone info.
 
 ```go
@@ -145,7 +145,7 @@ That's all there is to it.
 
 ## How to Add the Handler to CoreDNS
 
-So, back in your setup function. You've just parsed the tokens and set up your middleware handler
+So, back in your setup function. You've just parsed the tokens and set up your plugin handler
 with all the proper configuration:
 
 ```go
@@ -159,11 +159,11 @@ func setup(c *caddy.Controller) error {
 ```
 
 To chain in your new handler, get the config for the current site from the dnsserver package.
-Then wrap your handler in a middleware function:
+Then wrap your handler in a plugin function:
 
 ```go
 cfg := dnsserver.GetConfig(c)
-mid := func(next middleware.Handler) middleware.Handler {
+mid := func(next plugin.Handler) plugin.Handler {
   return MyHandler{Next: next}
 }
 cfg.AddMiddleware(mid)
@@ -174,11 +174,11 @@ configuration. It doesn't really matter as long as you chain in the `next` handl
 
 ## Examples
 
-Simple examples of middleware that can be found in CoreDNS are:
+Simple examples of plugin that can be found in CoreDNS are:
 
-* [root](https://godoc.org/github.com/coredns/coredns/middleware/root); does not register itself as
-  a middleware. It simply performs some setup.
-* [chaos](https://godoc.org/github.com/coredns/coredns/middleware/chaos); a DNS middleware that
+* [root](https://godoc.org/github.com/coredns/coredns/plugin/root); does not register itself as
+  a plugin. It simply performs some setup.
+* [chaos](https://godoc.org/github.com/coredns/coredns/plugin/chaos); a DNS plugin that
   responds to `CH txt version.bind` requests.
 
 **Don't forget: the best documentation is the [godoc](https://godoc.org/github.com/coredns/coredns)

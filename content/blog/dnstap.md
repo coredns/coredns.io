@@ -1,7 +1,7 @@
 +++
 title = "Logging with dnstap"
 description = "dnstap is a flexible, structured binary log format for DNS software."
-tags = ["dnstap", "log", "middleware"]
+tags = ["dnstap", "log", "plugin"]
 date = "2017-08-03T10:25:28+02:00"
 author = "varyoo"
 +++
@@ -38,19 +38,19 @@ message:
     example.org.        86339   IN      A       93.184.216.34
 ~~~
 
-A [*dnstap* middleware]({{< relref "middleware/dnstap.md" >}}) has been added in [CoreDNS-010]({{< relref "blog/coredns-010.md" >}}).
+A [*dnstap* plugin]({{< relref "plugin/dnstap.md" >}}) has been added in [CoreDNS-010]({{< relref "blog/coredns-010.md" >}}).
 Currently it can only log client level messages. Logging for additional types of exchanges is being implemented.
 
-The *dnstap* middleware is used in combination with the **dnstap** command-line tool.
-They use a socket to communicate: the middleware will send the logs as long as the tool is listening.
+The *dnstap* plugin is used in combination with the **dnstap** command-line tool.
+They use a socket to communicate: the plugin will send the logs as long as the tool is listening.
 
-To start with the *dnstap* middleware add it to the Corefile in a server block:
+To start with the *dnstap* plugin add it to the Corefile in a server block:
 
 ~~~ text
 dnstap /tmp/dnstap.sock full
 ~~~
 
-With the `full` option given to the *dnstap* middleware you will also include the full (binary) data
+With the `full` option given to the *dnstap* plugin you will also include the full (binary) data
 of the DNS message.
 Now you can use the *dnstap* tool to read from the socket where CoreDNS writes to.
 

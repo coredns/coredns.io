@@ -9,7 +9,7 @@ author = "miek"
 
 CoreDNS-003 has been [released](https://github.com/coredns/coredns/releases)!
 
-CoreDNS is a DNS server that chains middleware, where each middleware implements a DNS feature.
+CoreDNS is a DNS server that chains plugins, where each plugin implements a DNS feature.
 
 # What is New
 
@@ -17,7 +17,7 @@ CoreDNS is a DNS server that chains middleware, where each middleware implements
 
 Refused queries are properly logged and exported if metrics are enabled.
 
-## Middleware improvements
+## Plugin improvements
 
 * *proxy*: allow  `/etc/resolv.conf` to be used in the configuration.
 * *metrics*: add tests and normalize some of the metrics. Removed the AXFR size metrics.

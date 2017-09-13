@@ -10,19 +10,19 @@ author = "john"
 
 CoreDNS-010 has been [released](https://github.com/coredns/coredns/releases/tag/v010)!
 
-CoreDNS is a DNS server that chains middleware, where each middleware implements a DNS feature.
+CoreDNS is a DNS server that chains plugins, where each plugin implements a DNS feature.
 
-Release v010 is mostly a bugfix release, with one new middleware - *dnstap*.
+Release v010 is mostly a bugfix release, with one new plugin - *dnstap*.
 
 # Core
 
 No changes.
 
-# Middleware
+# Plugin
 
 ## New
 
-* *dnstap* is a new middleware that allows you to get dnstap information from CoreDNS.
+* *dnstap* is a new plugin that allows you to get dnstap information from CoreDNS.
 
 ## Updates
 

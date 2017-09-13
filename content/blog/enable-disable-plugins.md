@@ -1,19 +1,19 @@
 +++
-title = "Compile Time Enabling or Disabling Middleware"
-description = "Enable or Disable middleware when compiling CoreDNS"
+title = "Compile Time Enabling or Disabling Plugin"
+description = "Enable or Disable plugin when compiling CoreDNS"
 tags = ["Documentation"]
 draft = false
 date = "2017-07-25T16:07:39+01:00"
 author = "miek"
 +++
 
-CoreDNS' [middleware](/middleware) (or [external middleware](/exmiddleware)) can be enabled or
+CoreDNS' [plugin](/plugin) (or [external plugin](/exmiddleware)) can be enabled or
 disabled on the fly by specifying (or not specifying) it in the
 [Corefile](/2017/07/23/corefile-explained/). But you can also compile CoreDNS with only the
-middleware you *need* and leave the rest completely out.
+plugin you *need* and leave the rest completely out.
 
 All this is done via one compile-time configuration file,
-[`middleware.cfg`](https://github.com/coredns/coredns/blob/master/middleware.cfg). It looks like this:
+[`plugin.cfg`](https://github.com/coredns/coredns/blob/master/plugin.cfg). It looks like this:
 
 ~~~
 ...
@@ -23,10 +23,10 @@ All this is done via one compile-time configuration file,
 ...
 ~~~
 
-The number specifies the ordering of the middleware (they are called in this order - *if* enabled in
+The number specifies the ordering of the plugin (they are called in this order - *if* enabled in
 the [Corefile](/2017/07/23/corefile-explained/) - by CoreDNS). Then a **name** and a **repository**.
-Just add or remove your middleware in this file.
+Just add or remove your plugin in this file.
 
-Then do a `go get <middleware-repo-path>` if you need to get the external middleware's source code.
+Then do a `go get <plugin-repo-path>` if you need to get the external plugin's source code.
 And then just compile CoreDNS with `go generate` and a `go build`. You can then check if CoreDNS has
-the new middleware with `coredns -plugins`.
+the new plugin with `coredns -plugins`.

@@ -10,20 +10,20 @@ author = "miek"
 
 CoreDNS-011 has been [released](https://github.com/coredns/coredns/releases/tag/v011)!
 
-CoreDNS is a DNS server that chains middleware, where each middleware implements a DNS feature.
+CoreDNS is a DNS server that chains plugins, where each plugin implements a DNS feature.
 
-Release v011 is a major release, with backwards incompatible changes in the *kubernetes* middleware.
+Release v011 is a major release, with backwards incompatible changes in the *kubernetes* plugin.
 
 ## Core
 
-**This release has backwards incompatible changes** for the *kubernetes* middleware.
+**This release has backwards incompatible changes** for the *kubernetes* plugin.
 
-* Stop vendoring `github.com/miekg/dns` and `golang.org/x/net/context`. This enables external middleware to compile without tripping over vendored types that mismatch.
+* Stop vendoring `github.com/miekg/dns` and `golang.org/x/net/context`. This enables external plugin to compile without tripping over vendored types that mismatch.
 * Allow an easy way to specify reverse zones in the Corefile, just use (e.g) `10.0.0.0/24` as the zone name,
   CoreDNS translates this to 0.0.10.in-addr.arpa. This is only done when the netmask is a multiple of 8 and for both IPv4 and IPv6.
 * Bug and stability fixes.
 
-## Middleware
+## Plugin
 
 Make *kubernetes*, *file*, *secondary*, *hosts*, *erratic* and *metrics* now fail on unknown properties in the Corefile.
 
@@ -37,8 +37,8 @@ Make *kubernetes*, *file*, *secondary*, *hosts*, *erratic* and *metrics* now fai
 * *log* adds an `>rflags` replacer that shows the flags from the response - this has been enabled by default.
 * *kubernetes* deprecates:
    * `cidr`: use the reverse syntax in the Corefile
-   * `federation`: use the new *federation* middleware
-   * `autopath`: use the new *autopath* middleware
+   * `federation`: use the new *federation* plugin
+   * `autopath`: use the new *autopath* plugin
 * *kubernetes*:
    * add TTL option allowing to set minimal TTL for responses.
    * Multiple k8s API endpoints could be specified, separated by `","`s, e.g. `endpoint http://k8s-endpoint1:8080,http://k8s-endpoint2:8080`. CoreDNS will automatically perform a healthcheck and proxy to the healthy k8s API endpoint.
@@ -48,7 +48,7 @@ Make *kubernetes*, *file*, *secondary*, *hosts*, *erratic* and *metrics* now fai
    * add support for EDNS0 Client Subnet
 * *dnstap* now reports messages proxied by *proxy*, and support remote IP endpoints by specifying `tcp://`.
 * *dnssec* now warns if keys can't be used to sign the configured zones.
-* *health* now allows for per middleware health status; no middleware makes use of this yet, though.
+* *health* now allows for per plugin health status; no plugin makes use of this yet, though.
 * *secondary* parses a secondary with a zone (`secondary example.org {...}`) correctly.
 
 ## Contributors

@@ -9,7 +9,7 @@ author = "miek"
 
 CoreDNS-002 has been [released](https://github.com/coredns/coredns/releases)!
 
-CoreDNS is a DNS server that chains middleware, where each middleware implements a DNS feature.
+CoreDNS is a DNS server that chains plugins, where each plugin implements a DNS feature.
 
 ## What is New
 
@@ -22,10 +22,10 @@ CoreDNS is a DNS server that chains middleware, where each middleware implements
 * Add more tests and show test coverage on submitting/PRs.
 * Various Corefile parsing bugs fixed, better syntax error detection.
 
-## Middleware improvements:
+## Plugin improvements:
 
-* middleware/root: a root middleware, same usage as in [Caddy](https://caddyserver.com/docs/root).
-  See middleware/root/README.md for its use in CoreDNS.
+* plugin/root: a root plugin, same usage as in [Caddy](https://caddyserver.com/docs/root).
+  See plugin/root/README.md for its use in CoreDNS.
   This makes stanzas like this shorter:
 
     ~~~ txt
@@ -47,7 +47,7 @@ CoreDNS is a DNS server that chains middleware, where each middleware implements
     }
     ~~~
 
-* middleware/auto: similar to the *file* middleware, but automatically picks up new zones.
+* plugin/auto: similar to the *file* plugin, but automatically picks up new zones.
   The following Corefile will load all zones found under `/etc/coredns/org` and be authoritative
   for `.org.`:
 
@@ -58,9 +58,9 @@ CoreDNS is a DNS server that chains middleware, where each middleware implements
         }
     }
     ~~~
-* middleware/file: handle wildcards better.
-* middleware/kubernetes: TLS support for kubernetes and other improvements.
-* middleware/cache: use an LRU cache to make it memory bounded. Added more option to have more
+* plugin/file: handle wildcards better.
+* plugin/kubernetes: TLS support for kubernetes and other improvements.
+* plugin/cache: use an LRU cache to make it memory bounded. Added more option to have more
   control on what is cached and for how long. The cache stanza was extended:
 
     ~~~ txt
@@ -70,12 +70,12 @@ CoreDNS is a DNS server that chains middleware, where each middleware implements
     }
     ~~~
 
-  See middleware/cache/README.md for more details.
+  See plugin/cache/README.md for more details.
 
-* middleware/dnssec: replaced go-cache with golang-lru in dnssec. Also adds a `cache_capacity`.
-  option in dnssec middleware so that the capacity of the LRU cache could be specified in the config
+* plugin/dnssec: replaced go-cache with golang-lru in dnssec. Also adds a `cache_capacity`.
+  option in dnssec plugin so that the capacity of the LRU cache could be specified in the config
   file.
-* middleware/logging: allow a response classs to be specified on log on responses matching the name *and*
+* plugin/logging: allow a response classs to be specified on log on responses matching the name *and*
   the response class. For instance only log denials for example.com:
 
     ~~~ txt
@@ -84,7 +84,7 @@ CoreDNS is a DNS server that chains middleware, where each middleware implements
     }
     ~~~
 
-* middleware/proxy: performance improvements.
+* plugin/proxy: performance improvements.
 
 # Contributors
 

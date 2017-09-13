@@ -1,7 +1,7 @@
 +++
 date = "2017-06-08T20:01:00Z"
 description = "And how it applies to Kubernetes custom DNS entries inside the cluster domain"
-tags = ["Kubernetes", "Service", "Discovery", "Kube-DNS", "Custom", "DNS", "middleware", "Documentation"]
+tags = ["Kubernetes", "Service", "Discovery", "Kube-DNS", "Custom", "DNS", "plugin", "Documentation"]
 title = "How Queries Are Processed in CoreDNS"
 author = "john"
 +++
@@ -14,13 +14,13 @@ cases for custom DNS entries in Kubernetes:
 * Adding an arbitrary entry inside the cluster domain
 
 In that post we covered the first two. In this post, we'll show you how to use the `fallthrough` option of the `kubernetes`
-middleware to satisfy the third case.
+plugin to satisfy the third case.
 
 To understand how this works, we first need to look at how CoreDNS processes requests. This was previously
 addressed in [Query Routing](/2016/10/13/query-routing/), but we'll go into a bit
 more detail here.
 
-We all know that CoreDNS chains middleware. But what exactly does that mean? To find out, we'll dissect a
+We all know that CoreDNS chains plugins. But what exactly does that mean? To find out, we'll dissect a
 Corefile and see how that translates into CoreDNS internals, and discuss how a query
 is routed through these internals.
 
@@ -63,30 +63,30 @@ visually in the diagram below.
 
 ![Query Processing](/images/query-processing.png)
 
-So, any specific query will go through exactly one middleware chain. The ordering of the middleware is dictated
-*at build time*, by the [`middleware.cfg`](https://github.com/coredns/coredns/blob/master/middleware.cfg) file,
+So, any specific query will go through exactly one plugin chain. The ordering of the plugin is dictated
+*at build time*, by the [`plugin.cfg`](https://github.com/coredns/coredns/blob/master/plugin.cfg) file,
 although there is some [discussion](https://github.com/coredns/coredns/issues/632) about making this modifiable
 at runtime. This is why even though `cache` appears at the end of the server block, it is not the end of the
-middleware chain.
+plugin chain.
 
-Notice in the `.:53` server block, we define the `health` middleware, but it doesn't appear in the diagram. This is
-because there are a few different types of middleware. "Normal" middleware perform request handling, and appear in the
-middleware chain. However, there are a few middleware that just modify the configuration of the server or server block.
-Since they don't have any request-time logic, they are not inserted in the middleware chain. Some middleware that work
-this way are the `health`, `tls`, `startup`, `shutdown`, and `root` middleware.
+Notice in the `.:53` server block, we define the `health` plugin, but it doesn't appear in the diagram. This is
+because there are a few different types of plugin. "Normal" plugin perform request handling, and appear in the
+plugin chain. However, there are a few plugin that just modify the configuration of the server or server block.
+Since they don't have any request-time logic, they are not inserted in the plugin chain. Some plugin that work
+this way are the `health`, `tls`, `startup`, `shutdown`, and `root` plugin.
 
-You can divide the middleware that do perform request-time processing into two groups: middleware that
-_manipulate_ the request in some way, and _backend_ middleware. Backend middleware provide different sources
-of zone and record data. The `etcd`, `file`, and `kubernetes` middleware are all examples of backends.
+You can divide the plugin that do perform request-time processing into two groups: plugin that
+_manipulate_ the request in some way, and _backend_ plugin. Backend plugin provide different sources
+of zone and record data. The `etcd`, `file`, and `kubernetes` plugin are all examples of backends.
 
-Middleware that manipulate the request but are not backends - that is, they are not a source of zone data - generally
-will pass the query to the next middleware after performing their logic. For example, the `rewrite` middleware makes
-a change to the request, and then passes it on. When the result is returned from the later middleware, it reverts the
+Plugin that manipulate the request but are not backends - that is, they are not a source of zone data - generally
+will pass the query to the next plugin after performing their logic. For example, the `rewrite` plugin makes
+a change to the request, and then passes it on. When the result is returned from the later plugin, it reverts the
 question section to the original (so that clients don't complain), but keeps the response and passes it back to the client.
 
 Any given backend is usually the final word for its zone - it either returns a result, or it returns NXDOMAIN for the
-query. However, occasionally this is not the desired behavior, so some of the middleware support a `fallthrough` option.
-When `fallthrough` is enabled, instead of returning NXDOMAIN when a record is not found, the middleware will pass the
+query. However, occasionally this is not the desired behavior, so some of the plugin support a `fallthrough` option.
+When `fallthrough` is enabled, instead of returning NXDOMAIN when a record is not found, the plugin will pass the
 request down the chain. A backend further down the chain then has the opportunity to handle the request.
 
 Coming back to our original discussion of the three use cases in Kubernetes, we can now understand how we can use
@@ -105,12 +105,12 @@ Coming back to our original discussion of the three use cases in Kubernetes, we 
 
 This handles the standard in-cluster DNS service discovery. The third use case is to add an arbitrary entry to the existing
 cluster domain. To do this, we define another backend for handling the `cluster.local` zone, and configure the `fallthrough`
-option in the `kubernetes` middleware. For very dynamic entries, we could use the `etcd` middleware. But for demonstration
-purposes it's simpler to use the `file` middleware, so that is what we will do.
+option in the `kubernetes` plugin. For very dynamic entries, we could use the `etcd` plugin. But for demonstration
+purposes it's simpler to use the `file` plugin, so that is what we will do.
 
-Since `kubernetes` comes before `file` in [`middleware.cfg`](https://github.com/coredns/coredns/blob/master/middleware.cfg),
+Since `kubernetes` comes before `file` in [`plugin.cfg`](https://github.com/coredns/coredns/blob/master/plugin.cfg),
 using `fallthrough` in `kubernetes` will result in `file` handling any queries that `kubernetes` does not. This means that we
-need to have a zone file as part of our ConfigMap, just like we did to handle the second use case in the previous blog. In this case, though, instead of being configured with a different zone (`example.org` in the other blog), the `file` middleware is
+need to have a zone file as part of our ConfigMap, just like we did to handle the second use case in the previous blog. In this case, though, instead of being configured with a different zone (`example.org` in the other blog), the `file` plugin is
 configured to use the `cluster.local` domain:
 
 ~~~ yaml
@@ -183,7 +183,7 @@ google.com mail is handled by 10 aspmx.l.google.com.
 We can see if we put in an incorrect name, we still get NXDOMAIN as you would expect. However, a correct name will
 resolve to the record from our zone file. So, we now have a way to create custom entries in the cluster domain.
 
-In the standard CoreDNS release, the `kubernetes` middleware comes before `file` and `etcd`. This means that it gets the
+In the standard CoreDNS release, the `kubernetes` plugin comes before `file` and `etcd`. This means that it gets the
 first chance to handle the query. You can rebuild CoreDNS to change that ordering if you wish - take a look at
-Miek's post on [How to Add Middleware to CoreDNS](/2017/03/01/how-to-add-middleware-to-coredns/)
+Miek's post on [How to Add Plugin to CoreDNS](/2017/03/01/how-to-add-plugin-to-coredns/)
 if you want to see how that's done.

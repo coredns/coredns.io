@@ -9,7 +9,7 @@ author = "miek"
 
 CoreDNS-006 has been [released](https://github.com/coredns/coredns/releases/tag/v006)!
 
-CoreDNS is a DNS server that chains middleware, where each middleware implements a DNS feature.
+CoreDNS is a DNS server that chains plugins, where each plugin implements a DNS feature.
 
 # What is New
 
@@ -22,20 +22,20 @@ Fixed:
 
 * Fix hot-reloading. This would fail with `[ERROR] SIGUSR1: listen tcp :53: bind: address already in
   use`.
-* Allow removal of core middleware, see comments in
-  [middleware.cfg](https://github.com/miekg/coredns/blob/master/middleware.cfg).
+* Allow removal of core plugin, see comments in
+  [plugin.cfg](https://github.com/miekg/coredns/blob/master/plugin.cfg).
 
-## Middleware improvements
+## Plugin improvements
 
 ### New
 
-* *reverse* middleware: allows CoreDNS to respond dynamicly to an PTR request and the related
+* *reverse* plugin: allows CoreDNS to respond dynamicly to an PTR request and the related
   A/AAAA request.
 
 ### Improvements/changes
 
 * *proxy* a new `protocol`: `grpc`: speak DNS over gRPC. Server side impl. resides [in this out of
-  tree middleware](https://github.com/coredns/grpc).
+  tree plugin](https://github.com/coredns/grpc).
 * *file* additional section processing for MX and SRV queries.
 * *prometheus* fix hot reloading
 * *trace* various improvements

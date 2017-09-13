@@ -16,8 +16,8 @@ discovery in cloud setups.
 [CoreDNS](https://coredns.io) is a DNS server that started its life as a fork of the [Caddy
 web(!)server](https://caddyserver.com).
 
-It chains [middleware](https://github.com/coredns/coredns/tree/master/middleware),
-where each middleware implements some DNS feature. CoreDNS is a complete replacement
+It chains [plugin](https://github.com/coredns/coredns/tree/master/plugin),
+where each plugin implements some DNS feature. CoreDNS is a complete replacement
 (with more features, and maybe less bugs) for [SkyDNS](https://github.com/skynetservices/skydns).
 
 It is also useful as a normal DNS server, featuring DNSSEC, on-the-fly signing and zone transfers.
@@ -29,21 +29,21 @@ from Caddy without having to fork (and maintain) it all. By doing so we were abl
 lines of code from CoreDNS.
 
 The core (ghe!) of CoreDNS is now in a good shape. Future work will focus on making the
-middleware better, e.g. the proxy implementation is slow and needs to be
+plugin better, e.g. the proxy implementation is slow and needs to be
 [faster](https://github.com/coredns/coredns/issues/184).
 
 ## New Middlewares
 
 * There is now a [specific
-  middleware](https://github.com/coredns/coredns/tree/master/middleware/kubernetes) to deal with [Kubernetes](https://kubernetes.io).
-* The *bind* [middleware](https://github.com/coredns/coredns/tree/master/middleware/bind)  allows you to bind to a specific IP address, instead of using the wildcard
+  plugin](https://github.com/coredns/coredns/tree/master/plugin/kubernetes) to deal with [Kubernetes](https://kubernetes.io).
+* The *bind* [plugin](https://github.com/coredns/coredns/tree/master/plugin/bind)  allows you to bind to a specific IP address, instead of using the wildcard
   address.
-* A *whoami* [middleware](https://github.com/coredns/coredns/tree/master/middleware/whoami) reports
+* A *whoami* [plugin](https://github.com/coredns/coredns/tree/master/plugin/whoami) reports
   back your address and port.
 * All other middlewares are reworked to fit in the new plugin framework from Caddy version 0.9 (and
   up).
 
-The *whoami* middleware is also used when CoreDNS starts up and can't find a Corefile.
+The *whoami* plugin is also used when CoreDNS starts up and can't find a Corefile.
 
 # Contributors
 
