@@ -57,7 +57,7 @@ Notice here that there are two different ports: 5300 and 53. Internally, each of
 result in a [`dnsserver.Server`](https://github.com/coredns/coredns/blob/master/core/dnsserver/server.go).
 Even though there are four _server blocks_ (stanzas), we only get two actual servers. CoreDNS will gather up all of the
 server blocks associated with the same port and combine them in to the same `dnsserver.Server`. The server will
-multiplex the queries on the port, passing them to the different _middleware chains_ depending upon the zone. It chooses
+multiplex the queries on the port, passing them to the different _plugin chains_ depending upon the zone. It chooses
 the most specific matching server block for the zone. If no server block matches, `SERVFAIL` is returned. This is shown
 visually in the diagram below.
 

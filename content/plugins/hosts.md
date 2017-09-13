@@ -2,14 +2,14 @@
 title = "hosts"
 description = "*hosts* enables serving zone data from a `/etc/hosts` style file."
 weight = 15
-tags = [ "middleware", "hosts" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "hosts" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.764175"
 +++
 
-The hosts middleware is useful for serving zones from a /etc/hosts file. It serves from a preloaded
+The hosts plugin is useful for serving zones from a /etc/hosts file. It serves from a preloaded
 file that exists on disk. It checks the file for changes and updates the zones accordingly. This
-middleware only supports A, AAAA, and PTR records. The hosts middleware can be used with readily
+plugin only supports A, AAAA, and PTR records. The hosts plugin can be used with readily
 available hosts files that block access to advertising servers.
 
 ## Syntax
@@ -24,7 +24,7 @@ hosts [FILE [ZONES...]] {
   directive will be prepended to it. Defaults to /etc/hosts if omitted
 * **ZONES** zones it should be authoritative for. If empty, the zones from the configuration block
     are used.
-* `fallthrough` If zone matches and no record can be generated, pass request to the next middleware.
+* `fallthrough` If zone matches and no record can be generated, pass request to the next plugin.
 
 ## Examples
 
@@ -41,7 +41,7 @@ hosts example.hosts
 ~~~
 
 Load example.hosts file and only serve example.org and example.net from it and fall through to the
-next middleware if query doesn't match.
+next plugin if query doesn't match.
 
 ~~~
 hosts example.hosts example.org example.net {

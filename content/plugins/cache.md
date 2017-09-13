@@ -2,8 +2,8 @@
 title = "cache"
 description = "*cache* enables a frontend cache. It will cache all records except zone transfers and metadata records."
 weight = 4
-tags = [ "middleware", "cache" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "cache" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.762512"
 +++
 

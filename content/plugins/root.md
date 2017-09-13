@@ -2,8 +2,8 @@
 title = "root"
 description = "*root* simply specifies the root of where CoreDNS finds (e.g.) zone files."
 weight = 24
-tags = [ "middleware", "root" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "root" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.766138"
 +++
 
@@ -20,7 +20,7 @@ root PATH
 
 ## Examples
 
-Serve zone data (when the *file* middleware is used) from `/etc/coredns/zones`:
+Serve zone data (when the *file* plugin is used) from `/etc/coredns/zones`:
 
 ~~~ txt
 root /etc/coredns/zones

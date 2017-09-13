@@ -11,7 +11,7 @@ remarkably [similar](https://github.com/mholt/caddy/wiki/Writing-a-Plugin:-Direc
 slightly reworks (and simplifies in some cases) those pages.
 
 A new plugin adds new functionality to CoreDNS, i.e. *caching*, *metrics* and basic *zone* file
-serving are all middlewares.
+serving are all plugins.
 
 If you want to write a new plugin and want it to be included by default, i.e. merged in the code
 base please open an [issue](https://github.com/coredns/coredns/issues) first to discuss initial design

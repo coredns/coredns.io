@@ -2,8 +2,8 @@
 title = "errors"
 description = "*errors* enables error logging."
 weight = 10
-tags = [ "middleware", "errors" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "errors" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.763391"
 +++
 

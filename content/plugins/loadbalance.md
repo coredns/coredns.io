@@ -2,8 +2,8 @@
 title = "loadbalance"
 description = "*loadbalance* acts as a round-robin DNS loadbalancer by randomizing the order of A and AAAA records  in the answer."
 weight = 17
-tags = [ "middleware", "loadbalance" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "loadbalance" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.764551"
 +++
  

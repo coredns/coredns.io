@@ -2,8 +2,8 @@
 title = "log"
 description = "*log* enables query logging to standard output."
 weight = 18
-tags = [ "middleware", "log" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "log" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.764725"
 +++
 

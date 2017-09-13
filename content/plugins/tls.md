@@ -2,8 +2,8 @@
 title = "tls"
 description = "*tls* allows you to configure the server certificates for the TLS and gRPC servers. For other types of servers it is ignored."
 weight = 26
-tags = [ "middleware", "tls" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "tls" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.766707"
 +++
 

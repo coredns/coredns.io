@@ -2,15 +2,15 @@
 title = "startup"
 description = "*startup* executes a command when the server begins."
 weight = 10
-tags = [  "middleware" , "startup" ]
-categories = [ "middleware", "external" ]
+tags = [  "plugin" , "startup" ]
+categories = [ "plugin", "external" ]
 date = "2017-07-22T12:37:19+01:00"
 repo = "https://github.com/mholt/caddy"
 home = "https://caddyserver.com/docs/startup"
 +++
 
 This is useful for preparing to serve a zone by running a script or starting a background process.
-(Also see [shutdown](/exmiddleware/shutdown).)
+(Also see [shutdown](/explugins/shutdown).)
 
 Each command that is executed at startup is blocking, unless you suffix the command with a space and
 `&`, which will cause the command to be run in the background. The output and error of the command go
@@ -42,4 +42,4 @@ startup "\"C:\Program Files\command.exe\" -b 127.0.0.1:9123" &
 
 ## How to Enable
 
-This external middleware is included in the default CoreDNS configuration.
+This external plugin is included in the default CoreDNS configuration.

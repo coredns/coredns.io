@@ -2,12 +2,12 @@
 title = "auto"
 description = "*auto* enables serving zone data from an RFC 1035-style master file which is automatically picked up from disk."
 weight = 1
-tags = [ "middleware", "auto" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "auto" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.761867"
 +++
 
-The *auto* middleware is used for an "old-style" DNS server. It serves from a preloaded file that exists
+The *auto* plugin is used for an "old-style" DNS server. It serves from a preloaded file that exists
 on disk. If the zone file contains signatures (i.e. is signed, i.e. DNSSEC) correct DNSSEC answers
 are returned. Only NSEC is supported! If you use this setup *you* are responsible for resigning the
 zonefile. New zones or changed zone are automatically picked up from disk.
@@ -38,7 +38,7 @@ are used.
   pointing to external names. **ADDRESS** can be an IP address, and IP:port or a string pointing to
   a file that is structured as /etc/resolv.conf.
 
-All directives from the *file* middleware are supported. Note that *auto* will load all zones found,
+All directives from the *file* plugin are supported. Note that *auto* will load all zones found,
 even though the directive might only receive queries for a specific zone. I.e:
 
 ~~~

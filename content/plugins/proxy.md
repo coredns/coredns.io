@@ -2,13 +2,13 @@
 title = "proxy"
 description = "*proxy* facilitates both a basic reverse proxy and a robust load balancer."
 weight = 21
-tags = [ "middleware", "proxy" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "proxy" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.765416"
 +++
 
 The proxy has support for multiple backends. The load balancing features include multiple policies,
-health checks, and failovers. If all hosts fail their health check the proxy middleware will fail
+health checks, and failovers. If all hosts fail their health check the proxy plugin will fail
 back to randomly selecting a target and sending packets to it.
 
 ## Syntax
@@ -58,7 +58,7 @@ proxy FROM TO... {
   old DNS, and `https_google` uses `https://dns.google.com` and speaks a JSON DNS dialect. Note when
   using this **TO** will be ignored. The `grpc` option will talk to a server that has implemented
   the [DnsService](https://github.com/coredns/coredns/pb/dns.proto).
-  An out-of-tree middleware that implements the server side of this can be found at
+  An out-of-tree plugin that implements the server side of this can be found at
   [here](https://github.com/infobloxopen/coredns-grpc).
 
 ## Policies
@@ -96,7 +96,7 @@ payload over HTTPS). Note that with `https_google` the entire transport is encry
   * **KEY** **CERT** **CACERT** - Client authentication is used with the specified key/cert pair. The
     server certificate is verified using the **CACERT** file.
 
-  An out-of-tree middleware that implements the server side of this can be found at
+  An out-of-tree plugin that implements the server side of this can be found at
   [here](https://github.com/infobloxopen/coredns-grpc).
 
 ## Metrics

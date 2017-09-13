@@ -1,9 +1,9 @@
 +++
 title = "reverse"
-description = "The *reverse* middleware allows CoreDNS to respond dynamically to a PTR request and the related A/AAAA request."
+description = "The *reverse* plugin allows CoreDNS to respond dynamically to a PTR request and the related A/AAAA request."
 weight = 22
-tags = [ "middleware", "reverse" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "reverse" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.765679"
 +++
 
@@ -20,7 +20,7 @@ reverse NETWORK... {
 * **NETWORK** one or more CIDR formatted networks to respond on.
 * `hostname` injects the IP and zone to a template for the hostname. Defaults to "ip-{IP}.{zone[1]}". See below for template.
 * `ttl` defaults to 60
-* `fallthrough` if zone matches and no record can be generated, pass request to the next middleware.
+* `fallthrough` if zone matches and no record can be generated, pass request to the next plugin.
 * `wildcard` allows matches to catch all subdomains as well.
 
 ### Template Syntax

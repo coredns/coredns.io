@@ -1,9 +1,9 @@
 +++
 title = "federation"
-description = "The *federation* middleware enables [federated](https://kubernetes.io/docs/tasks/federation/federation-service-discovery/) queries to be resolved via the kubernetes middleware."
+description = "The *federation* plugin enables [federated](https://kubernetes.io/docs/tasks/federation/federation-service-discovery/) queries to be resolved via the kubernetes plugin."
 weight = 12
-tags = [ "middleware", "federation" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "federation" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.763770"
 +++
 

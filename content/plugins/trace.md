@@ -1,9 +1,9 @@
 +++
 title = "trace"
-description = "This module enables OpenTracing-based tracing of DNS requests as they go through the middleware chain."
+description = "This module enables OpenTracing-based tracing of DNS requests as they go through the plugin chain."
 weight = 27
-tags = [ "middleware", "trace" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "trace" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.766958"
 +++
 

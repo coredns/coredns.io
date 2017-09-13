@@ -1,9 +1,9 @@
 +++
 title = "chaos"
-description = "The *chaos* middleware allows CoreDNS to respond to TXT queries in the CH class."
+description = "The *chaos* plugin allows CoreDNS to respond to TXT queries in the CH class."
 weight = 5
-tags = [ "middleware", "chaos" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "chaos" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.762643"
 +++
 
@@ -18,7 +18,7 @@ chaos [VERSION] [AUTHORS...]
 * **VERSION** is the version to return. Defaults to `CoreDNS-<version>`, if not set.
 * **AUTHORS** is what authors to return. No default.
 
-Note that you have to make sure that this middleware will get actual queries for the
+Note that you have to make sure that this plugin will get actual queries for the
 following zones: `version.bind`, `version.server`, `authors.bind`, `hostname.bind` and
 `id.server`.
 

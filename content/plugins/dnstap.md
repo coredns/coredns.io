@@ -2,8 +2,8 @@
 title = "dnstap"
 description = "*dnstap* enables logging to dnstap, a flexible, structured binary log format for DNS software: http://dnstap.info."
 weight = 8
-tags = [ "middleware", "dnstap" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "dnstap" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.763093"
 +++
 

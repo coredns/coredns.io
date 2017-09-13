@@ -2,8 +2,8 @@
 title = "dnssec"
 description = "*dnssec* enables on-the-fly DNSSEC signing of served data."
 weight = 7
-tags = [ "middleware", "dnssec" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "dnssec" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.762938"
 +++
 
@@ -21,7 +21,7 @@ CSK (common signing key), forgoing the ZSK/KSK split. All signing operations are
 Authenticated denial of existence is implemented with NSEC black lies. Using ECDSA as an algorithm
 is preferred as this leads to smaller signatures (compared to RSA). NSEC3 is *not* supported.
 
-If multiple *dnssec* middlewares are specified in the same zone, the last one specified will be
+If multiple *dnssec* plugins are specified in the same zone, the last one specified will be
 used ( see [bugs](#bugs) ).
 
 * `ZONES` zones that should be signed. If empty, the zones from the configuration block
@@ -38,7 +38,7 @@ used ( see [bugs](#bugs) ).
 
     * generated private key `Kexample.org+013+45330.private`
 
-* `cache_capacity` indicates the capacity of the cache. The dnssec middleware uses a cache to store
+* `cache_capacity` indicates the capacity of the cache. The dnssec plugin uses a cache to store
   RRSIGs. The default capacity is 10000.
 
 ## Metrics
@@ -76,7 +76,7 @@ cluster.local:53 {
 
 ## Bugs
 
-Multiple *dnssec* middlewares inside one server stanza will silently overwrite earlier ones, here
+Multiple *dnssec* plugins inside one server stanza will silently overwrite earlier ones, here
 `example.local` will overwrite the one for `cluster.local`.
 
 ~~~

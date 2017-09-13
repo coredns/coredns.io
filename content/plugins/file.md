@@ -2,12 +2,12 @@
 title = "file"
 description = "*file* enables serving zone data from an RFC 1035-style master file."
 weight = 13
-tags = [ "middleware", "file" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "file" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.763913"
 +++
 
-The file middleware is used for an "old-style" DNS server. It serves from a preloaded file that exists
+The file plugin is used for an "old-style" DNS server. It serves from a preloaded file that exists
 on disk. If the zone file contains signatures (i.e. is signed, i.e. DNSSEC) correct DNSSEC answers
 are returned. Only NSEC is supported! If you use this setup *you* are responsible for resigning the
 zonefile.
@@ -23,7 +23,7 @@ file DBFILE [ZONES...]
 * **ZONES** zones it should be authoritative for. If empty, the zones from the configuration block
     are used.
 
-If you want to round robin A and AAAA responses look at the *loadbalance* middleware.
+If you want to round robin A and AAAA responses look at the *loadbalance* plugin.
 
 TSIG key configuration is TODO; directive format for transfer will probably be extended with
 TSIG key information, something like `transfer out [ADDRESS...] key [NAME[:ALG]] [BASE64]`

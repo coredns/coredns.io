@@ -40,7 +40,7 @@ plugin better, e.g. the proxy implementation is slow and needs to be
   address.
 * A *whoami* [plugin](https://github.com/coredns/coredns/tree/master/plugin/whoami) reports
   back your address and port.
-* All other middlewares are reworked to fit in the new plugin framework from Caddy version 0.9 (and
+* All other plugins are reworked to fit in the new plugin framework from Caddy version 0.9 (and
   up).
 
 The *whoami* plugin is also used when CoreDNS starts up and can't find a Corefile.

@@ -2,8 +2,8 @@
 title = "bind"
 description = "*bind* overrides the host to which the server should bind."
 weight = 3
-tags = [ "middleware", "bind" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "bind" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.762316"
 +++
 

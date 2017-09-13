@@ -7,7 +7,7 @@ date = "2017-07-25T16:07:39+01:00"
 author = "miek"
 +++
 
-CoreDNS' [plugin](/plugin) (or [external plugin](/exmiddleware)) can be enabled or
+CoreDNS' [plugin](/plugin) (or [external plugin](/explugins)) can be enabled or
 disabled on the fly by specifying (or not specifying) it in the
 [Corefile](/2017/07/23/corefile-explained/). But you can also compile CoreDNS with only the
 plugin you *need* and leave the rest completely out.

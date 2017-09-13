@@ -2,8 +2,8 @@
 title = "prometheus"
 description = "This module enables prometheus metrics for CoreDNS."
 weight = 19
-tags = [ "middleware", "metrics" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "metrics" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.764877"
 +++
 
@@ -29,7 +29,7 @@ Extra labels used are:
   other types.
 * The `response_rcode_count_total` has an extra label `rcode` which holds the rcode of the response.
 
-If monitoring is enabled, queries that do not enter the middleware chain are exported under the fake
+If monitoring is enabled, queries that do not enter the plugin chain are exported under the fake
 name "dropped" (without a closing dot - this is never a valid domain name).
 
 

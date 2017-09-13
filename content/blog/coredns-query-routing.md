@@ -25,7 +25,7 @@ Next *all* queries should be forwarded to 8.8.8.8:53.
 Then because the *file* plugin **does not** specify what zones should be answered from the
 `db.example.com` file, the toplevel one applies, which is root (`.`)
 
-So we are left with a situation where both middlewares will be called for the same names (which can
+So we are left with a situation where both plugins will be called for the same names (which can
 be perfectly valid for plugin that calls other chained-in plugin).
 
 But *proxy* **will not** call *file* because the query will be answered and done with after

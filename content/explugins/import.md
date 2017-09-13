@@ -2,8 +2,8 @@
 title = "import"
 description = "*import* allows you to use configuration from another file. It gets replaced with the contents of that file."
 weight = 10
-tags = [  "middleware" , "import" ]
-categories = [ "middleware", "external" ]
+tags = [  "plugin" , "import" ]
+categories = [ "plugin", "external" ]
 date = "2017-07-22T12:37:19+01:00"
 repo = "https://github.com/mholt/caddy"
 home = "https://caddyserver.com/docs/import"
@@ -42,4 +42,4 @@ import ../zones/*
 
 ## How to Enable
 
-This external middleware is included in the default CoreDNS configuration.
+This external plugin is included in the default CoreDNS configuration.

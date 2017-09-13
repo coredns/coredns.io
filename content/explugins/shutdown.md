@@ -2,15 +2,15 @@
 title = "shutdown"
 description = "*shutdown* executes a command when the server exits."
 weight = 10
-tags = [  "middleware" , "shutdown" ]
-categories = [ "middleware", "external" ]
+tags = [  "plugin" , "shutdown" ]
+categories = [ "plugin", "external" ]
 date = "2017-07-22T12:37:19+01:00"
 repo = "https://github.com/mholt/caddy"
 home = "https://caddyserver.com/docs/shutdown"
 +++
 
 This is useful for performing cleanup or stopping a background process. (Also see
-[startup](/exmiddleware/startup).)
+[startup](/explugins/startup).)
 
 Each command that is executed at shutdown is blocking. The output and error of the command go to
 stdout and stderr, respectively. There is no stdin.
@@ -40,4 +40,4 @@ shutdown /etc/init.d/command stop
 
 ## How to Enable
 
-This external middleware is included in the default CoreDNS configuration.
+This external plugin is included in the default CoreDNS configuration.

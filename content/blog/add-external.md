@@ -10,7 +10,7 @@ If you want to have your external plugin listed here send an email to the [cored
 list](/community) with the details or create [a pull
 request](https://github.com/coredns/coredns.io).
 
-In that email or pull request you'll need to add a file to `content/blog/exmiddleware/` that looks
+In that email or pull request you'll need to add a file to `content/blog/explugins/` that looks
 like this:
 
 ~~~ txt
@@ -33,13 +33,13 @@ The *<plugin name>* plugin is a ...
 
 ## How to Enable
 
-Follow [these](/2017/07/25/compile-time-enabling-or-disabling-plugin/) steps.
+Follow [these](/2017/07/25/compile-time-enabling-or-disabling-plugins/) steps.
 ~~~
 
 See [shutdown.md for an example]
-(https://github.com/coredns/new.coredns.io/blob/master/content/exmiddleware/shutdown.md) on how to do
+(https://github.com/coredns/coredns.io/blob/master/content/explugins/shutdown.md) on how to do
 this.
 
 Note that **description** needs to be a full sentence, and that **repo** must be a Go-gettable link
-that can be put in `plugin.cfg`. Also document in your README.md what would be suitable position
-for your plugin in `plugin.cfg` (beginning, middle, end or give it a specific number).
+that can be put in `plugins.cfg`. Also document in your README.md what would be suitable position
+for your plugin in `plugins.cfg` (beginning, middle, end or give it a specific number).

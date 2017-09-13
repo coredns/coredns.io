@@ -2,12 +2,12 @@
 title = "etcd"
 description = "*etcd* enables reading zone data from an etcd instance. The data in etcd has to be encoded as a [message](https://github.com/skynetservices/skydns/blob/2fcff74cdc9f9a7dd64189a447ef27ac354b725f/msg/service.go#L26) like [SkyDNS](https://github.com/skynetservices/skydns). It should also work just like SkyDNS."
 weight = 11
-tags = [ "middleware", "etcd" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "etcd" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.763610"
 +++
 
-The etcd middleware makes extensive use of the proxy middleware to forward and query other servers
+The etcd plugin makes extensive use of the proxy plugin to forward and query other servers
 in the network.
 
 ## Syntax
@@ -21,7 +21,7 @@ etcd [ZONES...]
 The path will default to `/skydns` the local etcd proxy (http://localhost:2379).
 If no zones are specified the block's zone will be used as the zone.
 
-If you want to `round robin` A and AAAA responses look at the `loadbalance` middleware.
+If you want to `round robin` A and AAAA responses look at the `loadbalance` plugin.
 
 ~~~
 etcd [ZONES...] {
@@ -37,12 +37,12 @@ etcd [ZONES...] {
 
 * `stubzones` enables the stub zones feature. The stubzone is *only* done in the etcd tree located
     under the *first* zone specified.
-* `fallthrough` If zone matches but no record can be generated, pass request to the next middleware.
+* `fallthrough` If zone matches but no record can be generated, pass request to the next plugin.
 * **PATH** the path inside etcd. Defaults to "/skydns".
 * **ENDPOINT** the etcd endpoints. Defaults to "http://localhost:2397".
 * `upstream` upstream resolvers to be used resolve external names found in etcd (think CNAMEs)
   pointing to external names. If you want CoreDNS to act as a proxy for clients, you'll need to add
-  the proxy middleware. **ADDRESS** can be an IP address, and IP:port or a string pointing to a file
+  the proxy plugin. **ADDRESS** can be an IP address, and IP:port or a string pointing to a file
   that is structured as /etc/resolv.conf.
 * `tls` followed by:
   * no arguments, if the server certificate is signed by a system-installed CA and no client cert is needed

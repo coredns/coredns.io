@@ -2,8 +2,8 @@
 title = "whoami"
 description = "*whoami* returns your local IP address, port and transport used. Your local IP address is returned in the additional section as either an A or AAAA record."
 weight = 28
-tags = [ "middleware", "whoami" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "whoami" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.767138"
 +++
 
@@ -14,7 +14,7 @@ The port and transport are included in the additional section as a SRV record, t
 ._<transport>.qname. 0 IN SRV 0 0 <port> .
 ~~~
 
-The *whoami* middleware will respond to every A or AAAA query, regardless of the query name.
+The *whoami* plugin will respond to every A or AAAA query, regardless of the query name.
 
 ## Syntax
 

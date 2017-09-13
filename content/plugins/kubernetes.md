@@ -1,18 +1,18 @@
 +++
 title = "kubernetes"
-description = "The *kubernetes* middleware enables the reading zone data from a Kubernetes cluster.  It implements the [Kubernetes DNS-Based Service Discovery Specification](https://github.com/kubernetes/dns/blob/master/docs/specification.md)."
+description = "The *kubernetes* plugin enables the reading zone data from a Kubernetes cluster.  It implements the [Kubernetes DNS-Based Service Discovery Specification](https://github.com/kubernetes/dns/blob/master/docs/specification.md)."
 weight = 16
-tags = [ "middleware", "kubernetes" ]
-categories = [ "middleware" ]
+tags = [ "plugin", "kubernetes" ]
+categories = [ "plugin" ]
 date = "2017-09-10T18:11:52.764411"
 +++
 
-CoreDNS running the kubernetes middleware can be used as a replacement of kube-dns in a kubernetes
+CoreDNS running the kubernetes plugin can be used as a replacement of kube-dns in a kubernetes
 cluster.  See the [deployment](https://github.com/coredns/deployment) repository for details on [how
 to deploy CoreDNS in Kubernetes](https://github.com/coredns/deployment/tree/master/kubernetes).
 
 [stubDomains](http://blog.kubernetes.io/2017/04/configuring-private-dns-zones-upstream-nameservers-kubernetes.html)
-are implemented via the *proxy* middleware.
+are implemented via the *proxy* plugin.
 
 ## Syntax
 
@@ -20,10 +20,10 @@ are implemented via the *proxy* middleware.
 kubernetes [ZONES...]
 ~~~
 
-With only the directive specified, the *kubernetes* middleware will default to the zone specified in
+With only the directive specified, the *kubernetes* plugin will default to the zone specified in
 the server's block. It will handle all queries in that zone and connect to Kubernetes in-cluster. It
 will not provide PTR records for services, or A records for pods. If **ZONES** is used it specifies
-all the zones the middleware should be authoritative for.
+all the zones the plugin should be authoritative for.
 
 ```
 kubernetes [ZONES...] {
@@ -73,7 +73,7 @@ kubernetes [ZONES...] {
   5 seconds, the maximum is capped at 3600 seconds.
 * `fallthrough`  If a query for a record in the cluster zone results in NXDOMAIN, normally that is
   what the response will be. However, if you specify this option, the query will instead be passed
-  on down the middleware chain, which can include another middleware to handle the query.
+  on down the plugin chain, which can include another plugin to handle the query.
 
 ## Examples
 
@@ -108,7 +108,7 @@ kubernetes cluster.local {
 }
 ~~~
 
-Here we use the *proxy* middleware to implement stubDomains that forwards `example.org` and
+Here we use the *proxy* plugin to implement stubDomains that forwards `example.org` and
 `example.com` to another nameserver.
 
 ~~~ txt
@@ -128,7 +128,7 @@ example.com {
 
 ## AutoPath
 
-The *kubernetes* middleware can be used in conjunction with the *autopath* middleware.  Using this
+The *kubernetes* plugin can be used in conjunction with the *autopath* plugin.  Using this
 feature enables server-side domain search path completion in kubernetes clusters.  Note: `pods` must
 be set to `verified` for this to function properly.
 
@@ -141,7 +141,7 @@ be set to `verified` for this to function properly.
 
 ## Federation
 
-The *kubernetes* middleware can be used in conjunction with the *federation* middleware.  Using this
+The *kubernetes* plugin can be used in conjunction with the *federation* plugin.  Using this
 feature enables serving federated domains from the kubernetes clusters.
 
     cluster.local {
