@@ -1,6 +1,6 @@
 +++
-title = "Compile Time Enabling or Disabling Plugin"
-description = "Enable or Disable plugin when compiling CoreDNS"
+title = "Compile Time Enabling or Disabling Plugins"
+description = "Enable or Disable plugins when compiling CoreDNS"
 tags = ["Documentation"]
 draft = false
 date = "2017-07-25T16:07:39+01:00"
