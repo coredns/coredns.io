@@ -1,6 +1,6 @@
 +++
 date = "2017-03-01T20:23:48Z"
-description = "How to add plugin to CoreDNS; a tutorial"
+description = "How to add plugins to CoreDNS; a tutorial"
 tags = ["Plugin", "Howto", "Tutorial", "Documentation"]
 title = "How to Add Plugins to CoreDNS"
 author = "miek"
@@ -248,5 +248,5 @@ There are already a lot of different plugin in CoreDNS. New, exciting ones, are 
 have an idea open an issue on the tracker.
 
 This is an updated version of the [previous
-blog](/2016/12/19/writing-plugin-for-coredns/) about writing CoreDNS
+blog](/2016/12/19/writing-plugins-for-coredns/) about writing CoreDNS
 plugin.

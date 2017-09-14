@@ -185,5 +185,5 @@ resolve to the record from our zone file. So, we now have a way to create custom
 
 In the standard CoreDNS release, the `kubernetes` plugin comes before `file` and `etcd`. This means that it gets the
 first chance to handle the query. You can rebuild CoreDNS to change that ordering if you wish - take a look at
-Miek's post on [How to Add Plugin to CoreDNS](/2017/03/01/how-to-add-plugin-to-coredns/)
+Miek's post on [How to Add Plugins to CoreDNS](/2017/03/01/how-to-add-plugins-to-coredns/)
 if you want to see how that's done.

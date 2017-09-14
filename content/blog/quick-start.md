@@ -82,7 +82,7 @@ As we've enabled logging the query should be show up there as well:
 
 From here you can enable CoreDNS to run on port 53 and have it start from systemd (when on Linux),
 see [the deployment repo](https://github.com/coredns/deployment) for example scripts.
-Or read more about the [*file* plugin](/plugin/file/).
+Or read more about the [*file* plugin](/plugins/file/).
 
 ## CoreDNS as proxy
 
@@ -118,12 +118,12 @@ CoreDNS: `kill -SIGUSR1 <pid_of_coredns>`. And query again:
 
 133 µs. That sounds better.
 
-Read more about the [*cache*](/plugin/cache) and [*proxy*](/plugin/proxy) plugin on
+Read more about the [*cache*](/plugins/cache) and [*proxy*](/plugins/proxy) plugin on
 this website. And find all other documentation [here](/tags/documentation).
 
 ## Possible errors and how to get around them
 
-The [*health*](/plugin/health)'s documention states "This plugin only needs to be enabled
+The [*health*](/plugins/health)'s documention states "This plugin only needs to be enabled
 once.", which might lead you to think:
 
 ~~~ txt
