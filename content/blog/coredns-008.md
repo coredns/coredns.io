@@ -20,7 +20,7 @@ only allows `stdout` as the file name (which of course may be omitted).
 
 * `-log` flag was changed into a boolean as all logging will be written to standard output.
 
-# Plugin
+# Plugins
 
 ## New
 

@@ -18,7 +18,7 @@ Release v010 is mostly a bugfix release, with one new plugin - *dnstap*.
 
 No changes.
 
-# Plugin
+# Plugins
 
 ## New
 

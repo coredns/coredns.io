@@ -2,7 +2,7 @@
 date = "2016-12-19T08:00:24Z"
 description = "A introduction into writing plugin for CoreDNS"
 tags = ["plugin", "coredns", "plugins", "documentation"]
-title = "Writing Plugin for CoreDNS"
+title = "Writing Plugins for CoreDNS"
 author = "miek"
 +++
 

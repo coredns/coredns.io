@@ -2,7 +2,7 @@
 date = "2017-07-23T21:28:13Z"
 description = "How to add a link to external plugin?"
 tags = ["Plugin", "External", "Add"]
-title = "Add External Plugin"
+title = "Add External Plugins"
 author = "miek"
 +++
 

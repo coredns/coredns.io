@@ -23,7 +23,7 @@ Release v011 is a major release, with backwards incompatible changes in the *kub
   CoreDNS translates this to 0.0.10.in-addr.arpa. This is only done when the netmask is a multiple of 8 and for both IPv4 and IPv6.
 * Bug and stability fixes.
 
-## Plugin
+## Plugins
 
 Make *kubernetes*, *file*, *secondary*, *hosts*, *erratic* and *metrics* now fail on unknown properties in the Corefile.
 

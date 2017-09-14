@@ -33,7 +33,7 @@ Back to the release.
   specify TLS certifcates.
 * Zipkin tracing can be enabled for all plugin.
 
-# Plugin
+# Plugins
 
 * *rewrite* now allows you to add or modify EDNS0 local or NSID options. The framework is in place to add additional EDNS0 types in the future.
 * *etcd* when no upstreams are defined won't default to using 8.8.8.8, 8.8.4.4; it just does not resolve external names in that case.

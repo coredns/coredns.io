@@ -17,7 +17,7 @@ Release v009 is mostly a bugfix release, with a few new features in the plugin.
 
 No changes.
 
-# Plugin
+# Plugins
 
 * *secondary*: fix functionality and improve matching of notify queries.
 * *cache*: fix data race.
