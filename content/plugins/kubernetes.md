@@ -4,7 +4,7 @@ description = "The *kubernetes* plugin enables the reading zone data from a Kube
 weight = 16
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2017-09-10T18:11:52.764411"
+date = "2017-09-14T08:38:42.996160"
 +++
 
 CoreDNS running the kubernetes plugin can be used as a replacement of kube-dns in a kubernetes

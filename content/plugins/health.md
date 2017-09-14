@@ -4,7 +4,7 @@ description = "This module enables a simple health check endpoint. By default it
 weight = 14
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2017-09-10T18:11:52.764039"
+date = "2017-09-14T08:38:42.995407"
 +++
 
 ## Syntax

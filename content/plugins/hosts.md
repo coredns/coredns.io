@@ -4,7 +4,7 @@ description = "*hosts* enables serving zone data from a `/etc/hosts` style file.
 weight = 15
 tags = [ "plugin", "hosts" ]
 categories = [ "plugin" ]
-date = "2017-09-10T18:11:52.764175"
+date = "2017-09-14T08:38:42.995635"
 +++
 
 The hosts plugin is useful for serving zones from a /etc/hosts file. It serves from a preloaded

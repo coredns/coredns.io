@@ -1,18 +1,22 @@
 +++
 title = "whoami"
-description = "*whoami* returns your local IP address, port and transport used. Your local IP address is returned in the additional section as either an A or AAAA record."
+description = "*whoami* returns your resolver's local IP address, port and transport. Your IP address is returned  in the additional section as either an A or AAAA record."
 weight = 28
 tags = [ "plugin", "whoami" ]
 categories = [ "plugin" ]
-date = "2017-09-10T18:11:52.767138"
+date = "2017-09-14T08:38:42.999941"
 +++
 
-The port and transport are included in the additional section as a SRV record, transport can be
-"tcp" or "udp".
+The reply always has an empty answer section. The port and transport are included in the additional
+section as a SRV record, transport can be "tcp" or "udp".
 
 ~~~ txt
 ._<transport>.qname. 0 IN SRV 0 0 <port> .
 ~~~
+
+If CoreDNS can't find a Corefile on startup this is the *default* plugin that gets loaded. As
+such it can be used to check that CoreDNS is responding to queries. Other than that this plugin
+is of limited use in production.
 
 The *whoami* plugin will respond to every A or AAAA query, regardless of the query name.
 
@@ -24,8 +28,10 @@ whoami
 
 ## Examples
 
-~~~ txt
-.:53 {
+Start a server on the default port and load the *whoami* plugin.
+
+~~~ corefile
+. {
     whoami
 }
 ~~~

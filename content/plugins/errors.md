@@ -4,29 +4,24 @@ description = "*errors* enables error logging."
 weight = 10
 tags = [ "plugin", "errors" ]
 categories = [ "plugin" ]
-date = "2017-09-10T18:11:52.763391"
+date = "2017-09-14T08:38:42.994187"
 +++
 
-Any errors encountered during the query processing will be printed on standard output.
+Any errors encountered during the query processing will be printed to standard output.
 
 ## Syntax
-
-~~~
-errors [FILE]
-~~~
-
-* **FILE** is the log file to create (or append to). The *only* valid name for **FILE** is *stdout*
-
-## Examples
-
-Log errors to *stdout*.
 
 ~~~
 errors
 ~~~
 
-Log errors to *stdout*.
+## Examples
 
-~~~
-errors stdout
+Use the *whoami* to respond to queries and Log errors to standard output.
+
+~~~ corefile
+. {
+    whoami
+    errors
+}
 ~~~

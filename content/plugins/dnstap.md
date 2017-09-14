@@ -4,7 +4,7 @@ description = "*dnstap* enables logging to dnstap, a flexible, structured binary
 weight = 8
 tags = [ "plugin", "dnstap" ]
 categories = [ "plugin" ]
-date = "2017-09-10T18:11:52.763093"
+date = "2017-09-14T08:38:42.993762"
 +++
 
 There is a buffer, expect at least 13 requests before the server sends its dnstap messages to the socket.

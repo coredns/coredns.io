@@ -4,7 +4,7 @@ description = "*etcd* enables reading zone data from an etcd instance. The data 
 weight = 11
 tags = [ "plugin", "etcd" ]
 categories = [ "plugin" ]
-date = "2017-09-10T18:11:52.763610"
+date = "2017-09-14T08:38:42.994466"
 +++
 
 The etcd plugin makes extensive use of the proxy plugin to forward and query other servers
@@ -31,7 +31,6 @@ etcd [ZONES...] {
     endpoint ENDPOINT...
     upstream ADDRESS...
     tls CERT KEY CACERT
-    debug
 }
 ~~~
 
@@ -49,8 +48,6 @@ etcd [ZONES...] {
   * a single argument that is the CA PEM file, if the server cert is not signed by a system CA and no client cert is needed
   * two arguments - path to cert PEM file, the path to private key PEM file - if the server certificate is signed by a system-installed CA and a client certificate is needed
   * three arguments - path to cert PEM file, path to client private key PEM file, path to CA PEM file - if the server certificate is not signed by a system-installed CA and client certificate is needed
-* `debug` allows for debug queries. Prefix the name with `o-o.debug.` to retrieve extra information in the
-  additional section of the reply in the form of TXT records.
 
 ## Examples
 
@@ -113,44 +110,3 @@ Querying with dig:
 % dig @localhost -x 10.0.0.127 +short
 reverse.atoom.net.
 ~~~
-
-Or with *debug* queries enabled:
-
-~~~
-% dig @localhost -p 1053 o-o.debug.127.0.0.10.in-addr.arpa. PTR
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 4096
-;; QUESTION SECTION:
-;o-o.debug.127.0.0.10.in-addr.arpa. IN  PTR
-
-;; ANSWER SECTION:
-127.0.0.10.in-addr.arpa. 300    IN      PTR     reverse.atoom.net.
-
-;; ADDITIONAL SECTION:
-127.0.0.10.in-addr.arpa. 300    CH      TXT     "reverse.atoom.net.:0(10,0,,false)[0,]"
-~~~
-
-## Debug queries
-
-When debug queries are enabled CoreDNS will return errors and etcd records encountered during the resolution
-process in the response. The general form looks like this:
-
-    skydns.test.skydns.dom.a.	0	CH	TXT	"127.0.0.1:0(10,0,,false)[0,]"
-
-This shows the complete key as the owername, the rdata of the TXT record has:
-`host:port(priority,weight,txt content,mail)[targetstrip,group]`.
-
-Errors when communicating with an upstream will be returned as: `host:0(0,0,error message,false)[0,]`.
-
-An example:
-
-    www.example.org.	0	CH	TXT	"www.example.org.:0(0,0, IN A: unreachable backend,false)[0,]"
-
-Signalling that an A record for www.example.org. was sought, but it failed with that error.
-
-Any errors seen doing parsing will show up like this:
-
-    . 0 CH TXT "/skydns/local/skydns/r/a: invalid character '.' after object key:value pair"
-
-which shows `a.r.skydns.local.` has a json encoding problem.

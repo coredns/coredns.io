@@ -59,7 +59,7 @@ def parse(readme, plugin):
 
 weight=0
 tags='plugin'
-content='../content/plugin'
+content='../content/plugins'
 
 if not os.path.isdir(content):
   sys.exit("%s: Need to be run from the site's bin directory" % sys.argv[0])

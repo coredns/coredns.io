@@ -4,7 +4,7 @@ description = "The *autopath* plugin allows CoreDNS to perform server side searc
 weight = 2
 tags = [ "plugin", "autopath" ]
 categories = [ "plugin" ]
-date = "2017-09-10T18:11:52.762159"
+date = "2017-09-14T08:38:42.992274"
 +++
 
 Because *autopath* returns a reply for a name that wasn't the original question it will add a CNAME

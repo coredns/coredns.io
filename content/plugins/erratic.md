@@ -4,7 +4,7 @@ description = "*erratic* is a plugin useful for testing client behavior. It retu
 weight = 9
 tags = [ "plugin", "erratic" ]
 categories = [ "plugin" ]
-date = "2017-09-10T18:11:52.763257"
+date = "2017-09-14T08:38:42.993997"
 +++
 
 The *erratic* plugin will respond to every A or AAAA query. For any other type it will return

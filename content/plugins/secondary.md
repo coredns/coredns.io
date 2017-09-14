@@ -4,7 +4,7 @@ description = "*secondary* enables serving a zone retrieved from a primary serve
 weight = 25
 tags = [ "plugin", "secondary" ]
 categories = [ "plugin" ]
-date = "2017-09-10T18:11:52.766413"
+date = "2017-09-14T08:38:42.998978"
 +++
 
 ## Syntax
@@ -36,9 +36,24 @@ secondary [zones...] {
 
 ## Examples
 
+Transfer `example.org` from 10.0.1.1, and if that fails try 10.1.2.1.
+
+~~~ corefile
+example.org {
+    secondary {
+        transfer from 10.0.1.1
+        transfer from 10.1.2.1
+    }
+}
 ~~~
-secondary example.org {
-    transfer from 10.0.1.1
-    transfer from 10.1.2.1
+
+Or re-export the retrieved zone to other secondaries.
+
+~~~ corefile
+. {
+    secondary example.net {
+        transfer from 10.1.2.1
+        transfer to *
+    }
 }
 ~~~
