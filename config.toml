@@ -46,13 +46,13 @@ theme = "coredns"
   email = "varyoo@coredns.io"
 
 [[menu.main]]
-    name = "Middleware"
+    name = "Plugins"
     weight = -200
-    url = "/middleware/"
+    url = "/plugins/"
 [[menu.main]]
-    name = "External Middleware"
+    name = "External Plugins"
     weight = -190
-    url = "/exmiddleware/"
+    url = "/explugins/"
     external = ""
 [[menu.main]]
     name = "Blog"

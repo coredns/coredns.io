@@ -16,7 +16,7 @@ and our new one in CoreDNS. Version 1.0.0 of this specification mostly follows
 the current behavior of Kube-DNS. Versions 005 and higher of CoreDNS implement the full
 specification and more.
 
-At the time of that blog, the CoreDNS Kubernetes middleware only supported
+At the time of that blog, the CoreDNS Kubernetes plugin only supported
 serving `A` records with the cluster IP of an ordinary service. Now it includes:
 
 * `A`, `SRV`, and `PTR` records for regular and headless services
@@ -168,7 +168,7 @@ previous blog post.
 ~~~
 
 The one difference though, is the additions of `10.3.0.0/24` zone. This tells the
-Kubernetes middleware that it is responsible for serving `PTR` requests for the reverse
+Kubernetes plugin that it is responsible for serving `PTR` requests for the reverse
 zone `0.3.10.in-addr.arpa.`. In other words, this is what allows reverse DNS
 resolution of services. Let's give that a try:
 
@@ -207,7 +207,7 @@ kube-scheduler-10.222.243.77            1/1       Running   2          126d
 kubernetes-dashboard-v1.4.1-gi2xr       1/1       Running   0          24d
 tiller-deploy-3299276078-e8phb          1/1       Running   0          24d
 $ kubectl logs --namespace kube-system coredns-3558181428-0zhnh
-2017/02/23 14:48:29 [INFO] Kubernetes middleware configured without a label selector. No label-based filtering will be performed.
+2017/02/23 14:48:29 [INFO] Kubernetes plugin configured without a label selector. No label-based filtering will be performed.
 .:53
 2017/02/23 14:48:29 [INFO] CoreDNS-005
 CoreDNS-005
@@ -217,7 +217,7 @@ CoreDNS-005
 23/Feb/2017:14:49:52 +0000 [ERROR 0 kube-dns.kube-system.default.svc.cluster.local. A] no items found
 10.2.6.127 - [23/Feb/2017:14:50:00 +0000] "PTR IN 10.0.3.10.in-addr.arpa. udp 40 false 512" NOERROR 92 752.956µs
 $ kubectl logs --namespace kube-system coredns-3558181428-xri9i
-2017/02/23 14:48:29 [INFO] Kubernetes middleware configured without a label selector. No label-based filtering will be performed.
+2017/02/23 14:48:29 [INFO] Kubernetes plugin configured without a label selector. No label-based filtering will be performed.
 .:53
 2017/02/23 14:48:29 [INFO] CoreDNS-005
 CoreDNS-005

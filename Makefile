@@ -11,4 +11,4 @@ test:
 
 .PHONY: sync-from-coredns
 sync-from-coredns:
-	( cd bin; ./sync-from-coredns.py $$GOPATH/src/github.com/coredns/coredns/middleware )
+	( cd bin; ./sync-from-coredns.py $$GOPATH/src/github.com/coredns/coredns/plugin )

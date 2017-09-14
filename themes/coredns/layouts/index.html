@@ -29,14 +29,14 @@
             <i class="fa fa-link fa-5x" aria-hidden="true"></i>
         </figure>
 
-        <h3>Middleware</h3>
+        <h3>Plugins</h3>
         <p>
             CoreDNS (written in <a href="https://golang.org">Go</a>)
-            chains <a href="/middleware">middleware</a>.
-            Each middleware performs a DNS function, such as
-            <a href="/middleware/kubernetes">Kubernetes service discovery</a>,
-            <a href="/middleware/metrics">Prometheus metrics</a> or
-            <a href="/middleware/rewrite">rewriting queries</a>.
+            chains <a href="/plugins">Plugins</a>.
+            Each plugin performs a DNS function, such as
+            <a href="/plugins/kubernetes">Kubernetes service discovery</a>,
+            <a href="/plugins/metrics">Prometheus metrics</a> or
+            <a href="/plugins/rewrite">rewriting queries</a>.
             And many more.
         </p>
       </div>
@@ -69,9 +69,9 @@ coredns.io {
         <h3>Service Discovery</h3>
         <p>
         CoreDNS integrates with <a href="http://kubernetes.io">Kubernetes</a> via the
-        <a href="/middleware/kubernetes/">Kubernetes middleware</a>,
+        <a href="/plugins/kubernetes/">Kubernetes plugin</a>,
         or directly with <a href="https://coreos.com/etcd/">etcd</a> with the
-        <a href="/middleware/etcd/">etcd middleware</a>.
+        <a href="/plugins/etcd/">etcd plugin</a>.
         </p>
       </div>
 
@@ -86,8 +86,8 @@ coredns.io {
         <h3>Fast and Flexible</h3>
         <p>
         We aim to make CoreDNS fast and efficient. It is also flexible thanks to its
-        <a href="/middleware">middleware</a>.
-        You can even compile CoreDNS with <a href="/2017/07/25/compile-time-enabling-or-disabling-middleware/">only the middleware you need</a>.
+        <a href="/plugins">plugins</a>.
+        You can even compile CoreDNS with <a href="/2017/07/25/compile-time-enabling-or-disabling-plugins/">only the plugins you need</a>.
         </p>
       </div>
 

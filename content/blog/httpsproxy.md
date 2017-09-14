@@ -10,7 +10,7 @@ Since almost a year Google has a DNS service that can be queried over HTTPS:
 <https://dns.google.com>. This means your queries are encrypted and can only be seen by you (and
 Google(!)). Seeing all the press about the
 [UK's snooper's charter](https://www.theguardian.com/technology/askjack/2016/nov/24/how-can-i-protect-myself-from-government-snoopers)
-I though I should implement this as a middleware in CoreDNS.
+I though I should implement this as a plugin in CoreDNS.
 
 I'm (obviously) going to use this myself; which is perfect as it protects me and it allows me to
 dog food CoreDNS as a DNS proxy in my home network.

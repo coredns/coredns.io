@@ -27,7 +27,7 @@ IP address for the service. Inside the cluster, it will resolve to the same thin
 will cause traffic to hairpin - travel out of the cluster and then back in via the external IP. Instead, we want it
 to resolve to the internal ClusterIP, avoiding the hairpin.
 
-To do this in CoreDNS, we make use of the `rewrite` middleware. This middleware can modify a query before it is sent
+To do this in CoreDNS, we make use of the `rewrite` plugin. This plugin can modify a query before it is sent
 down the chain to whatever backend is going to answer it. Recall the `Corefile` (CoreDNS configuration file) we
 used in the last blog:
 
@@ -81,9 +81,9 @@ That's all there is to solving the first problem.
 
 The second problem is just as easy. Here, we just want to be able to serve DNS entries out of a different zone
 than the cluster domain. Since CoreDNS is a general-purpose DNS server, there are many other ways
-to serve up zones than just the `kubernetes` middleware. For simplicity, we'll use the `file` middleware along
-with another `ConfigMap` entry to satisfy this use case. However, you could use the `etcd` middleware to store services
-directly within an etcd instance, or the `auto` middleware to manage a set of zones (very nice when used along
+to serve up zones than just the `kubernetes` plugin. For simplicity, we'll use the `file` plugin along
+with another `ConfigMap` entry to satisfy this use case. However, you could use the `etcd` plugin to store services
+directly within an etcd instance, or the `auto` plugin to manage a set of zones (very nice when used along
 with [git-sync](https://github.com/kubernetes/git-sync)).
 
 To create the new zone, we need to modify the `coredns.yaml` we have been using to create an additional file
@@ -155,5 +155,5 @@ as mentioned earlier, we could also use the `etcd` backend and avoid the hassle 
 sending the signal.
 
 This brings us to the last problem. That one can be solved using the new support for `fallthrough` in the `kubernetes`
-middleware. This functionality has been added in the recently released version 007 of CoreDNS - we'll come back with
+plugin. This functionality has been added in the recently released version 007 of CoreDNS - we'll come back with
 another blog soon show how to use it.

@@ -9,15 +9,15 @@ author = "miek"
 
 CoreDNS-009 has been [released](https://github.com/coredns/coredns/releases/tag/v009)!
 
-CoreDNS is a DNS server that chains middleware, where each middleware implements a DNS feature.
+CoreDNS is a DNS server that chains plugins, where each plugin implements a DNS feature.
 
-Release v009 is mostly a bugfix release, with a few new features in the middleware.
+Release v009 is mostly a bugfix release, with a few new features in the plugin.
 
 # Core
 
 No changes.
 
-# Middleware
+# Plugin
 
 * *secondary*: fix functionality and improve matching of notify queries.
 * *cache*: fix data race.

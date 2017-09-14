@@ -22,7 +22,7 @@ First get CoreDNS, either
 * *Get the Docker container* from [docker hub](https://hub.docker.com/r/coredns/coredns/).
 
 If you want to use CoreDNS in Kubernetes, please check [this post about SD with the *kuberneters*
-middleware](/2017/03/01/coredns-for-kubernetes-service-discovery-take-2/).
+plugin](/2017/03/01/coredns-for-kubernetes-service-discovery-take-2/).
 
 The remainder of this quick start will focus and two different use cases
 
@@ -31,7 +31,7 @@ The remainder of this quick start will focus and two different use cases
 
 ## Serving from files
 
-When serving from zone files you will want to use the *file* middleware. Let's start with the zone
+When serving from zone files you will want to use the *file* plugin. Let's start with the zone
 `example.org.` and zonefile we want to serve from:
 
 Create a file names `/etc/coredns/zones/example.org` with the following content:
@@ -82,7 +82,7 @@ As we've enabled logging the query should be show up there as well:
 
 From here you can enable CoreDNS to run on port 53 and have it start from systemd (when on Linux),
 see [the deployment repo](https://github.com/coredns/deployment) for example scripts.
-Or read more about the [*file* middleware](/middleware/file/).
+Or read more about the [*file* plugin](/plugin/file/).
 
 ## CoreDNS as proxy
 
@@ -108,7 +108,7 @@ Start CoreDNS, just like above and send it a few queries. CoreDNS should logs th
 ~~~
 
 If you look at the time each query took, we measure those in "ms", so it's quite slow. Let's add
-caching, but enable the *caching* middleware. Just add the word "cache" to the Corefile and reload
+caching, but enable the *caching* plugin. Just add the word "cache" to the Corefile and reload
 CoreDNS: `kill -SIGUSR1 <pid_of_coredns>`. And query again:
 
 ~~~
@@ -118,12 +118,12 @@ CoreDNS: `kill -SIGUSR1 <pid_of_coredns>`. And query again:
 
 133 µs. That sounds better.
 
-Read more about the [*cache*](/middleware/cache) and [*proxy*](/middleware/proxy) middleware on
+Read more about the [*cache*](/plugin/cache) and [*proxy*](/plugin/proxy) plugin on
 this website. And find all other documentation [here](/tags/documentation).
 
 ## Possible errors and how to get around them
 
-The [*health*](/middleware/health)'s documention states "This middleware only needs to be enabled
+The [*health*](/plugin/health)'s documention states "This plugin only needs to be enabled
 once.", which might lead you to think:
 
 ~~~ txt
