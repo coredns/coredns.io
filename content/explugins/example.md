@@ -11,8 +11,8 @@ home = "https://github.com/coredns/example/blob/master/README.md"
 
 # example
 
-The example plugin prints "example" on every query received. It can be used as documentation for
-writing external plugin and to test if external plugin compiles with CoreDNS.
+The example middleware prints "example" on every query received. It can be used as documentation for
+writing external middleware and to test if external middleware compiles with CoreDNS.
 
 ## Syntax
 
@@ -33,5 +33,5 @@ example.com {
 
 ## How to Enable
 
-Follow [these](/2017/07/25/compile-time-enabling-or-disabling-plugin/) steps,
+Follow [these](https://coredns.io/2017/07/25/compile-time-enabling-or-disabling-plugins/) steps,
 *example* should be put relatively early in the plugin chain.
