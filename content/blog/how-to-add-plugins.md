@@ -6,12 +6,12 @@ title = "How to Add Plugins to CoreDNS"
 author = "miek"
 +++
 
-CoreDNS is a DNS server that chains plugins. Plugin is defined as a method `ServeDNS()` that
+CoreDNS is a DNS server that chains plugins. A plugin is defined as a method: `ServeDNS()` that
 gets a request and either responds to the client or passes it on to the next plugin. If none of
-the plugin handle the request a default response of SERVFAIL is returned.
+the plugins handle the request a default response of SERVFAIL is returned.
 
-This blog post details how to add plugin to CoreDNS. We're using the example of the *whoami*
-plugin which is a CoreDNS plugin and loaded by default if nothing is specified.
+This blog post details how to add a plugin to CoreDNS. We're using the example of the *whoami*
+plugin which is a CoreDNS plugin and loaded by default if no Corefile is specified.
 
 > Note all the code examples here are in Go because CoreDNS is written in the Go language.
 
@@ -27,8 +27,8 @@ for this. In this case, we already had a (good) name: *whoami*.
 A plugin consists of a number of parts:
 
 1. The registration of the plugin
-2. The setup function that parses the *whoami* directive and
-    possible options from the Corefile
+2. The setup function that parses the *whoami* plugin and
+    possible arguments from the Corefile
 3. The `ServeDNS()` and `Name()` methods
 
 After we've defined the parts, we can:
@@ -51,7 +51,7 @@ func init() {
 ~~~
 First you see that we're using `caddy.RegisterPlugin` which makes perfectly sense, because
 CoreDNS uses the [Caddy](https://caddyserver.com) server framework. The first argument is the name
-of the directive as used in the Corefile.
+of the *plugin* as used in the Corefile.
 
 The `ServerType` is "dns" because CoreDNS is a DNS server; Caddy supports HTTP servers as well. The
 `Action` is the name of the setup function that takes care of the parsing of the Corefile. Its job
@@ -61,7 +61,7 @@ So whenever the Corefile parser sees "whoami", `setupWhoami` is called.
 
 # 2. Setup function
 
-Because the *whoami* directive does not allow for any options, the setup function is relatively
+Because the *whoami* plugin does not allow for any options, the setup function is relatively
 simple:
 ~~~ go
 func setupWhoami(c *caddy.Controller) error {
@@ -71,7 +71,7 @@ func setupWhoami(c *caddy.Controller) error {
 	}
 
 	dnsserver.GetConfig(c).AddPlugin(func(next plugin.Handler) plugin.Handler {
-		return Whoami{}
+		return Whoami{Next: next} // Set the Next field, so the plugin chaining works.
 	})
 
 	return nil
@@ -88,8 +88,8 @@ Note that you should test the parsing as well, see
 
 # 3. ServeDNS() and Name()
 
-Let's start with the trivial `Name()` method which is used (mainly) to see if the metrics
-plugin is loaded. CoreDNS does by this by name. The method just returns the string `whoami`.
+Let's start with the trivial `Name()` method which is used so other plugins can check if a certain
+plugin is loaded. The method just returns the string `whoami`.
 
 ~~~ go
 // Name implements the Handler interface.
@@ -248,5 +248,4 @@ There are already a lot of different plugin in CoreDNS. New, exciting ones, are 
 have an idea open an issue on the tracker.
 
 This is an updated version of the [previous
-blog](/2016/12/19/writing-plugins-for-coredns/) about writing CoreDNS
-plugin.
+blog](/2016/12/19/writing-plugins-for-coredns/) about writing CoreDNS plugin.
