@@ -4,7 +4,7 @@ description = "*whoami* returns your resolver's local IP address, port and trans
 weight = 28
 tags = [ "plugin", "whoami" ]
 categories = [ "plugin" ]
-date = "2017-09-14T08:38:42.999941"
+date = "2017-09-15T21:22:42.286379"
 +++
 
 The reply always has an empty answer section. The port and transport are included in the additional

@@ -4,7 +4,7 @@ description = "*auto* enables serving zone data from an RFC 1035-style master fi
 weight = 1
 tags = [ "plugin", "auto" ]
 categories = [ "plugin" ]
-date = "2017-09-14T08:38:42.991088"
+date = "2017-09-15T21:22:42.283204"
 +++
 
 The *auto* plugin is used for an "old-style" DNS server. It serves from a preloaded file that exists
@@ -54,19 +54,23 @@ directive only is authoritative for `example.ORG`.
 Load `org` domains from `/etc/coredns/zones/org` and allow transfers to the internet, but send
 notifies to 10.240.1.1
 
-~~~
-auto org {
-    directory /etc/coredns/zones/org
-    transfer to *
-    transfer to 10.240.1.1
+~~~ corefile
+. {
+    auto org {
+        directory /etc/coredns/zones/org
+        transfer to *
+        transfer to 10.240.1.1
+    }
 }
 ~~~
 
 Load `org` domains from `/etc/coredns/zones/org` and looks for file names as `www.db.example.org`,
 where `example.org` is the origin. Scan every 45 seconds.
 
-~~~
-auto org {
-    directory /etc/coredns/zones/org www\.db\.(.*) {1} 45
+~~~ corefile
+org {
+    auto {
+        directory /etc/coredns/zones/org www\.db\.(.*) {1} 45
+    }
 }
 ~~~

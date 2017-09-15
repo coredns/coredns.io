@@ -4,7 +4,7 @@ description = "*cache* enables a frontend cache. It will cache all records excep
 weight = 4
 tags = [ "plugin", "cache" ]
 categories = [ "plugin" ]
-date = "2017-09-14T08:38:42.992875"
+date = "2017-09-15T21:22:42.283788"
 +++
 
 ## Syntax
@@ -67,7 +67,9 @@ cache 10
 
 Proxy to Google Public DNS and only cache responses for example.org (or below).
 
-~~~
-proxy . 8.8.8.8:53
-cache example.org
+~~~ corefile
+. {
+    proxy . 8.8.8.8:53
+    cache example.org
+}
 ~~~

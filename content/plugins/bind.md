@@ -4,7 +4,7 @@ description = "*bind* overrides the host to which the server should bind."
 weight = 3
 tags = [ "plugin", "bind" ]
 categories = [ "plugin" ]
-date = "2017-09-14T08:38:42.992585"
+date = "2017-09-15T21:22:42.283638"
 +++
 
 Normally, the listener binds to the wildcard host. However, you may force the listener to bind to
@@ -22,6 +22,8 @@ bind ADDRESS
 
 To make your socket accessible only to that machine, bind to IP 127.0.0.1 (localhost):
 
-~~~ txt
-bind 127.0.0.1
+~~~
+. {
+    bind 127.0.0.1
+}
 ~~~

@@ -4,7 +4,7 @@ description = "*debug* disables the automatic recovery upon a CoreDNS crash so t
 weight = 6
 tags = [ "plugin", "debug" ]
 categories = [ "plugin" ]
-date = "2017-09-14T08:38:42.993274"
+date = "2017-09-15T21:22:42.283997"
 +++
 
 Note that the *errors* plugin (if loaded) will also set a `recover` negating this setting.
@@ -20,6 +20,8 @@ debug
 
 Disable CoreDNS' ability to recover from crashes:
 
-~~~ txt
-debug
+~~~ corefile
+. {
+    debug
+}
 ~~~

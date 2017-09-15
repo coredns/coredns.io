@@ -1,14 +1,17 @@
 +++
 title = "autopath"
-description = "The *autopath* plugin allows CoreDNS to perform server side search path completion. If it sees a query that matches the first element of the configured search path, *autopath* will follow the chain of search path elements and returns the first reply that is not NXDOMAIN. On any failures the original reply is returned."
+description = "*autopath* allows CoreDNS to perform server side search path completion."
 weight = 2
 tags = [ "plugin", "autopath" ]
 categories = [ "plugin" ]
-date = "2017-09-14T08:38:42.992274"
+date = "2017-09-15T21:22:42.283508"
 +++
 
-Because *autopath* returns a reply for a name that wasn't the original question it will add a CNAME
-that points from the original name (with the search path element in it) to the name of this answer.
+If it sees a query that matches the first element of the configured search path, *autopath* will
+follow the chain of search path elements and returns the first reply that is not NXDOMAIN. On any
+failures the original reply is returned. Because *autopath* returns a reply for a name that wasn't
+the original question it will add a CNAME that points from the original name (with the search path
+element in it) to the name of this answer.
 
 ## Syntax
 

@@ -1,10 +1,10 @@
 +++
 title = "federation"
-description = "The *federation* plugin enables [federated](https://kubernetes.io/docs/tasks/federation/federation-service-discovery/) queries to be resolved via the kubernetes plugin."
+description = "*federation* enables [federated](https://kubernetes.io/docs/tasks/federation/federation-service-discovery/) queries to be resolved via the kubernetes plugin."
 weight = 12
 tags = [ "plugin", "federation" ]
 categories = [ "plugin" ]
-date = "2017-09-14T08:38:42.994890"
+date = "2017-09-15T21:22:42.284578"
 +++
 
 Enabling *federation* without also having *kubernetes* is a noop.
@@ -23,9 +23,9 @@ federation [ZONES...] {
 
 Here we handle all service requests in the `prod` and `stage` federations.
 
-~~~ txt
+~~~
 . {
-    kubernetes cluster.local 
+    kubernetes cluster.local
     federation cluster.local {
         prod prod.feddomain.com
         staging staging.feddomain.com
@@ -35,7 +35,7 @@ Here we handle all service requests in the `prod` and `stage` federations.
 
 Or slightly shorter:
 
-~~~ txt
+~~~
 cluster.local {
     kubernetes
     federation {

@@ -1,10 +1,10 @@
 +++
 title = "reverse"
-description = "The *reverse* plugin allows CoreDNS to respond dynamically to a PTR request and the related A/AAAA request."
+description = "*reverse* allows CoreDNS to respond dynamically to a PTR request and the related A/AAAA request."
 weight = 22
 tags = [ "plugin", "reverse" ]
 categories = [ "plugin" ]
-date = "2017-09-14T08:38:42.998233"
+date = "2017-09-15T21:22:42.285736"
 +++
 
 ## Syntax
@@ -43,7 +43,7 @@ The zone will be matched by the zones listed in *this* configuration stanza.
 
 ## Examples
 
-~~~ txt
+~~~ corefile
 arpa compute.internal {
     # proxy unmatched requests
     proxy . 8.8.8.8
@@ -68,7 +68,7 @@ arpa compute.internal {
 ~~~
 
 
-~~~ txt
+~~~ corefile
 32.10.in-addr.arpa.arpa arpa.company.org {
 
     reverse 10.32.0.0/16 {

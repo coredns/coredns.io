@@ -4,7 +4,7 @@ description = "*root* simply specifies the root of where CoreDNS finds (e.g.) zo
 weight = 24
 tags = [ "plugin", "root" ]
 categories = [ "plugin" ]
-date = "2017-09-14T08:38:42.998765"
+date = "2017-09-15T21:22:42.285957"
 +++
 
 The default root is the current working directory of CoreDNS. A relative root path is relative to
@@ -22,6 +22,8 @@ root PATH
 
 Serve zone data (when the *file* plugin is used) from `/etc/coredns/zones`:
 
-~~~ txt
-root /etc/coredns/zones
+~~~ corefile
+. {
+    root /etc/coredns/zones
+}
 ~~~

@@ -1,11 +1,15 @@
 +++
 title = "etcd"
-description = "*etcd* enables reading zone data from an etcd instance. The data in etcd has to be encoded as a [message](https://github.com/skynetservices/skydns/blob/2fcff74cdc9f9a7dd64189a447ef27ac354b725f/msg/service.go#L26) like [SkyDNS](https://github.com/skynetservices/skydns). It should also work just like SkyDNS."
+description = "*etcd* enables reading zone data from an etcd (v2) instance."
 weight = 11
 tags = [ "plugin", "etcd" ]
 categories = [ "plugin" ]
-date = "2017-09-14T08:38:42.994466"
+date = "2017-09-15T21:22:42.284479"
 +++
+
+The data in etcd has to be encoded as
+a [message](https://github.com/skynetservices/skydns/blob/2fcff74cdc9f9a7dd64189a447ef27ac354b725f/msg/service.go#L26)
+like [SkyDNS](https://github.com/skynetservices/skydns). It should also work just like SkyDNS.
 
 The etcd plugin makes extensive use of the proxy plugin to forward and query other servers
 in the network.
@@ -53,8 +57,8 @@ etcd [ZONES...] {
 
 This is the default SkyDNS setup, with everying specified in full:
 
-~~~
-.:53 {
+~~~ corefile
+. {
     etcd skydns.local {
         stubzones
         path /skydns
@@ -71,8 +75,8 @@ This is the default SkyDNS setup, with everying specified in full:
 Or a setup where we use `/etc/resolv.conf` as the basis for the proxy and the upstream
 when resolving external pointing CNAMEs.
 
-~~~
-.:53 {
+~~~ corefile
+. {
     etcd skydns.local {
         path /skydns
         upstream /etc/resolv.conf
@@ -91,9 +95,9 @@ need to add the zone `0.0.10.in-addr.arpa` to the list of zones. (The fun starts
 in the ip6.arpa domain.) Showing a snippet of a Corefile:
 
 ~~~
-    etcd skydns.local 0.0.10.in-addr.arpa {
-        stubzones
-    ...
+etcd skydns.local 0.0.10.in-addr.arpa {
+    stubzones
+...
 ~~~
 
 Next you'll need to populate the zone with reverse records, here we add a reverse for

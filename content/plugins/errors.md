@@ -4,7 +4,7 @@ description = "*errors* enables error logging."
 weight = 10
 tags = [ "plugin", "errors" ]
 categories = [ "plugin" ]
-date = "2017-09-14T08:38:42.994187"
+date = "2017-09-15T21:22:42.284367"
 +++
 
 Any errors encountered during the query processing will be printed to standard output.

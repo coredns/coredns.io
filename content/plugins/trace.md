@@ -1,10 +1,10 @@
 +++
 title = "trace"
-description = "This module enables OpenTracing-based tracing of DNS requests as they go through the plugin chain."
+description = "*trace* enables OpenTracing-based tracing of DNS requests as they go through the plugin chain."
 weight = 27
 tags = [ "plugin", "trace" ]
 categories = [ "plugin" ]
-date = "2017-09-14T08:38:42.999643"
+date = "2017-09-15T21:22:42.286286"
 +++
 
 ## Syntax
@@ -55,8 +55,10 @@ trace tracinghost:9253
 
 or
 
-~~~
-trace zipkin tracinghost:9253
+~~~ corefile
+. {
+    trace zipkin tracinghost:9253
+}
 ~~~
 
 If for some reason you are using an API reverse proxy or something and need to remap

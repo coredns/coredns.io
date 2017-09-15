@@ -1,10 +1,10 @@
 +++
 title = "prometheus"
-description = "This module enables prometheus metrics for CoreDNS."
+description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics for CoreDNS."
 weight = 19
 tags = [ "plugin", "metrics" ]
 categories = [ "plugin" ]
-date = "2017-09-14T08:38:42.997160"
+date = "2017-09-15T21:22:42.285331"
 +++
 
 The default location for the metrics is `localhost:9153`. The metrics path is fixed to `/metrics`.
@@ -48,8 +48,10 @@ is `localhost:9153`. The metrics path is fixed to `/metrics`.
 
 Use an alternative address:
 
-~~~
-prometheus localhost:9253
+~~~ corefile
+. {
+    prometheus localhost:9253
+}
 ~~~
 
 # Bugs

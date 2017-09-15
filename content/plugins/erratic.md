@@ -1,18 +1,19 @@
 +++
 title = "erratic"
-description = "*erratic* is a plugin useful for testing client behavior. It returns a static response to all queries, but the responses can be delayed, dropped or truncated."
+description = "*erratic* is a plugin useful for testing client behavior."
 weight = 9
 tags = [ "plugin", "erratic" ]
 categories = [ "plugin" ]
-date = "2017-09-14T08:38:42.993997"
+date = "2017-09-15T21:22:42.284290"
 +++
 
+It returns a static response to all queries, but the responses can be delayed, dropped or truncated.
 The *erratic* plugin will respond to every A or AAAA query. For any other type it will return
 a SERVFAIL response. The reply for A will return 192.0.2.53 (see RFC 5737), for AAAA it returns
 2001:DB8::53 (see RFC 3849).
 
 *erratic* can also be used in conjunction with the *autopath* plugin. This is mostly to aid in
- testing.
+testing.
 
 ## Syntax
 
@@ -31,8 +32,8 @@ erratic {
 
 ## Examples
 
-~~~ txt
-.:53 {
+~~~ corefile
+. {
     erratic {
         drop 3
     }
@@ -41,7 +42,7 @@ erratic {
 
 Or even shorter if the defaults suits you. Note this only drops queries, it does not delay them.
 
-~~~ txt
+~~~ corefile
 . {
     erratic
 }
@@ -49,7 +50,7 @@ Or even shorter if the defaults suits you. Note this only drops queries, it does
 
 Delay 1 in 3 queries for 50ms
 
-~~~ txt
+~~~ corefile
 . {
     erratic {
         delay 3 50ms
@@ -59,7 +60,7 @@ Delay 1 in 3 queries for 50ms
 
 Delay 1 in 3 and truncate 1 in 5.
 
-~~~ txt
+~~~ corefile
 . {
     erratic {
         delay 3 5ms
@@ -70,7 +71,7 @@ Delay 1 in 3 and truncate 1 in 5.
 
 Drop every second query.
 
-~~~ txt
+~~~ corefile
 . {
     erratic {
         drop 2
