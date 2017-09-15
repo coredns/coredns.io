@@ -130,4 +130,4 @@ grpc://example.org:1443 {
 ## Also See
 
 The Corefile is parsed like a [Caddyfile](https://caddyserver.com/docs/caddyfile). We support
-everything that is described on that page.
+everything that is described on that page, meaning we support `import`, `startup` and `shutdown`.
