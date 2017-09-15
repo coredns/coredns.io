@@ -7,6 +7,7 @@ categories = [ "plugin", "external" ]
 date = "2017-07-22T12:37:19+01:00"
 repo = "https://github.com/mholt/caddy"
 home = "https://caddyserver.com/docs/startup"
+enabled = "default"
 +++
 
 This is useful for preparing to serve a zone by running a script or starting a background process.

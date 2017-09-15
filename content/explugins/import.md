@@ -7,6 +7,7 @@ categories = [ "plugin", "external" ]
 date = "2017-07-22T12:37:19+01:00"
 repo = "https://github.com/mholt/caddy"
 home = "https://caddyserver.com/docs/import"
+enabled = "default"
 +++
 
 This is a unique directive in that *import* can appear outside of a server block. In other words, it

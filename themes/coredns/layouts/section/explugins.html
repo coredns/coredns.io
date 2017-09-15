@@ -35,6 +35,11 @@
         <p>
             <i class="fa fa-code-fork" aria-hidden="true"></i> <a href="{{ .Params.repo }} ">Source</a>
             <i class="fa fa-home" aria-hidden="true"></i> <a href="{{ .Params.home }} ">Home</a>
+            {{ if isset .Params "enabled" }}
+                <br/>
+                <br/>
+                <i class="fa fa-check-square-o" aria-hidden="true"></i>Enabled by default
+            {{ end }}
         </p>
       </div>
       {{ end }}
