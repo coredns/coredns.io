@@ -28,7 +28,9 @@ you'll need:
 
 ~~~ txt
 . {
-    httpproxy . dns.google.com
+    proxy . dns.google.com {
+        procotol https_google
+    }
     cache
     log stdout
     errors stdout
