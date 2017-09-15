@@ -10,20 +10,32 @@ The `Corefile` is CoreDNS's configuration file. It defines:
 
 * What servers listen on what ports and which protocol.
 * For which zone each server is authoritative.
-* What plugin is loaded in a server.
+* Which plugins are loaded in a server.
 
 To explain more, let take a look at this "Corefile":
 
 ~~~ txt
 ZONE:[PORT] {
-    [MIDDLEWARE]...
+    [PLUGIN]...
 }
 ~~~
 
 * **ZONE** defines the zone this server. The optional **PORT** defaults to 53, if not given (or
   whatever the `-dns.port` flag has as a value.
-* **MIDDLEWARE** defines the plugin we want to load. This is optional as well, but as server
-  with no plugin will just return SERVFAIL for all queries.
+* **PLUGIN** defines the plugin we want to load. This is optional as well, but as server
+  with no plugin will just return SERVFAIL for all queries. Each plugin can have a number of
+  *properties* than can have *arguments*
+
+I.e, in the next example:
+
+the **ZONE** is `.`, the **PLUGIN** is `chaos`. The *chaos* plugin does not have any properties, but
+it does take an *argument*: `CoreDNS-001`.
+
+~~~ corefile
+. {
+   chaos CoreDNS-001
+}
+~~~
 
 This is the most minimal Corefile:
 
@@ -57,7 +69,7 @@ When defining a new zone, you either create a new server, or add it to an existi
 redefine the plugin for it. Here we define *one* server that handles two zones; that potentially
 chain different plugin:
 
-~~~ txt
+~~~ corefile
 example.org {
     whoami
 }
@@ -73,7 +85,7 @@ through the plugin defined for `example.org` above. The rest is handled by `.`.
 
 Normally when you want to serve a reverse zone you'll have to say something:
 
-~~~ txt
+~~~ corefile
 0.0.10.in-addr.arpa {
     whoami
 }
@@ -81,7 +93,7 @@ Normally when you want to serve a reverse zone you'll have to say something:
 
 To make this easier CoreDNS just allows you to say:
 
-~~~ txt
+~~~ corefile
 10.0.0.0/24 {
     whoami
 }
@@ -91,7 +103,7 @@ To make this easier CoreDNS just allows you to say:
 
 When CoreDNS starts up and can't find a Corefile, it will load a default one, defined as
 
-~~~ txt
+~~~ corefile
 . {
     whoami
 }
