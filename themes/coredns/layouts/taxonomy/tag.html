@@ -1,0 +1,40 @@
+{{ define "title"}} {{ .Title}} {{end}}
+{{ define "header"}} {{ partial "header" .}} {{end}}
+
+{{ define "main" }}
+
+<div id="hero" class="wrap">
+    {{ $last := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
+    {{ if eq $last "documentation" }}
+        <h1>Documentation</h1>
+        {{ .Site.Data.subtext.docs.content | markdownify }}
+        <p/>
+
+        {{ .Scratch.Set "url1" "/2017/07/23/corefile-explained/" }}
+        {{ .Scratch.Set "link1" "Corefile Explained" }}
+        {{ .Scratch.Set "class1" "primary" }}
+
+        {{ .Scratch.Set "url2" "/2017/06/08/how-queries-are-processed-in-coredns/" }}
+        {{ .Scratch.Set "link2" "Query Processing" }}
+        {{ .Scratch.Set "class2" "outline" }}
+
+        {{ partial "plugin-action-button" . }}
+
+    {{ else }}
+
+    <h1>{{ $last | humanize }}</h1>
+    Tag: {{ $last }}.
+    <p/>
+
+    {{ end }}
+</div>
+
+<ul id="posts">
+
+ {{ range .Paginator.Pages.ByWeight }} {{ partial "page-summary" . }} {{ end }}
+  <section>{{ partial "pagination" .}}</section>
+
+</ul>
+
+{{ end }}
+{{ define "footer" }} {{ partial "footer" . }} {{ end }}

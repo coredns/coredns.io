@@ -9,28 +9,6 @@
         {{ .Site.Data.subtext.blog.content | markdownify }}
         <p></p>
     {{ end }}
-
-    <!-- Hacky: look at URL -->
-    {{ if eq .Data.Singular "tag" }}
-        {{ $last := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
-        {{ if eq $last "documentation" }}
-            <h1>Documentation</h1>
-        {{ end }}
-        {{ .Site.Data.subtext.docs.content | markdownify }}
-        <p/>
-
-        {{ .Scratch.Set "url1" "/2017/07/23/corefile-explained/" }}
-        {{ .Scratch.Set "link1" "Corefile Explained" }}
-        {{ .Scratch.Set "class1" "primary" }}
-
-        {{ .Scratch.Set "url2" "/2017/06/08/how-queries-are-processed-in-coredns/" }}
-        {{ .Scratch.Set "link2" "Query Processing" }}
-        {{ .Scratch.Set "class2" "outline" }}
-
-        {{ partial "plugin-action-button" . }}
-
-
-    {{ end }}
 </div>
 
 <ul id="posts">
