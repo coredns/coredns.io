@@ -40,7 +40,3 @@ On windows, you might need to use quotes when the command path contains spaces:
 ~~~
 startup "\"C:\Program Files\command.exe\" -b 127.0.0.1:9123" &
 ~~~
-
-## How to Enable
-
-This external plugin is included in the default CoreDNS configuration.

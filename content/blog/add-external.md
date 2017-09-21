@@ -30,10 +30,6 @@ The *<plugin name>* plugin is a ...
 ## Syntax
 
 ## Example
-
-## How to Enable
-
-Follow [these](/2017/07/25/compile-time-enabling-or-disabling-plugins/) steps.
 ~~~
 
 See [shutdown.md for an example]

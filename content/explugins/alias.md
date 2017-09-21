@@ -47,7 +47,3 @@ into
 ;; ANSWER SECTION:
 example.com.	299	IN	A	123.123.45.67
 ```
-
-## How to Enable
-
-Follow [these](/2017/07/25/compile-time-enabling-or-disabling-plugin/) steps.
