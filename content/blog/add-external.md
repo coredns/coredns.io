@@ -33,8 +33,8 @@ The *<plugin name>* plugin is a ...
 ~~~
 
 See [shutdown.md for an example]
-(https://github.com/coredns/coredns.io/blob/master/content/explugins/shutdown.md) on how to do
-this.
+(https://raw.githubusercontent.com/coredns/coredns.io/master/content/explugins/shutdown.md)
+on how to do this.
 
 Note that **description** needs to be a full sentence, and that **repo** must be a Go-gettable link
 that can be put in `plugins.cfg`. Also document in your README.md what would be suitable position
