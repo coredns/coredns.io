@@ -13,21 +13,13 @@
     {{ partial "toc" .}}
 
     {{ .Content}}
-<!-- Inject script tag in this template  -->
+
     {{if .Params.script}}
      {{ $script := (delimit (slice "scripts" .Params.script) "/")}}
     {{ partial (string $script) .}}
     {{end }}
 
-    {{ $name := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
-
-    <div class="text-center">
-    <i class="fa fa-code-fork"> </i>
-    <i id="#redactor-buy-box">
-        <a href="https://github.com/coredns/coredns/blob/master/plugin/{{$name}}/README.md">
-        authoritative source of this file</a>
-    </i>
-    </div>
+    {{ partial "source" . }}
 
     </div>
     </div>

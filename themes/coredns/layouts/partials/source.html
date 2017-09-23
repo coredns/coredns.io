@@ -1,0 +1,11 @@
+<div class="text-right smaller">
+   <i class="fa fa-code"></i>
+    {{ if eq .File.Dir "plugins/" }}
+        <a href="https://github.com/coredns/coredns/blob/master/plugin/{{ .File.BaseFileName }}/README.md"> source of this file</a>
+    
+     {{ else }}
+
+        <a href="https://github.com/coredns/coredns.io/blob/master/content//{{ .File.Path }}"> source of this file</a>
+
+    {{ end }}
+</div>
