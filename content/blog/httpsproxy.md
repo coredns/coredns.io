@@ -26,14 +26,14 @@ standardized by the IETF.
 The configuration on the CoreDNS side is pretty straight forward. The following Corefile is all
 you'll need:
 
-~~~ txt
+~~~ corefile
 . {
     proxy . dns.google.com {
         procotol https_google
     }
     cache
-    log stdout
-    errors stdout
+    log
+    errors
 }
 ~~~
 

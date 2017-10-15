@@ -31,18 +31,15 @@ be perfectly valid for plugin that calls other chained-in plugin).
 But *proxy* **will not** call *file* because the query will be answered and done with after
 the plugin exists - the same is true for the opposite direction.
 
-To look what into what happens here we have to look the [directives
-ordering](https://github.com/coredns/coredns/blob/master/core/dnsserver/directives.go#L75):
+To look what into what happens here we have to look the [plugins
+ordering](https://github.com/coredns/coredns/blob/master/plugins.cfg):
 
 ~~~
 ...
-"dnssec",
-"file",
-"secondary",
-"etcd",
-"kubernetes",
-"proxy",
-"whoami"
+160:dnssec:dnssec
+210:file:file
+240:etcd:etcd
+250:proxy:proxy
 ...
 ~~~
 

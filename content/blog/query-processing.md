@@ -92,7 +92,7 @@ request down the chain. A backend further down the chain then has the opportunit
 Coming back to our original discussion of the three use cases in Kubernetes, we can now understand how we can use
 `fallthrough` to meet the third use case. Remember the initial Corefile from [that blog](/2017/05/08/custom-dns-entries-for-kubernetes/):
 
-~~~ txt
+~~~ corefile
 .:53 {
     errors
     log stdout

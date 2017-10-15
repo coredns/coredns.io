@@ -39,3 +39,8 @@ Create:
 
 See the top-level (i.e. not in the themes directory) layout/partials/popup.html for adjusting the
 text.
+
+## Corefile Snippets
+
+Any Corefile snippets should be use the (fake) language `corefile`, we have a small utility that
+checks all these snippets to see if they are still valid.

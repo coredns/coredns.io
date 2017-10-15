@@ -156,7 +156,7 @@ spec:
 Let's take a closer look at that Corefile. It's really very similar to the one in the
 previous blog post.
 
-~~~txt
+~~~ corefile
 .:53 {
     errors
     log stdout

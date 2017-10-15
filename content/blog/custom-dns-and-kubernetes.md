@@ -31,7 +31,7 @@ To do this in CoreDNS, we make use of the `rewrite` plugin. This plugin can modi
 down the chain to whatever backend is going to answer it. Recall the `Corefile` (CoreDNS configuration file) we
 used in the last blog:
 
-~~~ txt
+~~~ corefile
 .:53 {
     errors
     log stdout
@@ -44,7 +44,7 @@ used in the last blog:
 
 To get the behavior we want, we just need to add a rewrite rule mapping `foo.example.com` to `foo.default.svc.cluster.local`:
 
-~~~ txt
+~~~ corefile
 .:53 {
     errors
     log stdout

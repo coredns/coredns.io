@@ -51,8 +51,8 @@ CoreDNS is a DNS server that chains plugins, where each plugin implements a DNS 
   The following Corefile will load all zones found under `/etc/coredns/org` and be authoritative
   for `.org.`:
 
-    ~~~ txt
-    .:53 {
+    ~~~ corefile
+    . {
         auto org {
             directory /etc/coredns/org
         }
@@ -63,10 +63,12 @@ CoreDNS is a DNS server that chains plugins, where each plugin implements a DNS 
 * plugin/cache: use an LRU cache to make it memory bounded. Added more option to have more
   control on what is cached and for how long. The cache stanza was extended:
 
-    ~~~ txt
-    cache {
-        success CAPACITY [TTL]
-        denial CAPACITY [TTL]
+    ~~~ corefile
+    . {
+        cache {
+            success CAPACITY [TTL]
+            denial CAPACITY [TTL]
+        }
     }
     ~~~
 
@@ -78,9 +80,11 @@ CoreDNS is a DNS server that chains plugins, where each plugin implements a DNS 
 * plugin/logging: allow a response classs to be specified on log on responses matching the name *and*
   the response class. For instance only log denials for example.com:
 
-    ~~~ txt
-    log example.com stdout {
-        class denial
+    ~~~ corefile
+    . {
+        log example.com stdout {
+            class denial
+        }
     }
     ~~~
 
