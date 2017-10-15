@@ -1,6 +1,6 @@
 +++
 date = "2016-09-29T06:18:40Z"
-description = "CoreDNS can now be downloaded from Caddy's download page"
+description = "CoreDNS can now be downloaded from Caddy's download page."
 tags = ["Caddy", "Bugs", "Questions"]
 title = "CoreDNS and Caddy"
 author = "miek"

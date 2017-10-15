@@ -1,6 +1,6 @@
 +++
 date = "2017-07-24T07:37:13Z"
-description = "Quick Start Guide"
+description = "Quick Start Guide."
 tags = ["Quick", "Start", "Documentation"]
 title = "Quick Start"
 author = "miek"

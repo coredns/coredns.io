@@ -1,6 +1,6 @@
 +++
 date = "2017-01-01T10:30:31Z"
-description = "CoreDNS-004 Release Notes"
+description = "CoreDNS-004 Release Notes."
 release = "004"
 tags = ["Release", "004", "Notes"]
 title = "CoreDNS-004 Release"

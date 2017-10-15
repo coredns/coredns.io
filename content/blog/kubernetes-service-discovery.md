@@ -1,6 +1,6 @@
 +++
 date = "2016-11-08T07:33:08Z"
-description = "Using CoreDNS for service discovery in Kubernetes"
+description = "Using CoreDNS for service discovery in Kubernetes."
 tags = ["Kubernetes", "Service", "Discovery", "Kube-DNS", "Documentation"]
 title = "CoreDNS for Kubernetes Service Discovery"
 author = "miek"

@@ -1,6 +1,6 @@
 +++
 date = "2017-02-23T18:12:12Z"
-title = "History of CoreDNS in four posts"
+title = "History of CoreDNS in four posts."
 tags = ["CoreDNS","History","Caddy", "Documentation"]
 description = "How CoreDNS Came Into Existence"
 author = "miek"

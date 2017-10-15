@@ -5,7 +5,7 @@
 <div id="main">
   <div id="hero">
     <h1>{{.Title}}</h1>
-    <p>{{.Description}}</p>
+    <p>{{.Description | markdownify }}</p>
   </div>
 
   <div id="action-buttons">

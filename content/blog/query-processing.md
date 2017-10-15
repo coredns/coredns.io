@@ -1,6 +1,6 @@
 +++
 date = "2017-06-08T20:01:00Z"
-description = "And how it applies to Kubernetes custom DNS entries inside the cluster domain"
+description = "And how it applies to Kubernetes custom DNS entries inside the cluster domain."
 tags = ["Kubernetes", "Service", "Discovery", "Kube-DNS", "Custom", "DNS", "plugin", "Documentation"]
 title = "How Queries Are Processed in CoreDNS"
 author = "john"

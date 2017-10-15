@@ -1,6 +1,6 @@
 +++
 date = "2017-09-09T15:05:37+01:00"
-description = "CoreDNS review by JP Mens"
+description = "CoreDNS review by JP Mens."
 tags = ["DNS", "Review", "Blog"]
 title = "A first look at CoreDNS"
 author = "miek"

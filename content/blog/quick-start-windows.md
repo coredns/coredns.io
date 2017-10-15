@@ -1,6 +1,6 @@
 +++
 date = "2016-10-30T00:00:00"
-description = "Quick Start Guide for Windows"
+description = "Quick Start Guide for Windows."
 tags = ["Quick", "Start", "Documentation", "Windows"]
 title = "Quick Start for Windows"
 author = "jonathan"

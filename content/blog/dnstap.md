@@ -1,6 +1,6 @@
 +++
 title = "Logging with dnstap"
-description = "dnstap is a flexible, structured binary log format for DNS software."
+description = "*dnstap* is a flexible, structured binary log format for DNS software."
 tags = ["dnstap", "log", "plugin"]
 date = "2017-08-03T10:25:28+02:00"
 author = "varyoo"

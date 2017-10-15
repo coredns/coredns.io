@@ -1,6 +1,6 @@
 +++
 date = "2017-03-01T20:33:08Z"
-description = "CoreDNS is now fully compliant with the Kubernetes DNS Service Discovery Specification"
+description = "CoreDNS is now fully compliant with the Kubernetes DNS Service Discovery Specification."
 tags = ["Kubernetes", "Service", "Discovery", "Kube-DNS", "Documentation"]
 title = "CoreDNS for Kubernetes Service Discovery, Take 2"
 author = "john"

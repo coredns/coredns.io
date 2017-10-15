@@ -7,7 +7,7 @@
 <div id="hero">
     <h1 itemprop="headline">  {{.Title}}</h1>
     {{ if .Description }}
-<blockquote itemprop="description">{{ .Description }}</blockquote>
+<blockquote itemprop="description">{{ .Description | markdownify }}</blockquote>
 {{ end }}
 <time class="post-time">
 

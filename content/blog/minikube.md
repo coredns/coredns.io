@@ -1,6 +1,6 @@
 +++
 date = "2017-04-28T12:30:00Z"
-description = "Getting CoreDNS to work with Minikube"
+description = "Getting CoreDNS to work with Minikube."
 tags = ["Kubernetes", "Service", "Discovery", "Kube-DNS", "Minikube", "DNS", "Documentation"]
 title = "CoreDNS for Minikube"
 author = "john"

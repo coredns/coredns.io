@@ -1,6 +1,6 @@
 +++
 date = "2017-07-23T22:00:00Z"
-description = "When should plugin be external?"
+description = "When should plugins be external?"
 tags = ["Plugin", "External", "Out-of-Tree"]
 title = "When Should Plugins be External?"
 author = "miek"

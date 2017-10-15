@@ -1,6 +1,6 @@
 +++
 date = "2016-11-26T17:22:44Z"
-description = "Using Google's dns.google.com with CoreDNS"
+description = "Using Google's dns.google.com with CoreDNS."
 tags = ["Encryption", "DNS", "Google", "Documentation"]
 title = "DNS over HTTPS"
 author = "miek"

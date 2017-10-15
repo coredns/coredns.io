@@ -1,6 +1,6 @@
 +++
 title = "CoreDNS-011 Release"
-description = "CoreDNS-011 Release Notes"
+description = "CoreDNS-011 Release Notes."
 tags = ["Release", "011", "Notes"]
 draft = false
 release = "011"
