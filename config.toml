@@ -18,6 +18,28 @@ theme = "coredns"
   email    = "info@coredns.io"
   slack    = "https://slack.cncf.io/"
 
+[[menu.main]]
+    name = "Plugins"
+    weight = -200
+    url = "/plugins/"
+[[menu.main]]
+    name = "External Plugins"
+    weight = -190
+    url = "/explugins/"
+    external = ""
+[[menu.main]]
+    name = "Blog"
+    weight = -180
+    url = "/blog/"
+[[menu.main]]
+    name = "Docs"
+    weight = -160
+    url = "/tags/documentation/"
+[[menu.main]]
+    name = "Community"
+    weight = -120
+    url = "/community/"
+
 [params.authors.miek]
   name = "Miek Gieben"
   email = "miek@coredns.io"
@@ -44,25 +66,3 @@ theme = "coredns"
   name = "Antoine D."
   github = "https://github.com/varyoo"
   email = "varyoo@coredns.io"
-
-[[menu.main]]
-    name = "Plugins"
-    weight = -200
-    url = "/plugins/"
-[[menu.main]]
-    name = "External Plugins"
-    weight = -190
-    url = "/explugins/"
-    external = ""
-[[menu.main]]
-    name = "Blog"
-    weight = -180
-    url = "/blog/"
-[[menu.main]]
-    name = "Docs"
-    weight = -160
-    url = "/tags/documentation/"
-[[menu.main]]
-    name = "Community"
-    weight = -120
-    url = "/community/"
