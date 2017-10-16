@@ -36,10 +36,10 @@ ordering](https://github.com/coredns/coredns/blob/master/plugins.cfg):
 
 ~~~
 ...
-160:dnssec:dnssec
-210:file:file
-240:etcd:etcd
-250:proxy:proxy
+dnssec:dnssec
+file:file
+etcd:etcd
+proxy:proxy
 ...
 ~~~
 

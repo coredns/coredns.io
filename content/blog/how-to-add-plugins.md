@@ -188,8 +188,9 @@ Next we need to tell CoreDNS to compile and use this new plugin. Adding a plugin
 recently simplified and only consists of editing `plugin.cfg` and adding the line:
 
 ~~~
-210:whoami:whoami
+whoami:whoami
 ~~~
+
 The initial number is used for sorting the plugin (more on that below), then the name of the
 plugin as used in the registration and then the package inside the CoreDNS plugin directory.
 

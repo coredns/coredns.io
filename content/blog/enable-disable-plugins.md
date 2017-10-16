@@ -17,16 +17,15 @@ All this is done via one compile-time configuration file,
 
 ~~~
 ...
-230:whoami:whoami
-240:erratic:erratic
-500:startup:github.com/mholt/caddy/startupshutdown
+whoami:whoami
+erratic:erratic
+startup:github.com/mholt/caddy/startupshutdown
 ...
 ~~~
 
-The number specifies the ordering of the plugin (they are called in this order - *if* enabled in
-the [Corefile](/2017/07/23/corefile-explained/) - by CoreDNS). Then a **name** and a **repository**.
-Just add or remove your plugin in this file.
+The ordering of the plugins is specified by how the are ordered in this file. Each line consists of
+a **name** and a **repository**. Just add or remove your plugin in this file.
 
-Then do a `go get <plugin-repo-path>` if you need to get the external plugin's source code.
-And then just compile CoreDNS with `go generate` and a `go build`. You can then check if CoreDNS has
-the new plugin with `coredns -plugins`.
+Then do a `go get <plugin-repo-path>` if you need to get the external plugin's source code. And then
+just compile CoreDNS with `go generate` and a `go build`. You can then check if CoreDNS has the new
+plugin with `coredns -plugins`.
