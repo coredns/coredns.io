@@ -43,10 +43,10 @@ performance improvements when there are a large number of services.
 
 ## External Plugins
 
-Two new external plugins were added:
+Two new [external plugins](/explugins) were added:
 
 * *ipecho* parses the IP out of a subdomain and echos it back as an record.
-* *forward* facilitates proxying DNS messages to upstream resolvers
+* *forward* facilitates proxying DNS messages to upstream resolvers.
 
 ## Contributors
 
