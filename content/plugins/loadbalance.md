@@ -4,7 +4,7 @@ description = "*loadbalance* acts as a round-robin DNS loadbalancer by randomizi
 weight = 17
 tags = [ "plugin", "loadbalance" ]
 categories = [ "plugin" ]
-date = "2017-09-15T21:22:42.285106"
+date = "2017-10-19T06:31:53.690279"
 +++
  
  See [Wikipedia](https://en.wikipedia.org/wiki/Round-robin_DNS) about the pros and cons on this
@@ -21,6 +21,11 @@ loadbalance [POLICY]
 
 ## Examples
 
-~~~
-loadbalance round_robin
+Load balance replies coming back from Google Public DNS:
+
+~~~ corefile
+. {
+    loadbalance round_robin
+    proxy . 8.8.8.8 8.8.4.4
+}
 ~~~

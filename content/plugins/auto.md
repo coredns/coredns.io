@@ -4,7 +4,7 @@ description = "*auto* enables serving zone data from an RFC 1035-style master fi
 weight = 1
 tags = [ "plugin", "auto" ]
 categories = [ "plugin" ]
-date = "2017-09-15T21:22:42.283204"
+date = "2017-10-19T06:31:53.686887"
 +++
 
 The *auto* plugin is used for an "old-style" DNS server. It serves from a preloaded file that exists
@@ -32,8 +32,8 @@ are used.
   name `db.example.com`, the extracted origin will be `example.com`. **TIMEOUT** specifies how often
   CoreDNS should scan the directory, the default is every 60 seconds. This value is in seconds.
   The minimum value is 1 second.
-* `no_reload` by default CoreDNS will reload a zone from disk whenever it detects a change to the
-  file. This option disables that behavior.
+* `no_reload` by default CoreDNS will try to reload a zone every minute and reloads if the
+  SOA's serial has changed. This option disables that behavior.
 * `upstream` defines upstream resolvers to be used resolve external names found (think CNAMEs)
   pointing to external names. **ADDRESS** can be an IP address, and IP:port or a string pointing to
   a file that is structured as /etc/resolv.conf.
@@ -41,9 +41,11 @@ are used.
 All directives from the *file* plugin are supported. Note that *auto* will load all zones found,
 even though the directive might only receive queries for a specific zone. I.e:
 
-~~~
-auto example.org {
-    directory /etc/coredns/zones
+~~~ corefile
+. {
+    auto example.org {
+        directory /etc/coredns/zones
+    }
 }
 ~~~
 Will happily pick up a zone for `example.COM`, except it will never be queried, because the *auto*

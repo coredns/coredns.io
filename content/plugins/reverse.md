@@ -4,7 +4,7 @@ description = "*reverse* allows CoreDNS to respond dynamically to a PTR request 
 weight = 22
 tags = [ "plugin", "reverse" ]
 categories = [ "plugin" ]
-date = "2017-09-15T21:22:42.285736"
+date = "2017-10-19T06:31:53.691296"
 +++
 
 ## Syntax

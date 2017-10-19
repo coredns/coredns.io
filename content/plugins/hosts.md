@@ -4,7 +4,7 @@ description = "*hosts* enables serving zone data from a `/etc/hosts` style file.
 weight = 15
 tags = [ "plugin", "hosts" ]
 categories = [ "plugin" ]
-date = "2017-09-15T21:22:42.284862"
+date = "2017-10-19T06:31:53.689814"
 +++
 
 The hosts plugin is useful for serving zones from a /etc/hosts file. It serves from a preloaded
@@ -16,6 +16,7 @@ available hosts files that block access to advertising servers.
 
 ~~~
 hosts [FILE [ZONES...]] {
+    [INLINE]
     fallthrough
 }
 ~~~
@@ -23,15 +24,20 @@ hosts [FILE [ZONES...]] {
 * **FILE** the hosts file to read and parse. If the path is relative the path from the *root*
   directive will be prepended to it. Defaults to /etc/hosts if omitted
 * **ZONES** zones it should be authoritative for. If empty, the zones from the configuration block
-    are used.
+   are used.
+* **INLINE** the hosts file contents inlined in Corefile. If there are any lines before fallthrough
+   then all of them will be treated as the additional content for hosts file. The specified hosts
+   file path will still be read but entries will be overrided.
 * `fallthrough` If zone matches and no record can be generated, pass request to the next plugin.
 
 ## Examples
 
 Load `/etc/hosts` file.
 
-~~~
-hosts
+~~~ corefile
+. {
+    hosts
+}
 ~~~
 
 Load `example.hosts` file in the current directory.
@@ -45,6 +51,15 @@ next plugin if query doesn't match.
 
 ~~~
 hosts example.hosts example.org example.net {
+    fallthrough
+}
+~~~
+
+Load hosts file inlined in Corefile.
+
+~~~
+hosts example.hosts example.org {
+    10.0.0.1 example.org
     fallthrough
 }
 ~~~

@@ -4,7 +4,7 @@ description = "*erratic* is a plugin useful for testing client behavior."
 weight = 9
 tags = [ "plugin", "erratic" ]
 categories = [ "plugin" ]
-date = "2017-09-15T21:22:42.284290"
+date = "2017-10-19T06:31:53.688835"
 +++
 
 It returns a static response to all queries, but the responses can be delayed, dropped or truncated.

@@ -4,7 +4,7 @@ description = "*health* enables a simple health check endpoint. By default, it l
 weight = 14
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2017-09-15T21:22:42.284770"
+date = "2017-10-19T06:31:53.689647"
 +++
 
 ## Syntax
@@ -23,6 +23,8 @@ supports health checks has a section "Health" in their README.
 
 Run another health endpoint on http://localhost:8091.
 
-~~~
-health localhost:8091
+~~~ corefile
+. {
+    health localhost:8091
+}
 ~~~

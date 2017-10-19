@@ -4,7 +4,7 @@ description = "*root* simply specifies the root of where CoreDNS finds (e.g.) zo
 weight = 24
 tags = [ "plugin", "root" ]
 categories = [ "plugin" ]
-date = "2017-09-15T21:22:42.285957"
+date = "2017-10-19T06:31:53.691561"
 +++
 
 The default root is the current working directory of CoreDNS. A relative root path is relative to

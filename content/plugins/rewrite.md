@@ -4,7 +4,7 @@ description = "*rewrite* performs internal message rewriting."
 weight = 23
 tags = [ "plugin", "rewrite" ]
 categories = [ "plugin" ]
-date = "2017-09-15T21:22:42.285859"
+date = "2017-10-19T06:31:53.691451"
 +++
 
 Rewrites are invisible to the client. There are simple rewrites (fast) and complex rewrites
@@ -13,7 +13,7 @@ Rewrites are invisible to the client. There are simple rewrites (fast) and compl
 ## Syntax
 
 ~~~
-rewrite FIELD FROM TO
+rewrite [continue|stop] FIELD FROM TO
 ~~~
 
 * **FIELD** is (`type`, `class`, `name`, ...)
@@ -31,8 +31,11 @@ needs to be a full match of the name, e.g., `rewrite name miek.nl example.org`.
 
 When the FIELD is `edns0` an EDNS0 option can be appended to the request as described below.
 
-If you specify multiple rules and an incoming query matches on multiple (simple) rules, only
-the first rewrite is applied.
+If you specify multiple rules and an incoming query matches on multiple rules, the rewrite
+will behave as following
+* `continue` will continue apply the next rule in the rule list. 
+* `stop` will consider the current rule is the last rule and will not continue.  Default behaviour
+for not specifying this rule processing mode is `stop`
 
 ## EDNS0 Options
 
@@ -50,14 +53,19 @@ This has two fields, code and data. A match is defined as having the same code. 
 
 * A string data can be treated as hex if it starts with `0x`. Example:
 
-~~~
-rewrite edns0 local set 0xffee 0x61626364
+~~~ corefile
+. {
+    rewrite edns0 local set 0xffee 0x61626364
+    whoami
+}
 ~~~
 
 rewrites the first local option with code 0xffee, setting the data to "abcd". Equivalent:
 
-~~~
-rewrite edns0 local set 0xffee abcd
+~~~ corefile
+. {
+    rewrite edns0 local set 0xffee abcd
+}
 ~~~
 
 * A variable data is specified with a pair of curly brackets `{}`. Following are the supported variables:
@@ -88,9 +96,8 @@ length is used to extract the client subnet from the source IP address in the qu
 Example:
 
 ~~~
-   rewrite edns0 subnet set 24 56
+rewrite edns0 subnet set 24 56
 ~~~
 
 * If the query has source IP as IPv4, the first 24 bits in the IP will be the network subnet.
 * If the query has source IP as IPv6, the first 56 bits in the IP will be the network subnet.
-

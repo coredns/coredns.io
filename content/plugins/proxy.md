@@ -4,7 +4,7 @@ description = "*proxy* facilitates both a basic reverse proxy and a robust load 
 weight = 21
 tags = [ "plugin", "proxy" ]
 categories = [ "plugin" ]
-date = "2017-09-15T21:22:42.285619"
+date = "2017-10-19T06:31:53.691115"
 +++
 
 The proxy has support for multiple backends. The load balancing features include multiple policies,
@@ -43,13 +43,13 @@ proxy FROM TO... {
   random, least_conn, or round_robin. Default is random.
 * `fail_timeout` specifies how long to consider a backend as down after it has failed. While it is
   down, requests will not be routed to that backend. A backend is "down" if CoreDNS fails to
-  communicate with it. The default value is 10 seconds ("10s").
+  communicate with it. The default value is 2 seconds ("2s").
 * `max_fails` is the number of failures within fail_timeout that are needed before considering
   a backend to be down. If 0, the backend will never be marked as down. Default is 1.
-* `health_check` will check path (on port) on each backend. If a backend returns a status code of
+* `health_check` will check **PATH** (on **PORT**) on each backend. If a backend returns a status code of
   200-399, then that backend is marked healthy for double the healthcheck duration.  If it doesn't,
   it is marked as unhealthy and no requests are routed to it.  If this option is not provided then
-  health checks are disabled.  The default duration is 30 seconds ("30s").
+  health checks are disabled.  The default duration is 4 seconds ("4s").
 * **IGNORED_NAMES** in `except` is a space-separated list of domains to exclude from proxying.
   Requests that match none of these names will be passed through.
 * `spray` when all backends are unhealthy, randomly pick one to send the traffic to. (This is
@@ -103,10 +103,13 @@ payload over HTTPS). Note that with `https_google` the entire transport is encry
 
 If monitoring is enabled (via the *prometheus* directive) then the following metric is exported:
 
-* coredns_proxy_request_count_total{proto, proxy_proto, from}
+* `coredns_proxy_request_duration_millisecond{proto, proto_proxy, family, to}` - duration per upstream
+  interaction.
+* `coredns_proxy_request_count_total{proto, proto_proxy, family, to}` - query count per upstream.
 
-Where `proxy_proto` is the protocol used (`dns`, `grpc`, or `https_google`) and `from` is **FROM**
+Where `proxy_proto` is the protocol used (`dns`, `grpc`, or `https_google`) and `to` is **TO**
 specified in the config, `proto` is the protocol used by the incoming query ("tcp" or "udp").
+and family the transport family ("1" for IPv4, and "2" for IPv6).
 
 ## Examples
 

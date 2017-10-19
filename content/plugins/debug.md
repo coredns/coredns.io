@@ -4,11 +4,11 @@ description = "*debug* disables the automatic recovery upon a CoreDNS crash so t
 weight = 6
 tags = [ "plugin", "debug" ]
 categories = [ "plugin" ]
-date = "2017-09-15T21:22:42.283997"
+date = "2017-10-19T06:31:53.688325"
 +++
 
-Note that the *errors* plugin (if loaded) will also set a `recover` negating this setting.
-The main use of *debug* is to help testing.
+Note that the *errors* plugin (if loaded) will also set a `recover` negating this setting. The main
+use of *debug* is to help testing.
 
 ## Syntax
 

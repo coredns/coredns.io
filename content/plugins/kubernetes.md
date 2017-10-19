@@ -4,7 +4,7 @@ description = "The *kubernetes* plugin enables the reading zone data from a Kube
 weight = 16
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2017-09-15T21:22:42.285006"
+date = "2017-10-19T06:31:53.690114"
 +++
 
 It implements the [Kubernetes DNS-Based Service Discovery
@@ -41,6 +41,7 @@ kubernetes [ZONES...] {
     fallthrough
 }
 ```
+
 * `resyncperiod` specifies the Kubernetes data API **DURATION** period.
 * `endpoint` specifies the **URL** for a remove k8s API endpoint.
    If omitted, it will connect to k8s in-cluster using the cluster service account.

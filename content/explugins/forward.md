@@ -32,7 +32,7 @@ is propegated to the client and no other upstream is tried.
 Extra knobs are available with an expanded syntax:
 
 ~~~
-proxy FROM TO... {
+forward FROM TO... {
     except IGNORED_NAMES...
     force_tcp
     health_check DURATION

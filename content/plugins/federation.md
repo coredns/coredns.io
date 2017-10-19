@@ -4,7 +4,7 @@ description = "*federation* enables [federated](https://kubernetes.io/docs/tasks
 weight = 12
 tags = [ "plugin", "federation" ]
 categories = [ "plugin" ]
-date = "2017-09-15T21:22:42.284578"
+date = "2017-10-19T06:31:53.689326"
 +++
 
 Enabling *federation* without also having *kubernetes* is a noop.

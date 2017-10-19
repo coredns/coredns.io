@@ -4,7 +4,7 @@ description = "*autopath* allows CoreDNS to perform server side search path comp
 weight = 2
 tags = [ "plugin", "autopath" ]
 categories = [ "plugin" ]
-date = "2017-09-15T21:22:42.283508"
+date = "2017-10-19T06:31:53.687642"
 +++
 
 If it sees a query that matches the first element of the configured search path, *autopath* will
@@ -16,7 +16,7 @@ element in it) to the name of this answer.
 ## Syntax
 
 ~~~
-autopath [ZONE..] RESOLV-CONF
+autopath [ZONE...] RESOLV-CONF
 ~~~
 
 * **ZONES** zones *autopath* should be authoritative for.
@@ -28,6 +28,12 @@ Currently the following set of plugin has implemented *autopath*:
 
 * *kubernetes*
 * *erratic*
+
+## Metrics
+ 
+If monitoring is enabled (via the *prometheus* directive) then the following metric is exported:
+ 
+* `coredns_autopath_success_count_total{}` - counter of successfully autopath-ed queries.
 
 ## Examples
 
@@ -46,5 +52,5 @@ Use the search path dynamically retrieved from the kubernetes plugin.
 
 ## Bugs
 
-When the *cache* plugin is enabled it is possible for pods in different namespaces to get the
-same answer.
+Replies from this plugin are not cached, as the *cache* plugin is configured after this one (see
+plugin.cfg).
