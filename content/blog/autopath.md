@@ -1,13 +1,13 @@
 +++
-date = "2017-10-15T09:47:12Z"
+date = "2017-10-20T09:47:12Z"
 title = "Autopath"
 tags = ["Autopath","Kubernetes"]
 description = "Server side search path extension with *autopath*"
-author = "chris"
+author = "john"
 +++
 
 CoreDNS 011 introduced a new plugin: [*autopath*](/plugins/autopath). It transparently addresses
-a problem relating to search paths in kubernetes and can be useful in other scenarios. In
+a problem relating to search paths in Kubernetes and can be useful in other scenarios. In
 a nutshell, *autopath* helps reduce query load for Kubernetes service discovery. It does this by
 resolving queries on the server side, instead of waiting for the client to request a search for each
 domain in the search path one at a time.
@@ -58,21 +58,21 @@ detailed descriptions.
 
 ## Name Resolution in Kubernetes
 
-Kubernetes has controls the resolv.conf configuration of pods using two different DNS Policies:
-*ClusterFirst*, and *Default*.
+Kubernetes controls the `resolv.conf` configuration of pods using two different DNS Policies:
+`ClusterFirst`, and `Default`.
 
-- *ClusterFirst* - Causes the pod to use a special cluster oriented search path, enabling short name resolution.
-- *Default* - Causes the pod to inherit the resolv.conf from the node it’s running on.
+- `ClusterFirst` - Causes the pod to use a special cluster-oriented search path, enabling short name resolution.
+- `Default` - Causes the pod to inherit the `resolv.conf` from the node it’s running on.
 
-*ClusterFirst* is the default policy (ironically). In general, with exception of some Kubernetes
- infrastructure (notably the DNS service itself), all pods use the *ClusterFirst* policy.
+`ClusterFirst` is the default policy (ironically). In general, with exception of some Kubernetes
+ infrastructure (notably the DNS service itself), all pods use the `ClusterFirst` policy.
 
-The *ClusterFirst* will do the following:
+The `ClusterFirst` will do the following:
 - Use the cluster DNS service as the nameserver (e.g. coredns, or kube-dns)
 - Use a search path that steps "out" from the local pod's namespace.
 - Don't use the search path for searches containing 5 or more dots
 
-For example, a pod in the `default`
+For example, a pod in the `default` namespace:
 
 ```
 nameserver 10.0.0.10
@@ -88,19 +88,19 @@ produce the IP of `service1` in namespace `ns2` based on the second domain in th
 In addition to the three base domains, the search path configured on the pod’s node are added
 (limited to 3 more). So, search path can get quite deep, up to 6 domains long.
 
-The ClusterFirst DNS Policy also sets ndots to 5. This means that virtually every query a pod makes
+The `ClusterFirst` DNS Policy also sets `ndots` to 5. This means that virtually every query a pod makes
 is run through the search path. A query name would need to contain 5 dots to “skip” the search path.
 
-So, why 5 ndots? The reason for this high ndots setting is the due to the potentially high number of
+So, why 5 `ndots`? The reason for this high `ndots` setting is the due to the potentially high number of
 dots in a local service’s name.  For example, consider an SRV query for
 `_http._tcp.service.namespace.svc`.  This query can be resolved using the 3rd domain in the search
-path, trying `_http._tcp.service.namespace.svc.cluster.local`.  If ndots was set to something less
+path, trying `_http._tcp.service.namespace.svc.cluster.local`.  If `ndots` was set to something less
 than 5, then the query would be the absolute name `_http._tcp.service.namespace.svc.` which would
 not produce an answer.
 
-## High ndots
+## High `ndots`
 
-The combination of long search path and high ndots means that almost every query made is eligible to
+The combination of long search path and high `ndots` means that almost every query made is eligible to
 be searched on a long list of domains before finding an answer.  This has the most impact with
 queries for external resources.  Any search for an external host with less than 5 dots will be run
 through the whole search list before trying the absolute name.
@@ -151,3 +151,15 @@ In the logs below note the three unsuccessful queries before the final successfu
 2017/10/15 09:36:00 [INFO] Querying google.com.
 ::1 - [15/Oct/2017:09:36:00 +0100] "A IN google.com.svc.cluster.local. udp 58 false 4096" NOERROR qr,rd,ra 98 94.736986ms
 ~~~
+
+In the end *autopath* reduces the number of queries that need to be sent to perform the resolution
+of names. This reduction of queries saves on round trips and thus positively impact DNS resolving
+latency as well.
+
+Of course, it is not all good news. It is still a hack and injecting CNAMEs into DNS replies will
+make DNSSEC validation impossible. Further more there is a small chance that different services and
+different namespaces have the same name, but different IPs.  Which means you will be sent to the
+wrong service in one of these namespaces.
+
+But if you are aware of these limitations, *autopath* can reduce both query load and latency in your
+cluster.
