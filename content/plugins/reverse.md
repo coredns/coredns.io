@@ -1,10 +1,10 @@
 +++
 title = "reverse"
-description = "*reverse* allows CoreDNS to respond dynamically to a PTR request and the related A/AAAA request."
+description = "*reverse* allows for dynamic responses to PTR and the related A/AAAA requests."
 weight = 22
 tags = [ "plugin", "reverse" ]
 categories = [ "plugin" ]
-date = "2017-10-19T06:31:53.691296"
+date = "2017-10-20T08:48:19.242555"
 +++
 
 ## Syntax

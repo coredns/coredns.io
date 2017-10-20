@@ -1,11 +1,13 @@
 +++
 title = "health"
-description = "*health* enables a simple health check endpoint. By default, it listens on port 8080."
+description = "*health* enables a simple health check endpoint."
 weight = 14
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2017-10-19T06:31:53.689647"
+date = "2017-10-20T08:48:19.238482"
 +++
+
+By default, it listens on port 8080.
 
 ## Syntax
 

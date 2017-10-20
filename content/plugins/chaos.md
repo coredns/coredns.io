@@ -1,10 +1,10 @@
 +++
 title = "chaos"
-description = "*chaos* allows CoreDNS to respond to TXT queries in the CH class."
+description = "*chaos* allows for responding to TXT queries in the CH class."
 weight = 5
 tags = [ "plugin", "chaos" ]
 categories = [ "plugin" ]
-date = "2017-10-19T06:31:53.688183"
+date = "2017-10-20T08:48:19.234387"
 +++
 
 This is useful for retrieving version or author information from the server.

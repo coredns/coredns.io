@@ -1,10 +1,10 @@
 +++
 title = "prometheus"
-description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics for CoreDNS."
+description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics."
 weight = 19
 tags = [ "plugin", "metrics" ]
 categories = [ "plugin" ]
-date = "2017-10-19T06:31:53.690634"
+date = "2017-10-20T08:48:19.241033"
 +++
 
 The default location for the metrics is `localhost:9153`. The metrics path is fixed to `/metrics`.
@@ -50,6 +50,15 @@ Use an alternative address:
 ~~~ corefile
 . {
     prometheus localhost:9253
+}
+~~~
+
+Or via an enviroment variable (this is supported throughout the Corefile): `export PORT=9253`, and
+then:
+
+~~~ corefile
+. {
+    prometheus localhost:{$PORT}
 }
 ~~~
 
