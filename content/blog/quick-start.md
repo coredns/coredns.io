@@ -124,7 +124,7 @@ this website. And find all other documentation [here](/tags/documentation).
 ## Possible errors and how to get around them
 
 The [*health*](/plugins/health)'s documention states "This plugin only needs to be enabled
-once.", which might lead you to think:
+once", which might lead you to think that this would be a valid Corefile:
 
 ~~~ txt
 health
@@ -133,8 +133,8 @@ health
     whoami
 }
 ~~~
-Which doesn't work and leads to the somewhat cryptic error: "Corefile:3 - Error during parsing:
-Unknown directive '.'". What happens here? `Health` is seen as zone (i.e. `.health`) and now the
+But this doesn't work and leads to the somewhat cryptic error: "Corefile:3 - Error during parsing:
+Unknown directive '.'". What happens here? `health` is seen as zone and now the
 parser expect to see directives (`cache`, `etcd`, etc.), but instead the next token is `.`, which
 isn't a directive. The Corefile should be constructed as follows:
 ~~~ txt
