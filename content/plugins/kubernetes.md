@@ -4,7 +4,7 @@ description = "The *kubernetes* plugin enables the reading zone data from a Kube
 weight = 16
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2017-10-19T06:31:53.690114"
+date = "2017-10-20T08:48:19.239460"
 +++
 
 It implements the [Kubernetes DNS-Based Service Discovery

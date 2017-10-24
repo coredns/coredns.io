@@ -4,7 +4,7 @@ description = "*etcd* enables reading zone data from an etcd instance. The data 
 weight = 11
 tags = [ "plugin", "etcd" ]
 categories = [ "plugin" ]
-date = "2017-10-19T06:31:53.689168"
+date = "2017-10-20T08:48:19.237130"
 +++
 
 The etcd plugin makes extensive use of the proxy plugin to forward and query other servers in the

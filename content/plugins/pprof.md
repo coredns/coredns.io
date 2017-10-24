@@ -4,7 +4,7 @@ description = "*pprof* publishes runtime profiling data at endpoints under `/deb
 weight = 20
 tags = [ "plugin", "pprof" ]
 categories = [ "plugin" ]
-date = "2017-10-19T06:31:53.690859"
+date = "2017-10-20T08:48:19.241625"
 +++
 
 You can visit `/debug/pprof` on your site for an index of the available endpoints. By default it

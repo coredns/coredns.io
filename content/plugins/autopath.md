@@ -1,10 +1,10 @@
 +++
 title = "autopath"
-description = "*autopath* allows CoreDNS to perform server side search path completion."
+description = "*autopath* allows for server side search path completion."
 weight = 2
 tags = [ "plugin", "autopath" ]
 categories = [ "plugin" ]
-date = "2017-10-19T06:31:53.687642"
+date = "2017-10-20T08:48:19.233380"
 +++
 
 If it sees a query that matches the first element of the configured search path, *autopath* will
@@ -49,8 +49,3 @@ autopath @kubernetes
 ~~~
 
 Use the search path dynamically retrieved from the kubernetes plugin.
-
-## Bugs
-
-Replies from this plugin are not cached, as the *cache* plugin is configured after this one (see
-plugin.cfg).

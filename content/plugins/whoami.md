@@ -4,10 +4,10 @@ description = "*whoami* returns your resolver's local IP address, port and trans
 weight = 28
 tags = [ "plugin", "whoami" ]
 categories = [ "plugin" ]
-date = "2017-10-19T06:31:53.692118"
+date = "2017-10-20T08:48:19.245205"
 +++
 
-When CoreDNS can find a Corefile to load, this is the default plugin it loads.
+When CoreDNS can not find a Corefile to load, this is the default plugin it loads.
 
 The reply always has an empty answer section. The port and transport are included in the additional
 section as a SRV record, transport can be "tcp" or "udp".
