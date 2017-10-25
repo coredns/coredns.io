@@ -5,8 +5,8 @@ weight = 10
 tags = [  "plugin" , "forward" ]
 categories = [ "plugin", "external" ]
 date = "2017-10-10T18:25:19+01:00"
-repo = "https://github.com/miekg/forward"
-home = "https://github.com/miekg/forward"
+repo = "https://github.com/coredns/forward"
+home = "https://github.com/coredns/forward"
 +++
 
 The *forward* plugin is generally faster (~30%) than *proxy* as it re-uses already openened sockets
@@ -26,8 +26,8 @@ forward FROM TO...
 By default health checks are done every 0.5s. After two failed checks the upstream is
 considered unhealthy. The health checks use a non-recursive DNS query (`. IN NS`) to get upstream
 health. Any reponse that is not an error is taken as a healthy upstream. Multi upstreams are
-randomized on first use. Note that when a healthy upstream fails to respond to a query this error
-is propegated to the client and no other upstream is tried.
+randomized on first use. When a healthy proxy returns an error duing the exchange the next upstream
+in the list is tried.
 
 Extra knobs are available with an expanded syntax:
 
@@ -106,7 +106,3 @@ Forward to a IPv6 host:
     forward . [::1]:1053
 }
 ~~~
-
-## Bugs
-
-Tracing and dnstap is not supported (yet) for this proxy.
