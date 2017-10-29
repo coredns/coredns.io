@@ -20,16 +20,17 @@ ZONE:[PORT] {
 }
 ~~~
 
-* **ZONE** defines the zone this server. The optional **PORT** defaults to 53, if not given (or
-  whatever the `-dns.port` flag has as a value.
-* **PLUGIN** defines the plugin we want to load. This is optional as well, but as server
-  with no plugin will just return SERVFAIL for all queries. Each plugin can have a number of
+* **ZONE** defines the zone this server. The optional **PORT** defaults to 53, or
+  the value of the `-dns.port` flag.
+* **PLUGIN** defines the [plugin(s)](/plugins) we want to load. This is optional as well, but as server
+  with no plugins will just return SERVFAIL for all queries. Each plugin can have a number of
   *properties* than can have *arguments*
 
-I.e, in the next example:
+I.e., in the next example:
 
-the **ZONE** is `.`, the **PLUGIN** is `chaos`. The *chaos* plugin does not have any properties, but
-it does take an *argument*: `CoreDNS-001`.
+The **ZONE** is root zone `.`, the **PLUGIN** is `chaos`. The [*chaos* plugin](/plugins/chaos) does
+not have any properties, but it does take an *argument*: `CoreDNS-001`. This text is returned on
+a CH class query: `dig CH txt version.bind @localhost`
 
 ~~~ corefile
 . {
@@ -37,9 +38,20 @@ it does take an *argument*: `CoreDNS-001`.
 }
 ~~~
 
+If CoreDNS can't find a `Corefile` to load is loads the following builtin one that loads the
+[*whoami* plugin](/plugin/whoami):
+
+~~~ corefile
+. {
+    whoami
+}
+~~~
+
+## Servers
+
 This is the most minimal Corefile:
 
-~~~ txt
+~~~ corefile
 . { }
 ~~~
 
@@ -65,9 +77,8 @@ number on the second server and thereby creating *another* server, it is OK:
 .:54 { }
 ~~~
 
-When defining a new zone, you either create a new server, or add it to an existing one - but you can
-redefine the plugin for it. Here we define *one* server that handles two zones; that potentially
-chain different plugin:
+When defining a new zone, you either create a new server, or add it to an existing one. Here we
+define *one* server that handles two zones; that potentially chain different plugin:
 
 ~~~ corefile
 example.org {
@@ -79,7 +90,8 @@ org {
 ~~~
 
 Note that most specific zone wins when a query comes in, so any `example.org` queries are going
-through the plugin defined for `example.org` above. The rest is handled by `.`.
+through the server defined for `example.org` above. The queries for `.org` are going to the other 
+server.
 
 ## Reverse Zones
 
@@ -99,12 +111,10 @@ To make this easier CoreDNS just allows you to say:
 }
 ~~~
 
-## Default Corefile
-
-When CoreDNS starts up and can't find a Corefile, it will load a default one, defined as
+This also works for CIDR (in the 1.0.0 release) zones:
 
 ~~~ corefile
-. {
+10.0.0.0/27 {
     whoami
 }
 ~~~
@@ -130,4 +140,10 @@ grpc://example.org:1443 {
 ## Also See
 
 The Corefile is parsed like a [Caddyfile](https://caddyserver.com/docs/caddyfile). We support
-everything that is described on that page, meaning we support `import`, `startup` and `shutdown`.
+everything that is described on that page, for instance the use of [environment
+variables](https://caddyserver.com/docs/caddyfile#env).
+
+Other interesting plugins that are helpful in Corefiles are:
+[*import*](/plugins/import)
+[*startup*](/plugins/startup) and
+[*shutdown*](/plugins/shutdown).

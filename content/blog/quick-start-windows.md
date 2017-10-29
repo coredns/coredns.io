@@ -32,8 +32,8 @@ This is a development quick start guide when you are using Windows.
           
           file D:\dev\zone\example.org example.org
 
-          errors stdout
-          log stdout
+          errors
+          log
       }
       ```
 

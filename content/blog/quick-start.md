@@ -19,7 +19,7 @@ First get CoreDNS, either
 
   You should now have a "coredns" executable.
 
-* *Get the Docker container* from [docker hub](https://hub.docker.com/r/coredns/coredns/).
+* *Get the Docker image* from [docker hub](https://hub.docker.com/r/coredns/coredns/).
 
 If you want to use CoreDNS in Kubernetes, please check [this post about SD with the *kuberneters*
 plugin](/2017/03/01/coredns-for-kubernetes-service-discovery-take-2/).
@@ -29,12 +29,15 @@ The remainder of this quick start will focus and two different use cases
 1. Using CoreDNS to serve zone files. Optionally signing the zones as well.
 2. Using CoreDNS as a forwarding proxy.
 
-## Serving from files
+CoreDNS is configured via a configuration file that it typically called
+[Corefile](http://localhost:1313/2017/07/23/corefile-explained/).
 
-When serving from zone files you will want to use the *file* plugin. Let's start with the zone
+## Serving from Files
+
+When serving from zone files you use the *file* plugin. Let's start with the zone
 `example.org.` and zonefile we want to serve from:
 
-Create a file names `/etc/coredns/zones/example.org` with the following content:
+Create a file `example.org` with the following content:
 
 ~~~ dns
 $ORIGIN example.org.
@@ -53,19 +56,16 @@ www     IN A     127.0.0.1
         IN AAAA  ::1
 ~~~
 
-Create a Corefile, `/etc/coredns/Corefile`, with:
+Create a Corefile, `Corefile`, with:
 
 ~~~ txt
 example.org {
-    file /etc/coredns/zones/example.org
+    file example.org
     prometheus     # enable metrics
-    errors stdout  # show errors
-    log stdout     # show query logs
+    errors         # show errors
+    log            # enable query logs
 }
 ~~~
-
-Note: you can put the last 3 directives in another file say "/etc/coredns/zone-default" and use
-an `import`: `import /etc/coredns/zone-default`.
 
 Start CoreDNS on a non-standard port to check if everything is correct: `coredns -conf Corefile
 -dns.port 1053` and send it a query with [dig](https://en.wikipedia.org/wiki/Dig_(command)):
@@ -75,19 +75,22 @@ Start CoreDNS on a non-standard port to check if everything is correct: `coredns
 www.example.org.	3600	IN	AAAA	::1
 ~~~
 
-As we've enabled logging the query should be show up there as well:
+As we've enabled query loggin with the [*log* plugin](/plugins/log) the query should be show up on
+standard output as well:
+
 ~~~ txt
 ::1 - [24/Jul/2017:10:10:44 +0000] "AAAA IN www.example.org. udp 45 false 4096" NOERROR 121 133.449µs
 ~~~
 
 From here you can enable CoreDNS to run on port 53 and have it start from systemd (when on Linux),
 see [the deployment repo](https://github.com/coredns/deployment) for example scripts.
-Or read more about the [*file* plugin](/plugins/file/).
+Read more about the [*file*](/plugins/file/), [*metrics*](/plugins/metrics) and
+[*errors*](/plugins/errors) plugin.
 
 ## CoreDNS as proxy
 
-Another way of running CoreDNS is as a proxy, for instance sending DNS request to Google using
-HTTPS. Create a Corefile with:
+Another plugin is the [*proxy*](/plugins/proxy) plugin. We can for instance send DNS request to
+Google over HTTPS. Create a Corefile with:
 
 ~~~ txt
 . {
@@ -95,8 +98,8 @@ HTTPS. Create a Corefile with:
         protocol https_google
     }
     prometheus
-    errors stdout
-    log stdout
+    errors
+    log
 }
 ~~~
 
@@ -107,24 +110,22 @@ Start CoreDNS, just like above and send it a few queries. CoreDNS should logs th
 ::1 - [24/Jul/2017:10:44:19 +0000] "AAAA IN www.example.org. udp 45 false 4096" NOERROR 76 13.286384ms
 ~~~
 
-If you look at the time each query took, we measure those in "ms", so it's quite slow. Let's add
-caching, but enable the *caching* plugin. Just add the word "cache" to the Corefile and reload
-CoreDNS: `kill -SIGUSR1 <pid_of_coredns>`. And query again:
+If you look at the time each query took (in "ms") it's quite slow, ~83ms, 13ms. So
+let's add some caching and
+enable the [*caching*](/plugins/caching) plugin. Just add the word "cache" to the Corefile and
+graceful reload CoreDNS: `kill -SIGUSR1 <pid_of_coredns>`. And query again:
 
 ~~~
 ::1 - [24/Jul/2017:11:33:54 +0000] "AAAA IN www.example.org. udp 45 false 4096" NOERROR 76 43.469743ms
 ::1 - [24/Jul/2017:11:33:55 +0000] "AAAA IN www.example.org. udp 45 false 4096" NOERROR 73 133.073µs
 ~~~
 
-133 µs. That sounds better.
+First one is still "slow", but the subsequent query only takes 133 µs.
 
-Read more about the [*cache*](/plugins/cache) and [*proxy*](/plugins/proxy) plugin on
-this website. And find all other documentation [here](/tags/documentation).
+## Possible Errors
 
-## Possible errors and how to get around them
-
-The [*health*](/plugins/health)'s documention states "This plugin only needs to be enabled
-once", which might lead you to think that this would be a valid Corefile:
+The [*health*](/plugins/health)'s documentation states "This plugin only needs to be enabled once",
+which might lead you to think that this would be a valid Corefile:
 
 ~~~ txt
 health
@@ -133,11 +134,15 @@ health
     whoami
 }
 ~~~
-But this doesn't work and leads to the somewhat cryptic error: "Corefile:3 - Error during parsing:
-Unknown directive '.'". What happens here? `health` is seen as zone and now the
+But this doesn't work and leads to the somewhat cryptic error:
+
+    "Corefile:3 - Error during parsing: Unknown directive '.'".
+
+What happens here? `health` is seen as zone and now the
 parser expect to see directives (`cache`, `etcd`, etc.), but instead the next token is `.`, which
 isn't a directive. The Corefile should be constructed as follows:
-~~~ txt
+
+~~~ corefile
 . {
     whoami
     health
@@ -145,3 +150,11 @@ isn't a directive. The Corefile should be constructed as follows:
 ~~~
 That line in the *health*'s documentation means that once *health* is specified, it is global for
 the entire CoreDNS process, even though you've only specified it for one server.
+
+## Also See
+
+There are [numerous other](/plugins) plugins that can be used with CoreDNS. And you can write [your
+own](https://coredns.io/2016/12/19/writing-plugins-for-coredns/) plugin.
+
+How [queries are processed](https://coredns.io/2017/06/08/how-queries-are-processed-in-coredns/) is
+a deep dive into how CoreDNS handles DNS queries.
