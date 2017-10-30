@@ -30,7 +30,7 @@ The remainder of this quick start will focus and two different use cases
 2. Using CoreDNS as a forwarding proxy.
 
 CoreDNS is configured via a configuration file that it typically called
-[Corefile](http://localhost:1313/2017/07/23/corefile-explained/).
+[Corefile](https://coredns.io/2017/07/23/corefile-explained/).
 
 ## Serving from Files
 
