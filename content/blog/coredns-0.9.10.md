@@ -17,12 +17,15 @@ Release 0.9.10 is a minor release, with some fixes.
 ## Core
 
 * The reverse zone syntax was extended to allow non-octet boundaries:
+
    ~~~
    192.168.1.0/17 {
-      ... 
+       ... 
    }
    ~~~
+
    Will behave correctly.
+
 * Lots of documentation clean ups.
 * More platforms have binaries for each release.
 
