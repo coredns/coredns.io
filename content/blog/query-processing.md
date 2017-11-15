@@ -155,7 +155,7 @@ Remember to add the `cluster.db` file to the `config-volume` for the pod templat
 and finally to signal CoreDNS to gracefully reload (each pod running):
 
 ~~~ txt
-$ kubectl -n coredns exec coredns-461002909-7mp96 -- kill -SIGUSR1 1
+$ kubectl -n kube-system exec coredns-461002909-7mp96 -- kill -SIGUSR1 1
 ~~~
 
 Now let's try out our new DNS records.
