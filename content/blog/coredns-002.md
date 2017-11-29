@@ -63,7 +63,7 @@ CoreDNS is a DNS server that chains plugins, where each plugin implements a DNS 
 * plugin/cache: use an LRU cache to make it memory bounded. Added more option to have more
   control on what is cached and for how long. The cache stanza was extended:
 
-    ~~~ corefile
+    ~~~ txt
     . {
         cache {
             success CAPACITY [TTL]
@@ -82,7 +82,7 @@ CoreDNS is a DNS server that chains plugins, where each plugin implements a DNS 
 
     ~~~ corefile
     . {
-        log example.com stdout {
+        log example.com {
             class denial
         }
     }

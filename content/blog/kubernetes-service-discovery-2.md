@@ -69,7 +69,7 @@ data:
   Corefile: |
     .:53 {
         errors
-        log stdout
+        log
         health
         kubernetes cluster.local 10.3.0.0/24
         proxy . /etc/resolv.conf
@@ -159,7 +159,7 @@ previous blog post.
 ~~~ corefile
 .:53 {
     errors
-    log stdout
+    log
     health
     kubernetes cluster.local 10.3.0.0/24
     proxy . /etc/resolv.conf
@@ -231,7 +231,7 @@ $
 
 Here, we can see that the queries were load-balanced across the two CoreDNS replicas. In production, it's a good idea
 to disable the logging of all the queries, as logging slows down the query dramatically (often by an order of magnitude).
-To do that, simply remove the `log stdout` line from the Corefile.
+To do that, simply remove the `log` line from the Corefile.
 
 That's all there is to it. Please feel free to submit any problems, questions, or feature ideas as issues on the
 [CoreDNS GitHub](https://github.com/coredns/coredns).

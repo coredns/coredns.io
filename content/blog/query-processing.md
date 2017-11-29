@@ -43,7 +43,7 @@ example.net:53 {
 
 .:53 {
   errors
-  log stdout
+  log
   health
   rewrite name foo.example.com foo.default.svc.cluster.local
   kubernetes cluster.local 10.0.0.0/24
@@ -95,7 +95,7 @@ Coming back to our original discussion of the three use cases in Kubernetes, we 
 ~~~ corefile
 .:53 {
     errors
-    log stdout
+    log
     health
     kubernetes cluster.local 10.0.0.0/24
     proxy . /etc/resolv.conf
@@ -123,7 +123,7 @@ data:
   Corefile: |
     .:53 {
         errors
-        log stdout
+        log
         health
         kubernetes cluster.local 10.0.0.0/24 {
           fallthrough

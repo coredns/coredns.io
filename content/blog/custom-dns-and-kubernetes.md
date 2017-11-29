@@ -34,7 +34,7 @@ used in the last blog:
 ~~~ corefile
 .:53 {
     errors
-    log stdout
+    log
     health
     kubernetes cluster.local 10.0.0.0/24
     proxy . /etc/resolv.conf
@@ -47,7 +47,7 @@ To get the behavior we want, we just need to add a rewrite rule mapping `foo.exa
 ~~~ corefile
 .:53 {
     errors
-    log stdout
+    log
     health
     rewrite name foo.example.com foo.default.svc.cluster.local
     kubernetes cluster.local 10.0.0.0/24
@@ -100,7 +100,7 @@ data:
   Corefile: |
     .:53 {
         errors
-        log stdout
+        log
         health
         rewrite name foo.example.com foo.default.svc.cluster.local
         kubernetes cluster.local 10.0.0.0/24

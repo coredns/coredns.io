@@ -18,4 +18,4 @@ sync:
 # github.com/miekg/corecheck
 .PHONY: scan
 scan:
-	corecheck -dir content/blog
+	corecheck -exe $$GOPATH/src/github.com/coredns/coredns/coredns -dir content/blog
