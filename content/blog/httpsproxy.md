@@ -29,7 +29,7 @@ you'll need:
 ~~~ corefile
 . {
     proxy . dns.google.com {
-        procotol https_google
+        protocol https_google
     }
     cache
     log
