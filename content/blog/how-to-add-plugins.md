@@ -199,7 +199,7 @@ or the metrics plugin needs to come early, so that it can "see" the query and
 response and do cachy or metricsy things with it. A *whoami* plugin is not that special and can
 be placed relatively late in the list (hence the high number).
 
-Now do a `make` (or `go gen && go build`) to get a `coredns` binary that can be used with our shiny new plugin.
+Now do a `make` (or `go generate && go build`) to get a `coredns` binary that can be used with our shiny new plugin.
 This binary should include `dns.whoami` when called with `-plugins`.
 
 # 5. Using it

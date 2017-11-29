@@ -15,7 +15,7 @@ CoreDNS is a DNS server that chains plugins, where each plugin implements a DNS 
 
 # Core
 
-A way to configure (external) plugin was added. Edit `plugin.cfg` and do a `go gen && go
+A way to configure (external) plugin was added. Edit `plugin.cfg` and do a `go generate && go
 build` and your plugin has been added. This allows for out-of-tree plugin to be easily
 added. Documentation can be found in
 [plugin.cfg](https://github.com/coredns/coredns/blob/master/plugin.cfg).
