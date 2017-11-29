@@ -29,7 +29,7 @@ you'll need:
 ~~~ corefile
 . {
     proxy . 8.8.8.8 {
-        procotol https_google
+        protocol https_google
     }
     cache
     log
