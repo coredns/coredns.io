@@ -28,7 +28,7 @@ you'll need:
 
 ~~~ corefile
 . {
-    proxy . dns.google.com {
+    proxy . 8.8.8.8 {
         procotol https_google
     }
     cache
