@@ -19,7 +19,7 @@ As part of the [Kubernetes proposal](https://github.com/kubernetes/community/pul
 not only provides more functionality than kube-dns, but performs much better while using less memory. In our tests,
 [CoreDNS](https://github.com/kubernetes/community/pull/1100#issuecomment-337747482) running against a cluster with 5000
 services was able to process 18,000 queries per second using 73MB of RAM, while 
-kube-dns](https://github.com/kubernetes/community/pull/1100#issuecomment-338329100) achieved 7,000qps using 97MB of RAM.
+[kube-dns](https://github.com/kubernetes/community/pull/1100#issuecomment-338329100) achieved 7,000qps using 97MB of RAM.
 This can be partial ascribed to CoreDNS simpler runtime - a single process instead of a combination of several processes.
 
 CoreDNS also implements a number of Kubernetes-related features that are not part of kube-dns, including:
