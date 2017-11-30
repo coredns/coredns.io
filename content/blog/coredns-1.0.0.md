@@ -49,7 +49,7 @@ Of course, there is more to 1.0.0 than just the Kubernetes work. See below for t
 * *health* now checks plugins that support it for health and reflects that in the server health.
 * *kubernetes* now shows healthy only after the initial API sync is complete.
 * *kubernetes* has bug fixes and performance improvements.
-* *kubernetes* now has an option to use pod names instead of pod IPs in `pod` records when the `hostname` is not set.
+* *kubernetes* now has an option to use pod names instead of IPs in service endpoint records when the `hostname` is not set.
 * *metrics* have been revised to provide better histograms. You will need to change your Prometheus queries as metric names have changed to comply with Prometheus best practices.
 * *erratic* now supports the health check.
 
