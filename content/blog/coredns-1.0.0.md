@@ -4,7 +4,7 @@ description = "CoreDNS-1.0.0 Release Notes."
 tags = ["Release", "1.0.0", "Notes"]
 draft = false
 release = "1.0.0"
-date = "2017-11-30T20:45:43-00:00"
+date = "2017-12-01T22:43:43-00:00"
 author = "john"
 +++
 
