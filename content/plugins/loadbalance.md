@@ -4,7 +4,7 @@ description = "*loadbalance* acts as a round-robin DNS loadbalancer by randomizi
 weight = 17
 tags = [ "plugin", "loadbalance" ]
 categories = [ "plugin" ]
-date = "2017-10-20T08:48:19.239928"
+date = "2017-12-02T07:46:55.244481"
 +++
  
  See [Wikipedia](https://en.wikipedia.org/wiki/Round-robin_DNS) about the pros and cons on this

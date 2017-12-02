@@ -4,7 +4,7 @@ description = "*etcd* enables reading zone data from an etcd instance. The data 
 weight = 11
 tags = [ "plugin", "etcd" ]
 categories = [ "plugin" ]
-date = "2017-10-20T08:48:19.237130"
+date = "2017-12-02T07:46:55.243956"
 +++
 
 The etcd plugin makes extensive use of the proxy plugin to forward and query other servers in the
@@ -87,11 +87,10 @@ when resolving external pointing CNAMEs.
 
 Reverse zones are supported. You need to make CoreDNS aware of the fact that you are also
 authoritative for the reverse. For instance if you want to add the reverse for 10.0.0.0/24, you'll
-need to add the zone `0.0.10.in-addr.arpa` to the list of zones. (The fun starts with IPv6 reverse zones
-in the ip6.arpa domain.) Showing a snippet of a Corefile:
+need to add the zone `0.0.10.in-addr.arpa` to the list of zones. Showing a snippet of a Corefile:
 
 ~~~
-etcd skydns.local 0.0.10.in-addr.arpa {
+etcd skydns.local 10.0.0.0/24 {
     stubzones
 ...
 ~~~

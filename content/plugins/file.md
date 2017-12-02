@@ -4,7 +4,7 @@ description = "*file* enables serving zone data from an RFC 1035-style master fi
 weight = 13
 tags = [ "plugin", "file" ]
 categories = [ "plugin" ]
-date = "2017-10-20T08:48:19.238030"
+date = "2017-12-02T07:46:55.244117"
 +++
 
 The file plugin is used for an "old-style" DNS server. It serves from a preloaded file that exists
@@ -49,9 +49,22 @@ file DBFILE [ZONES... ] {
 Load the `example.org` zone from `example.org.signed` and allow transfers to the internet, but send
 notifies to 10.240.1.1
 
+~~~ corefile
+example.org {
+    file example.org.signed {
+        transfer to *
+        transfer to 10.240.1.1
+    }
+}
 ~~~
-file example.org.signed example.org {
-    transfer to *
-    transfer to 10.240.1.1
+
+Or use a single zone file for multiple zones:
+
+~~~
+. {
+    file example.org.signed example.org example.net {
+        transfer to *
+        transfer to 10.240.1.1
+    }
 }
 ~~~

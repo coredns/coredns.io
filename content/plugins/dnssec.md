@@ -4,7 +4,7 @@ description = "*dnssec* enables on-the-fly DNSSEC signing of served data."
 weight = 7
 tags = [ "plugin", "dnssec" ]
 categories = [ "plugin" ]
-date = "2017-10-20T08:48:19.235207"
+date = "2017-12-02T07:46:55.243614"
 +++
 
 ## Syntax
@@ -52,10 +52,10 @@ If monitoring is enabled (via the *prometheus* directive) then the following met
 
 Sign responses for `example.org` with the key "Kexample.org.+013+45330.key".
 
-~~~
-example.org:53 {
+~~~ corefile
+example.org {
     dnssec {
-        key file /etc/coredns/Kexample.org.+013+45330
+        key file Kexample.org.+013+45330
     }
     whoami
 }
@@ -64,10 +64,10 @@ example.org:53 {
 Sign responses for a kubernetes zone with the key "Kcluster.local+013+45129.key".
 
 ~~~
-cluster.local:53 {
-    kubernetes cluster.local
-    dnssec cluster.local {
-      key file /etc/coredns/Kcluster.local+013+45129
+cluster.local {
+    kubernetes
+    dnssec {
+      key file Kcluster.local+013+45129
     }
 }
 ~~~
@@ -75,17 +75,16 @@ cluster.local:53 {
 ## Bugs
 
 Multiple *dnssec* plugins inside one server stanza will silently overwrite earlier ones, here
-`example.local` will overwrite the one for `cluster.local`.
+`example.local` will overwrite the one for `cluster.org`.
 
 ~~~
-.:53 {
+. {
     kubernetes cluster.local
     dnssec cluster.local {
-      key file /etc/coredns/cluster.local
+      key file Kcluster.local+013+45129
     }
-    dnssec example.local {
-      key file /etc/coredns/example.local
+    dnssec example.org {
+      key file Kexample.org.+013+45330
     }
-    whoami
 }
 ~~~
