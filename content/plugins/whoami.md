@@ -4,7 +4,7 @@ description = "*whoami* returns your resolver's local IP address, port and trans
 weight = 28
 tags = [ "plugin", "whoami" ]
 categories = [ "plugin" ]
-date = "2017-10-20T08:48:19.245205"
+date = "2017-12-02T07:46:55.245501"
 +++
 
 When CoreDNS can not find a Corefile to load, this is the default plugin it loads.

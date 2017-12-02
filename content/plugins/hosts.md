@@ -4,7 +4,7 @@ description = "*hosts* enables serving zone data from a `/etc/hosts` style file.
 weight = 15
 tags = [ "plugin", "hosts" ]
 categories = [ "plugin" ]
-date = "2017-10-20T08:48:19.238997"
+date = "2017-12-02T07:46:55.244272"
 +++
 
 The hosts plugin is useful for serving zones from a /etc/hosts file. It serves from a preloaded
@@ -22,7 +22,8 @@ hosts [FILE [ZONES...]] {
 ~~~
 
 * **FILE** the hosts file to read and parse. If the path is relative the path from the *root*
-  directive will be prepended to it. Defaults to /etc/hosts if omitted
+  directive will be prepended to it. Defaults to /etc/hosts if omitted. We scan the file for changes 
+  every 5 seconds.
 * **ZONES** zones it should be authoritative for. If empty, the zones from the configuration block
    are used.
 * **INLINE** the hosts file contents inlined in Corefile. If there are any lines before fallthrough

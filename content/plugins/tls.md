@@ -4,7 +4,7 @@ description = "*tls* allows you to configure the server certificates for the TLS
 weight = 26
 tags = [ "plugin", "tls" ]
 categories = [ "plugin" ]
-date = "2017-10-20T08:48:19.244411"
+date = "2017-12-02T07:46:55.245338"
 +++
 
 CoreDNS supports queries that are encrypted using TLS (DNS over Transport Layer Security, RFC 7858)

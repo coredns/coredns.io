@@ -4,7 +4,7 @@ description = "*autopath* allows for server side search path completion."
 weight = 2
 tags = [ "plugin", "autopath" ]
 categories = [ "plugin" ]
-date = "2017-10-20T08:48:19.233380"
+date = "2017-12-02T07:46:55.243173"
 +++
 
 If it sees a query that matches the first element of the configured search path, *autopath* will

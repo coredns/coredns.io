@@ -4,7 +4,7 @@ description = "*proxy* facilitates both a basic reverse proxy and a robust load 
 weight = 21
 tags = [ "plugin", "proxy" ]
 categories = [ "plugin" ]
-date = "2017-10-20T08:48:19.242130"
+date = "2017-12-02T07:46:55.244902"
 +++
 
 The proxy has support for multiple backends. The load balancing features include multiple policies,
@@ -103,7 +103,7 @@ payload over HTTPS). Note that with `https_google` the entire transport is encry
 
 If monitoring is enabled (via the *prometheus* directive) then the following metric is exported:
 
-* `coredns_proxy_request_duration_millisecond{proto, proto_proxy, family, to}` - duration per upstream
+* `coredns_proxy_request_duration_seconds{proto, proto_proxy, family, to}` - duration per upstream
   interaction.
 * `coredns_proxy_request_count_total{proto, proto_proxy, family, to}` - query count per upstream.
 
@@ -193,3 +193,8 @@ example.org {
     proxy . 8.8.8.8:53
 }
 ~~~
+
+# Bugs
+
+When using the `google_https` protocol the health checking will health check the wrong endpoint.
+See <https://github.com/coredns/coredns/issues/1202> for some background.

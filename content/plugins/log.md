@@ -4,7 +4,7 @@ description = "*log* enables query logging to standard output."
 weight = 18
 tags = [ "plugin", "log" ]
 categories = [ "plugin" ]
-date = "2017-10-20T08:48:19.240598"
+date = "2017-12-02T07:46:55.244574"
 +++
 
 ## Syntax
@@ -15,14 +15,10 @@ log
 
 * With no arguments, a query log entry is written to *stdout* in the common log format for all requests
 
-~~~ txt
-log [stdout]
-~~~
-
 Or if you want/need slightly more control:
 
 ~~~ txt
-log [NAME] stdout [FORMAT]
+log [NAME] [FORMAT]
 ~~~
 
 * `NAME` is the name to match in order to be logged
@@ -31,7 +27,7 @@ log [NAME] stdout [FORMAT]
 You can further specify the class of responses that get logged:
 
 ~~~ txt
-log [NAME] stdout [FORMAT] {
+log [NAME] [FORMAT] {
     class [success|denial|error|all]
 }
 ~~~
@@ -93,7 +89,7 @@ Custom log format, for all zones (`.`)
 
 ~~~ corefile
 . {
-    log . stdout "{proto} Request: {name} {type} {>id}"
+    log . "{proto} Request: {name} {type} {>id}"
 }
 ~~~
 
@@ -101,7 +97,7 @@ Only log denials for example.org (and below to a file)
 
 ~~~ corefile
 . {
-    log example.org stdout {
+    log example.org {
         class denial
     }
 }

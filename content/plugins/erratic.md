@@ -4,7 +4,7 @@ description = "*erratic* is a plugin useful for testing client behavior."
 weight = 9
 tags = [ "plugin", "erratic" ]
 categories = [ "plugin" ]
-date = "2017-10-20T08:48:19.236188"
+date = "2017-12-02T07:46:55.243782"
 +++
 
 It returns a static response to all queries, but the responses can be delayed, dropped or truncated.
@@ -29,6 +29,10 @@ erratic {
 * `truncate`: truncate 1 per **AMOUNT** of queries, the default is 2.
 * `delay`: delay 1 per **AMOUNT** of queries for **DURATION**, the default for **AMOUNT** is 2 and
   the default for **DURATION** is 100ms.
+
+## Health
+
+This plugin implements dynamic health checking. For every dropped query it turns unhealthy.
 
 ## Examples
 

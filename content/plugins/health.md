@@ -4,7 +4,7 @@ description = "*health* enables a simple health check endpoint."
 weight = 14
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2017-10-20T08:48:19.238482"
+date = "2017-12-02T07:46:55.244190"
 +++
 
 By default, it listens on port 8080.
@@ -20,6 +20,13 @@ health endpoint returns a 200 response code and the word "OK" when CoreDNS is he
 a 503. *health* periodically (1s) polls plugin that exports health information. If any of the
 plugin signals that it is unhealthy, the server will go unhealthy too. Each plugin that
 supports health checks has a section "Health" in their README.
+
+## Plugins
+
+The following plugins report health to the health plugin:
+
+* erratic
+* kubernetes
 
 ## Examples
 
