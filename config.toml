@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "CoreDNS: DNS and Service Discovery"
 copyright = "CoreDNS - All Rights Reserved"
 theme = "coredns"
+enableGitInfo = true
 
 [permalinks]
   blog = "/:year/:month/:day/:title/"
