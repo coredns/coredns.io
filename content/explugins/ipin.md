@@ -45,7 +45,7 @@ When queried for "192-168-1-1.example.org A", CoreDNS will respond with:
 ;; QUESTION SECTION:
 ;192-168-1-1.example.org.	IN	A
 
-;; ADDITIONAL SECTION:
+;; ANSWER SECTION:
 192-168-1-1.example.org. 0	IN	A	192.168.1.1
 ~~~
 
@@ -55,7 +55,9 @@ When queried for "127-0-0-1-8080.example.org A", CoreDNS will respond with:
 ;; QUESTION SECTION:
 ;127-0-0-1-8080.example.org.	IN	A
 
-;; ADDITIONAL SECTION:
+;; ANSWER SECTION:
 127-0-0-1-8080.example.org. 0	IN	A	127.0.0.1
+
+;; ADDITIONAL SECTION:
 _port.127-0-0-1-8080.example.org. 0 IN	SRV	0 0 8080 .
 ~~~
