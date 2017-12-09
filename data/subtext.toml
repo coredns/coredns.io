@@ -18,7 +18,7 @@ All [in-tree](https://github.com/coredns/coredns/tree/master/plugin) plugins for
 
 [explugin]
   content = """
-All out-of-tree plugins for CoreDNS.
+Out-of-tree plugins for CoreDNS.
   """
 
 [community]
