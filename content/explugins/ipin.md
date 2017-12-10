@@ -12,10 +12,9 @@ home = "https://github.com/wenerme/wps/blob/master/coredns/plugin/ipin/README.md
 # ipin
 
 *ipin* returns IP address and port based on you domain name. Your IP address is returned
- in the additional section as either an A or AAAA record.
+ in the answer section, currently only support ipv4, so A record only.
 
-The reply always has an empty answer section. The port are included in the additional
-section as a SRV record.
+The optional port are included in the additional section as a SRV record.
 
 ~~~ txt
 ._port.qname. 0 IN SRV 0 0 <port> .
