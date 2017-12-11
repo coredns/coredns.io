@@ -1,10 +1,10 @@
 +++
 title = "root"
 description = "*root* simply specifies the root of where to find (zone) files."
-weight = 24
+weight = 25
 tags = [ "plugin", "root" ]
 categories = [ "plugin" ]
-date = "2017-12-02T07:46:55.245169"
+date = "2017-12-11T16:50:50.559672"
 +++
 
 The default root is the current working directory of CoreDNS. A relative root path is relative to

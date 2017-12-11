@@ -1,10 +1,10 @@
 +++
 title = "rewrite"
 description = "*rewrite* performs internal message rewriting."
-weight = 23
+weight = 24
 tags = [ "plugin", "rewrite" ]
 categories = [ "plugin" ]
-date = "2017-12-02T07:46:55.245097"
+date = "2017-12-11T16:50:50.559573"
 +++
 
 Rewrites are invisible to the client. There are simple rewrites (fast) and complex rewrites

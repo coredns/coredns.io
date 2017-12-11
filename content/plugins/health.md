@@ -4,7 +4,7 @@ description = "*health* enables a simple health check endpoint."
 weight = 14
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2017-12-02T07:46:55.244190"
+date = "2017-12-11T16:50:50.553018"
 +++
 
 By default, it listens on port 8080.
