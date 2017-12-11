@@ -4,7 +4,7 @@ description = "*cache* enables a frontend cache. It will cache all records excep
 weight = 4
 tags = [ "plugin", "cache" ]
 categories = [ "plugin" ]
-date = "2017-12-02T07:46:55.243352"
+date = "2017-12-11T16:50:50.550980"
 +++
 
 ## Syntax

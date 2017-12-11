@@ -4,7 +4,7 @@ description = "*etcd* enables reading zone data from an etcd instance. The data 
 weight = 11
 tags = [ "plugin", "etcd" ]
 categories = [ "plugin" ]
-date = "2017-12-02T07:46:55.243956"
+date = "2017-12-11T16:50:50.552324"
 +++
 
 The etcd plugin makes extensive use of the proxy plugin to forward and query other servers in the
@@ -80,6 +80,14 @@ when resolving external pointing CNAMEs.
     cache 160 skydns.local
     proxy . /etc/resolv.conf
 }
+~~~
+
+Multiple endpoints are supported as well.
+
+~~~
+etcd skydns.local {
+    endpoint http://localhost:2379 http://localhost:4001
+...
 ~~~
 
 

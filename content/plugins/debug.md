@@ -4,7 +4,7 @@ description = "*debug* disables the automatic recovery upon a crash so that you'
 weight = 6
 tags = [ "plugin", "debug" ]
 categories = [ "plugin" ]
-date = "2017-12-02T07:46:55.243509"
+date = "2017-12-11T16:50:50.551246"
 +++
 
 Note that the *errors* plugin (if loaded) will also set a `recover` negating this setting. The main

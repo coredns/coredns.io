@@ -4,7 +4,7 @@ description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics
 weight = 19
 tags = [ "plugin", "metrics" ]
 categories = [ "plugin" ]
-date = "2017-12-02T07:46:55.244654"
+date = "2017-12-11T16:50:50.558512"
 +++
 
 The default location for the metrics is `localhost:9153`. The metrics path is fixed to `/metrics`.

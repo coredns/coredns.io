@@ -4,7 +4,7 @@ description = "*file* enables serving zone data from an RFC 1035-style master fi
 weight = 13
 tags = [ "plugin", "file" ]
 categories = [ "plugin" ]
-date = "2017-12-02T07:46:55.244117"
+date = "2017-12-11T16:50:50.552793"
 +++
 
 The file plugin is used for an "old-style" DNS server. It serves from a preloaded file that exists

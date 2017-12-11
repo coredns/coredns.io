@@ -1,10 +1,10 @@
 +++
 title = "proxy"
 description = "*proxy* facilitates both a basic reverse proxy and a robust load balancer."
-weight = 21
+weight = 22
 tags = [ "plugin", "proxy" ]
 categories = [ "plugin" ]
-date = "2017-12-02T07:46:55.244902"
+date = "2017-12-11T16:50:50.559212"
 +++
 
 The proxy has support for multiple backends. The load balancing features include multiple policies,

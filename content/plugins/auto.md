@@ -4,7 +4,7 @@ description = "*auto* enables serving zone data from an RFC 1035-style master fi
 weight = 1
 tags = [ "plugin", "auto" ]
 categories = [ "plugin" ]
-date = "2017-12-02T07:46:55.243015"
+date = "2017-12-11T16:50:50.550168"
 +++
 
 The *auto* plugin is used for an "old-style" DNS server. It serves from a preloaded file that exists
