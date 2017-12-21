@@ -11,8 +11,9 @@ home = "https://github.com/coredns/forward"
 
 *forward* facilitates proxying DNS messages to upstream resolvers.
 
-The *forward* plugin is similar to the *proxy* plugin, but simpler in setup. It supports UDP, TCP
-and DNS-over-TLS and uses inband healthchecking that is enabled by default.
+The *forward* plugin is generally faster (~30%) than *proxy* as it re-uses already openened sockets
+to the upstreams. It supports UDP, TCP and DNS-over-TLS and uses inband healthchecking that is
+enabled by default.
 
 ## Syntax
 
@@ -42,6 +43,7 @@ forward FROM TO... {
     except IGNORED_NAMES...
     force_tcp
     health_check DURATION
+    expire DURATION
     max_fails INTEGER
     tls CERT KEY CA
     tls_servername NAME
@@ -55,6 +57,7 @@ forward FROM TO... {
 * `health_checks`, use a different **DURATION** for health checking, the default duration is 500ms.
 * `max_fails` is the number of subsequent failed health checks that are needed before considering
   a backend to be down. If 0, the backend will never be marked as down. Default is 2.
+* `expire` **DURATION**, expire connections after this time, the default is 10s.
 * `tls` **CERT** **KEY** **CA** define the TLS properties for TLS; if you leave this out the
   system's configuration will be used.
 * `tls_servername` **NAME** allows you to set a server name in the TLS configuration; for instance 9.9.9.9
@@ -70,9 +73,11 @@ Also note the TLS config is "global" for the whole forwarding proxy if you need 
 
 If monitoring is enabled (via the *prometheus* directive) then the following metric are exported:
 
-* `coredns_forward_request_duration_seconds{proto, family, to}` - duration per upstream interaction.
-* `coredns_forward_request_count_total{proto, family, to}` - query count per upstream.
+* `coredns_forward_request_duration_seconds{to}` - duration per upstream interaction.
+* `coredns_forward_request_count_total{to}` - query count per upstream.
+* `coredns_forward_response_rcode_total{to, rcode}` - count of RCODEs per upstream.
 * `coredns_forward_healthcheck_failure_count_total{to}` - number of failed healthchecks per upstream.
+* `coredns_forward_socket_count_total{to}` - number of cached sockets per upstream.
 
 Where `to` is one of the upstream servers (**TO** from the config), `proto` is the protocol used by
 the incoming query ("tcp" or "udp"), and family the transport family ("1" for IPv4, and "2" for
