@@ -31,14 +31,25 @@ dns64 {
 
 ## Examples
 
+In recursive resolver mode:
+
 ~~~
+# Perform dns64 AAAA synthesizing using 8.8.8.8 for resolving any A 
 dns64 {
     upstream 8.8.8.8:53
 }
 proxy . 8.8.8.8:53
 ~~~
 
-Perform dns64 AAAA synthesizing using 8.8.8.8 for resolving any A records.
+To make DNS64 resolve authoritatively, do:
+
+~~~
+dns64 {
+    upstream localhost:53
+    # caveat: additional round trip through networking stack
+}
+file example.com.db
+~~~
 
 ## See Also
 
