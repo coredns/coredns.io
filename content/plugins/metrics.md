@@ -4,7 +4,7 @@ description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics
 weight = 19
 tags = [ "plugin", "metrics" ]
 categories = [ "plugin" ]
-date = "2018-01-04T12:34:55.516243"
+date = "2018-01-04T12:51:22.159688"
 +++
 
 ## Description
