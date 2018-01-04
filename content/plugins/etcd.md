@@ -1,11 +1,17 @@
 +++
 title = "etcd"
-description = "*etcd* enables reading zone data from an etcd instance. The data in etcd has to be encoded as a [message](https://github.com/skynetservices/skydns/blob/2fcff74cdc9f9a7dd64189a447ef27ac354b725f/msg/service.go#L26) like [SkyDNS](https://github.com/skynetservices/skydns). It should also work just like SkyDNS."
+description = "*etcd* enables reading zone data from an etcd instance."
 weight = 11
 tags = [ "plugin", "etcd" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.552324"
+date = "2018-01-04T12:51:22.155951"
 +++
+
+## Description
+
+The data in etcd has to be encoded as
+a [message](https://github.com/skynetservices/skydns/blob/2fcff74cdc9f9a7dd64189a447ef27ac354b725f/msg/service.go#L26)
+like [SkyDNS](https://github.com/skynetservices/skydns). It should also work just like SkyDNS.
 
 The etcd plugin makes extensive use of the proxy plugin to forward and query other servers in the
 network.
@@ -44,10 +50,13 @@ etcd [ZONES...] {
   the proxy plugin. **ADDRESS** can be an IP address, and IP:port or a string pointing to a file
   that is structured as /etc/resolv.conf.
 * `tls` followed by:
-  * no arguments, if the server certificate is signed by a system-installed CA and no client cert is needed
-  * a single argument that is the CA PEM file, if the server cert is not signed by a system CA and no client cert is needed
-  * two arguments - path to cert PEM file, the path to private key PEM file - if the server certificate is signed by a system-installed CA and a client certificate is needed
-  * three arguments - path to cert PEM file, path to client private key PEM file, path to CA PEM file - if the server certificate is not signed by a system-installed CA and client certificate is needed
+
+    * no arguments, if the server certificate is signed by a system-installed CA and no client cert is needed
+    * a single argument that is the CA PEM file, if the server cert is not signed by a system CA and no client cert is needed
+    * two arguments - path to cert PEM file, the path to private key PEM file - if the server certificate is signed by a system-installed CA and a client certificate is needed
+    * three arguments - path to cert PEM file, path to client private key PEM file, path to CA PEM
+      file - if the server certificate is not signed by a system-installed CA and client certificate
+      is needed.
 
 ## Examples
 
@@ -117,3 +126,7 @@ Querying with dig:
 % dig @localhost -x 10.0.0.127 +short
 reverse.skydns.local.
 ~~~
+
+# Bugs
+
+Only the etcdv2 protocol is supported.

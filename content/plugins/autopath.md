@@ -4,8 +4,10 @@ description = "*autopath* allows for server side search path completion."
 weight = 2
 tags = [ "plugin", "autopath" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.550574"
+date = "2018-01-04T12:51:22.151904"
 +++
+
+## Description
 
 If it sees a query that matches the first element of the configured search path, *autopath* will
 follow the chain of search path elements and returns the first reply that is not NXDOMAIN. On any
@@ -24,15 +26,12 @@ autopath [ZONE...] RESOLV-CONF
   plugin. For instance `@kubernetes`, will call out to the kubernetes plugin (for each
   query) to retrieve the search list it should use.
 
-Currently the following set of plugin has implemented *autopath*:
-
-* *kubernetes*
-* *erratic*
+If a plugin implements the `AutoPather` interface then it can be used.
 
 ## Metrics
- 
+
 If monitoring is enabled (via the *prometheus* directive) then the following metric is exported:
- 
+
 * `coredns_autopath_success_count_total{}` - counter of successfully autopath-ed queries.
 
 ## Examples

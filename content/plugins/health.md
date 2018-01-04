@@ -1,13 +1,16 @@
 +++
 title = "health"
-description = "*health* enables a simple health check endpoint."
+description = "*health* enables a health check endpoint."
 weight = 14
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.553018"
+date = "2018-01-04T12:51:22.157263"
 +++
 
-By default, it listens on port 8080.
+## Description
+
+By enabling *health* any plugin that implements it will be queried for it's health. The combined
+health is exported, by default, on port 8080/health .
 
 ## Syntax
 
@@ -23,10 +26,7 @@ supports health checks has a section "Health" in their README.
 
 ## Plugins
 
-The following plugins report health to the health plugin:
-
-* erratic
-* kubernetes
+Any plugin that implements the Healther interface will be used to report health.
 
 ## Examples
 

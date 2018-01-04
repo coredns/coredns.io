@@ -9,6 +9,8 @@ repo = "https://github.com/coredns/forward"
 home = "https://github.com/coredns/forward"
 +++
 
+## Description
+
 *forward* facilitates proxying DNS messages to upstream resolvers.
 
 The *forward* plugin is generally faster (~30%) than *proxy* as it re-uses already openened sockets

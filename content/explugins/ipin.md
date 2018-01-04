@@ -9,7 +9,7 @@ repo = "https://github.com/wenerme/wps"
 home = "https://github.com/wenerme/wps/blob/master/coredns/plugin/ipin/README.md"
 +++
 
-# ipin
+## Description
 
 *ipin* returns IP address and port based on you domain name. Your IP address is returned
  in the answer section, currently only support ipv4, so A record only.

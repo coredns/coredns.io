@@ -1,13 +1,15 @@
 +++
 title = "erratic"
-description = "*erratic* is a plugin useful for testing client behavior."
+description = "*erratic* a plugin useful for testing client behavior."
 weight = 9
 tags = [ "plugin", "erratic" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.551842"
+date = "2018-01-04T12:51:22.155072"
 +++
 
-It returns a static response to all queries, but the responses can be delayed, dropped or truncated.
+## Description
+
+*erratic* returns a static response to all queries, but the responses can be delayed, dropped or truncated.
 The *erratic* plugin will respond to every A or AAAA query. For any other type it will return
 a SERVFAIL response. The reply for A will return 192.0.2.53 (see RFC 5737), for AAAA it returns
 2001:DB8::53 (see RFC 3849).

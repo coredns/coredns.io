@@ -10,6 +10,8 @@ home = "https://caddyserver.com/docs/import"
 enabled = "default"
 +++
 
+## Description
+
 This is a unique directive in that *import* can appear outside of a server block. In other words, it
 can appear at the top of a Corefile where an address would normally be. Like other directives,
 however, it cannot be used inside of other directives.

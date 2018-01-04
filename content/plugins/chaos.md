@@ -4,10 +4,13 @@ description = "*chaos* allows for responding to TXT queries in the CH class."
 weight = 5
 tags = [ "plugin", "chaos" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.551116"
+date = "2018-01-04T12:51:22.153315"
 +++
 
-This is useful for retrieving version or author information from the server.
+## Description
+
+This is useful for retrieving version or author information from the server by querying a TXT record
+for a special domainname in the CH class.
 
 ## Syntax
 

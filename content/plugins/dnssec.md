@@ -1,11 +1,17 @@
 +++
 title = "dnssec"
-description = "*dnssec* enables on-the-fly DNSSEC signing of served data."
+description = "*dnssec* enable on-the-fly DNSSEC signing of served data."
 weight = 7
 tags = [ "plugin", "dnssec" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.551455"
+date = "2018-01-04T12:51:22.154136"
 +++
+
+## Description
+
+With *dnssec* any reply that doesn't (or can't) do DNSSEC will get signed on-the-fly. Authenticated
+denial of existence is implemented with NSEC black lies. Using ECDSA as an algorithm is preferred as
+this leads to smaller signatures (compared to RSA). NSEC3 is *not* supported.
 
 ## Syntax
 
@@ -75,7 +81,7 @@ cluster.local {
 ## Bugs
 
 Multiple *dnssec* plugins inside one server stanza will silently overwrite earlier ones, here
-`example.local` will overwrite the one for `cluster.org`.
+`example.org` will overwrite the one for `cluster.local`.
 
 ~~~
 . {

@@ -25,6 +25,8 @@ repo = "https://link-to-your-plugin-repo"
 home = "https://link-to-your-homepage-or-readme"
 +++
 
+## Description
+
 The *<plugin name>* plugin is a ...
 
 ## Syntax
