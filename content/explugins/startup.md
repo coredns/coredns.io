@@ -10,6 +10,8 @@ home = "https://caddyserver.com/docs/startup"
 enabled = "default"
 +++
 
+## Description
+
 This is useful for preparing to serve a zone by running a script or starting a background process.
 (Also see [shutdown](/explugins/shutdown).)
 

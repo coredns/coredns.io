@@ -9,7 +9,7 @@ repo = "https://github.com/wenerme/wps"
 home = "https://github.com/wenerme/wps/blob/master/coredns/plugin/pdsql/README.md"
 +++
 
-# pdsql
+# Description
 
 *pdsql* use PowerDNS [generic sql](https://github.com/PowerDNS/pdns/tree/master/pdns/backends/gsql) as backend.
 

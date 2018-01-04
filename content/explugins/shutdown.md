@@ -10,6 +10,8 @@ home = "https://caddyserver.com/docs/shutdown"
 enabled = "default"
 +++
 
+## Description
+
 This is useful for performing cleanup or stopping a background process. (Also see
 [startup](/explugins/startup).)
 

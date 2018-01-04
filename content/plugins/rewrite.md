@@ -4,8 +4,10 @@ description = "*rewrite* performs internal message rewriting."
 weight = 24
 tags = [ "plugin", "rewrite" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.559573"
+date = "2018-01-04T12:34:55.519090"
 +++
+
+## Description
 
 Rewrites are invisible to the client. There are simple rewrites (fast) and complex rewrites
 (slower), but they're powerful enough to accommodate most dynamic back-end applications.
@@ -33,7 +35,7 @@ When the FIELD is `edns0` an EDNS0 option can be appended to the request as desc
 
 If you specify multiple rules and an incoming query matches on multiple rules, the rewrite
 will behave as following
-* `continue` will continue apply the next rule in the rule list. 
+* `continue` will continue apply the next rule in the rule list.
 * `stop` will consider the current rule is the last rule and will not continue.  Default behaviour
 for not specifying this rule processing mode is `stop`
 
@@ -47,9 +49,9 @@ Using FIELD edns0, you can set, append, or replace specific EDNS0 options on the
 
 Currently supported are `EDNS0_LOCAL`, `EDNS0_NSID` and `EDNS0_SUBNET`.
 
-### `EDNS0_LOCAL`
+### EDNS0_LOCAL
 
-This has two fields, code and data. A match is defined as having the same code. Data may be a string or a variable.  
+This has two fields, code and data. A match is defined as having the same code. Data may be a string or a variable.
 
 * A string data can be treated as hex if it starts with `0x`. Example:
 
@@ -69,13 +71,7 @@ rewrites the first local option with code 0xffee, setting the data to "abcd". Eq
 ~~~
 
 * A variable data is specified with a pair of curly brackets `{}`. Following are the supported variables:
-    * {qname}
-    * {qtype}
-    * {client_ip}
-    * {client_port}
-    * {protocol}
-    * {server_ip}
-    * {server_port}
+  {qname}, {qtype}, {client_ip}, {client_port}, {protocol}, {server_ip}, {server_port}.
 
 Example:
 
@@ -83,15 +79,15 @@ Example:
 rewrite edns0 local set 0xffee {client_ip}
 ~~~
 
-### `EDNS0_NSID`
+### EDNS0_NSID
 
 This has no fields; it will add an NSID option with an empty string for the NSID. If the option already exists
 and the action is `replace` or `set`, then the NSID in the option will be set to the empty string.
 
-### `EDNS0_SUBNET`
+### EDNS0_SUBNET
 
 This has two fields,  IPv4 bitmask length and IPv6 bitmask length. The bitmask
-length is used to extract the client subnet from the source IP address in the query. 
+length is used to extract the client subnet from the source IP address in the query.
 
 Example:
 
@@ -101,3 +97,50 @@ rewrite edns0 subnet set 24 56
 
 * If the query has source IP as IPv4, the first 24 bits in the IP will be the network subnet.
 * If the query has source IP as IPv6, the first 56 bits in the IP will be the network subnet.
+
+### Name Field Rewrites
+
+The `rewrite` plugin offers the ability to match on the name in the question section of
+a DNS request. The match could be exact, substring, or based on a prefix, suffix, or regular
+expression.
+
+The syntax for the name re-writing is as follows:
+
+```
+rewrite [continue|stop] name [exact|prefix|suffix|substring|regex] STRING STRING
+```
+
+The match type, i.e. `exact`, `substring`, etc., triggers re-write:
+
+* **exact** (default): on exact match of the name in the question section of a request
+* **substring**: on a partial match of the name in the question section of a request
+* **prefix**: when the name begins with the matching string
+* **suffix**: when the name ends with the matching string
+* **regex**: when the name in the question section of a request matches a regular expression
+
+If the match type is omitted, the `exact` match type is being assumed.
+
+The following instruction allows re-writing the name in the query that
+contains `service.us-west-1.example.org` substring.
+
+```
+rewrite name substring service.us-west-1.example.org service.us-west-1.consul
+```
+
+Thus:
+
+* Incoming Request Name: `ftp.service.us-west-1.example.org`
+* Re-written Request Name: `ftp.service.us-west-1.consul`
+
+The following instruction uses regular expressions. The name in a request
+matching `(.*)-(us-west-1)\.example\.org` regular expression is being replaces with
+`{1}.service.{2}.consul`, where `{1}` and `{2}` are regular expression match groups.
+
+```
+rewrite name regex (.*)-(us-west-1)\.example\.org {1}.service.{2}.consul
+```
+
+Thus:
+
+* Incoming Request Name: `ftp-us-west-1.example.org`
+* Re-written Request Name: `ftp.service.us-west-1.consul`

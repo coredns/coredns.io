@@ -4,8 +4,10 @@ description = "*pprof* publishes runtime profiling data at endpoints under `/deb
 weight = 21
 tags = [ "plugin", "pprof" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.558930"
+date = "2018-01-04T12:34:55.517387"
 +++
+
+## Description
 
 You can visit `/debug/pprof` on your site for an index of the available endpoints. By default it
 will listen on localhost:6053.
@@ -50,3 +52,8 @@ Listen on an all addresses on port 6060:
     pprof :6060
 }
 ~~~
+
+# Also See
+
+See [Go's pprof documentation](https://golang.org/pkg/net/http/pprof/) and [Profiling Go
+Programs](https://blog.golang.org/profiling-go-programs).

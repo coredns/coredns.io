@@ -4,8 +4,12 @@ description = "*trace* enables OpenTracing-based tracing of DNS requests as they
 weight = 28
 tags = [ "plugin", "trace" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.560182"
+date = "2018-01-04T12:34:55.521231"
 +++
+
+## Description
+
+With *trace* you enable OpenTracing of how a request flows through CoreDNS.
 
 ## Syntax
 

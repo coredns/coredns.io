@@ -9,10 +9,12 @@ repo = "https://github.com/hawell/redis"
 home = "https://github.com/hawell/redis/blob/master/README.md"
 +++
 
+## Description
+
 *redis* enables reading zone data from redis database.
 this plugin should be located right next to *etcd* in *plugins.cfg*
 
-## syntax
+## Syntax
 
 ~~~
 redis
@@ -45,7 +47,7 @@ redis {
 * `prefix` add PREFIX to all redis keys
 * `suffix` add SUFFIX to all redis keys
 
-## examples
+## Examples
 
 ~~~ corefile
 . {
@@ -60,17 +62,17 @@ redis {
 }
 ~~~
 
-## reverse zones
+## Reverse Zones
 
-reverse zones is not supported yet
+reverse zones is not supported yet.
 
-## proxy
+## Proxy
 
-proxy is not supported yet
+proxy is not supported yet.
 
-## zone format in redis db
+## Zone Format in redis db
 
-### zones
+### Zones
 
 each zone is stored in redis as a hash map with *zone* as key
 
@@ -81,7 +83,7 @@ redis-cli>KEYS *
 redis-cli>
 ~~~
 
-### dns RRs 
+### DNS RRs
 
 dns RRs are stored in redis as json strings inside a hash map using address as field key.
 *@* is used for zone's own RR values.
@@ -182,7 +184,7 @@ dns RRs are stored in redis as json strings inside a hash map using address as f
 }
 ~~~
 
-#### example
+#### Example
 
 ~~~
 $ORIGIN example.net.
@@ -217,5 +219,5 @@ redis-cli> hgetall example.net.
 12) "{\"ns\":[{\"ttl\":300, \"host\":\"ns1.subdel.example.net.\"},{\"ttl\":300, \"host\":\"ns2.subdel.example.net.\"}]}"
 13) "@"
 14) "{\"soa\":{\"ttl\":300, \"minttl\":100, \"mbox\":\"hostmaster.example.net.\",\"ns\":\"ns1.example.net.\",\"refresh\":44,\"retry\":55,\"expire\":66},\"ns\":[{\"ttl\":300, \"host\":\"ns1.example.net.\"},{\"ttl\":300, \"host\":\"ns2.example.net.\"}]}"
-redis-cli> 
+redis-cli>
 ~~~

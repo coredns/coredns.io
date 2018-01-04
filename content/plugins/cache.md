@@ -1,11 +1,17 @@
 +++
 title = "cache"
-description = "*cache* enables a frontend cache. It will cache all records except zone transfers and metadata records."
+description = "*cache* enables a frontend cache."
 weight = 4
 tags = [ "plugin", "cache" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.550980"
+date = "2018-01-04T12:34:55.510839"
 +++
+
+## Description
+
+With *cache* enabled all records except zone transfers and metadata records will be cached for up to
+3600s. Caching is mostly useful in a scenario when fetching data from the backend (upstream,
+database, etc.) is expensive.
 
 ## Syntax
 

@@ -1,11 +1,13 @@
 +++
 title = "errors"
-description = "*errors* enables error logging."
+description = "*errors* enable error logging."
 weight = 10
 tags = [ "plugin", "errors" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.552034"
+date = "2018-01-04T12:34:55.512739"
 +++
+
+## Description
 
 Any errors encountered during the query processing will be printed to standard output.
 

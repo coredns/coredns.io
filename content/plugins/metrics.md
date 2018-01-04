@@ -4,9 +4,12 @@ description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics
 weight = 19
 tags = [ "plugin", "metrics" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.558512"
+date = "2018-01-04T12:34:55.516243"
 +++
 
+## Description
+
+With *prometheus* you export metrics from CoreDNS and any plugin that has them.
 The default location for the metrics is `localhost:9153`. The metrics path is fixed to `/metrics`.
 The following metrics are exported:
 

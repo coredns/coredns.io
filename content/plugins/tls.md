@@ -1,11 +1,13 @@
 +++
 title = "tls"
-description = "*tls* allows you to configure the server certificates for the TLS and gRPC servers. For other types of servers it is ignored."
+description = "*tls* allows you to configure the server certificates for the TLS and gRPC servers."
 weight = 27
 tags = [ "plugin", "tls" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.560014"
+date = "2018-01-04T12:34:55.520748"
 +++
+
+## Description
 
 CoreDNS supports queries that are encrypted using TLS (DNS over Transport Layer Security, RFC 7858)
 or are using gRPC (https://grpc.io/, not an IETF standard). Normally DNS traffic isn't encrypted at

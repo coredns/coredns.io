@@ -9,6 +9,8 @@ repo = "http://github.com/Eun/coredns-ipecho"
 home = "https://github.com/Eun/coredns-ipecho/blob/master/README.md"
 +++
 
+## Description
+
 *ipecho* parses the IP out of a subdomain and echos it back as an record.
 
 ## Example

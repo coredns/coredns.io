@@ -4,8 +4,13 @@ description = "*reverse* allows for dynamic responses to PTR and the related A/A
 weight = 23
 tags = [ "plugin", "reverse" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.559393"
+date = "2018-01-04T12:34:55.518580"
 +++
+
+## Description
+
+If a request matches a regular expression (see Template Syntax below) this plugin will generate a
+response. This is only done for "address" records (PTR, A and AAAA).
 
 ## Syntax
 

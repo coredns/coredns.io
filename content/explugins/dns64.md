@@ -9,6 +9,8 @@ repo = "https://github.com/serverwentdown/dns64"
 home = "https://github.com/serverwentdown/dns64/blob/master/README.md"
 +++
 
+## Description
+
 The *dns64* plugin implements the DNS64 IPv6 transition mechanism. From Wikipedia:
 
 > DNS64 describes a DNS server that when asked for a domain's AAAA records, but only finds
@@ -18,7 +20,7 @@ The synthesis in only performed if the query came in via IPv6.
 
 ## TODO
 
-Not all features required by DNS64 are implemented, only basic AAAA synthesis. 
+Not all features required by DNS64 are implemented, only basic AAAA synthesis.
 
 * [ ] Resolve PTR records
 * [ ] Follow CNAME records
@@ -42,7 +44,7 @@ dns64 {
 In recursive resolver mode:
 
 ~~~
-# Perform dns64 AAAA synthesizing using 8.8.8.8 for resolving any A 
+# Perform dns64 AAAA synthesizing using 8.8.8.8 for resolving any A
 dns64 {
     upstream 8.8.8.8:53
 }

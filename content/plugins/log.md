@@ -4,8 +4,15 @@ description = "*log* enables query logging to standard output."
 weight = 18
 tags = [ "plugin", "log" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.558243"
+date = "2018-01-04T12:34:55.515757"
 +++
+
+## Description
+
+By just using *log* you dump all queries (and parts for the reply) on standard output. Options exist
+to tweak the output a little.
+
+Note that for busy servers this will incur a performance hit.
 
 ## Syntax
 

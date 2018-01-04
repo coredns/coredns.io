@@ -9,7 +9,7 @@ repo = "https://github.com/coredns/example/"
 home = "https://github.com/coredns/example/blob/master/README.md"
 +++
 
-# example
+## Description
 
 The example middleware prints "example" on every query received. It can be used as documentation for
 writing external middleware and to test if external middleware compiles with CoreDNS.

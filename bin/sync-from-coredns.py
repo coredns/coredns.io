@@ -23,16 +23,18 @@ date = "%(date)s"
   return h
 
 def parse(readme, plugin):
+  # Look for # Name, newline and a line that has *title* - description
   file = open(readme)
 
   description, title, rest = '', '', ''
-  
-  state = 'TITLE'
+
+  state = 'NAME'
   line = file.readline()
   while line:
-    if state == 'TITLE':
-      title = re.sub('# ?', '', line).rstrip()
-      state = 'SKIP'
+    if state == 'NAME':
+      if line.strip() == '## Name':
+        state = 'SKIP'
+
       line = file.readline()
       continue
 
@@ -43,10 +45,12 @@ def parse(readme, plugin):
       state = 'DESCRIPTION'
 
     if state == 'DESCRIPTION':
-      if line.strip() == '':
-        state = 'REST'
-      else:
-        description += line.rstrip() + " "
+      description = line.rstrip().split(" - ")
+      title = description[0].replace("*", "")
+      description = "*"+title+"* " + description[1]
+      state = 'REST'
+      line = file.readline()
+      continue
 
     if state == 'REST':
       rest += line

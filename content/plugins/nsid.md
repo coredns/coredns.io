@@ -4,8 +4,10 @@ description = "*nsid* adds an identifier of this server to each reply."
 weight = 20
 tags = [ "plugin", "nsid" ]
 categories = [ "plugin" ]
-date = "2017-12-11T16:50:50.558695"
+date = "2018-01-04T12:34:55.516757"
 +++
+
+## Description
 
 This plugin implements RFC 5001 and adds an EDNS0 OPT resource record to replies that uniquely
 identify the server. This is useful in anycast setups to see which server was responsible for
