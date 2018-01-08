@@ -16,7 +16,7 @@ The *dns64* plugin implements the DNS64 IPv6 transition mechanism. From Wikipedi
 > DNS64 describes a DNS server that when asked for a domain's AAAA records, but only finds
 > A records, synthesizes the AAAA records from the A records.
 
-The synthesis in only performed if the query came in via IPv6.
+The synthesis is only performed if the query came in via IPv6.
 
 ## TODO
 
