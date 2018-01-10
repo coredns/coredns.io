@@ -23,7 +23,7 @@ The `fallthrough` directive was overhauled and now allows a list of zones to be 
 then only fallthrough for those zones, see `plugin/plugin.md`.
 
 A new plugin *template* was added. It allows you to use Go (text) templates to craft a response, see
-<https://coredns.io/plugin/template> for docs.
+<https://coredns.io/plugins/template> for docs.
 
 * *dnssec* implements Cloudflares's NSEC blacklies better.
 * *kubernetes*, adds a fix for `pod insecure` look ups for non-IP addresses.
