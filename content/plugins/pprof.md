@@ -4,7 +4,7 @@ description = "*pprof* publishes runtime profiling data at endpoints under `/deb
 weight = 21
 tags = [ "plugin", "pprof" ]
 categories = [ "plugin" ]
-date = "2018-01-04T12:51:22.160691"
+date = "2018-01-10T19:37:18.561369"
 +++
 
 ## Description
@@ -53,7 +53,7 @@ Listen on an all addresses on port 6060:
 }
 ~~~
 
-# Also See
+## Also See
 
 See [Go's pprof documentation](https://golang.org/pkg/net/http/pprof/) and [Profiling Go
 Programs](https://blog.golang.org/profiling-go-programs).

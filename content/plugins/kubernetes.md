@@ -4,7 +4,7 @@ description = "*kubernetes* enables the reading zone data from a Kubernetes clus
 weight = 16
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2018-01-04T12:51:22.158304"
+date = "2018-01-10T19:37:18.560101"
 +++
 
 ## Description
@@ -41,7 +41,7 @@ kubernetes [ZONES...] {
     endpoint_pod_names
     upstream ADDRESS...
     ttl TTL
-    fallthrough
+    fallthrough [ZONES...]
 }
 ```
 
@@ -88,9 +88,12 @@ kubernetes [ZONES...] {
   to a file structured like resolv.conf.
 * `ttl` allows you to set a custom TTL for responses. The default (and allowed minimum) is to use
   5 seconds, the maximum is capped at 3600 seconds.
-* `fallthrough`  If a query for a record in the cluster zone results in NXDOMAIN, normally that is
-  what the response will be. However, if you specify this option, the query will instead be passed
-  on down the plugin chain, which can include another plugin to handle the query.
+* `fallthrough` **[ZONES...]** If a query for a record in the zones for which the plugin is authoritative
+  results in NXDOMAIN, normally that is what the response will be. However, if you specify this option,
+  the query will instead be passed on down the plugin chain, which can include another plugin to handle
+  the query. If **[ZONES...]** is omitted, then fallthrough happens for all zones for which the plugin
+  is authoritative. If specific zones are listed (for example `in-addr.arpa` and `ip6.arpa`), then only
+  queries for those zones will be subject to fallthrough.
 
 ## Health
 
