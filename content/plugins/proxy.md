@@ -4,7 +4,7 @@ description = "*proxy* facilitates both a basic reverse proxy and a robust load 
 weight = 22
 tags = [ "plugin", "proxy" ]
 categories = [ "plugin" ]
-date = "2018-01-04T12:51:22.161258"
+date = "2018-01-10T19:37:18.561773"
 +++
 
 ## Description
@@ -198,7 +198,7 @@ example.org {
 }
 ~~~
 
-# Bugs
+## Bugs
 
 When using the `google_https` protocol the health checking will health check the wrong endpoint.
 See <https://github.com/coredns/coredns/issues/1202> for some background.

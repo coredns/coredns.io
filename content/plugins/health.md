@@ -4,7 +4,7 @@ description = "*health* enables a health check endpoint."
 weight = 14
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2018-01-04T12:51:22.157263"
+date = "2018-01-10T19:37:18.559512"
 +++
 
 ## Description
@@ -27,6 +27,14 @@ supports health checks has a section "Health" in their README.
 ## Plugins
 
 Any plugin that implements the Healther interface will be used to report health.
+
+## Metrics
+
+If monitoring is enabled (via the *prometheus* directive) then the following metric is exported:
+
+* `coredns_health_request_duration_seconds{}` - duration to process a /health query. As this should
+  be a local operation it should be fast. A (large) increases in this duration indicates the
+  CoreDNS process is having trouble keeping up.
 
 ## Examples
 

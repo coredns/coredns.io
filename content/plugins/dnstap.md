@@ -4,7 +4,7 @@ description = "*dnstap* enable logging to dnstap"
 weight = 8
 tags = [ "plugin", "dnstap" ]
 categories = [ "plugin" ]
-date = "2018-01-04T12:51:22.154612"
+date = "2018-01-10T19:37:18.558091"
 +++
 
 ## Description
@@ -67,6 +67,6 @@ Listen for dnstap messages on port 6000.
 % dnstap -l 127.0.0.1:6000
 ~~~
 
-# See Also
+## See Also
 
 [dnstap.info](http://dnstap.info).
