@@ -4,7 +4,7 @@ description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics
 weight = 19
 tags = [ "plugin", "metrics" ]
 categories = [ "plugin" ]
-date = "2018-01-04T12:51:22.159688"
+date = "2018-01-10T19:37:18.560820"
 +++
 
 ## Description
@@ -65,7 +65,7 @@ then:
 }
 ~~~
 
-# Bugs
+## Bugs
 
 When reloading, we keep the handler running, meaning that any changes to the handler's address
 aren't picked up. You'll need to restart CoreDNS for that to happen.

@@ -4,7 +4,7 @@ description = "*secondary* enables serving a zone retrieved from a primary serve
 weight = 26
 tags = [ "plugin", "secondary" ]
 categories = [ "plugin" ]
-date = "2018-01-04T12:51:22.163041"
+date = "2018-01-10T19:37:18.563147"
 +++
 
 ## Description
@@ -62,6 +62,6 @@ Or re-export the retrieved zone to other secondaries.
 }
 ~~~
 
-# Bugs
+## Bugs
 
 Only AXFR is supported and the retrieved zone is not committed to disk.
