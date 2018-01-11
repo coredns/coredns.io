@@ -49,7 +49,7 @@ $ORIGIN example.org.
 				3600       ; minimum (1 hour)
 				)
 
-    3600 IN NS a.iana-servers.net.
+	3600 IN NS a.iana-servers.net.
 	3600 IN NS b.iana-servers.net.
 
 www     IN A     127.0.0.1
