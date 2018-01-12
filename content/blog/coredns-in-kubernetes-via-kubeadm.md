@@ -52,22 +52,6 @@ Use the following command to install CoreDNS as default while installing a fresh
 [addons] Applied essential addon: kube-proxy
 
 Your Kubernetes master has initialized successfully!
-
-To start using your cluster, you need to run the following as a regular user:
-
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
-You should now deploy a pod network to the cluster.
-Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
-  https://kubernetes.io/docs/concepts/cluster-administration/addons/
-
-You can now join any number of machines by running the following on each node
-as root:
-
-  kubeadm join --token 4cd282.a826a13b3705a4ec 147.75.107.43:6443 --discovery-token-ca-cert-hash sha256:9d98fd8463915998b3795f6ba53ae3db1fdc93ccbba6427bca1946a172ea1eb8
-
 ~~~
 
 ## Updating your existing cluster to use CoreDNS
@@ -185,7 +169,7 @@ Check `Deployment`:
 ~~~ text
 # kubectl -n kube-system get deployments
 NAME      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-coredns   1                     1                       1                         1           4h
+coredns   1            1          1           1        4h
 ~~~
 
 Check the `Configmap`:
@@ -221,7 +205,7 @@ metadata:
 We can check if CoreDNS is functioning normally through a few basic `dig` commands:
 
 ~~~ text
-# dig @10.96.0.10 kubernetes.default.svc.cluster.local
+# dig @10.32.0.61 kubernetes.default.svc.cluster.local
 
 ; <<>> DiG 9.10.3-P4-Ubuntu <<>> @10.96.0.10 kubernetes.default.svc.cluster.local
 ; (1 server found)
@@ -244,7 +228,7 @@ kubernetes.default.svc.cluster.local. 5	IN A	10.96.0.1
 ;; MSG SIZE  rcvd: 81
 
 
-# dig @10.96.0.10 ptr 1.0.96.10.in-addr.arpa.
+# dig @10.32.0.61 ptr 1.0.96.10.in-addr.arpa.
 
 ; <<>> DiG 9.10.3-P4-Ubuntu <<>> @10.96.0.10 ptr 1.0.96.10.in-addr.arpa.
 ; (1 server found)
@@ -268,31 +252,16 @@ kubernetes.default.svc.cluster.local. 5	IN A	10.96.0.1
 
 ~~~
 
-Below is the `log` for some of the basic queries.
-~~~ text
-# kubectl -n kube-system logs coredns-546545bc84-p4x7k
-.:53
-CoreDNS-1.0.1
-linux/amd64, go1.9.1, a04eeb9c
-2017/12/21 18:01:35 [INFO] CoreDNS-1.0.1
-2017/12/21 18:01:35 [INFO] linux/amd64, go1.9.1, a04eeb9c
-10.32.0.1 - [21/Dec/2017:18:06:34 +0000] "A IN kube-dns.kube-system.svc.cluster.local. udp 68 false 4096" NOERROR qr,aa,rd,ra 84 104.117µs
-10.32.0.1 - [21/Dec/2017:18:07:48 +0000] "A IN kubernetes.default.svc.cluster.local. udp 66 false 4096" NOERROR qr,aa,rd,ra 82 116.92µs
-10.32.0.1 - [21/Dec/2017:18:08:53 +0000] "PTR IN 10.0.96.10.in-addr.arpa. udp 53 false 4096" NOERROR qr,aa,rd,ra 105 97.984µs
-10.32.0.1 - [21/Dec/2017:18:09:10 +0000] "PTR IN 1.0.96.10.in-addr.arpa. udp 52 false 4096" NOERROR qr,aa,rd,ra 102 94.992µs
-10.32.0.1 - [21/Dec/2017:18:10:49 +0000] "A IN kubernetes.default.svc.cluster.local. udp 66 false 4096" NOERROR qr,aa,rd,ra 82 99.664µs
-~~~
-
-## Plugins
+## [Plugins](https://coredns.io/plugins/)
 CoreDNS in Kubernetes ships with the following `plugins` enabled:
-- *Error*: This enables error logging.
-- *Health*: Health enables a simple health check endpoint.
-- *Kubernetes*: The kubernetes plugin enables the reading zone data from a Kubernetes cluster. You can find more details [here](https://coredns.io/plugins/kubernetes/). 
+- *[errors](https://coredns.io/plugins/errors/)*: This enables error logging.
+- *[health](https://coredns.io/plugins/health/)*: health enables a simple health check endpoint.
+- *[kubernetes](https://coredns.io/plugins/kubernetes/)*: The kubernetes plugin enables the reading zone data from a Kubernetes cluster. You can find more details [here](https://coredns.io/plugins/kubernetes/). 
 
 > The `pods insecure` option always return an A record with IP from request (without checking k8s). This option is provided for backward compatibility with kube-dns.
 > Also by default, the Kubernetes plugin has the `Cluster Domain` and the `Service CIDR` defined. The `Pod CIDR` must be added to the config file after CoreDNS deployment.
 > `Upstream` option in the Kubernetes plugin defines upstream resolvers to be used resolve external names found (CNAMEs) pointing to external names.
 
-- *Prometheus*: This enables [Prometheus](https://prometheus.io/) metrics.
-- *Proxy*: Proxy facilitates both a basic reverse proxy and a robust load balancer.
-- *Cache*: This enables a frontend cache. It will cache all records except zone transfers and metadata records.
+- *[prometheus](https://coredns.io/plugins/prometheus/)*: This enables [Prometheus](https://prometheus.io/) metrics.
+- *[proxy](https://coredns.io/plugins/proxy/)*: proxy facilitates both a basic reverse proxy and a robust load balancer.
+- *[cache](https://coredns.io/plugins/cache/)*: This enables a frontend cache. It will cache all records except zone transfers and metadata records.
