@@ -207,7 +207,7 @@ We can check if CoreDNS is functioning normally through a few basic `dig` comman
 ~~~ text
 # dig @10.32.0.61 kubernetes.default.svc.cluster.local
 
-; <<>> DiG 9.10.3-P4-Ubuntu <<>> @10.96.0.10 kubernetes.default.svc.cluster.local
+; <<>> DiG 9.10.3-P4-Ubuntu <<>> @10.32.0.61 kubernetes.default.svc.cluster.local
 ; (1 server found)
 ;; global options: +cmd
 ;; Got answer:
@@ -223,14 +223,14 @@ We can check if CoreDNS is functioning normally through a few basic `dig` comman
 kubernetes.default.svc.cluster.local. 5	IN A	10.96.0.1
 
 ;; Query time: 0 msec
-;; SERVER: 10.96.0.10#53(10.96.0.10)
+;; SERVER: 10.32.0.61#53(10.32.0.61)
 ;; WHEN: Thu Dec 21 18:10:49 UTC 2017
 ;; MSG SIZE  rcvd: 81
 
 
 # dig @10.32.0.61 ptr 1.0.96.10.in-addr.arpa.
 
-; <<>> DiG 9.10.3-P4-Ubuntu <<>> @10.96.0.10 ptr 1.0.96.10.in-addr.arpa.
+; <<>> DiG 9.10.3-P4-Ubuntu <<>> @10.32.0.61 ptr 1.0.96.10.in-addr.arpa.
 ; (1 server found)
 ;; global options: +cmd
 ;; Got answer:
@@ -246,7 +246,7 @@ kubernetes.default.svc.cluster.local. 5	IN A	10.96.0.1
 1.0.96.10.in-addr.arpa.	5	IN	PTR	kubernetes.default.svc.cluster.local.
 
 ;; Query time: 0 msec
-;; SERVER: 10.96.0.10#53(10.96.0.10)
+;; SERVER: 10.32.0.61#53(10.32.0.61)
 ;; WHEN: Thu Dec 21 18:09:10 UTC 2017
 ;; MSG SIZE  rcvd: 101
 
