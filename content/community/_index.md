@@ -14,7 +14,8 @@ discussion happens on Github).
 to file bugs and features request. If you need support, please send your questions to the
 coredns-discuss mailing list rather than filing a GitHub issue.
 
-**Security issue**: Send an email to [team@coredns.io](mailto:team@coredns.io).
+**Security issue**: Send an email to [security@coredns.io](mailto:team@coredns.io) and (optionally)
+sign using the PGP key with this fingerprint 6A3CF4506D4E7C6BC23CF982258B85CF3880D0F6.
 
 *Please do not ask individual project members for support. Use the channels above instead, where the
 whole community can help you and benefit from the solutions provided.*
