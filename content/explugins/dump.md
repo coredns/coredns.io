@@ -24,6 +24,8 @@ So a query will show up as:
 ~~~
 
 Note that this is shorter than the default for *log* so you can distinguish between the two outputs.
+*log* only logs queries that have seen a response, so this plugin can be used as a debugging aid to
+ just dump all incoming queries.
 
 ## Syntax
 
