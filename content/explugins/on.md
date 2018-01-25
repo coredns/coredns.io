@@ -42,7 +42,7 @@ on EVENT COMMAND
 
 Commands can execute on the following events:
 
-* `startup` - The server instance is first starting up
+* `startup` - The server instance is starting or starting up
 * `shutdown` - The server instance is shutting down (not restarting)
 
 ## Examples
