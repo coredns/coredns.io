@@ -4,7 +4,7 @@ description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics
 weight = 19
 tags = [ "plugin", "metrics" ]
 categories = [ "plugin" ]
-date = "2018-01-10T19:37:18.560820"
+date = "2018-01-25T23:05:13.452606"
 +++
 
 ## Description
@@ -13,6 +13,7 @@ With *prometheus* you export metrics from CoreDNS and any plugin that has them.
 The default location for the metrics is `localhost:9153`. The metrics path is fixed to `/metrics`.
 The following metrics are exported:
 
+* `coredns_build_info{version, revision, goversion}` - info about CoreDNS itself.
 * `coredns_dns_request_count_total{zone, proto, family}` - total query count.
 * `coredns_dns_request_duration_seconds{zone}` - duration to process each query.
 * `coredns_dns_request_size_bytes{zone, proto}` - size of the request in bytes.

@@ -4,7 +4,7 @@ description = "*reverse* allows for dynamic responses to PTR and the related A/A
 weight = 23
 tags = [ "plugin", "reverse" ]
 categories = [ "plugin" ]
-date = "2018-01-10T19:37:18.562178"
+date = "2018-01-25T23:05:13.453190"
 +++
 
 ## Description

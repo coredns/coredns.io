@@ -4,7 +4,7 @@ description = "*health* enables a health check endpoint."
 weight = 14
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2018-01-10T19:37:18.559512"
+date = "2018-01-25T23:05:13.451915"
 +++
 
 ## Description
@@ -23,6 +23,17 @@ health endpoint returns a 200 response code and the word "OK" when CoreDNS is he
 a 503. *health* periodically (1s) polls plugin that exports health information. If any of the
 plugin signals that it is unhealthy, the server will go unhealthy too. Each plugin that
 supports health checks has a section "Health" in their README.
+
+More options can be set with this extended syntax:
+
+~~~
+health [ADDRESS] {
+    lameduck DURATION
+}
+~~~
+
+* Where `lameduck` will make the process unhealthy then *wait* for **DURATION** before the process
+  shuts down.
 
 ## Plugins
 
@@ -43,5 +54,15 @@ Run another health endpoint on http://localhost:8091.
 ~~~ corefile
 . {
     health localhost:8091
+}
+~~~
+
+Set a lameduck duration of 1 second:
+
+~~~ corefile
+. {
+    health localhost:8091 {
+        lameduck 1s
+    }
 }
 ~~~

@@ -1,10 +1,10 @@
 +++
 title = "secondary"
 description = "*secondary* enables serving a zone retrieved from a primary server."
-weight = 26
+weight = 27
 tags = [ "plugin", "secondary" ]
 categories = [ "plugin" ]
-date = "2018-01-10T19:37:18.563147"
+date = "2018-01-25T23:05:13.453773"
 +++
 
 ## Description
@@ -37,6 +37,10 @@ secondary [zones...] {
   pointing to external names. This is only really useful when CoreDNS is configured as a proxy, for
   normal authoritative serving you don't need *or* want to use this. **ADDRESS** can be an IP
   address, and IP:port or a string pointing to a file that is structured as /etc/resolv.conf.
+
+When a zone is due to be refreshed (Refresh timer fires) a random jitter of 5 seconds is
+applied, before fetching. In the case of retry this will be 2 seconds. If there are any errors
+during the transfer the transfer fails; this will be logged.
 
 ## Examples
 
