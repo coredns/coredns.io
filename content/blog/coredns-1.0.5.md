@@ -20,7 +20,6 @@ Add ability to *really* compile out the default plugins.
 
 * A new plugin *route53* was added that enables serving zone data from AWS route53, see the [documentation](https://coredns.io/plugins/route53).
 * A new plugin *on* was added. This is an external Caddy [plugin](https://caddyserver.com/docs/on), that is now also available (by default) for CoreDNS; it allows you to run commands when an event is generated.
-* An external plugin [*forward*](https://coredns.io/explugins/forward) was added.
 
 * *cache* doesn't apply a 5s minimum TTL anymore. It fixes prefetching *and* correctly sets the metrics for cache hits and misses.
 * *dnssec* fixes handing out *expired* signatures after 8 days and properly filters out the qtype in the NSEC bitmap for NXDOMAIN responses.
