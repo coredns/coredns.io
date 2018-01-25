@@ -4,7 +4,7 @@ description = "*dnssec* enable on-the-fly DNSSEC signing of served data."
 weight = 7
 tags = [ "plugin", "dnssec" ]
 categories = [ "plugin" ]
-date = "2018-01-25T23:05:13.451054"
+date = "2018-01-25T23:18:25.999869"
 +++
 
 ## Description
