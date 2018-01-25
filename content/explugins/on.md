@@ -19,7 +19,7 @@ enabled = "default"
 Each command that is executed is blocking, unless you suffix the command with a space and &, which
 will cause the command to be run in the background. (Do not do this when the server is exiting, or
 the command may not finish before its parent process exits.) The output and error of the command go
-to standard outpu and standard error, respectively. There is no standard input.
+to standard output and standard error, respectively. There is no standard input.
 
 A command will only be executed once for each time it appears in the Corefile. In other words, even
 if this directive is shared by more than one zone, a command will only execute once per appearance
