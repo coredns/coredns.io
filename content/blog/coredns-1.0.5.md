@@ -27,6 +27,7 @@ Add ability to *really* compile out the default plugins.
 * *log* adds message ID `{>id}` to the default logging.
 * *health* has gotten a lameduck option that will nack health, but will keep the server running for a configurable duration when CoreDNS is being shut down. If metrics are enabled *health* exports a metric that curls the local endpoint and exports the duration. Useful for getting a sense of overloadedness of the process.
 * *rewrite* can now rewrite answers for `name regex` matches. This prevents DNS clients from ignoring the answers due to a mismatch with the original question.
+* *secondary* saw a bunch of fixes.
 
 ## Contributors
 
