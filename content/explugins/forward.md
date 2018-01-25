@@ -7,6 +7,7 @@ categories = [ "plugin", "external" ]
 date = "2017-10-10T18:25:19+01:00"
 repo = "https://github.com/coredns/forward"
 home = "https://github.com/coredns/forward"
+enabled = "default"
 +++
 
 ## Description
