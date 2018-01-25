@@ -10,9 +10,31 @@ We can now install CoreDNS as the default service discovery via Kubeadm, which i
 
 Currently, [CoreDNS is Alpha in Kubernetes 1.9](https://github.com/kubernetes/features/issues/427). We have a roadmap which will make CoreDNS Beta in version 1.10 and eventually be the default DNS, replacing kube-dns.
 
+>It is important to note that currently when switching from kube-dns to CoreDNS, the configurations that come with kube-dns (stubzones, federations...) will no longer exist and will switch to a default configuration in CoreDNS.
+>The translation of the configurations from kube-dns shall be supported from the upcoming version of Kubernetes (v1.10) where CoreDNS will be Beta.
+
+
+## [Plugins](https://coredns.io/plugins/)
+CoreDNS in Kubernetes ships with the following `plugins` enabled:
+- *[errors](https://coredns.io/plugins/errors/)*: This enables error logging.
+- *[health](https://coredns.io/plugins/health/)*: health enables a simple health check endpoint.
+- *[kubernetes](https://coredns.io/plugins/kubernetes/)*: The kubernetes plugin enables the reading zone data from a Kubernetes cluster. You can find more details [here](https://coredns.io/plugins/kubernetes/). 
+
+> The `pods insecure` option always return an A record with IP from request (without checking k8s). This option is provided for backward compatibility with kube-dns.
+> Also by default, the Kubernetes plugin has the `Cluster Domain` and the `Service CIDR` defined. The `Pod CIDR` must be added to the config file after CoreDNS deployment.
+> `Upstream` option in the Kubernetes plugin defines upstream resolvers to be used resolve external names found (CNAMEs) pointing to external names.
+
+- *[prometheus](https://coredns.io/plugins/prometheus/)*: This enables [Prometheus](https://prometheus.io/) metrics.
+- *[proxy](https://coredns.io/plugins/proxy/)*: proxy facilitates both a basic reverse proxy and a robust load balancer.
+- *[cache](https://coredns.io/plugins/cache/)*: This enables a frontend cache. It will cache all records except zone transfers and metadata records.
+
+
 ## Installing CoreDNS in fresh Kubernetes cluster
-In order to install CoreDNS instead of kube-dns for a fresh Kubernetes cluster, we need to use the `feature-gates` flag and set it to `true`. 
+In order to install CoreDNS instead of kube-dns for a fresh Kubernetes cluster, we need to use the `feature-gates` flag and set to `CoreDNS=true`. 
 Use the following command to install CoreDNS as default while installing a fresh Kubernetes cluster.
+~~~ text
+# kubeadm init --feature-gates CoreDNS=true
+~~~
 ~~~ text
 # kubeadm init --feature-gates CoreDNS=true
 [init] Using Kubernetes version: v1.9.0
@@ -53,34 +75,23 @@ Use the following command to install CoreDNS as default while installing a fresh
 
 Your Kubernetes master has initialized successfully!
 ~~~
+CoreDNS install is confirmed if we see the following output while deploying Kubernetes.
+~~~
+[addons] Applied essential addon: CoreDNS
+~~~
 
 ## Updating your existing cluster to use CoreDNS
 In case you have an existing cluster, it is also possible to upgrade your DNS to CoreDNS, replacing kube-dns using the `kubeadm upgrade` command. 
 
-Using `kubeadm upgrade plan` and by setting `feature-gates` flag as `true`, it is possible to check the CoreDNS version that will be installed before proceeding to apply the changes.
+Using `kubeadm upgrade plan` and by setting `feature-gates` flag as `CoreDNS=true`, it is possible to check the CoreDNS version that will be installed before proceeding to apply the changes.
 
 Checking the CoreDNS version to upgrade:
-
+~~~ text
+# kubeadm upgrade plan --feature-gates CoreDNS=true
+~~~
 ~~~ text
 # kubeadm upgrade plan --allow-experimental-upgrades --feature-gates CoreDNS=true
-[preflight] Running pre-flight checks.
-[upgrade] Making sure the cluster is healthy:
-[upgrade/health] FATAL: [preflight] Some fatal errors occurred:
-	[ERROR MasterNodesReady]: there are NotReady masters in the cluster: [sandeep2]
-[preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`
-root@sandeep2:~# kubeadm upgrade plan --allow-experimental-upgrades --feature-gates CoreDNS=true --ignore-preflight-errors=all
-[preflight] Running pre-flight checks.
-[upgrade] Making sure the cluster is healthy:
-	[WARNING MasterNodesReady]: there are NotReady masters in the cluster: [sandeep2]
-[upgrade/config] Making sure the configuration is correct:
-[upgrade/config] Reading configuration from the cluster...
-[upgrade/config] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
-[upgrade] Fetching available versions to upgrade to
-[upgrade/versions] Cluster version: v1.9.0
-[upgrade/versions] kubeadm version: v1.9.0
-[upgrade/versions] Latest stable version: v1.9.0
-[upgrade/versions] Latest version in the v1.9 series: v1.9.0
-[upgrade/versions] Latest experimental version: v1.10.0-alpha.1
+...
 
 Components that must be upgraded manually after you have upgraded the control plane with 'kubeadm upgrade apply':
 COMPONENT   CURRENT      AVAILABLE
@@ -105,7 +116,9 @@ Note: Before you can perform this upgrade, you have to update kubeadm to v1.10.0
 ~~~
 
 The upgrade with CoreDNS as the default DNS can then be performed using `kubeadm upgrade apply` and `feature-gates`:
-
+~~~ text
+# kubeadm upgrade apply <version> --feature-gates CoreDNS=true
+~~~
 ~~~ text
 # kubeadm upgrade apply v1.10.0-alpha.1  --feature-gates CoreDNS=true  --allow-experimental-upgrades
 [preflight] Running pre-flight checks.
@@ -151,6 +164,7 @@ The upgrade with CoreDNS as the default DNS can then be performed using `kubeadm
 ~~~
 
 To verify CoreDNS is running, we can check the pod status, deployment and the configmap in the node.
+Note here that the CoreDNS service will remain as "kube-dns" which ensures a smooth transition while upgrading your service discovery from kube-dns to CoreDNS.
 
 Check `pod` status:
 ~~~ text
@@ -172,7 +186,7 @@ NAME      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 coredns   1            1          1           1        4h
 ~~~
 
-Check the `Configmap`:
+Check the `Configmap`. This is the default Corefile configuration shipped with kubeadm:
 ~~~ text
 # kubectl -n kube-system get configmap coredns -oyaml
 apiVersion: v1
@@ -198,9 +212,6 @@ metadata:
   selfLink: /api/v1/namespaces/kube-system/configmaps/coredns
   uid: 30bf0882-e64e-11e7-baf6-0cc47a8055d6
 ~~~
-
->It is important to note that when switching from kube-dns to CoreDNS, the configurations that come with kube-dns (stubzones, federations...) will no longer exist and will switch to a default configuration in CoreDNS.
->The translation of the configurations from kube-dns shall be supported from the upcoming version of Kubernetes (v1.10) where CoreDNS will be Beta.
 
 We can check if CoreDNS is functioning normally through a few basic `dig` commands:
 
@@ -251,17 +262,3 @@ kubernetes.default.svc.cluster.local. 5	IN A	10.96.0.1
 ;; MSG SIZE  rcvd: 101
 
 ~~~
-
-## [Plugins](https://coredns.io/plugins/)
-CoreDNS in Kubernetes ships with the following `plugins` enabled:
-- *[errors](https://coredns.io/plugins/errors/)*: This enables error logging.
-- *[health](https://coredns.io/plugins/health/)*: health enables a simple health check endpoint.
-- *[kubernetes](https://coredns.io/plugins/kubernetes/)*: The kubernetes plugin enables the reading zone data from a Kubernetes cluster. You can find more details [here](https://coredns.io/plugins/kubernetes/). 
-
-> The `pods insecure` option always return an A record with IP from request (without checking k8s). This option is provided for backward compatibility with kube-dns.
-> Also by default, the Kubernetes plugin has the `Cluster Domain` and the `Service CIDR` defined. The `Pod CIDR` must be added to the config file after CoreDNS deployment.
-> `Upstream` option in the Kubernetes plugin defines upstream resolvers to be used resolve external names found (CNAMEs) pointing to external names.
-
-- *[prometheus](https://coredns.io/plugins/prometheus/)*: This enables [Prometheus](https://prometheus.io/) metrics.
-- *[proxy](https://coredns.io/plugins/proxy/)*: proxy facilitates both a basic reverse proxy and a robust load balancer.
-- *[cache](https://coredns.io/plugins/cache/)*: This enables a frontend cache. It will cache all records except zone transfers and metadata records.
