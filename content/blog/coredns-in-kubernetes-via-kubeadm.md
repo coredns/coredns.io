@@ -112,14 +112,13 @@ CoreDNS install is confirmed if we see the following output while deploying Kube
 In case you have an existing cluster, it is also possible to upgrade your DNS to CoreDNS, replacing kube-dns using the `kubeadm upgrade` command. 
 
 Using `kubeadm upgrade plan` and by setting `feature-gates` flag as `CoreDNS=true`, it is possible to check the CoreDNS version that will be installed before proceeding to apply the changes.
->The `--allow-experimental-upgrades` flag allows to install unreleased version of Kubernetes. Use at own risk.
 
 Checking the CoreDNS version to upgrade:
 ~~~ text
-# kubeadm upgrade plan --allow-experimental-upgrades --feature-gates CoreDNS=true
+# kubeadm upgrade plan  --feature-gates CoreDNS=true
 ~~~
 ~~~ text
-# kubeadm upgrade plan --allow-experimental-upgrades --feature-gates CoreDNS=true
+# kubeadm upgrade plan  --feature-gates CoreDNS=true
 ...
 
 Components that must be upgraded manually after you have upgraded the control plane with 'kubeadm upgrade apply':
@@ -146,10 +145,10 @@ Note: Before you can perform this upgrade, you have to update kubeadm to v1.10.0
 
 The upgrade with CoreDNS as the default DNS can then be performed using `kubeadm upgrade apply` and `feature-gates`:
 ~~~ text
-# kubeadm upgrade apply <version> --feature-gates CoreDNS=true --allow-experimental-upgrades
+# kubeadm upgrade apply <version> --feature-gates CoreDNS=true 
 ~~~
 ~~~ text
-# kubeadm upgrade apply v1.10.0-alpha.1  --feature-gates CoreDNS=true  --allow-experimental-upgrades
+# kubeadm upgrade apply v1.10.0-alpha.1  --feature-gates CoreDNS=true 
 [preflight] Running pre-flight checks.
 [upgrade] Making sure the cluster is healthy:
 [upgrade/config] Making sure the configuration is correct:
