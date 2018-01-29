@@ -2,6 +2,7 @@
 title = "Deploying Kubernetes with CoreDNS using kubeadm"
 description = "A guide to installing CoreDNS in Kubernetes via kubeadm"
 tags = ["Kubernetes", "Service", "Discovery", "Kube-DNS", "Kubeadm", "DNS", "Documentation"]
+date = "2018-01-29T10:12:43-00:00"
 author = "sandeep"
 +++
 
@@ -44,21 +45,23 @@ metadata:
 ~~~
 The Corefile part is the configuration of CoreDNS. 
 This configuration is based on the following [plugins](https://coredns.io/plugins/) of CoreDNS:
-- *[errors](https://coredns.io/plugins/errors/)*: Error is logged in stdout.
-- *[health](https://coredns.io/plugins/health/)*: Health check of CoreDNS is reported at http://localhost:8080/health.
-- *[kubernetes](https://coredns.io/plugins/kubernetes/)*: CoreDNS will reply DNS queries based on IP of the services and pods of Kubernetes. You can find more details [here](https://coredns.io/plugins/kubernetes/). 
 
-> By default, the Kubernetes plugin has its options `Cluster Domain` and `Service CIDR` defined as `cluster.local` and `10.96.0.0/12` respectively. We can modify and choose the desired values through the kubeadm `--service-dns-domain` and `--service-cidr` flags.
+- *[errors](https://coredns.io/plugins/errors/)*: Errors are logged to stdout.
+- *[health](https://coredns.io/plugins/health/)*: Health of CoreDNS is reported to http://localhost:8080/health.
+- *[kubernetes](https://coredns.io/plugins/kubernetes/)*: CoreDNS will reply to DNS queries based on IP of the services and pods of Kubernetes. You can find more details [here](https://coredns.io/plugins/kubernetes/). 
+
+> The Kubernetes plugin has its options `Cluster Domain` and `Service CIDR` defined as `cluster.local` and `10.96.0.0/12` respectively by default through kubeadm. We can modify and choose the desired values through the kubeadm `--service-dns-domain` and `--service-cidr` flags.
 
 > The `pods insecure` option is provided for backward compatibility with kube-dns.
 
 > `Upstream` is used for resolving services that point to external hosts (External Services).
 
-- *[prometheus](https://coredns.io/plugins/prometheus/)*: Metrics of CoreDNS is available at http://localhost:9153/metrics in [Prometheus](https://prometheus.io/) format.
+- *[prometheus](https://coredns.io/plugins/prometheus/)*: Metrics of CoreDNS are available at http://localhost:9153/metrics in [Prometheus](https://prometheus.io/) format.
 - *[proxy](https://coredns.io/plugins/proxy/)*: Any queries that are not within the cluster domain of Kubernetes will be forwarded to predefined resolvers (/etc/resolv.conf).
-- *[cache](https://coredns.io/plugins/cache/)*: This enables a frontend cache. It will cache all records except zone transfers and metadata records. Increases efficiency.
+- *[cache](https://coredns.io/plugins/cache/)*: This enables a frontend cache.
 
 We can modify the default behavior by modifying this configmap. A restart of the CoreDNS pod is required for the changes to take effect. 
+
 ## Installing CoreDNS in fresh Kubernetes cluster
 In order to install CoreDNS instead of kube-dns for a fresh Kubernetes cluster, we need to use the `feature-gates` flag and set it to `CoreDNS=true`. 
 Use the following command to install CoreDNS as default DNS service while installing a fresh Kubernetes cluster.
@@ -220,49 +223,17 @@ coredns   1            1          1           1        4h
 We can check if CoreDNS is functioning normally through a few basic `dig` commands:
 
 ~~~ text
-# dig @10.32.0.61 kubernetes.default.svc.cluster.local
+# dig @10.32.0.61 kubernetes.default.svc.cluster.local +noall +answer
 
-; <<>> DiG 9.10.3-P4-Ubuntu <<>> @10.32.0.61 kubernetes.default.svc.cluster.local
+; <<>> DiG 9.10.3-P4-Ubuntu <<>> @10.32.0.61 kubernetes.default.svc.cluster.local +noall +answer
 ; (1 server found)
 ;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 58006
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+kubernetes.default.svc.cluster.local. 23 IN A	10.96.0.1
 
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 4096
-;; QUESTION SECTION:
-;kubernetes.default.svc.cluster.local. IN A
+# dig @10.32.0.61 ptr 1.0.96.10.in-addr.arpa. +noall +answer
 
-;; ANSWER SECTION:
-kubernetes.default.svc.cluster.local. 5	IN A	10.96.0.1
-
-;; Query time: 0 msec
-;; SERVER: 10.32.0.61#53(10.32.0.61)
-;; WHEN: Thu Dec 21 18:10:49 UTC 2017
-;; MSG SIZE  rcvd: 81
-
-
-# dig @10.32.0.61 ptr 1.0.96.10.in-addr.arpa.
-
-; <<>> DiG 9.10.3-P4-Ubuntu <<>> @10.32.0.61 ptr 1.0.96.10.in-addr.arpa.
+; <<>> DiG 9.10.3-P4-Ubuntu <<>> @10.32.0.61 ptr 1.0.96.10.in-addr.arpa. +noall +answer
 ; (1 server found)
 ;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 30847
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 4096
-;; QUESTION SECTION:
-;1.0.96.10.in-addr.arpa.		IN	PTR
-
-;; ANSWER SECTION:
-1.0.96.10.in-addr.arpa.	5	IN	PTR	kubernetes.default.svc.cluster.local.
-
-;; Query time: 0 msec
-;; SERVER: 10.32.0.61#53(10.32.0.61)
-;; WHEN: Thu Dec 21 18:09:10 UTC 2017
-;; MSG SIZE  rcvd: 101
-
+1.0.96.10.in-addr.arpa.	30	IN	PTR	kubernetes.default.svc.cluster.local.
 ~~~
