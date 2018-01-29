@@ -67,3 +67,8 @@ enableGitInfo = true
   name = "Antoine D."
   github = "https://github.com/varyoo"
   email = "varyoo@coredns.io"
+
+[params.authors.sandeep]
+  name = "Sandeep Rajan"
+  email = "srajan@infoblox.com"
+  github = "https://github.com/rajansandeep"
