@@ -46,9 +46,9 @@ metadata:
 The Corefile part is the configuration of CoreDNS. 
 This configuration is based on the following [plugins](https://coredns.io/plugins/) of CoreDNS:
 
-- *[errors](https://coredns.io/plugins/errors/)*: Errors are logged to stdout.
-- *[health](https://coredns.io/plugins/health/)*: Health of CoreDNS is reported to http://localhost:8080/health.
-- *[kubernetes](https://coredns.io/plugins/kubernetes/)*: CoreDNS will reply to DNS queries based on IP of the services and pods of Kubernetes. You can find more details [here](https://coredns.io/plugins/kubernetes/). 
+* [errors](https://coredns.io/plugins/errors/): Errors are logged to stdout.
+* [health](https://coredns.io/plugins/health/): Health of CoreDNS is reported to http://localhost:8080/health.
+* [kubernetes](https://coredns.io/plugins/kubernetes/): CoreDNS will reply to DNS queries based on IP of the services and pods of Kubernetes. You can find more details [here](https://coredns.io/plugins/kubernetes/). 
 
 > The Kubernetes plugin has its options `Cluster Domain` and `Service CIDR` defined as `cluster.local` and `10.96.0.0/12` respectively by default through kubeadm. We can modify and choose the desired values through the kubeadm `--service-dns-domain` and `--service-cidr` flags.
 
@@ -56,9 +56,9 @@ This configuration is based on the following [plugins](https://coredns.io/plugin
 
 > `Upstream` is used for resolving services that point to external hosts (External Services).
 
-- *[prometheus](https://coredns.io/plugins/prometheus/)*: Metrics of CoreDNS are available at http://localhost:9153/metrics in [Prometheus](https://prometheus.io/) format.
-- *[proxy](https://coredns.io/plugins/proxy/)*: Any queries that are not within the cluster domain of Kubernetes will be forwarded to predefined resolvers (/etc/resolv.conf).
-- *[cache](https://coredns.io/plugins/cache/)*: This enables a frontend cache.
+* [prometheus](https://coredns.io/plugins/prometheus/): Metrics of CoreDNS are available at http://localhost:9153/metrics in [Prometheus](https://prometheus.io/) format.
+* [proxy](https://coredns.io/plugins/proxy/): Any queries that are not within the cluster domain of Kubernetes will be forwarded to predefined resolvers (/etc/resolv.conf).
+* [cache](https://coredns.io/plugins/cache/): This enables a frontend cache.
 
 We can modify the default behavior by modifying this configmap. A restart of the CoreDNS pod is required for the changes to take effect. 
 
