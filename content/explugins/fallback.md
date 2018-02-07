@@ -1,6 +1,6 @@
 +++
 title = "fallback"
-description = "*fallback* allows redirecting queries to an alternate set of upstreams based on RCODE"
+description = "*fallback* - allow redirecting queries to an alternate set of upstreams based on RCODE"
 weight = 10
 tags = [  "plugin" , "fallback" ]
 categories = [ "plugin", "external" ]

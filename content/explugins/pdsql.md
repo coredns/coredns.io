@@ -1,6 +1,6 @@
 +++
 title = "pdsql"
-description = "*pdsql* use powerdns generic sql as backend."
+description = "*pdsql* - use powerdns generic sql as backend."
 weight = 10
 tags = [  "plugin" , "pdsql" ]
 categories = [ "plugin", "external" ]

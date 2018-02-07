@@ -1,6 +1,6 @@
 +++
 title = "example"
-description = "*example* prints 'example' on every query received."
+description = "*example* - prints 'example' on every query received."
 weight = 10
 tags = [  "plugin" , "example" ]
 categories = [ "plugin", "external" ]

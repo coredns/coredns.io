@@ -1,6 +1,6 @@
 +++
 title = "dns64"
-description = "*dns64* implements the DNS64 IPv6 transition mechanism."
+description = "*dns64* - implement the DNS64 IPv6 transition mechanism."
 weight = 10
 tags = [  "plugin" , "dns64" ]
 categories = [ "plugin", "external" ]

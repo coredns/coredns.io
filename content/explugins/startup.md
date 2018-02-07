@@ -1,6 +1,6 @@
 +++
 title = "startup"
-description = "*startup* executes a command when the server begins."
+description = "*startup* - executes a command when the server begins."
 weight = 10
 tags = [  "plugin" , "startup" ]
 categories = [ "plugin", "external" ]

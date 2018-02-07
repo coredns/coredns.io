@@ -1,6 +1,6 @@
 +++
 title = "ipin"
-description = "*ipin* returns IP address and port based on you domain name."
+description = "*ipin* - returns IP address and port based on you domain name."
 weight = 10
 tags = [  "plugin" , "ipin" ]
 categories = [ "plugin", "external" ]

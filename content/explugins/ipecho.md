@@ -1,6 +1,6 @@
 +++
 title = "ipecho"
-description = "*ipecho* parses the IP out of a subdomain and echos it back as an record"
+description = "*ipecho* - parses the IP out of a subdomain and echos it back as an record"
 weight = 180
 tags = [  "plugin" , "ipecho" ]
 categories = [ "ipecho", "external" ]

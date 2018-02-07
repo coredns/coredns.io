@@ -1,6 +1,6 @@
 +++
 title = "forward"
-description = "*forward* facilitates proxying DNS messages to upstream resolvers."
+description = "*forward* - facilitates proxying DNS messages to upstream resolvers."
 weight = 10
 tags = [  "plugin" , "forward" ]
 categories = [ "plugin", "external" ]

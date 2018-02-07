@@ -1,6 +1,6 @@
 +++
 title = "redis"
-description = "*redis* enables reading zone data from redis database."
+description = "*redis* - enables reading zone data from redis database."
 weight = 10
 tags = [  "plugin" , "redis" ]
 categories = [ "plugin", "external" ]

@@ -1,6 +1,6 @@
 +++
 title = "import"
-description = "*import* allows you to use configuration from another file. It gets replaced with the contents of that file."
+description = "*import* - allows including configuration from another file."
 weight = 10
 tags = [  "plugin" , "import" ]
 categories = [ "plugin", "external" ]

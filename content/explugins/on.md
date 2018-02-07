@@ -1,6 +1,6 @@
 +++
 title = "on"
-description = "*on* executes a command when a specified event is triggered."
+description = "*on* - executes a command when a specified event is triggered."
 weight = 10
 tags = [  "plugin" , "on" ]
 categories = [ "plugin", "external" ]

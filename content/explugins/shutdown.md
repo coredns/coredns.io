@@ -1,6 +1,6 @@
 +++
 title = "shutdown"
-description = "*shutdown* executes a command when the server exits."
+description = "*shutdown* - executes a command when the server exits."
 weight = 10
 tags = [  "plugin" , "shutdown" ]
 categories = [ "plugin", "external" ]
