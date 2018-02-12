@@ -112,7 +112,7 @@ Start CoreDNS, just like above and send it a few queries. CoreDNS should logs th
 
 If you look at the time each query took (in "ms") it's quite slow, ~83ms, 13ms. So
 let's add some caching and
-enable the [*caching*](/plugins/caching) plugin. Just add the word "cache" to the Corefile and
+enable the [*caching*](/plugins/cache) plugin. Just add the word "cache" to the Corefile and
 graceful reload CoreDNS: `kill -SIGUSR1 <pid_of_coredns>`. And query again:
 
 ~~~
