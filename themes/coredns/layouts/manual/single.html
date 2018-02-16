@@ -1,0 +1,38 @@
+{{ define "title"}} {{ .Site.Title}} {{end}}
+{{ define "header"}} {{ partial "header" .}} {{end}}
+{{ define "main"}}
+
+<div id="main">
+  <div id="hero">
+    <h1>{{.Title}}</h1>
+    <p>{{.Description | markdownify }}</p>
+  </div>
+
+  <div id="action-buttons">
+      <a class="button primary big" href="https://github.com/coredns/coredns/releases/latest"><i class="fa fa-download"></i> Download</a>
+      <a class="button outline big" href="{{ .Site.Params.github }}"><i class="fa fa-github"></i> View on Github</a>
+ </div>
+
+</div>
+<div id="post-box">
+<div id="post" itemprop="articleBody">
+
+    {{.Content | safeHTML}}
+
+    <div id="hero"><p>&nbsp;</p></div>
+    {{readFile "content/manual/what.md" | markdownify }}
+    <div id="hero"><p>&nbsp;</p></div>
+    {{readFile "content/manual/installation.md" | markdownify }}
+    <div id="hero"><p>&nbsp;</p></div>
+    {{readFile "content/manual/plugins.md" | markdownify }}
+    <div id="hero"><p>&nbsp;</p></div>
+    {{readFile "content/manual/configuration.md" | markdownify }}
+    <div id="hero"><p>&nbsp;</p></div>
+    {{readFile "content/manual/setups.md" | markdownify }}
+
+</div>
+
+
+</div>
+{{ end }}
+{{ define "footer"}} {{ partial "footer" .}} {{end}}

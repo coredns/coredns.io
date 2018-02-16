@@ -33,13 +33,19 @@ enableGitInfo = true
     weight = -180
     url = "/blog/"
 [[menu.main]]
-    name = "Docs"
+    name = "Manual"
     weight = -160
-    url = "/tags/documentation/"
+    url = "/manual/toc"
 [[menu.main]]
     name = "Community"
     weight = -120
     url = "/community/"
+
+[params.authors.miek]
+  name = "CoreDNS Authors"
+  email = "info@coredns.io"
+  twitter = "https://twitter.com/corednsio"
+  github = "https://github.com/coredns/coredns"
 
 [params.authors.miek]
   name = "Miek Gieben"
