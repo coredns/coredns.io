@@ -16,6 +16,7 @@ enableGitInfo = true
   logo     = "/images/CoreDNS_Colour_Icon.png"
   twitter  = "https://twitter.com/corednsio"
   github   = "https://github.com/coredns/coredns"
+  manual   = "//github.com/coredns/coredns.io/blob/master/content/manual"
   email    = "info@coredns.io"
   slack    = "https://slack.cncf.io/"
 
@@ -41,7 +42,7 @@ enableGitInfo = true
     weight = -120
     url = "/community/"
 
-[params.authors.miek]
+[params.authors.coredns]
   name = "CoreDNS Authors"
   email = "info@coredns.io"
   twitter = "https://twitter.com/corednsio"

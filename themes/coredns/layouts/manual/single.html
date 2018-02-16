@@ -9,8 +9,9 @@
   </div>
 
   <div id="action-buttons">
-      <a class="button primary big" href="https://github.com/coredns/coredns/releases/latest"><i class="fa fa-download"></i> Download</a>
-      <a class="button outline big" href="{{ .Site.Params.github }}"><i class="fa fa-github"></i> View on Github</a>
+      <a class="button primary big" href="{{ .Site.Params.manual }}"><i class="fa fa-github"></i> View on Github</a>
+      <!-- Make a PDF out of this??? -->
+      <!-- <a class="button primary big" href="https://github.com/coredns/coredns/releases/latest"><i class="fa fa-download"></i> Download</a> -->
  </div>
 
 </div>
@@ -32,10 +33,7 @@
 
 </div>
 
-<div class="text-right smaller">
-   <i class="fa fa-code"></i>
-   <a href="https://github.com/coredns/coredns.io/blob/master/content/manual"> source of this manual</a>
-</div>
+{{ partial "source-manual" . }}
 
 </div>
 {{ end }}
