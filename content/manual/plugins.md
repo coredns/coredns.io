@@ -66,3 +66,8 @@ The Handler is the code that processes the query and implement all the logic.
 The Registration part registers the plugin in CoreDNS - this happens when CoreDNS is compiled. All
 of the registred plugin can be used by a Server. Which plugin are configured in each Server happens
 run time and is done in CoreDNS's configuration file. The Corefile.
+
+## Plugin Documenation
+
+Each plugin has it's own README detailing how it can be configured. This README includes example and
+other bit a user should be aware of.

@@ -25,3 +25,4 @@ date = "2018-02-16T11:10:29+00:00"
 * [Plugins](#plugins)
 * [Configuration](#configuration)
 * [Specific Setups](#specific-setups)
+* [Development](#development)
