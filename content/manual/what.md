@@ -15,7 +15,7 @@ There are plugins that communicate with a Kubernetes backend and provide service
 a Kubernetes cluster. Then there a plugins that read data from a file or database.
 
 The are currently about 30 plugins included in the default CoreDNS install, and a whole bunch of
-[external](https://coredns.io/explugins) plugins.
+[external](/explugins) plugins.
 
 ## Current Focus
 
