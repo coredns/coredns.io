@@ -18,10 +18,15 @@ Comments in a Corefile are started with a `#`. The rest of the line is then cons
 
 ## Environment Variables
 
-Supported, detail it.
+CoreDNS supports [environment variables](no-caddy-ref).
+They can be used anywhere in the Corefile. The syntax is `{$ENV_VAR}` (a more Windows like syntax
+`{%ENV_VAR%}` is also supported). CoreDNST substitutes the contents of the variable while parsing
+the Corefile.
 
 ## Importing other files
 
+See the [*import*](https://coredns.io/explugins/import) plugin. This plugin is a bit special in that
+it may be used anywhere in the Corefile.
 
 ## Server Blocks
 
