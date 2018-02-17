@@ -21,15 +21,20 @@
     {{.Content | safeHTML}}
 
     <div id="hero"><p>&nbsp;</p></div>
-    {{readFile "content/manual/what.md" | markdownify }}
+    {{ partial "lastmod" . }}
+    {{ readFile "content/manual/what.md" | markdownify }}
     <div id="hero"><p>&nbsp;</p></div>
-    {{readFile "content/manual/installation.md" | markdownify }}
+    {{ partial "lastmod" . }}
+    {{ readFile "content/manual/installation.md" | markdownify }}
     <div id="hero"><p>&nbsp;</p></div>
-    {{readFile "content/manual/plugins.md" | markdownify }}
+    {{ partial "lastmod" . }}
+    {{ readFile "content/manual/plugins.md" | markdownify }}
     <div id="hero"><p>&nbsp;</p></div>
-    {{readFile "content/manual/configuration.md" | markdownify }}
+    {{ partial "lastmod" . }}
+    {{ readFile "content/manual/configuration.md" | markdownify }}
     <div id="hero"><p>&nbsp;</p></div>
-    {{readFile "content/manual/setups.md" | markdownify }}
+    {{ partial "lastmod" . }}
+    {{ readFile "content/manual/setups.md" | markdownify }}
 
 </div>
 
