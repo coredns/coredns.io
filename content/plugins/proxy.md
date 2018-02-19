@@ -59,9 +59,9 @@ proxy FROM TO... {
 * `protocol` specifies what protocol to use to speak to an upstream, `dns` (the default) is plain
   old DNS, and `https_google` uses `https://dns.google.com` and speaks a JSON DNS dialect. Note when
   using this **TO** will be ignored. The `grpc` option will talk to a server that has implemented
-  the [DnsService](https://github.com/coredns/coredns/pb/dns.proto).
+  the [DnsService](https://github.com/coredns/coredns/blob/master/pb/dns.proto).
   An out-of-tree plugin that implements the server side of this can be found at
-  [here](https://github.com/infobloxopen/coredns-grpc).
+  [here](https://github.com/johnbelamaric/coredns-grpc).
 
 ## Policies
 
@@ -94,7 +94,7 @@ payload over HTTPS). Note that with `https_google` the entire transport is encry
   * **KEY** **CERT** **CACERT** - Client authentication is used with the specified key/cert pair. The
      server certificate is verified using the **CACERT** file.
   An out-of-tree plugin that implements the server side of this can be found at
-  [here](https://github.com/infobloxopen/coredns-grpc).
+  [here](https://github.com/johnbelamaric/coredns-grpc).
 
 `https_google`
 :    bootstrap **ADDRESS...** is used to (re-)resolve `dns.google.com`.
