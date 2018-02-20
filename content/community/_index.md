@@ -21,7 +21,9 @@ sign using the PGP key with this fingerprint 6A3CF4506D4E7C6BC23CF982258B85CF388
 whole community can help you and benefit from the solutions provided.*
 
 ## Contributing
-We welcome community contributions! Please see the `CONTRIBUTING.md` file in the CoreDNS
+We welcome community contributions! Please see the
+[`CONTRIBUTING.md`](https://github.com/coredns/coredns/blob/master/CONTRIBUTING.md)
+file in the CoreDNS
 repository for instructions on how to submit changes. If you are planning on making more elaborate
 or controversial changes, please discuss them on the mailing list or on
 [Github](https://github.com/coredns/coredns/issues/new)
