@@ -2,28 +2,27 @@
 
 There are to various pieces that can be configured in CoreDNS. The first is determining which
 plugins you want to compile into CoreDNS. The binaries we provide have all plugins as listed in
-`plugin.cfg` compiled in. Adding or removing is [easy](/link/to/howto), but shouldn't normally be
-done by end users (or shouldn't needed).
+[`plugin.cfg`](https://github.com/coredns/coredns/blob/master/plugin.cfg) compiled in.
+Adding or removing is [easy](/2017/07/23/add-external-plugins/), but requires a recompile of CoreDNS.
 
 Thus most users use the *Corefile* to configure CoreDNS. When CoreDNS starts, and the `-conf` flag is
 not given it will look for a file named `Corefile` in the current directory. That files consists out
-of one or more Server stanzas. Each Server stanza lists one or more Plugins. Those Plugins may be
-further configured with Directives. The ordering of the Plugin in the Corefile *does not determine*
-the order of the plugin chain.
+of one or more Server Blocks. Each Server Block lists one or more Plugins. Those Plugins may be
+further configured with Directives.
 
-As said (/link) the plugin chain ordering is fixed and determined via plugin.cfg during the
-compilation phase.
+The ordering of the Plugins in the Corefile *does not determine* the order of the plugin chain. The
+order in which the the plugins are executed is determined by the ordering in `plugin.cfg`.
 
 Comments in a Corefile are started with a `#`. The rest of the line is then considered a comment.
 
 ## Environment Variables
 
-CoreDNS supports [environment variables](no-caddy-ref).
+CoreDNS supports environment variables in its configuration.
 They can be used anywhere in the Corefile. The syntax is `{$ENV_VAR}` (a more Windows like syntax
-`{%ENV_VAR%}` is also supported). CoreDNST substitutes the contents of the variable while parsing
+`{%ENV_VAR%}` is also supported). CoreDNS substitutes the contents of the variable while parsing
 the Corefile.
 
-## Importing other files
+## Importing Other Files
 
 See the [*import*](https://coredns.io/explugins/import) plugin. This plugin is a bit special in that
 it may be used anywhere in the Corefile.
@@ -31,10 +30,10 @@ it may be used anywhere in the Corefile.
 ## Server Blocks
 
 Each Server Block starts with the zones this Server should be authoritative for. After this zone
-name or list of zone names (separated with spaces) a Server Block is opened with an opening brace.
-(Sometimes a Server Block is referred to as a Server Stanza). A Server Block is closed with
-a closing brace. The following Server Block specifies a server that is responsible for all zones
-below the root zone: `.`, basically this server should handle every possible query:
+name or a list of zone names (separated with spaces) a Server Block is opened with an opening brace.
+A Server Block is closed with a closing brace. The following Server Block specifies a server that is
+responsible for all zones below the root zone: `.`, basically this server should handle every
+possible query:
 
 ~~~ corefile
 . {
@@ -44,7 +43,7 @@ below the root zone: `.`, basically this server should handle every possible que
 
 Server blocks can optionally specify the port number to listen on. This defaults to port 53 (the
 standard port for DNS). Specifying the port is done by listing after the zone separated with
-a colon. This Corefile instructs CoreDNS to listen on port 1053.
+a colon. This Corefile instructs CoreDNS to create a Server that listens on port 1053.
 
 ~~~ corefile
 .:1053 {
@@ -71,7 +70,7 @@ same port is an error:
 Will generate an error on startup. Changing the second port number to 1055 makes these Server Blocks
 two different Servers.
 
-## Specifying a Protocol
+### Specifying a Protocol
 
 Currently CoreDNS accepts three different protocols: plain DNS, DNS over TLS and DNS over gRPC, you
 can specify what a server should accept if the configuration, by prefixing a zone name with
@@ -81,10 +80,59 @@ a scheme, use:
 * `tls://` for DNS over TLS.
 * `grpc://` for DNS over gRPC.
 
-
 ## Plugins
 
-Each Server Block specifies a bunch of plugins (plugins.md)
+Each Server Block specifies a number of plugin that should be chained for this specific Server. In
+its most simple form you can add a Plugin but just using its name in a Server Block:
+
+~~~ corefile
+. {
+    chaos
+}
+~~~
+
+The *chaos* plugin makes CoreDNS answer queries in the CH class - this can be useful to identify
+a server. With the above configuration, CoreDNS will answer with its version when getting a request:
+
+~~~ sh
+$ dig @localhost -p 1053 CH version.bind TXT
+...
+;; ANSWER SECTION:
+version.bind.		0	CH	TXT	"CoreDNS-1.0.5"
+...
+~~~
+
+Most plugins allow more configuration with Directives. In the case of the [*chaos*](/plugins/chaos)
+plugin we can specify a `VERSION` and `AUTHORS`: as shown in it syntax:
+
+> ## Syntax
+>
+> ~~~~
+> chaos [VERSION] [AUTHORS...]
+> ~~~~
+>
+> * **VERSION** is the version to return. Defaults to `CoreDNS-<version>`, if not set.
+> * **AUTHORS** is what authors to return. No default.
+
+So, this adds some Directives to the *chaos* plugin, that will make CoreDNS will respond with
+`CoreDNS-001` as its version.
+
+~~~ corefile
+. {
+    chaos CoreDNS-001 info@coredns.io
+}
+~~~
+
+Other plugins that have more configuration options, have a Plugin Block, which just as a Server
+Block is enclosed in an opening and closing brace.
+
+~~~ corefile
+. {
+    plugin {
+       # Plugin Block
+    }
+}
+~~~
 
 ## External Plugin
 

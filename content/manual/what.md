@@ -22,3 +22,15 @@ The are currently about 30 plugins included in the default CoreDNS install, and 
 [external](/explugins) plugins.
 
 > CoreDNS is powered by plugins.
+
+## Reloading process
+
+Supports reloading it's configuration.
+
+## Metrics
+
+Set of metrics, per-plugn metrics.
+
+## More?
+
+Do we want to say more?
