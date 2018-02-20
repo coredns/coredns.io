@@ -1,0 +1,8 @@
+{{ if isset .Params "default" }}
+<!-- nothing -->
+{{ else }}
+   <br/>
+   <br/>
+   <a href="/2017/07/25/compile-time-enabling-or-disabling-plugins/">Enable with</a><br/>
+   <div class="monospace">{{ .Params.title }}:{{ strings.TrimPrefix .Params.repo "https://" }}</div>
+{{ end }}

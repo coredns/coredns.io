@@ -5,7 +5,7 @@ weight = 10
 tags = [  "plugin" , "example" ]
 categories = [ "plugin", "external" ]
 date = "2017-07-25T21:57:00+08:00"
-repo = "https://github.com/coredns/example/"
+repo = "https://github.com/coredns/example"
 home = "https://github.com/coredns/example/blob/master/README.md"
 +++
 

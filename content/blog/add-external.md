@@ -21,7 +21,6 @@ categories = [ "plugin", "external" ]
 date = "2017-07-22T12:37:19+01:00"
 repo = "https://link-to-your-plugin-repo"
 home = "https://link-to-your-homepage-or-readme"
-enable = "pluginline"
 +++
 
 ## Description

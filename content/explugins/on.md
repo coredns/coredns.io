@@ -7,7 +7,7 @@ categories = [ "plugin", "external" ]
 date = "2018-01-22T07:53:19+01:00"
 repo = "https://github.com/mholt/caddy"
 home = "https://caddyserver.com/docs/onevent"
-enabled = "default"
+default = "yes"
 +++
 
 ## Description

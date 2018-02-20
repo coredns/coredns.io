@@ -5,7 +5,7 @@ weight = 10
 tags = [  "plugin" , "dump" ]
 categories = [ "plugin", "external" ]
 date = "2018-01-17T21:57:00+08:00"
-repo = "https://github.com/miekg/dump/"
+repo = "https://github.com/miekg/dump"
 home = "https://github.com/miekg/dump/blob/master/README.md"
 +++
 

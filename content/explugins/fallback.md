@@ -5,7 +5,7 @@ weight = 10
 tags = [  "plugin" , "fallback" ]
 categories = [ "plugin", "external" ]
 date = "2018-02-07T12:36:00-05:00"
-repo = "https://github.com/coredns/fallback/"
+repo = "https://github.com/coredns/fallback"
 home = "https://github.com/coredns/fallback/blob/master/README.md"
 +++
 
