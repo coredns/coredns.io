@@ -5,8 +5,8 @@ weight = 10
 tags = [  "plugin" , "redisc" ]
 categories = [ "plugin", "external" ]
 date = "2018-02-17T19:36:00+00:00"
-repo = "https://github.com/miek/redis"
-home = "https://github.com/miek/redis/blob/master/README.md"
+repo = "https://github.com/miekg/redis"
+home = "https://github.com/miekg/redis/blob/master/README.md"
 +++
 
 ## Description

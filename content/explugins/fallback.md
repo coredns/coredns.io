@@ -9,13 +9,6 @@ repo = "https://github.com/coredns/fallback"
 home = "https://github.com/coredns/fallback/blob/master/README.md"
 +++
 
-# fallback
-
-## Name
-
-*fallback* - a plugin that sends queries to an alternate set of upstreams if the plugin
-chain returns specific error messages.
-
 ## Description
 
 The *fallback* plugin allows an alternate set of upstreams be specified which will be used
@@ -30,9 +23,7 @@ come before any plugins for which it wants to react to their response code.
 ## Syntax
 
 ```
-{
-    fallback RCODE PROXY_PARAMS
-}
+fallback RCODE PROXY_PARAMS
 ```
 
 * **RCODE** is the string representation of the error response code. The complete list of valid rcode strings are defined as `RcodeToString` in <https://github.com/miekg/dns/blob/master/msg.go>, examples of which are `SERVFAIL`, `NXDOMAIN` and `REFUSED`.
