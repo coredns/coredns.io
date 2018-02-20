@@ -82,12 +82,12 @@ Proxy to Google Public DNS and only cache responses for example.org (and below).
 }
 ~~~
 
-# See Also
+## See Also
 
 See [the Redis site for more information](https://redis.io) on Redis. An external plugin called
 [redis](https://coredns.io/explugins/redis) already exists, hence this is named *redisc*, for
 "redis cache".
 
-# Bugs
+## Bugs
 
 There is little unit testing.

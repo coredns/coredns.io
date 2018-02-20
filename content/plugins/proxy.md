@@ -7,6 +7,10 @@ categories = [ "plugin" ]
 date = "2018-01-25T23:18:26.009276"
 +++
 
+## Name
+
+*proxy* - facilitates both a basic reverse proxy and a robust load balancer.
+
 ## Description
 
 The proxy has support for multiple backends. The load balancing features include multiple policies,
@@ -28,7 +32,7 @@ However, advanced features including load balancing can be utilized with an expa
 
 ~~~
 proxy FROM TO... {
-    policy random|least_conn|round_robin
+    policy random|least_conn|round_robin|first
     fail_timeout DURATION
     max_fails INTEGER
     health_check PATH:PORT [DURATION]
@@ -42,7 +46,7 @@ proxy FROM TO... {
 * **TO** is the destination endpoint to proxy to. At least one is required, but multiple may be
   specified. **TO** may be an IP:Port pair, or may reference a file in resolv.conf format
 * `policy` is the load balancing policy to use; applies only with multiple backends. May be one of
-  random, least_conn, or round_robin. Default is random.
+  random, least_conn, round_robin or first. Default is random.
 * `fail_timeout` specifies how long to consider a backend as down after it has failed. While it is
   down, requests will not be routed to that backend. A backend is "down" if CoreDNS fails to
   communicate with it. The default value is 2 seconds ("2s").
@@ -59,9 +63,7 @@ proxy FROM TO... {
 * `protocol` specifies what protocol to use to speak to an upstream, `dns` (the default) is plain
   old DNS, and `https_google` uses `https://dns.google.com` and speaks a JSON DNS dialect. Note when
   using this **TO** will be ignored. The `grpc` option will talk to a server that has implemented
-  the [DnsService](https://github.com/coredns/coredns/pb/dns.proto).
-  An out-of-tree plugin that implements the server side of this can be found at
-  [here](https://github.com/infobloxopen/coredns-grpc).
+  the [DnsService](https://github.com/coredns/coredns/blob/master/pb/dns.proto).
 
 ## Policies
 
@@ -93,8 +95,6 @@ payload over HTTPS). Note that with `https_google` the entire transport is encry
      certificate is verified with the system CAs.
   * **KEY** **CERT** **CACERT** - Client authentication is used with the specified key/cert pair. The
      server certificate is verified using the **CACERT** file.
-  An out-of-tree plugin that implements the server side of this can be found at
-  [here](https://github.com/infobloxopen/coredns-grpc).
 
 `https_google`
 :    bootstrap **ADDRESS...** is used to (re-)resolve `dns.google.com`.
