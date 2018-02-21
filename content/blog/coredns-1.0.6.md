@@ -19,6 +19,8 @@ people involved with this code.
 
 ## Plugins
 
+* The *startup* and *shutdown* plugin are **deprecated** (but working and included) in this release in favor of the *on*
+  plugin. If you use them, this is the moment to move to [*on*](/explugins/on).
 * A plugin called [*forward*](https://coredns.io/plugins/forward) has been included in CoreDNS, this
   was, up until now, an external plugin. Supports DNS-over-TLS and has different way of health
   checking an upstream.
