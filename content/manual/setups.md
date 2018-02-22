@@ -1,8 +1,8 @@
 # Setups
 
-Here you can find a bunch of configuration for CoreDNS. All setups are done assuming you are not the
+Here you can find a bunch of configurations for CoreDNS. All setups are done assuming you are not the
 root user and hence can't start listening on port 53. We will use port 1053 instead, using the
-`-dns.port` flag. In every setup the configuration file used, is the CoreDNS' default `Corefile`.
+`-dns.port` flag. In every setup the configuration file used is the CoreDNS' default, named: `Corefile`.
 This means we *don't need* to specify the configuration file with the `-conf` flag. In other words,
 we start CoreDNS with `./coredns -dns.port=1053 -conf Corefile`, which can be abbreviated to
 `./coredns -dns.port=1053`.
