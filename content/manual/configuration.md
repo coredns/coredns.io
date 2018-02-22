@@ -107,7 +107,7 @@ plugin we can specify a `VERSION` and `AUTHORS`: as shown in it syntax:
 
 > ## Syntax
 >
-> ~~~~
+> ~~~
 > chaos [VERSION] [AUTHORS...]
 > ~~~~
 >
