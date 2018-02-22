@@ -4,7 +4,7 @@ description = "*auto* enables serving zone data from an RFC 1035-style master fi
 weight = 1
 tags = [ "plugin", "auto" ]
 categories = [ "plugin" ]
-date = "2018-01-25T23:18:25.995718"
+date = "2018-02-22T08:55:16.397722"
 +++
 
 ## Description
@@ -20,7 +20,7 @@ zonefile. New or changed zones are automatically picked up from disk.
 auto [ZONES...] {
     directory DIR [REGEXP ORIGIN_TEMPLATE [TIMEOUT]]
     no_reload
-    upstream ADDRESS...
+    upstream [ADDRESS...]
 }
 ~~~
 
@@ -38,7 +38,8 @@ are used.
   SOA's serial has changed. This option disables that behavior.
 * `upstream` defines upstream resolvers to be used resolve external names found (think CNAMEs)
   pointing to external names. **ADDRESS** can be an IP address, an IP:port or a string pointing to
-  a file that is structured as /etc/resolv.conf.
+  a file that is structured as /etc/resolv.conf. If no **ADDRESS** is given, CoreDNS will resolve CNAMEs
+  against itself.
 
 All directives from the *file* plugin are supported. Note that *auto* will load all zones found,
 even though the directive might only receive queries for a specific zone. I.e:

@@ -1,10 +1,10 @@
 +++
 title = "kubernetes"
 description = "*kubernetes* enables the reading zone data from a Kubernetes cluster."
-weight = 16
+weight = 17
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2018-01-25T23:18:26.005639"
+date = "2018-02-22T08:55:16.403991"
 +++
 
 ## Description
@@ -16,8 +16,8 @@ CoreDNS running the kubernetes plugin can be used as a replacement of kube-dns i
 cluster.  See the [deployment](https://github.com/coredns/deployment) repository for details on [how
 to deploy CoreDNS in Kubernetes](https://github.com/coredns/deployment/tree/master/kubernetes).
 
-[stubDomains](http://blog.kubernetes.io/2017/04/configuring-private-dns-zones-upstream-nameservers-kubernetes.html)
-are implemented via the *proxy* plugin.
+[stubDomains and upstreamNameservers](http://blog.kubernetes.io/2017/04/configuring-private-dns-zones-upstream-nameservers-kubernetes.html)
+are implemented via the *proxy* plugin and kubernetes *upstream*. See example below.
 
 ## Syntax
 
@@ -33,13 +33,13 @@ all the zones the plugin should be authoritative for.
 ```
 kubernetes [ZONES...] {
     resyncperiod DURATION
-    endpoint URL
+    endpoint URL [URL...]
     tls CERT KEY CACERT
     namespaces NAMESPACE...
     labels EXPRESSION
     pods POD-MODE
     endpoint_pod_names
-    upstream ADDRESS...
+    upstream [ADDRESS...]
     ttl TTL
     fallthrough [ZONES...]
 }
@@ -48,8 +48,8 @@ kubernetes [ZONES...] {
 * `resyncperiod` specifies the Kubernetes data API **DURATION** period.
 * `endpoint` specifies the **URL** for a remote k8s API endpoint.
    If omitted, it will connect to k8s in-cluster using the cluster service account.
-   Multiple k8s API endpoints could be specified, separated by `,`s, e.g.
-   `endpoint http://k8s-endpoint1:8080,http://k8s-endpoint2:8080`. CoreDNS
+   Multiple k8s API endpoints could be specified:
+   `endpoint http://k8s-endpoint1:8080 http://k8s-endpoint2:8080`. CoreDNS
    will automatically perform a healthcheck and proxy to the healthy k8s API endpoint.
 * `tls` **CERT** **KEY** **CACERT** are the TLS cert, key and the CA cert file names for remote k8s connection.
    This option is ignored if connecting in-cluster (i.e. endpoint is not specified).
@@ -83,11 +83,14 @@ kubernetes [ZONES...] {
    follows: Use the hostname of the endpoint, or if hostname is not set, use the
    pod name of the pod targeted by the endpoint. If there is no pod targeted by
    the endpoint, use the dashed IP address form.
-* `upstream` **ADDRESS [ADDRESS...]** defines the upstream resolvers used for resolving services
-  that point to external hosts (External Services).  **ADDRESS** can be an IP, an IP:port, or a path
+* `upstream` [**ADDRESS**...] defines the upstream resolvers used for resolving services
+  that point to external hosts (aka External Services aka CNAMEs).  If no **ADDRESS** is given, CoreDNS
+  will resolve External Services against itself. **ADDRESS** can be an IP, an IP:port, or a path
   to a file structured like resolv.conf.
 * `ttl` allows you to set a custom TTL for responses. The default (and allowed minimum) is to use
   5 seconds, the maximum is capped at 3600 seconds.
+* `noendpoints` will turn off the serving of endpoint records by disabling the watch on endpoints.
+  All endpoint queries and headless service queries will result in an NXDOMAIN.
 * `fallthrough` **[ZONES...]** If a query for a record in the zones for which the plugin is authoritative
   results in NXDOMAIN, normally that is what the response will be. However, if you specify this option,
   the query will instead be passed on down the plugin chain, which can include another plugin to handle
@@ -132,22 +135,31 @@ kubernetes cluster.local {
 }
 ~~~
 
-Here we use the *proxy* plugin to implement stubDomains that forwards `example.org` and
-`example.com` to another nameserver.
+
+## stubDomains and upstreamNameservers
+
+Here we use the *proxy* plugin to implement a stubDomain that forwards `example.local` to the nameserver `10.100.0.10:53`.
+The *upstream* option in kubernetes means that ExternalName services (CNAMEs) will be resolved using the respective proxy.
+Also configured is an upstreamNameserver `8.8.8.8:53` that will be used for resolving names that do not fall in `cluster.local`
+or `example.local`.
 
 ~~~ txt
-cluster.local {
-    kubernetes {
-        endpoint https://k8s-endpoint:8443
-        tls cert key cacert
+.:53 {
+    kubernetes cluster.local {
+        upstream
     }
-}
-example.org {
+    proxy example.local 10.100.0.10:53
     proxy . 8.8.8.8:53
 }
-example.com {
-    proxy . 8.8.8.8:53
-}
+~~~
+
+The configuration above represents the following Kube-DNS stubDomains and upstreamNameservers configuration.
+
+~~~ txt
+  stubDomains: |
+    {“example.local”: [“10.100.0.10:53”]}
+  upstreamNameservers: |
+    [“8.8.8.8:53”]
 ~~~
 
 ## AutoPath
@@ -170,10 +182,8 @@ feature enables serving federated domains from the kubernetes clusters.
 
     cluster.local {
         federation {
-            fallthrough
             prod prod.example.org
             staging staging.example.org
-
         }
         kubernetes
     }

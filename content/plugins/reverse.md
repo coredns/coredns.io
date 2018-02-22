@@ -1,10 +1,10 @@
 +++
 title = "reverse"
 description = "*reverse* allows for dynamic responses to PTR and the related A/AAAA requests."
-weight = 23
+weight = 25
 tags = [ "plugin", "reverse" ]
 categories = [ "plugin" ]
-date = "2018-01-25T23:18:26.010010"
+date = "2018-02-22T08:55:16.408170"
 +++
 
 ## Description

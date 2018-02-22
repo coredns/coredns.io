@@ -4,7 +4,7 @@ description = "*file* enables serving zone data from an RFC 1035-style master fi
 weight = 13
 tags = [ "plugin", "file" ]
 categories = [ "plugin" ]
-date = "2018-01-25T23:18:26.003767"
+date = "2018-02-22T08:55:16.401783"
 +++
 
 ## Description
@@ -31,7 +31,7 @@ If you want to round robin A and AAAA responses look at the *loadbalance* plugin
 file DBFILE [ZONES... ] {
     transfer to ADDRESS...
     no_reload
-    upstream ADDRESS...
+    upstream [ADDRESS...]
 }
 ~~~
 
@@ -45,6 +45,7 @@ file DBFILE [ZONES... ] {
   pointing to external names. This is only really useful when CoreDNS is configured as a proxy, for
   normal authoritative serving you don't need *or* want to use this. **ADDRESS** can be an IP
   address, and IP:port or a string pointing to a file that is structured as /etc/resolv.conf.
+  If no **ADDRESS** is given, CoreDNS will resolve CNAMEs against itself.
 
 ## Examples
 

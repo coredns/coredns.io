@@ -1,0 +1,62 @@
++++
+title = "reload"
+description = "*reload* allows automatic reload of a changed Corefile"
+weight = 24
+tags = [ "plugin", "reload" ]
+categories = [ "plugin" ]
+date = "2018-02-22T08:55:16.407599"
++++
+
+## Description
+
+This plugin periodically checks if the Corefile has changed by reading
+it and calculating its MD5 checksum. If the file has changed, it reloads
+CoreDNS with the new Corefile. This eliminates the need to send a SIGHUP
+or SIGUSR1 after changing the Corefile.
+
+The reloads are graceful - you should not see any loss of service when the
+reload happens. Even if the new Corefile has an error, CoreDNS will continue
+to run the old config and an error message will be printed to the log.
+
+In some environments (for example, Kubernetes), there may be many CoreDNS 
+instances that started very near the same time and all share a common
+Corefile. To prevent these all from reloading at the same time, some
+jitter is added to the reload check interval. This is jitter from the
+perspective of multiple CoreDNS instances; each instance still checks on a
+regular interval, but all of these instances will have their reloads spread
+out across the jitter duration. This isn't strictly necessary given that the
+reloads are graceful, and can be disabled by setting the jitter to `0s`.
+
+Jitter is re-calculated whenever the Corefile is reloaded.
+
+## Syntax
+
+~~~ txt
+reload [INTERVAL] [JITTER]
+~~~
+
+* The plugin will check for changes every **INTERVAL**, subject to +/- the **JITTER** duration
+* **INTERVAL** and **JITTER** are Golang (durations)[https://golang.org/pkg/time/#ParseDuration]
+* Default **INTERVAL** is 30s, default **JITTER** is 15s
+* Minimal value for **INTERVAL** is 2s, and for **JITTER** is 1s
+* If **JITTER** is more than half of **INTERVAL**, it will be set to half of **INTERVAL**
+
+## Examples
+
+Check with the default intervals:
+
+~~~ txt
+. {
+    reload
+    erratic
+}
+~~~
+
+Check every 10 seconds (jitter is automatically set to 10 / 2 = 5 in this case):
+
+~~~ txt
+. {
+    reload 10s
+    erratic
+}
+~~~

@@ -1,10 +1,10 @@
 +++
 title = "template"
 description = "*template* allows for dynamic responses based on the incoming query."
-weight = 28
+weight = 30
 tags = [ "plugin", "template" ]
 categories = [ "plugin" ]
-date = "2018-01-25T23:18:26.012800"
+date = "2018-02-22T08:55:16.411310"
 +++
 
 ## Description
@@ -21,6 +21,7 @@ template CLASS TYPE [ZONE...] {
     [authority RR]
     [...]
     [rcode CODE]
+    [upstream [ADDRESS...]]
     [fallthrough [ZONE...]]
 }
 ~~~
@@ -32,6 +33,9 @@ template CLASS TYPE [ZONE...] {
 * `answer|additional|authority` **RR** A [RFC 1035](https://tools.ietf.org/html/rfc1035#section-5) style resource record fragment
   built by a [Go template](https://golang.org/pkg/text/template/) that contains the reply.
 * `rcode` **CODE** A response code (`NXDOMAIN, SERVFAIL, ...`). The default is `SUCCESS`.
+* `upstream` [**ADDRESS**...] defines the upstream resolvers used for resolving CNAME.
+  If no **ADDRESS** is given, CoreDNS will resolve CNAMEs against itself. **ADDRESS**
+  can be an IP, an IP:port, or a path to a file structured like resolv.conf.
 * `fallthrough` Continue with the next plugin if the zone matched but no regex matched.
   If specific zones are listed (for example `in-addr.arpa` and `ip6.arpa`), then only queries for
   those zones will be subject to fallthrough.
