@@ -138,3 +138,42 @@ Block is enclosed in an opening and closing brace.
 
 External plugins are plugins that are not compiled into the default CoreDNS. You can easily enable
 them, but you'll need to compile CoreDNS your self.
+
+## Possible Errors
+
+The [*health*](/plugins/health)'s documentation states "This plugin only needs to be enabled once",
+which might lead you to think that this would be a valid Corefile:
+
+~~~ txt
+health
+
+. {
+    whoami
+}
+~~~
+But this doesn't work and leads to the somewhat cryptic error:
+
+~~~
+"Corefile:3 - Error during parsing: Unknown directive '.'".
+~~~
+
+What happens here? `health` is seen as zone (and the start of a Server Block). The parser expect to
+see plugin names (`cache`, `etcd`, etc.), but instead the next token is `.`, which isn't a plugin.
+The Corefile should be constructed as follows:
+
+~~~ corefile
+. {
+    whoami
+    health
+}
+~~~
+That line in the *health*'s documentation means that once *health* is specified, it is global for
+the entire CoreDNS process, even though you've only specified it for one server.
+
+## Also See
+
+There are [numerous other](/plugins) plugins that can be used with CoreDNS. And you can write [your
+own](https://coredns.io/2016/12/19/writing-plugins-for-coredns/) plugin.
+
+How [queries are processed](https://coredns.io/2017/06/08/how-queries-are-processed-in-coredns/) is
+a deep dive into how CoreDNS handles DNS queries.

@@ -11,7 +11,7 @@
   <div id="action-buttons">
       <a class="button primary big" href="https://github.com/coredns/coredns/releases/latest"><i class="fa fa-download"></i> Download</a>
       <a class="button outline big" href="{{ .Site.Params.github }}"><i class="fa fa-github"></i> View on Github</a>
-      <a class="button outline big" href="/2017/07/24/quick-start/"><i class="fa fa-file-o"></i> Quick Start</a>
+      <a class="button outline big" href="/manual"><i class="fa fa-file-o"></i> Manual</a>
       <p>
         {{ range where .Site.Pages "Params.release" "eq" .Site.Data.coredns.release.version }}
          <a href="https://github.com/coredns/coredns/releases/latest">Version {{ .Params.release }}</a> released {{ dateFormat "January 2, 2006" .Date }}.
