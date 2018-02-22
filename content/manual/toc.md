@@ -15,7 +15,7 @@ date = "2018-02-16T11:10:29+00:00"
 > see addressed here, any missing content or just confusing bits.
 >
 > Also note: names used in this manual, like "Server Block", and "Plugin Block" may not be the final
-> names we use. As said, this is a work in progress.
+> names we use. As said, this is a work-in-progress.
 >
 > -- CoreDNS Authors
 
@@ -28,3 +28,4 @@ date = "2018-02-16T11:10:29+00:00"
 * [Plugins](#plugins)
 * [Configuration](#configuration)
 * [Specific Setups](#specific-setups)
+* [Writing Plugins](#writing-plugins)
