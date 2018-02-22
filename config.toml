@@ -16,7 +16,7 @@ enableGitInfo = true
   logo     = "/images/CoreDNS_Colour_Icon.png"
   twitter  = "https://twitter.com/corednsio"
   github   = "https://github.com/coredns/coredns"
-  manual   = "//github.com/coredns/coredns.io/blob/master/content/manual"
+  manual   = "https://github.com/coredns/coredns.io/blob/master/content/manual"
   email    = "info@coredns.io"
   slack    = "https://slack.cncf.io/"
 
