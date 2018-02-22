@@ -20,3 +20,5 @@ It has:
    `example_test.go` has basic units tests to check if the plugin works.
 3. The `README.md` that documents in a Unix manual style how this plugin can be configured.
 4. A LICENSE file; for inclusion in CoreDNS this needs to an APL like license.
+
+TODO: extend
