@@ -25,12 +25,8 @@ The are currently about 30 plugins included in the default CoreDNS install, and 
 
 ## Reloading process
 
-Supports reloading it's configuration.
+TODO
 
 ## Metrics
 
-Set of metrics, per-plugn metrics.
-
-## More?
-
-Do we want to say more?
+TODO

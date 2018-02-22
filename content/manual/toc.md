@@ -14,6 +14,9 @@ date = "2018-02-16T11:10:29+00:00"
 > [issues](https://github.com/coredns/coredns.io/issues) with specifics of what you want to
 > see addressed here, any missing content or just confusing bits.
 >
+> Also note: names used in this manual, like "Server Block", and "Plugin Block" may not be the final
+> names we use. As said, this is a work in progress.
+>
 > -- CoreDNS Authors
 
 <p>&nbsp;</p>

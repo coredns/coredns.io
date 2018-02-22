@@ -28,7 +28,9 @@ When a query is being processed by CoreDNS the following steps are performed:
 Processing a query means a Plugin will respond to the client with a reply.
 
 Note that a plugin is free to deviate from the above list as it wishes. Currently all plugins that
-come with CoreDNS fall into one of these four groups though.
+come with CoreDNS fall into one of these four groups though. Note this [blog
+post](/2017/06/08/how-queries-are-processed-in-coredns/) also provides background in the query
+routing.
 
 ## Query Is Processed
 

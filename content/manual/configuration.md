@@ -105,11 +105,11 @@ version.bind.		0	CH	TXT	"CoreDNS-1.0.5"
 Most plugins allow more configuration with Directives. In the case of the [*chaos*](/plugins/chaos)
 plugin we can specify a `VERSION` and `AUTHORS`: as shown in it syntax:
 
-> ## Syntax
+> #### Syntax
 >
-> ~~~
+> ```
 > chaos [VERSION] [AUTHORS...]
-> ~~~~
+> ```
 >
 > * **VERSION** is the version to return. Defaults to `CoreDNS-<version>`, if not set.
 > * **AUTHORS** is what authors to return. No default.
@@ -169,11 +169,3 @@ The Corefile should be constructed as follows:
 ~~~
 That line in the *health*'s documentation means that once *health* is specified, it is global for
 the entire CoreDNS process, even though you've only specified it for one server.
-
-## Also See
-
-There are [numerous other](/plugins) plugins that can be used with CoreDNS. And you can write [your
-own](https://coredns.io/2016/12/19/writing-plugins-for-coredns/) plugin.
-
-How [queries are processed](https://coredns.io/2017/06/08/how-queries-are-processed-in-coredns/) is
-a deep dive into how CoreDNS handles DNS queries.
