@@ -5,7 +5,7 @@ tags = ["Release", "1.0.5", "Notes"]
 draft = false
 release = "1.0.5"
 date = "2018-01-25T11:10:29+00:00"
-author = "miek"
+author = "coredns"
 enabled = "default"
 +++
 

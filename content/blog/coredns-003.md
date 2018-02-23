@@ -4,7 +4,7 @@ description = "CoreDNS-003 Release Notes."
 release = "003"
 tags = ["Release", "003", "Notes"]
 title = "CoreDNS-003 Release"
-author = "miek"
+author = "coredns"
 +++
 
 CoreDNS-003 has been [released](https://github.com/coredns/coredns/releases)!

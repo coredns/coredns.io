@@ -5,7 +5,7 @@ tags = ["Release", "010", "Notes"]
 draft = false
 release = "010"
 date = "2017-07-25T11:24:43-04:00"
-author = "john"
+author = "coredns"
 +++
 
 CoreDNS-010 has been [released](https://github.com/coredns/coredns/releases/tag/v010)!

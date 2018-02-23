@@ -5,7 +5,7 @@ tags = ["Release", "0.9.10", "Notes"]
 draft = false
 release = "0.9.10"
 date = "2017-11-03T20:45:43-00:00"
-author = "miek"
+author = "coredns"
 +++
 
 CoreDNS-0.9.10 has been [released](https://github.com/coredns/coredns/releases/tag/v0.9.10)!
@@ -20,7 +20,7 @@ Release 0.9.10 is a minor release, with some fixes.
 
    ~~~
    192.168.1.0/17 {
-       ... 
+       ...
    }
    ~~~
 

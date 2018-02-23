@@ -5,7 +5,7 @@ tags = ["Release", "1.0.3", "Notes"]
 draft = false
 release = "1.0.3"
 date = "2018-01-10T19:38:29+00:00"
-author = "miek"
+author = "coredns"
 +++
 
 We are pleased to announce the [release](https://github.com/coredns/coredns/releases/tag/v1.0.3) of CoreDNS-1.0.3!
