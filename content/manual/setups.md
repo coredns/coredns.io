@@ -15,7 +15,7 @@ $ dig -p 1053 @localhost +noall +answer <name> <type>
 But we shorten it in the setups below, so `dig www.example.org A` is really:
 `dig -p 1053 @localhost +noall +answer www.example.org A`
 
-## Authoritative Serving from Files
+## Authoritative Serving From Files
 
 This setup uses the [*file*](/plugins/file) plugin. Note the external [*redis*](/plugins/redis)
 enables authoritative serving from a Redis Database. Let's continue with the setup using *file*.
@@ -114,7 +114,23 @@ line conveys.
 ### Federation
 
 ### Autopath
-
 ## Metrics
 
 ## Caching
+
+## Recursive Resolver
+
+CoreDNS does not have a native (i.e. written in Go) recursive resolver, but there is an (external)
+plugin that utilizes [libunbound](https://www.unbound.net/). So for this setup to work you first
+have to recompile CoreDNS and [enable the *unbound*
+plugin](https://coredns.io/2017/07/25/compile-time-enabling-or-disabling-plugins/). Super quick
+primer here:
+
+* Add `unbound:github.com/miekg/unbound` to `plugin.cfg`.
+* Do a `go generate`, followed with a `go build -a`, `-a` to force a rebuild of everything.
+
+Note: the *unbound* plugin needs cgo to be compiled, this also means the coredns binary is now
+linked against libunbound.
+
+Assuming this worked you can then enable unbound with the following Corefile:
+
