@@ -1,0 +1,52 @@
+{{ define "title"}} {{ .Site.Title}} {{end}}
+{{ define "header"}} {{ partial "header" .}} {{end}}
+{{ define "main"}}
+
+<div id="main">
+  <div id="hero">
+    <h1>{{.Title}}</h1>
+    <p>{{.Description | markdownify }}</p>
+  </div>
+
+  <div id="action-buttons">
+      <a class="button primary big" href="{{ .Site.Params.manual }}"><i class="fa fa-github"></i> View on Github</a>
+      <!-- Make a PDF out of this??? -->
+      <!-- <a class="button primary big" href="https://github.com/coredns/coredns/releases/latest"><i class="fa fa-download"></i> Download</a> -->
+ </div>
+
+</div>
+<div id="post-box">
+<div id="post" itemprop="articleBody">
+
+    <div class="manual">
+
+    {{.Content | safeHTML}}
+
+    <div id="hero"><p>&nbsp;</p></div>
+    {{ partial "lastmod" . }}
+    {{ readFile "content/manual/what.md" | markdownify }}
+    <div id="hero"><p>&nbsp;</p></div>
+    {{ partial "lastmod" . }}
+    {{ readFile "content/manual/installation.md" | markdownify }}
+    <div id="hero"><p>&nbsp;</p></div>
+    {{ partial "lastmod" . }}
+    {{ readFile "content/manual/plugins.md" | markdownify }}
+    <div id="hero"><p>&nbsp;</p></div>
+    {{ partial "lastmod" . }}
+    {{ readFile "content/manual/configuration.md" | markdownify }}
+    <div id="hero"><p>&nbsp;</p></div>
+    {{ partial "lastmod" . }}
+    {{ readFile "content/manual/setups.md" | markdownify }}
+    <div id="hero"><p>&nbsp;</p></div>
+    {{ partial "lastmod" . }}
+    {{ readFile "content/manual/plugins-dev.md" | markdownify }}
+
+    </div>
+
+</div>
+
+{{ partial "source-manual" . }}
+
+</div>
+{{ end }}
+{{ define "footer"}} {{ partial "footer" .}} {{end}}
