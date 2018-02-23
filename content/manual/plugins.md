@@ -60,6 +60,16 @@ A plugin of this kind will process a query, and will *always* call the next plug
 a hint that allows it to see the response that will be written to the client. A plugin that does
 this is [*metrics*](/plugin/metrics). It times the duration ...
 
+## Unregistrered Plugins
+
+There is another, special class of plugins that don't handle any DNS data at all, but influence how
+CoreDNS behaves in other way. Take for instance the [*bind*](/plugins/bind) plugin that control to
+which interfaces CoreDNS should bind. The following plugins fall into this category:
+
+* [*bind*](/plugins/bind) - as said, control to what interfaces to bind.
+* [*root*](/plugins/bind) - set the root directory where CoreDNS plugins should look for files.
+* [*health*](/plugins/bind) - enable http health check endpoint.
+
 ## Anatomy of Plugins
 
 A plugin consists out of a Setup, Registration and Handler part.
@@ -76,4 +86,5 @@ run time and is done in CoreDNS's configuration file. The Corefile.
 ## Plugin Documenation
 
 Each plugin has it's own README detailing how it can be configured. This README includes example and
-other bit a user should be aware of.
+other bit a user should be aware of. Each of these README's end up on <https://coredns.io/plugins)
+and we also compile them into [manual pages](https://github.com/coredns/coredns/tree/master/man).
