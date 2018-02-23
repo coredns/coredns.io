@@ -17,6 +17,9 @@ date = "2018-02-16T11:10:29+00:00"
 > Also note: names used in this manual, like "Server Block", and "Plugin Block" may not be the final
 > names we use. As said, this is a work-in-progress.
 >
+> The current set of issues is [tagged with the "manual"
+> label](https://github.com/coredns/coredns.io/labels/manual).
+>
 > -- CoreDNS Authors
 
 <p>&nbsp;</p>
