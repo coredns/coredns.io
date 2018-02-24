@@ -27,6 +27,11 @@ the Corefile.
 See the [*import*](https://coredns.io/explugins/import) plugin. This plugin is a bit special in that
 it may be used anywhere in the Corefile.
 
+### Snippits
+
+A special case of importing files is a snippet.
+TODO(miek): more text here. Look what Caddy says about it.
+
 ## Server Blocks
 
 Each Server Block starts with the zones this Server should be authoritative for. After this zone

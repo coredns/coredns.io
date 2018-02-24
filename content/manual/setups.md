@@ -76,7 +76,7 @@ data from the incoming query. `NOERROR` signals the start of the reply, which is
 sent back. Then the set of flags on the reply: `qr,aa,rd,ra`. The size of the reply in byes
 (121) and the duration it took to get the reply.
 
-## Forwarder
+## Forwarding
 
 CoreDNS can be configured to forward traffic to an recursor. We currently have two plugin that allow
 for this, [*proxy*](/plugins/proxy) and [*forward*](/plugins/forward). Here we will use *forward*
@@ -108,6 +108,49 @@ And in the logs:
 
 See [Authoritative Serving from Files](#authoritative-serving-from-files) section on what this log
 line conveys.
+
+## Forwarding Domains To Different Upstreams
+
+A likely scenario that you may have is that queries for `example.org` need to go to 8.8.8.8 and
+the rest should be resolved via the name servers in `/etc/resolv.conf`. There are two ways that
+could be implemented in a Corefile. A way that may work (depends on the plugin's implementation) and
+a way guaranteed to work.
+
+I.e. take this Corefile as an example:
+
+~~~ txt
+. {
+    forward example.org 8.8.8.8
+    forward . /etc/resolv.conf
+    log
+}
+~~~
+
+The intent is to grab all possible queries (the Server Block is authoritative for the root domain),
+and then use the per-zone filtering of the [*forward*](/plugins/forward) plugin. Spoiler alert: this
+does not work. The reason here being that the *forward* plugin can only be used once in a Server
+Block (it used to silently overwrite the previous configuration; now the above config triggers an
+error).
+
+But the above use case is a very valid one, so how do you implement this in CoreDNS? The quick
+(example Corefile below) answer is: multiple Server Blocks, each for the domains you want to route
+on. Doing so, result in this Corefile:
+
+~~~ corefile
+example.org {
+    forward . 8.8.8.8
+    log
+}
+
+. {
+    forward . /etc/resolv.conf
+    log
+}
+~~~
+
+This leave the domain routing to CoreDNS, which also handles special cases like DS queries. Having
+two, instead of one Server Block has no negatives effects, except that your Corefile will be
+slightly longer. Things like snippets and the [*import*](/plugins/import) will help there.
 
 ## Kubernetes
 
