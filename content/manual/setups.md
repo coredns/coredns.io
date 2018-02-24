@@ -133,7 +133,7 @@ primer here (you must have the CoreDNS [source](#source) installed):
 Note: the *unbound* plugin needs cgo to be compiled, this also means the coredns binary is now
 linked against libunbound and not a static binary anymore.
 
-Assuming this worked you can then enable unbound with the following Corefile:
+Assuming this worked you can then enable *unbound* with the following Corefile:
 
 ~~~ corefile
 . {
@@ -142,5 +142,5 @@ Assuming this worked you can then enable unbound with the following Corefile:
     log
 }
 ~~~
-*cache* has been included, because the (internal) cache from *unbound* is disabled, to allow the
+*cache* has been included, because the (internal) cache from *unbound* is disabled to allow the
 cache's metrics to works just like normal.

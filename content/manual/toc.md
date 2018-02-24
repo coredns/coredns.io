@@ -30,5 +30,5 @@ date = "2018-02-16T11:10:29+00:00"
 * [Installation](#Installation)
 * [Plugins](#plugins)
 * [Configuration](#configuration)
-* [Specific Setups](#specific-setups)
+* [Specific Setups](#setups)
 * [Writing Plugins](#writing-plugins)
