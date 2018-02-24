@@ -19,3 +19,4 @@ sync:
 .PHONY: scan
 scan:
 	corecheck -exe $$GOPATH/src/github.com/coredns/coredns/coredns -dir content/blog
+	corecheck -exe $$GOPATH/src/github.com/coredns/coredns/coredns -dir content/manual

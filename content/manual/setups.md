@@ -114,6 +114,7 @@ line conveys.
 ### Federation
 
 ### Autopath
+
 ## Metrics
 
 ## Caching
@@ -124,13 +125,22 @@ CoreDNS does not have a native (i.e. written in Go) recursive resolver, but ther
 plugin that utilizes [libunbound](https://www.unbound.net/). So for this setup to work you first
 have to recompile CoreDNS and [enable the *unbound*
 plugin](https://coredns.io/2017/07/25/compile-time-enabling-or-disabling-plugins/). Super quick
-primer here:
+primer here (you must have the CoreDNS [source](#source) installed):
 
-* Add `unbound:github.com/miekg/unbound` to `plugin.cfg`.
-* Do a `go generate`, followed with a `go build -a`, `-a` to force a rebuild of everything.
+* Add `unbound:github.com/coredns/unbound` to `plugin.cfg`.
+* Do a `go generate`, followed by `make`.
 
 Note: the *unbound* plugin needs cgo to be compiled, this also means the coredns binary is now
-linked against libunbound.
+linked against libunbound and not a static binary anymore.
 
 Assuming this worked you can then enable unbound with the following Corefile:
 
+~~~ corefile
+. {
+    unbound
+    cache
+    log
+}
+~~~
+*cache* has been included, because the (internal) cache from *unbound* is disabled, to allow the
+cache's metrics to works just like normal.
