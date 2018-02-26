@@ -86,5 +86,5 @@ run time and is done in CoreDNS's configuration file. The Corefile.
 ## Plugin Documenation
 
 Each plugin has it's own README detailing how it can be configured. This README includes example and
-other bit a user should be aware of. Each of these README's end up on <https://coredns.io/plugins)
+other bit a user should be aware of. Each of these README's end up on <https://coredns.io/plugins>,
 and we also compile them into [manual pages](https://github.com/coredns/coredns/tree/master/man).
