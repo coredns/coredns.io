@@ -35,10 +35,15 @@ Create:
 * Middle: #5F259F (95, 37, 159)
 * Light: #8246AF  (130, 70, 175)
 
+## Fonts
+
+The open source font Lato is very close to Brandon Grotesque (which is used in the logo). Try to use
+this for any imagery you add.
+
 ## Popup
 
-See the top-level (i.e. not in the themes directory) layout/partials/popup.html for adjusting the
-text.
+See the top-level (i.e. not in the themes directory) `layout/partials/popup.html` for adjusting the
+text. This can used for important notifications.
 
 ## Corefile Snippets
 

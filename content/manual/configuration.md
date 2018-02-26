@@ -27,10 +27,26 @@ the Corefile.
 See the [*import*](https://coredns.io/explugins/import) plugin. This plugin is a bit special in that
 it may be used anywhere in the Corefile.
 
-### Snippits
+### Reusable Snippits
 
-A special case of importing files is a snippet.
-TODO(miek): more text here. Look what Caddy says about it.
+A special case of importing files is a *snippet*. A snippet is defined by naming a block with
+a special syntax: the name has to be put in parentheses: `(name)`. After that it can be included in
+other parts of the configuration, with the
+*import* plugin.
+
+~~~ corefile
+# define a snippet
+(snip) {
+    prometheus
+    log
+    errors
+}
+
+. {
+    whoami
+    import snip
+}
+~~~
 
 ## Server Blocks
 
