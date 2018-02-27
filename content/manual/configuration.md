@@ -155,7 +155,38 @@ Block is enclosed in an opening and closing brace.
 }
 ~~~
 
-## External Plugin
+If we all combine all this and have the following Corefile, that setup 4 zones, serving on two
+different ports.
+
+~~~ corefile
+coredns.io:5300 {
+    file db.coredns.io
+}
+
+example.io:53 {
+    log
+    errors
+    file db.example.io
+}
+
+example.net:53 {
+    file db.example.net
+}
+
+.:53 {
+    kubernetes
+    proxy . 8.8.8.8
+    log
+    errors
+    cache
+}
+~~~
+
+When parsed by CoreDNS will result in following setup:
+
+![CoreDNS: Zones, plugins and query routing](/images/CoreDNS-Corefile.png)
+
+## External Plugins
 
 External plugins are plugins that are not compiled into the default CoreDNS. You can easily enable
 them, but you'll need to compile CoreDNS your self.

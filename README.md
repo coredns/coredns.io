@@ -29,16 +29,18 @@ Create:
 * new blog: `hugo new -k blog blog/coredns-<number>.md`
 * new blog that will also be documentation: `hugo new -k doc blog/coredns-<number>.md`
 
-## Colors
+## Style
+
+For the colors we have:
 
 * Dark: #280071   (40, 0, 113)
 * Middle: #5F259F (95, 37, 159)
 * Light: #8246AF  (130, 70, 175)
 
-## Fonts
-
 The open source font Lato is very close to Brandon Grotesque (which is used in the logo). Try to use
 this for any imagery you add.
+
+See the `style` directory for Libre Office Draw templates you can use.
 
 ## Popup
 
