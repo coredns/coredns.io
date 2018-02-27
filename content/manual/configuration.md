@@ -97,7 +97,7 @@ Currently CoreDNS accepts three different protocols: plain DNS, DNS over TLS and
 can specify what a server should accept if the configuration, by prefixing a zone name with
 a scheme, use:
 
-* `dns://` for plain DNS (the default is no scheme is specified).
+* `dns://` for plain DNS (the default if no scheme is specified).
 * `tls://` for DNS over TLS.
 * `grpc://` for DNS over gRPC.
 
