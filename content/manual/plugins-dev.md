@@ -31,8 +31,8 @@ When CoreDNS wants to use a plugin it calls the method `ServeDNS`. `ServeDNS` ha
 * `dns.ResponseWriter` that is basically, the client's connection;
 * `*dns.Msg` the request from the client.
 
-`ServeDNS` returns two values, a (response) code and an error. If the error is not nil CoreDNS,
-will return a SERVFAIL to the client. (TODO(miek): double check this).
+`ServeDNS` returns two values, a (response) code and an error. The error is logged when the
+[*errors*](/plugins/errors) is used in this server.
 
 The code tells CoreDNS if a *reply has been written by the plugin chain or not*. In the latter case
 CoreDNS will take care of that. For the codes values we *reuse* the DNS return codes (rcodes) from
