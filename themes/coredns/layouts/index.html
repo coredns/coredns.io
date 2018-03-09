@@ -26,13 +26,24 @@
 
       <div class="col col-4 item">
         <figure>
+            <i class="fa fa-question-circle fa-5x" aria-hidden="true"></i>
+        </figure>
+
+        <h3>What is it?</h3>
+        <p>
+            CoreDNS is a DNS Server. It is written in <a href="https://golang.org">Go</a>.
+            It can be used in a multitude of environments because of its flexibility.
+        </p>
+      </div>
+
+      <div class="col col-4 item">
+        <figure>
             <i class="fa fa-link fa-5x" aria-hidden="true"></i>
         </figure>
 
         <h3>Plugins</h3>
         <p>
-            CoreDNS (written in <a href="https://golang.org">Go</a>)
-            chains <a href="/plugins">plugins</a>.
+            CoreDNS chains <a href="/plugins">plugins</a>.
             Each plugin performs a DNS function, such as
             <a href="/plugins/kubernetes">Kubernetes service discovery</a>,
             <a href="/plugins/metrics">Prometheus metrics</a> or
@@ -64,6 +75,11 @@ coredns.io {
         </pre>
       </div>
 
+
+    </div>
+
+    <div class="row gutters">
+
       <div class="col col-4 item">
         <figure>
             <i class="fa fa-cloud fa-5x" aria-hidden="true"></i>
@@ -77,10 +93,6 @@ coredns.io {
         </p>
       </div>
 
-    </div>
-
-    <div class="row gutters">
-
       <div class="col col-4 item">
         <figure>
             <i class="fa fa-bolt fa-5x" aria-hidden="true"></i>
@@ -89,7 +101,7 @@ coredns.io {
         <p>
         We aim to make CoreDNS fast and efficient. It is also flexible thanks to its
         <a href="/plugins">plugins</a>.
-        You can even compile CoreDNS with <a href="/2017/07/25/compile-time-enabling-or-disabling-plugins/">only the plugins you need</a>.
+        You can compile CoreDNS with only <a href="/2017/07/25/compile-time-enabling-or-disabling-plugins/">the plugins you need</a>.
         </p>
       </div>
 
@@ -104,8 +116,6 @@ coredns.io {
            Foundation</a> incubating project.
         </p>
       </div>
-
-        <div class="col col-4 item"></div>
 
     </div>
 
