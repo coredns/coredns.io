@@ -10,3 +10,10 @@ footer nav ul li a {
     font-size: x-small;
     content: " \f08e";
 }
+
+.logos img {
+  flex: 1 1 auto;
+  padding: 22px;
+  max-width: 220px;
+  max-height: 101px;
+}
