@@ -189,6 +189,22 @@ feature enables serving federated domains from the kubernetes clusters.
     }
 
 
+## Endpoints in Services with ClusterIP
+The *kubernetes* plugin can be used to resolve  Kubernetes Services and Endpoints names, in a different way.
+
+While Headless Services always returns the PODs IPs as `A` records, sometimes you need to return all POD IPs even when using a Service with ClusterIP.
+
+To achieve this, the query `*.service.ns.zone` can be used. The following is an example of using a Service with ClusterIP to return all PODs IPs:
+
+```
+$ dig *.service.default.svc.cluster.local
+[...]
+*.service.default.svc.cluster.local. 5	IN A	192.168.10.10
+*.service.default.svc.cluster.local. 5	IN A	192.168.25.15
+*.service.default.svc.cluster.local. 5	IN A	192.168.100.45
+```
+
+
 ## Wildcards
 
 Some query labels accept a wildcard value to match any value.  If a label is a valid wildcard (\*,
