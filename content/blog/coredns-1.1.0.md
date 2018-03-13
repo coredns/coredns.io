@@ -18,7 +18,7 @@ This has been made possible by the work done by contributors, users and adopters
 
 **Thank you all!**
 
-# Core
+## Core
 
 Bump the version to 1.1.0, as we deprecate two plugins (*shutdown* and *startup*).
 
@@ -38,7 +38,7 @@ block this for no good reason). I.e. this now works:
 }
 ```
 
-# Plugins
+## Plugins
 
 * The plugins *shutdown* and *startup* where marked deprecated in 1.0.6. This release removes them. You should use [*on*](/explugins/on) instead.
 * A new plugin was added: *reload*, which watches for changes in your Corefile and then automatically will reload the process. This is not yet bullet proof, some plugins can fail to setup during a reload. See the discussion in [issue 1445](https://github.com/coredns/coredns/issues/1455).
