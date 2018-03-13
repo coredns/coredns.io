@@ -4,7 +4,7 @@ description = "*pprof* publishes runtime profiling data at endpoints under `/deb
 weight = 22
 tags = [ "plugin", "pprof" ]
 categories = [ "plugin" ]
-date = "2018-02-22T08:55:16.406697"
+date = "2018-03-13T14:42:31.865229"
 +++
 
 ## Description
@@ -18,6 +18,8 @@ will listen on localhost:6053.
 For more information, please see [Go's pprof
 documentation](https://golang.org/pkg/net/http/pprof/) and read
 [Profiling Go Programs](https://blog.golang.org/profiling-go-programs).
+
+This plugin can only be used once per Server Block.
 
 ## Syntax
 

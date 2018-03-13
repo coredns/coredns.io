@@ -4,7 +4,7 @@ description = "*cache* enables a frontend cache."
 weight = 4
 tags = [ "plugin", "cache" ]
 categories = [ "plugin" ]
-date = "2018-02-22T08:55:16.398875"
+date = "2018-03-13T14:42:31.861636"
 +++
 
 ## Description
@@ -12,6 +12,8 @@ date = "2018-02-22T08:55:16.398875"
 With *cache* enabled, all records except zone transfers and metadata records will be cached for up to
 3600s. Caching is mostly useful in a scenario when fetching data from the backend (upstream,
 database, etc.) is expensive.
+
+This plugin can only be used once per Server Block.
 
 ## Syntax
 

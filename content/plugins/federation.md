@@ -4,7 +4,7 @@ description = "*federation* enables federated queries to be resolved via the kub
 weight = 12
 tags = [ "plugin", "federation" ]
 categories = [ "plugin" ]
-date = "2018-02-22T08:55:16.401477"
+date = "2018-03-13T14:42:31.863318"
 +++
 
 ## Description

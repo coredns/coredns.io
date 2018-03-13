@@ -4,7 +4,7 @@ description = "*dnssec* enable on-the-fly DNSSEC signing of served data."
 weight = 7
 tags = [ "plugin", "dnssec" ]
 categories = [ "plugin" ]
-date = "2018-02-22T08:55:16.399797"
+date = "2018-03-13T14:42:31.862305"
 +++
 
 ## Description
@@ -12,6 +12,8 @@ date = "2018-02-22T08:55:16.399797"
 With *dnssec* any reply that doesn't (or can't) do DNSSEC will get signed on the fly. Authenticated
 denial of existence is implemented with NSEC black lies. Using ECDSA as an algorithm is preferred as
 this leads to smaller signatures (compared to RSA). NSEC3 is *not* supported.
+
+This plugin can only be used once per Server Block.
 
 ## Syntax
 
@@ -74,23 +76,6 @@ cluster.local {
     kubernetes
     dnssec {
       key file Kcluster.local+013+45129
-    }
-}
-~~~
-
-## Bugs
-
-Multiple *dnssec* plugins inside one server stanza will silently overwrite earlier ones, here
-`example.org` will overwrite the one for `cluster.local`.
-
-~~~
-. {
-    kubernetes cluster.local
-    dnssec cluster.local {
-      key file Kcluster.local+013+45129
-    }
-    dnssec example.org {
-      key file Kexample.org.+013+45330
     }
 }
 ~~~

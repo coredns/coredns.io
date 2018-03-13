@@ -4,7 +4,7 @@ description = "*dnstap* enable logging to dnstap"
 weight = 8
 tags = [ "plugin", "dnstap" ]
 categories = [ "plugin" ]
-date = "2018-02-22T08:55:16.400133"
+date = "2018-03-13T14:42:31.862552"
 +++
 
 ## Description
@@ -52,19 +52,43 @@ at Github: <https://github.com/dnstap/golang-dnstap>. It's written in Go.
 The following command listens on the given socket and decodes messages to stdout.
 
 ~~~ sh
-% dnstap -u /tmp/dnstap.sock
+$ dnstap -u /tmp/dnstap.sock
 ~~~
 
 The following command listens on the given socket and saves message payloads to a binary dnstap-format log file.
 
 ~~~ sh
-% dnstap -u /tmp/dnstap.sock -w /tmp/test.dnstap
+$ dnstap -u /tmp/dnstap.sock -w /tmp/test.dnstap
 ~~~
 
 Listen for dnstap messages on port 6000.
 
 ~~~ sh
-% dnstap -l 127.0.0.1:6000
+$ dnstap -l 127.0.0.1:6000
+~~~
+
+## Using Dnstap in your plugin
+
+~~~ Go
+import (
+    "github.com/coredns/coredns/plugin/dnstap"
+    "github.com/coredns/coredns/plugin/dnstap/msg"
+)
+
+func (h Dnstap) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dns.Msg) (int, error) {
+    // log client query to Dnstap
+    if t := dnstap.TapperFromContext(ctx); t != nil {
+        b := msg.New().Time(time.Now()).Addr(w.RemoteAddr())
+        if t.Pack() {
+            b.Msg(r)
+        }
+        if m, err := b.ToClientQuery(); err == nil {
+            t.TapMessage(m)
+        }
+    }
+
+    // ...
+}
 ~~~
 
 ## See Also
