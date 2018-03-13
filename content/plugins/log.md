@@ -4,7 +4,7 @@ description = "*log* enables query logging to standard output."
 weight = 19
 tags = [ "plugin", "log" ]
 categories = [ "plugin" ]
-date = "2018-02-22T08:55:16.405042"
+date = "2018-03-13T14:42:31.864629"
 +++
 
 ## Description
@@ -62,7 +62,7 @@ The following place holders are supported:
 * `{class}`: qclass of the request
 * `{proto}`: protocol used (tcp or udp)
 * `{when}`: time of the query
-* `{remote}`: client's IP address
+* `{remote}`: client's IP address, for IPv6 addresses these are enclosed in brackets: `[::1]`
 * `{size}`: request size in bytes
 * `{port}`: client's port
 * `{duration}`: response duration
@@ -78,7 +78,7 @@ The following place holders are supported:
 The default Common Log Format is:
 
 ~~~ txt
-`{remote} - [{when}] {>id} "{type} {class} {name} {proto} {size} {>do} {>bufsize}" {rcode} {>rflags} {rsize} {duration}`
+`{remote}:{port} - [{when}] {>id} "{type} {class} {name} {proto} {size} {>do} {>bufsize}" {rcode} {>rflags} {rsize} {duration}`
 ~~~
 
 ## Examples

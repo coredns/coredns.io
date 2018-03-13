@@ -4,15 +4,16 @@ description = "*erratic* a plugin useful for testing client behavior."
 weight = 9
 tags = [ "plugin", "erratic" ]
 categories = [ "plugin" ]
-date = "2018-02-22T08:55:16.400443"
+date = "2018-03-13T14:42:31.862741"
 +++
 
 ## Description
 
 *erratic* returns a static response to all queries, but the responses can be delayed, dropped or truncated.
 The *erratic* plugin will respond to every A or AAAA query. For any other type it will return
-a SERVFAIL response. The reply for A will return 192.0.2.53 (see RFC 5737), for AAAA it returns
-2001:DB8::53 (see RFC 3849).
+a SERVFAIL response. The reply for A will return 192.0.2.53 (see [RFC
+5737](https://tools.ietf.org/html/rfc5737),
+for AAAA it returns 2001:DB8::53 (see [RFC 3849](https://tools.ietf.org/html/rfc3849)).
 
 *erratic* can also be used in conjunction with the *autopath* plugin. This is mostly to aid in
 testing.
@@ -85,3 +86,8 @@ Drop every second query.
     }
 }
 ~~~
+
+## Also See
+
+[RFC 3849](https://tools.ietf.org/html/rfc3849) and
+[RFC 5737](https://tools.ietf.org/html/rfc5737).

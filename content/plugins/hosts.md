@@ -4,7 +4,7 @@ description = "*hosts* enables serving zone data from a `/etc/hosts` style file.
 weight = 16
 tags = [ "plugin", "hosts" ]
 categories = [ "plugin" ]
-date = "2018-02-22T08:55:16.403269"
+date = "2018-03-13T14:42:31.864118"
 +++
 
 ## Description
@@ -13,6 +13,8 @@ The hosts plugin is useful for serving zones from a /etc/hosts file. It serves f
 file that exists on disk. It checks the file for changes and updates the zones accordingly. This
 plugin only supports A, AAAA, and PTR records. The hosts plugin can be used with readily
 available hosts files that block access to advertising servers.
+
+This plugin can only be used once per Server Block.
 
 ## Syntax
 

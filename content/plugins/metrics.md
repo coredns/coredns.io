@@ -4,7 +4,7 @@ description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics
 weight = 20
 tags = [ "plugin", "metrics" ]
 categories = [ "plugin" ]
-date = "2018-02-22T08:55:16.405551"
+date = "2018-03-13T14:42:31.864825"
 +++
 
 ## Description
@@ -35,6 +35,8 @@ Extra labels used are:
 
 If monitoring is enabled, queries that do not enter the plugin chain are exported under the fake
 name "dropped" (without a closing dot - this is never a valid domain name).
+
+This plugin can only be used once per Server Block.
 
 ## Syntax
 

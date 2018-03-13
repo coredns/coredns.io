@@ -4,14 +4,13 @@ description = "*route53* enables serving zone data from AWS route53."
 weight = 28
 tags = [ "plugin", "route53" ]
 categories = [ "plugin" ]
-date = "2018-02-22T08:55:16.409952"
+date = "2018-03-13T14:42:31.866394"
 +++
 
 ## Description
 
-The route53 plugin is useful for serving zones from resource record sets in AWS route53.
-This plugin only supports A and AAAA records. The route53 plugin can be used when
-coredns is deployed on AWS.
+The route53 plugin is useful for serving zones from resource record sets in AWS route53. This plugin
+only supports A and AAAA records. The route53 plugin can be used when coredns is deployed on AWS.
 
 ## Syntax
 

@@ -4,7 +4,7 @@ description = "*kubernetes* enables the reading zone data from a Kubernetes clus
 weight = 17
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2018-02-22T08:55:16.403991"
+date = "2018-03-13T14:42:31.864268"
 +++
 
 ## Description
@@ -18,6 +18,8 @@ to deploy CoreDNS in Kubernetes](https://github.com/coredns/deployment/tree/mast
 
 [stubDomains and upstreamNameservers](http://blog.kubernetes.io/2017/04/configuring-private-dns-zones-upstream-nameservers-kubernetes.html)
 are implemented via the *proxy* plugin and kubernetes *upstream*. See example below.
+
+This plugin can only be used once per Server Block.
 
 ## Syntax
 
@@ -199,3 +201,10 @@ or the word "any"), then that label will match all values.  The labels that acce
  * _port and/or protocol_ in an `SRV` request: __port_.__protocol_.service.namespace.svc.zone.,
    e.g. `_http.*.service.ns.svc.`
  * multiple wild cards are allowed in a single query, e.g. `A` Request `*.*.svc.zone.` or `SRV` request `*.*.*.*.svc.zone.`
+ 
+ * Wildcard can be used also to resolve PODs IPs as `A` records in a Service with ClusterIP. e.g.: `*.service.ns.svc.myzone.local` will return the PODs IPs as the following:
+ ```
+*.service.default.svc.cluster.local. 5	IN A	192.168.10.10
+*.service.default.svc.cluster.local. 5	IN A	192.168.25.15
+```
+ This response can be randomized using the `loadbalance` plugin
