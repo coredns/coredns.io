@@ -9,12 +9,13 @@ author = "coredns"
 enabled = "default"
 +++
 
-CoreDNS has been promoted to the ["incubating"](https://www.cncf.io/projects/graduation-criteria/)
-level in the [CNCF](https://www.cncf.io/projects/)!
-This has been made possible by the work done by contributors, users and adopters. **Thank you all!**
-
 We are pleased to announce the [release](https://github.com/coredns/coredns/releases/tag/v1.1.0) of
 CoreDNS-1.1.0!
+
+CoreDNS has been promoted to the [incubating](https://www.cncf.io/projects/graduation-criteria/)
+level in the [CNCF](https://www.cncf.io/projects/)!
+
+This has been made possible by the work done by contributors, users and adopters. **Thank you all!**
 
 # Core
 
