@@ -14,8 +14,9 @@ CoreDNS-1.1.0!
 
 CoreDNS has been promoted to the [incubating](https://www.cncf.io/projects/graduation-criteria/)
 level in the [CNCF](https://www.cncf.io/projects/)!
+This has been made possible by the work done by contributors, users and adopters.
 
-This has been made possible by the work done by contributors, users and adopters. **Thank you all!**
+**Thank you all!**
 
 # Core
 
