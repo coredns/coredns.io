@@ -8,7 +8,7 @@ enabled = "default"
 +++
 
 Being a [incubating CNCF](https://www.cncf.io/projects/) project makes us eligible for nice things
-like a security assessment.
+like a security assessment (cue ominous music).
 
 The CNCF asked [Cure53](https://cure53.de) to perform such an assessment.
 
@@ -41,4 +41,6 @@ Despite Cure53 testers’ considerable efforts, the software was found to be har
 corrupt. Therefore, the CoreDNS project stands out as secure, robust and legitimately
 security-aware.
 
-The full report can be found [here](/assets/DNS-01-report.pdf).
+The full report can be found [here](/assets/DNS-01-report.pdf). As for future improvements
+in CoreDNS: we will increase the use of fuzzing and look closer at DNS DoS mitigations, such
+as DNS Cookies (described in [RFC 7873](https://tools.ietf.org/html/rfc7873)).
