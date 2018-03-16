@@ -11,9 +11,14 @@ enabled = "default"
 We are pleased to announce the [release](https://github.com/coredns/coredns/releases/tag/v1.1.1) of
 CoreDNS-1.1.1!
 
-## Core
+This release fixes a critical bug found by [cure53](/link).
+
+The delta between 1.1.0 and 1.1.1 is small; only 5 commits.
 
 ## Plugins
+
+* [*cache*](/plugins/cache):
+* [*route53*](/plugins/route53):
 
 
 ## Contributors
@@ -21,16 +26,10 @@ CoreDNS-1.1.1!
 The following people helped with getting this release done:
 
 Chris O'Haver,
-Francois Tur,
-John Belamaric,
 Miek Gieben,
-nogoegst,
-Ricardo Katz,
-Tobias Schmidt,
-Uladzimir Trehubenka,
-varyoo,
-Yamil Asusta,
 Yong Tang.
+
+And of course the people in [Cure53](https://cure53.de).
 
 For documentation see our (in progress!) [manual](/manual). For help and other resources, see our
 [community page](https://coredns.io/community/).
