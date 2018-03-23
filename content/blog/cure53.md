@@ -12,10 +12,10 @@ like a security assessment (cue ominous music).
 
 The CNCF asked [Cure53](https://cure53.de) to perform such an assessment.
 
-TL;DR: CoreDNS is in great shape, but Cure53 did find one critical issue (which we've fixed with the
-CoreDNS 1.1.2 release):
+TL;DR: CoreDNS is in good shape, but Cure53 did find one critical issue (which we've fixed with the
+CoreDNS 1.1.1 release):
 
-> ## DNS-01-003 Cache: DNS Cache poisoning via malicious Response (Critical)
+> ### DNS-01-003 Cache: DNS Cache poisoning via malicious Response (Critical)
 >
 > The CoreDNS application allows to configure the caching of the DNS responses via the
 > cache plugin. It was discovered that CoreDNS only verifies the transaction IDs but fails
@@ -23,10 +23,10 @@ CoreDNS 1.1.2 release):
 > inject malicious A records in the cache of the DNS server.
 > As the CoreDNS application has a different cache for each domain
 
-The other issues found will be tracked via github issues, like
+The other three issues found will be tracked via github issues, like
 [plugin/rewrite: log bypass](https://github.com/coredns/coredns/issues/1610), and
 [plugin/secondary: Denial-of-Service via endless Zone Transfer](plugin/secondary: Denial-of-Service
-via endless Zone Transfer).
+via endless Zone Transfer). Third one was a generic DDoS.
 
 On a positive note the final report includes quotes like these:
 
