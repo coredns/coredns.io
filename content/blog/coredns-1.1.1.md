@@ -10,9 +10,9 @@ author = "coredns"
 We are pleased to announce the [release](https://github.com/coredns/coredns/releases/tag/v1.1.1) of
 CoreDNS-1.1.1!
 
-This release fixes a critical bug in the *cache* plugin found by [cure53](/2018/03/15/cure53-security-assessment/).
+This release fixes a **critical bug** in the *cache* plugin found by [Cure53](/2018/03/15/cure53-security-assessment/).
 
-The delta between 1.1.0 and 1.1.1 is small; only 7 commits, all users are encouraged to upgrade.
+All users are encouraged to upgrade.
 
 ## Core
 
