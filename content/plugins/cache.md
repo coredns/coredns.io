@@ -4,7 +4,7 @@ description = "*cache* enables a frontend cache."
 weight = 4
 tags = [ "plugin", "cache" ]
 categories = [ "plugin" ]
-date = "2018-03-13T14:42:31.861636"
+date = "2018-03-26T06:36:14.771907"
 +++
 
 ## Description
@@ -60,6 +60,7 @@ If monitoring is enabled (via the *prometheus* directive) then the following met
 * `coredns_cache_capacity{type}` - Total capacity of the cache by cache type.
 * `coredns_cache_hits_total{type}` - Counter of cache hits by cache type.
 * `coredns_cache_misses_total{}` - Counter of cache misses.
+* `coredns_cache_drops_total{}` - Counter of dropped messages.
 
 Cache types are either "denial" or "success".
 

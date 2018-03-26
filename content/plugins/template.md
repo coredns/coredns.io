@@ -4,7 +4,7 @@ description = "*template* allows for dynamic responses based on the incoming que
 weight = 30
 tags = [ "plugin", "template" ]
 categories = [ "plugin" ]
-date = "2018-03-13T14:42:31.866888"
+date = "2018-03-26T06:36:14.786011"
 +++
 
 ## Description
