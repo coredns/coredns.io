@@ -16,7 +16,7 @@ This release has some fixes in the plugins and no core updates.
 
 * [*forward*](/plugins/forward) has received a large pile of fixes and improvements.
 * [*reload*](/plugins/reload): the *metrics* and *health* plugin saw fixes for this reload issue, still not 100% perfect, but a whole lot better than it was.
-* [*log*](/plugins/log) now allow `OR`ing of log classes.
+* [*log*](/plugins/log) now allows `OR`ing of log classes.
 * [*metrics*](/plugins/metrics): add a server label to make each metric unique to the server handling it.
   This impacts all plugins, currently *proxy* and *forward* have been updated to include a server label.
 * [*debug*](/plugins/debug): when enabled plugins show their `log.Debug` output (none of the included plugins use this yet).
