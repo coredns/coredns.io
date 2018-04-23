@@ -4,7 +4,7 @@ description = "*proxy* facilitates both a basic reverse proxy and a robust load 
 weight = 23
 tags = [ "plugin", "proxy" ]
 categories = [ "plugin" ]
-date = "2018-03-26T06:36:14.782240"
+date = "2018-04-23T13:05:33.858737"
 +++
 
 ## Description
@@ -28,7 +28,7 @@ However, advanced features including load balancing can be utilized with an expa
 
 ~~~
 proxy FROM TO... {
-    policy random|least_conn|round_robin|first
+    policy random|least_conn|round_robin|sequential
     fail_timeout DURATION
     max_fails INTEGER
     health_check PATH:PORT [DURATION]
@@ -42,7 +42,7 @@ proxy FROM TO... {
 * **TO** is the destination endpoint to proxy to. At least one is required, but multiple may be
   specified. **TO** may be an IP:Port pair, or may reference a file in resolv.conf format
 * `policy` is the load balancing policy to use; applies only with multiple backends. May be one of
-  random, least_conn, round_robin or first. Default is random.
+  random, least_conn, round_robin or sequential. Default is random.
 * `fail_timeout` specifies how long to consider a backend as down after it has failed. While it is
   down, requests will not be routed to that backend. A backend is "down" if CoreDNS fails to
   communicate with it. The default value is 2 seconds ("2s").
@@ -63,10 +63,13 @@ proxy FROM TO... {
 
 ## Policies
 
-There are three load-balancing policies available:
+There are four load-balancing policies available:
 * `random` (default) - Randomly select a backend
 * `least_conn` - Select the backend with the fewest active connections
 * `round_robin` - Select the backend in round-robin fashion
+* `sequential` - Select the first available backend looking by order of declaration from left to right
+* `first` - Deprecated.  Use sequential instead
+
 
 All polices implement randomly spraying packets to backend hosts when *no healthy* hosts are
 available. This is to preeempt the case where the healthchecking (as a mechanism) fails.
@@ -103,13 +106,15 @@ payload over HTTPS). Note that with `https_google` the entire transport is encry
 
 If monitoring is enabled (via the *prometheus* directive) then the following metric is exported:
 
-* `coredns_proxy_request_duration_seconds{proto, proto_proxy, family, to}` - duration per upstream
-  interaction.
-* `coredns_proxy_request_count_total{proto, proto_proxy, family, to}` - query count per upstream.
+* `coredns_proxy_request_duration_seconds{server, proto, proto_proxy, family, to}` - duration per
+  upstream interaction.
+* `coredns_proxy_request_count_total{server, proto, proto_proxy, family, to}` - query count per
+  upstream.
 
 Where `proxy_proto` is the protocol used (`dns`, `grpc`, or `https_google`) and `to` is **TO**
-specified in the config, `proto` is the protocol used by the incoming query ("tcp" or "udp").
-and family the transport family ("1" for IPv4, and "2" for IPv6).
+specified in the config, `proto` is the protocol used by the incoming query ("tcp" or "udp"), family
+the transport family ("1" for IPv4, and "2" for IPv6). `Server` is the server responsible for the
+request (and metric). See the documention in the metrics plugin.
 
 ## Examples
 
