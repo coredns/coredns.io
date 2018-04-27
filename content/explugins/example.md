@@ -11,8 +11,8 @@ home = "https://github.com/coredns/example/blob/master/README.md"
 
 ## Description
 
-The example middleware prints "example" on every query received. It can be used as documentation for
-writing external middleware and to test if external middleware compiles with CoreDNS.
+The example plugin prints "example" on every query received. It serves as documentation for
+writing CoreDNS plugins.
 
 ## Syntax
 
@@ -20,13 +20,30 @@ writing external middleware and to test if external middleware compiles with Cor
 example
 ~~~
 
+## Metrics
+
+If monitoring is enabled (via the *prometheus* directive) the following metric is exported:
+
+* `coredns_example_request_count_total{server}` - query count to the *example* plugin.
+
+The `server` label indicated which server handled the request, see the *metrics* plugin for details.
+
+## Health
+
+This plugin implements dynamic health checking. It will always return healthy though.
+
 ## Examples
 
-```
-example.com {
-  file example.com.db {
-    upstream 8.8.8.8
-  }
+In this configuration, we forward all queries to 9.9.9.9 and print "example" whenever we receive
+a query.
+
+``` corefile
+. {
+  forward . 9.9.9.9
   example
 }
 ```
+
+## Also See
+
+See the [manual](https://coredns.io/manual).
