@@ -21,6 +21,9 @@ If multiple CoreDNS instances get a cache miss for the same item, they will all 
 information from an upstream and updating the cache, i.e. there is no (extra) coordination between
 those instances.
 
+If Redis is not available CoreDNS will simply not cache anything if metrics are enabled this will be
+visible in the `set_errors_total` metric.
+
 ## Syntax
 
 ~~~ txt
@@ -33,7 +36,7 @@ redisc [TTL] [ZONES...]
 * **ZONES** zones it should cache for. If empty, the zones from the configuration block are used.
 
 Each element in the Redis cache is cached according to its TTL (with **TTL** as the max). For the negative
-cache, the SOA's MinTTL value is used. As no endpoint is specfied the default of `127.0.0.1:6379` will
+cache, the SOA's MinTTL value is used. When no endpoint is specfied the default of `127.0.0.1:6379` will
 be used.
 
 If you want more control:
@@ -41,23 +44,22 @@ If you want more control:
 ~~~ txt
 redisc [TTL] [ZONES...] {
     endpoint ENDPOINT
-    success TTL
-    denial TTL
 }
 ~~~
 
 * **TTL**  and **ZONES** as above.
 * `endpoint` specifies which **ENDPOINT** to use for Redis, this default to `127.0.0.1:6379`.
-* `success`, override the settings for caching successful responses. **TTL** overrides the cache maximum TTL.
-* `denial`, override the settings for caching denial of existence responses. **TTL** overrides the cache maximum TTL.
-  There is a third category (`error`) but those responses are never cached.
 
 ## Metrics
 
 If monitoring is enabled (via the *prometheus* directive) then the following metrics are exported:
 
-* `coredns_redisc_hits_total{}` - Counter of cache hits.
-* `coredns_redisc_misses_total{}` - Counter of cache misses.
+* `coredns_redisc_hits_total{server}` - Counter of cache hits.
+* `coredns_redisc_misses_total{server}` - Counter of cache misses.
+* `coredns_redisc_set_errors_total{server}` - Counter of errors when connecting to Redis.
+* `coredns_redisc_drops_total{server}` - Counter of dropped messages.
+
+The `server` label indicates which server handled the request, see the *metrics* plugin for details.
 
 ## Examples
 
