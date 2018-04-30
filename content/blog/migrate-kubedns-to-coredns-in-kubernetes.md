@@ -17,6 +17,10 @@ There is an extensive guide on how to install CoreDNS instead of kube-dns via Ku
 Currently, from Kubernetes v1.10, CoreDNS supports the translation of the kube-dns configmap to CoreDNS configmap.
 That is, if you had configured `stubdomains`, `upstreamnameservers` and `federation` via the kube-dns configMap, it will now be translated automatically to the equivalent CoreDNS configmap during when choosing to install CoreDNS using `kubeadm upgrade`.
 
+`Stubdomain` and `upstreamnameserver` in kube-dns translates to the [`proxy`](https://coredns.io/plugins/proxy/) in CoreDNS.
+The `federation` in kube-dns has an equivalent [`federation`](https://coredns.io/plugins/federation/) in CoreDNS.
+
+
 Example ConfigMap of kube-dns.
 ~~~text
 apiVersion: v1
@@ -63,9 +67,6 @@ CoreDNS Corefile after translation.
         proxy . 2.3.4.5
     }
 ~~~
-
-`Stubdomain` and `upstreamnameserver` in kube-dns translates to the [`proxy`](https://coredns.io/plugins/proxy/) in CoreDNS.
-The `federation` in kube-dns has an equivalent [`federation`](https://coredns.io/plugins/federation/) in CoreDNS.
 
 
 
