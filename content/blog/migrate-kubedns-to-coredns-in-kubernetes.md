@@ -7,15 +7,15 @@ author = "sandeep"
 +++
 
 CoreDNS is currently a Beta feature in Kubernetes and on course to being graduated to [General Availability (GA) for Kubernetes 1.11](https://github.com/kubernetes/community/pull/1956).
-This means that CoreDNS will be available as the standard in Kubernetes via the installation toolkits such as kubeadm, kube-up, minikube and kops.
+This means that CoreDNS will be available as a standard in Kubernetes via the installation toolkits such as kubeadm, kube-up, minikube and kops.
 
 This document will guide you to migrating the DNS service from CoreDNS to kube-dns when using the various tools available to spin up a Kubernetes cluster.
 
 ## Installing CoreDNS via Kubeadm
 
 There is an extensive guide on how to install CoreDNS instead of kube-dns via Kubeadm available [here](https://coredns.io/2018/01/29/deploying-kubernetes-with-coredns-using-kubeadm).
-Currently, from Kubernetes v1.10, CoreDNS supports the translation of the kube-dns configmap to CoreDNS configmap.
-That is, if you had configured `stubdomains`, `upstreamnameservers` and `federation` via the kube-dns configMap, it will now be translated automatically to the equivalent CoreDNS configmap during when choosing to install CoreDNS using `kubeadm upgrade`.
+From Kubernetes v1.10, CoreDNS supports the translation of the kube-dns ConfigMap to CoreDNS ConfigMap.
+That is, if you had configured `stubdomains`, `upstreamnameservers` and `federation` via the kube-dns ConfigMap, it will now be translated automatically to the equivalent CoreDNS ConfigMap during when choosing to install CoreDNS using `kubeadm upgrade`.
 
 `Stubdomain` and `upstreamnameserver` in kube-dns translates to the [`proxy`](https://coredns.io/plugins/proxy/) in CoreDNS.
 The `federation` in kube-dns has an equivalent [`federation`](https://coredns.io/plugins/federation/) in CoreDNS.
@@ -49,7 +49,7 @@ CoreDNS Corefile after translation.
            pods insecure
            fallthrough in-addr.arpa ip6.arpa
         }
-       federation cluster.local {
+        federation cluster.local {
            foo foo.feddomain.com
         }
         prometheus :9153
@@ -72,7 +72,7 @@ CoreDNS Corefile after translation.
 
 ## Installing CoreDNS via Minikube.
 
-CoreDNS is available in the `addon manager` disabled by default.
+CoreDNS is available in the `addon manager` and is disabled by default.
 
 ~~~text
 $ minikube addons list
@@ -91,7 +91,7 @@ $ minikube addons list
 ~~~
 
 To enable CoreDNS, run the following command:
-> NOTE: Ensure to disable kube-dns after enabling CoreDNS.
+> NOTE: Be sure to disable kube-dns after enabling CoreDNS. Otherwise, if both CoreDNS and kube-dns are running, queries may randomly hit either CoreDNS or kube-dns.
 
 ~~~
 $ minikube addons enable coredns
@@ -102,16 +102,16 @@ coredns was successfully enabled
 ## CoreDNS in kube-up
 
 [Kube-up](https://kubernetes.io/docs/getting-started-guides/scratch/) is another way to start a Kubernetes cluster, now mostly used for deploying Kubernetes in GCE for end-to-end (e2e) testing purposes.
-CoreDNS can be installed as the default DNS service, you need to set the environment variable `CLUSTER_DNS_CORE_DNS` to `true`.
+The environment variable `ENABLE_CLUSTER_DNS` (default=true) is required to install DNS service.
+For CoreDNS can be installed as the default DNS service, the environment variable `CLUSTER_DNS_CORE_DNS` needs to be set to `true`.
 
 ## CoreDNS in Kops
 
-Currently, Kops is set to include [CoreDNS as an option](https://github.com/kubernetes/kops/pull/4041) to be installed instead of kube-dns in v1.10.
+Currently, Kops v1.10 is set to include [CoreDNS as an option](https://github.com/kubernetes/kops/pull/4041) to be installed instead of kube-dns.
 
 ## Installing CoreDNS via other methods
 
-For users keen to install CoreDNS in place of kube-dns but are not using `kubeadm`, `minikube`, `kube-up`, or `kops`, there is an existing document available [here](https://github.com/coredns/deployment/tree/master/kubernetes), which will help you to migrate from kube-dns to CoreDNS.
-It is recommended to delete the kube-dns deployment after deploying CoreDNS. Otherwise, if both CoreDNS and kube-dns are running, queries may randomly hit either CoreDNS or kube-dns.
-
+For users keen to install CoreDNS in place of kube-dns but who are not using `kubeadm`, `minikube`, `kube-up`, or `kops`, there are instructions in the [CoreDNS deployment repository](https://github.com/coredns/deployment/tree/master/kubernetes), which will help you to migrate from kube-dns to CoreDNS.
+Users should delete the kube-dns deployment after deploying CoreDNS. Otherwise, if both CoreDNS and kube-dns are running, queries may randomly hit either CoreDNS or kube-dns.
 
 
