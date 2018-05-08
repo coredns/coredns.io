@@ -89,6 +89,7 @@ this case, we want *all* queries hitting CoreDNS to be forward to either 8.8.8.8
 ~~~ corefile
 . {
     forward . 8.8.8.8 9.9.9.9
+    log
 }
 ~~~
 Note that *forward* and *proxy* allow you to fine tune the names it will send upstream. Here, we
