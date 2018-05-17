@@ -107,7 +107,15 @@ For CoreDNS can be installed as the default DNS service, the environment variabl
 
 ## CoreDNS in Kops
 
-Currently, Kops v1.10 is set to include [CoreDNS as an option](https://github.com/kubernetes/kops/pull/4041) to be installed instead of kube-dns.
+Currently, Kops v1.10 is set to include CoreDNS as an option to be installed instead of kube-dns.
+In order to install CoreDNS in place of kube-dns, we need to specify the `provider` as `CoreDNS` in the [cluster yaml configuration for Kops](https://github.com/kubernetes/kops/blob/master/docs/cluster_spec.md).
+
+~~~text
+spec:
+  kubeDNS:
+    provider: CoreDNS
+~~~
+This will install CoreDNS instead of kube-dns.
 
 ## Installing CoreDNS via other methods
 
