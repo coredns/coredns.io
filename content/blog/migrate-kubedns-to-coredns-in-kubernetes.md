@@ -1,8 +1,8 @@
 +++
-title = "Migration from Kube-dns to CoreDNS"
+title = "Migration from kube-dns to CoreDNS"
 description = "A guide to migration from kube-dns to CoreDNS in Kubernetes"
 tags = ["Kubernetes", "Service", "Discovery", "Kube-DNS", "DNS", "Migration", "Documentation"]
-date = "2018-04-29T10:12:43-00:00"
+date = "2018-05-21T20:23:43-00:00"
 author = "sandeep"
 +++
 
@@ -121,5 +121,3 @@ This will install CoreDNS instead of kube-dns.
 
 For users keen to install CoreDNS in place of kube-dns but who are not using `kubeadm`, `minikube`, `kube-up`, or `kops`, there are instructions in the [CoreDNS deployment repository](https://github.com/coredns/deployment/tree/master/kubernetes), which will help you to migrate from kube-dns to CoreDNS.
 Users should delete the kube-dns deployment after deploying CoreDNS. Otherwise, if both CoreDNS and kube-dns are running, queries may randomly hit either CoreDNS or kube-dns.
-
-
