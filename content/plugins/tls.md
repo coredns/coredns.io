@@ -4,7 +4,7 @@ description = "*tls* allows you to configure the server certificates for the TLS
 weight = 31
 tags = [ "plugin", "tls" ]
 categories = [ "plugin" ]
-date = "2018-04-23T13:05:33.860732"
+date = "2018-05-24T08:47:52.450277"
 +++
 
 ## Description
@@ -25,8 +25,10 @@ wire data of a DNS message.
 ## Syntax
 
 ~~~ txt
-tls CERT KEY CA
+tls CERT KEY [CA]
 ~~~
+
+Parameter CA is optional. If not set, system CAs can be used to verify the client certificate
 
 ## Examples
 

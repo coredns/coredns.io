@@ -4,7 +4,7 @@ description = "*proxy* facilitates both a basic reverse proxy and a robust load 
 weight = 23
 tags = [ "plugin", "proxy" ]
 categories = [ "plugin" ]
-date = "2018-04-23T13:05:33.858737"
+date = "2018-05-24T08:47:52.448106"
 +++
 
 ## Description
@@ -168,7 +168,7 @@ Proxy everything except `example.org` using the host's `resolv.conf`'s nameserve
 ~~~ corefile
 . {
     proxy . /etc/resolv.conf {
-        except miek.nl example.org
+        except example.org
     }
 }
 ~~~

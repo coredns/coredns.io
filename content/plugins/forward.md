@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 14
 tags = [ "plugin", "forward" ]
 categories = [ "plugin" ]
-date = "2018-04-23T13:05:33.854572"
+date = "2018-05-24T08:47:52.445723"
 +++
 
 ## Description
@@ -23,6 +23,10 @@ When *all* upstreams are down it assumes health checking as a mechanism has fail
 connect to a random upstream (which may or may not work).
 
 This plugin can only be used once per Server Block.
+
+How does *forward* relate to *proxy*? This plugin is the "new" version of *proxy* and is faster
+because it re-uses connections to the upstreams. It also does in-band health checks - using DNS
+instead of HTTP. Since it is newer it has a little less (production) mileage on it.
 
 ## Syntax
 
@@ -99,7 +103,7 @@ IPv6).
 
 ## Examples
 
-Proxy all requests within example.org. to a nameserver running on a different port:
+Proxy all requests within `example.org.` to a nameserver running on a different port:
 
 ~~~ corefile
 example.org {
@@ -152,7 +156,7 @@ service with health checks.
 
 ## Bugs
 
-The TLS config is global for the whole forwarding proxy if you need a different `tls_serveraame` for
+The TLS config is global for the whole forwarding proxy if you need a different `tls_servername` for
 different upstreams you're out of luck.
 
 ## Also See

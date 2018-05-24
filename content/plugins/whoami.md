@@ -4,7 +4,7 @@ description = "*whoami* returns your resolver's local IP address, port and trans
 weight = 33
 tags = [ "plugin", "whoami" ]
 categories = [ "plugin" ]
-date = "2018-04-23T13:05:33.861159"
+date = "2018-05-24T08:47:52.450894"
 +++
 
 ## Description
@@ -52,3 +52,10 @@ When queried for "example.org A", CoreDNS will respond with:
 example.org.            0       IN      A       10.240.0.1
 _udp.example.org.       0       IN      SRV     0 0 40212
 ~~~
+
+## See Also
+
+[Read the blog post][blog] on how this plugin is built, or [explore the source code][code].
+
+[blog]: https://coredns.io/2017/03/01/how-to-add-plugins-to-coredns/
+[code]: https://github.com/coredns/coredns/blob/master/plugin/whoami/

@@ -4,7 +4,7 @@ description = "*chaos* allows for responding to TXT queries in the CH class."
 weight = 5
 tags = [ "plugin", "chaos" ]
 categories = [ "plugin" ]
-date = "2018-04-23T13:05:33.853123"
+date = "2018-05-24T08:47:52.443658"
 +++
 
 ## Description
