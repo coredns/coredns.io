@@ -15,16 +15,14 @@ We also announce the deprecation of a few things.
 
 # Core
 
-The `-log` flag actually doesn't do anything, so this is a deprecation notice that this flag will be
-removed in the next release.
-
 *Experimental* DNS-over-HTTPS support was added in the server. Use `https://` as the server's scheme
  in the configuration.
 
+The `-log` flag actually doesn't do anything, so this is a deprecation notice that this flag will be
+removed in the next release.
+
 # Plugins
 
-* Deprecation notice for the *reverse* plugin.
-* Deprecation notice for the `https_google` protocol in *proxy*.
 * [*metrics*](/plugin/metrics) All in-tree plugins serve metrics with a `server` label.
    * *cache* and *dnssec* drop the capacity metrics
    * add a panic counter: `coredns_panic_count_total`
@@ -33,6 +31,8 @@ removed in the next release.
 * [*forward*](/plugin/forward) clean ups, esp when shutting it down.
 * [*cache*](/plugin/cache) adds some optimization.
 * [*kubernetes*](/plugin/kubernetes) adds option to `ignore` services without ready endpoints.
+* Deprecation notice for the *reverse* plugin.
+* Deprecation notice for the `https_google` protocol in *proxy*.
 
 ## Contributors
 
