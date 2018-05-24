@@ -11,7 +11,7 @@ We are pleased to announce the [release](https://github.com/coredns/coredns/rele
 CoreDNS-1.1.3!
 
 This release has fixes in the plugins, small core updates and experimental DNS over HTTPs support.
-We also announce the deprecation of a few things in the upcoming release.
+We also announce the deprecation of a few things.
 
 # Core
 
