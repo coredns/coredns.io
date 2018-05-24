@@ -4,10 +4,13 @@ description = "*reload* allows automatic reload of a changed Corefile"
 weight = 24
 tags = [ "plugin", "reload" ]
 categories = [ "plugin" ]
-date = "2018-04-23T13:05:33.858989"
+date = "2018-05-24T08:47:52.448362"
 +++
 
 ## Description
+
+This plugin allows automatic reload of a changed _Corefile_.
+To enable automatic reloading of _zone file_ changes, use the `auto` plugin.
 
 This plugin periodically checks if the Corefile has changed by reading
 it and calculating its MD5 checksum. If the file has changed, it reloads

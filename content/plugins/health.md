@@ -4,7 +4,7 @@ description = "*health* enables a health check endpoint."
 weight = 15
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2018-04-23T13:05:33.854735"
+date = "2018-05-24T08:47:52.445949"
 +++
 
 ## Description
@@ -51,6 +51,17 @@ net {
 }
 ~~~
 
+Note that if you format this in one server block you will get an error on startup, that the second
+server can't setup the health plugin (on the same port).
+
+~~~ txt
+com net {
+    whoami
+    erratic
+    health :8080
+}
+~~~~
+
 ## Plugins
 
 Any plugin that implements the Healther interface will be used to report health.
@@ -85,3 +96,10 @@ Set a lameduck duration of 1 second:
     }
 }
 ~~~
+
+## Bugs
+
+When reloading, the Health handler is stopped before the new server instance is started. 
+If that new server fails to start, then the initial server instance is still available and DNS queries still served, 
+but Health handler stays down. 
+Health will not reply HTTP request until a successful reload or a complete restart of CoreDNS.

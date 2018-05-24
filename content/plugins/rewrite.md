@@ -4,7 +4,7 @@ description = "*rewrite* performs internal message rewriting."
 weight = 26
 tags = [ "plugin", "rewrite" ]
 categories = [ "plugin" ]
-date = "2018-04-23T13:05:33.859465"
+date = "2018-05-24T08:47:52.448976"
 +++
 
 ## Description
@@ -14,24 +14,22 @@ Rewrites are invisible to the client. There are simple rewrites (fast) and compl
 
 ## Syntax
 
+A simplified/easy to digest syntax for *rewrite* is...
 ~~~
 rewrite [continue|stop] FIELD FROM TO
 ~~~
 
-* **FIELD** is (`type`, `class`, `name`, ...)
-* **FROM** is the exact name of type to match
-* **TO** is the destination name or type to rewrite to
+* **FIELD** indicates what part of the request/response is being re-written.
 
-When the FIELD is `type` and FROM is (`A`, `MX`, etc.), the type of the message will be rewritten;
+   * `type` - the type field of the request will be rewritten. FROM/TO must be a DNS record type (`A`, `MX`, etc);
 e.g., to rewrite ANY queries to HINFO, use `rewrite type ANY HINFO`.
+   * `class` - the class of the message will be rewritten. FROM/TO must be a DNS class type (`IN`, `CH`, or `HS`) e.g., to rewrite CH queries to IN use `rewrite class CH IN`.
+   * `name` - the query name in the _request_ is rewritten; by default this is a full match of the name, e.g., `rewrite name miek.nl example.org`. Other match types are supported, see the **Name Field Rewrites** section below.
+   * `answer name` - the query name in the _response_ is rewritten.  This option has special restrictions and requirements, in particular it must always combined with a `name` rewrite.  See below in the **Response Rewrites** section.
+   *  `edns0` - an EDNS0 option can be appended to the request as described below in the **EDNS0 Options** section.
 
-When the FIELD is `class` and FROM is (`IN`, `CH`, or `HS`) the class of the message will be
-rewritten; e.g., to rewrite CH queries to IN use `rewrite class CH IN`.
-
-When the FIELD is `name` the query name in the message is rewritten; this
-needs to be a full match of the name, e.g., `rewrite name miek.nl example.org`.
-
-When the FIELD is `edns0` an EDNS0 option can be appended to the request as described below.
+* **FROM** is the name or type to match
+* **TO** is the destination name or type to rewrite to
 
 If you specify multiple rules and an incoming query matches on multiple rules, the rewrite
 will behave as following
@@ -158,13 +156,26 @@ ftp-us-west-1.coredns.rocks. 0    IN A    10.20.20.20
 ftp-us-west-1.coredns.rocks. 0    IN A    10.30.30.30
 ```
 
-The syntax for the response of DNS request and response is as follows:
+The syntax for the rewrite of DNS request and response is as follows:
 
 ```
 rewrite [continue|stop] {
     name regex STRING STRING
     answer name STRING STRING
 }
+```
+
+Note that the above syntax is strict.  For response rewrites only `name`
+rules are allowed to match the question section, and only by match type
+`regex`. The answer rewrite must be after the name, as ordered in the
+syntax example. There must only be two lines (a `name` follwed by an
+`answer`) in the brackets, additional rules are not supported.
+
+An alternate syntax for the rewrite of DNS request and response is as
+follows:
+
+```
+rewrite [continue|stop] name regex STRING STRING answer name STRING STRING
 ```
 
 ## EDNS0 Options
@@ -225,3 +236,12 @@ rewrite edns0 subnet set 24 56
 
 * If the query has source IP as IPv4, the first 24 bits in the IP will be the network subnet.
 * If the query has source IP as IPv6, the first 56 bits in the IP will be the network subnet.
+
+## Full Syntax
+
+The full plugin usage syntax is harder to digest...
+~~~
+rewrite [continue|stop] {type|class|edns0|name [exact|prefix|suffix|substring|regex [FROM TO answer name]]} FROM TO
+~~~
+
+The syntax above doesn't cover the multi line block option for specifying a name request+response rewrite rule described in the **Response Rewrite** section.
