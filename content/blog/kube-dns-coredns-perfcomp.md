@@ -105,9 +105,9 @@ So, from a client perspective CoreDNS performs better than kube-dns for out of c
 
 ## Conclusion
 
-And here's the pretty bar graph.
+And here's the pretty bar graph you've been waiting for (or did you scroll down here first).
 
-![latency chart](kubednsvcorednslatency.png)
+![latency chart](/images/kubednsvcorednslatency.png)
 
 In short, kube-dns is better at cached hits on in-cluster services, and CoreDNS is better in all other categories.  Whether or not CoreDNS will perform better in your cluster depends on your clusters DNS's load, cache hit ratio, and in-cluster out-cluster query mix.
 
