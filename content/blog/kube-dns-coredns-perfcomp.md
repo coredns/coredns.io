@@ -76,7 +76,7 @@ Takeaways:
 
 Recall that in Kubernetes, queries for out-of-cluster names (e.g. google.com) result in at least 3 futile in-cluster queries, followed by the correct upstream query.
 
-Factoring in the Cluster-First DNS policy into the restricted CPU performance results, we can project performance from the client perspective ...
+Factoring in the Cluster-First DNS policy into the restricted CPU performance results, we can project performance from the client pod perspective ...
 
 ### Out Of Cluster Cache Miss
 
