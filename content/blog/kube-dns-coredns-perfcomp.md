@@ -8,7 +8,7 @@ author = "chris"
 
 # Performance Testing CoreDNS and Kube-dns
 
-CoreDNS is on track to replace kube-dns as the the default cluster DNS service in Kubernetes.  Since Kubernetes 1.09, CoreDNS is available as an optional replacement, and now CoreDNS is proposed to replace kube-dns as the default cluster DNS service 1.12. As part of this transition, we have extended the existing kube-dns oriented [performance testing tool](https://github.com/kubernetes/perf-tests/tree/master/dns) to also [work with CoreDNS](https://github.com/kubernetes/perf-tests/pull/114).  This blog covers a performance comparison of kube-dns and CoreDNS using the updated tool.
+CoreDNS is on track to replace kube-dns as the the default cluster DNS service in Kubernetes.  Since Kubernetes 1.9, CoreDNS is available as an optional replacement, and now CoreDNS is proposed to replace kube-dns as the default cluster DNS service 1.12. As part of this transition, we have extended the existing kube-dns oriented [performance testing tool](https://github.com/kubernetes/perf-tests/tree/master/dns) to also [work with CoreDNS](https://github.com/kubernetes/perf-tests/pull/114).  This blog covers a performance comparison of kube-dns and CoreDNS using the updated tool.
 
 
 ## CoreDNS and Kube-dns Differences
@@ -38,16 +38,16 @@ In a nutshell, I performed these tests using Kubernetes' DNS perf-test tool on a
 
 **Upstream Server**: The upstream server was a CoreDNS instance using the `template` plugin, configured to reply to all queries with answer of '1.2.3.4'.  It was run in the cluster, on a separate node from the client and DNS server under test (node 2).  This local server responds much more quickly than a real world upstream server would.
 
-**DNS Server Versions**: CoreDNS 1.1.3, kube-dns 1.10
+**DNS Server Versions**: CoreDNS 1.1.3, kube-dns 1.14.10
 
 
 ## CoreDNS and Kube-dns QPS and Latency
 
 Each set of tests is for 3 types of `A` record queries:
 
-1. **invalid**: A name for a service that does not exist in the cluster, which prompts an `NXDOMAIN` response from the DNS service. e.g. 'invalid-service.default.svc.cluster.local'
-2. **service**: A name for a service that exists in the cluster. e.g. 'kubernetes.default.svc.cluster.local'
-3. **upstream**: A name outside of the cluster, which is forwarded upstream by the DNS service.
+1. **invalid**: A name for a service that does not exist in the cluster, which prompts an `NXDOMAIN` response from the DNS service. e.g. `invalid-service.default.svc.cluster.local`
+2. **service**: A name for a service that exists in the cluster. e.g. `kubernetes.default.svc.cluster.local`
+3. **upstream**: A name outside of the cluster, which is forwarded upstream by the DNS service. e.g. `coredns.io`
 
 
 ### Comparisons on a Level(ish) Playing Field
