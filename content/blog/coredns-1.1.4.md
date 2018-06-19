@@ -10,7 +10,7 @@ author = "coredns"
 We are pleased to announce the [release](https://github.com/coredns/coredns/releases/tag/v1.1.4) of
 CoreDNS-1.1.4!
 
-This release has a few enhancements the plugins, and a few (Docker) improvements.
+This release has a few enhancements in the plugins, and a few (Docker) improvements.
 
 # Core
 
