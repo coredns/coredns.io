@@ -17,9 +17,9 @@ This release has a few enhancements the plugins, and a few (Docker) improvements
 As said in the [1.1.3 Release Notes](/2018/05/24/coredns-1.1.3-release/), we are making the `-log`
 command line flag a noop.
 
-This is also a heads up that in the next - 1.2.0 - release the current *etcd* plugin will be replaced by
-a new plugin that supports etcd3, see this [pull
-request](https://github.com/coredns/coredns/pull/1702). 
+This is also a heads up that in the next release - 1.2.0 - the current *etcd* plugin will be
+replaced by a new plugin that supports etcd3, see this [pull
+request](https://github.com/coredns/coredns/pull/1702).
 
 The Docker image is now built using a multistage build. This means the final image is based on
 `scratch` *and* all architectures now have certificates in the image (not just the amd64 one).
@@ -28,8 +28,8 @@ The Docker image is now built using a multistage build. This means the final ima
 
 We are also deprecating:
 
-* the *reverse* plugin has been removed.
-* the `google_https` protocol has been removed from the *proxy* plugin.
+* the *reverse* plugin has been removed, but we allow it still in the configuration.
+* the `google_https` protocol has been a noop in the *proxy* plugin.
 
 In the next release (1.2.0) this code will removed completely.
 
