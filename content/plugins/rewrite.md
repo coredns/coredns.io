@@ -1,10 +1,10 @@
 +++
 title = "rewrite"
 description = "*rewrite* performs internal message rewriting."
-weight = 26
+weight = 25
 tags = [ "plugin", "rewrite" ]
 categories = [ "plugin" ]
-date = "2018-05-24T08:47:52.448976"
+date = "2018-06-20T06:43:55.272407"
 +++
 
 ## Description
@@ -182,8 +182,8 @@ rewrite [continue|stop] name regex STRING STRING answer name STRING STRING
 
 Using FIELD edns0, you can set, append, or replace specific EDNS0 options on the request.
 
-* `replace` will modify any matching (what that means may vary based on EDNS0 type) option with the specified option
-* `append` will add the option regardless of what options already exist
+* `replace` will modify any "matching" option with the specified option. The criteria for "matching" varies based on EDNS0 type.
+* `append` will add the option only if no matching option exists
 * `set` will modify a matching option or add one if none is found
 
 Currently supported are `EDNS0_LOCAL`, `EDNS0_NSID` and `EDNS0_SUBNET`.
