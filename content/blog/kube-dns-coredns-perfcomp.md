@@ -75,7 +75,7 @@ Since CoreDNS operates in a single container, restricting CPU is easy.  But kube
 
 ## Client Perspective Through the Cluster-First DNS Policy
 
-Recall that in Kubernetes, queries for out-of-cluster names (e.g. google.com) result in at least 3 futile in-cluster queries, followed by the correct upstream query.
+Recall that in Kubernetes, queries for out-of-cluster names (e.g. google.com) result in *at least* 3 futile in-cluster queries, followed by the correct upstream query.  If there are any local search domains configured on the host node, then there can be more than three futile queries - and the additional queries can be even more expensive since they would typically be routed to an external DNS.  For this blog, I'm assuming that there are no local search domains configured on the host node.
 
 Factoring in the Cluster-First DNS policy into the restricted CPU performance results, we can project performance from the client pod perspective using the following formulas...
 
@@ -83,17 +83,27 @@ Actual Out Of Cluster Cache Miss Latency = `(3 * invalid latency) + upstream lat
 
 Actual Out Of Cluster Cache Miss QPS = `3 / ((1 / invalid QPS) + (1 / upstream QPS))`
 
-Actual Out Of Cluster Cache Miss Latency = `4 * cache-hit latency`
+Actual Out Of Cluster Cache Hit Latency = `4 * cache-hit latency`
 
-Actual Out Of Cluster Cache Miss QPS = `3 / ((1 / invalid QPS) + (1 / cache-hit QPS))`
+Actual Out Of Cluster Cache Hit QPS = `3 / ((1 / invalid QPS) + (1 / cache-hit QPS))`
 
 So, from a client perspective CoreDNS performs better than kube-dns for out of cluster queries for both cache hits and misses.
+
+To a lesser degree, the same problem exists for certain in-cluster queries. For example, in-cluster queries of the form `service-name.namespace` result in one invalid attempt per query.  The number of invalid attempts depends on how many domains in the search path the client must attempt before using the "correct" one. The number of invalid attempts per query type are...
+
+* `service-name`: 0
+* `service-name.namespace`: 1
+* `service-name.namespace.svc`: 2
+* `service-name.namespace.svc.cluster.local`: 3 (plus more if there are host node search domains)
+
 
 ## Conclusion
 
 The following chart show the relative performance of CoreDNS vs Kube-DNS running in equivalent environment. Absolute numbers are not reported here because they were tested in a low-scale CPU restricted environment.  In other words, due to the method of testing the raw numbers are low, and I don't want them being taken out of context.  Each stacked bar shows the ratio of Kube-DNS to CoreDNS for that category.  For example, for out of cluster cached queries, CoreDNS performed 2X better than Kube-DNS, whereas for in-cluster cached queries, Kube-DNS performed about 17X better than CoreDNS.  Note that in-cluster cached queries here assumes that the service lies within the first search path (the same namespace as the client).
 
 ![latency chart](/images/CoreDNSvsKubeDNSPerformanceRatios.png)
+
+The chart above is based on QPS ratios.  A chart showing latency ratios would show the inverse of the above.
 
 In short, kube-dns is better at cached hits on in-cluster services, and CoreDNS is better in all other categories.  Whether or not CoreDNS will perform better in your cluster depends on your clusters DNS's load, cache hit ratio, and in-cluster out-cluster query mix.
 
