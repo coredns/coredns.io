@@ -1,15 +1,24 @@
 +++
 date = "2018-05-31T06:21:00Z"
-description = "Comparing Performance of CoreDNS and Kube-DNS in Kubernetes."
+description = "Relative Performance of CoreDNS vs Kube-dns"
 tags = ["Kubernetes", "Performance", "Kube-DNS", "CoreDNS"]
 title = "Performance Testing CoreDNS and Kube-dns"
 author = "chris"
 +++
 
-# Performance Testing CoreDNS and Kube-dns
+# Relative Performance of CoreDNS vs Kube-dns
 
 CoreDNS is on track to replace kube-dns as the the default cluster DNS service in Kubernetes.  Since Kubernetes 1.9, CoreDNS has been available as an optional replacement, and now CoreDNS is proposed to replace kube-dns as the default cluster DNS service in 1.12. As part of this transition, we have extended the existing kube-dns oriented [performance testing tool](https://github.com/kubernetes/perf-tests/tree/master/dns) to also [work with CoreDNS](https://github.com/kubernetes/perf-tests/pull/114).  This blog covers a performance comparison of kube-dns and CoreDNS using the updated tool.
 
+## The Kubernetes DNS Perf-Test Tool
+
+The [Kubernetes performance testing tool](https://github.com/kubernetes/perf-tests/tree/master/dns) is an set of python scripts that automate testing various configurations of kube-dns and CoreDNS in a small cluster.  It is geared toward low scale performance testing with the DNS servers under test running in CPU restricted containers. The tool automates configuring the DNS servers, starting them up, spinning the test client up, and running tests.  The output produced can be digested into a sqlite database using an script in the same repository.  The configurable test options are ...
+
+* Server container CPU allowance
+* Server cache size
+* Client max QPS
+* Client queries - e.g. what names to query
+* Test run time (per configuration)
 
 ## CoreDNS and Kube-dns Differences
 
@@ -25,7 +34,7 @@ Dnsmasq is single threaded, so its CPU usage is restricted to one core. CoreDNS 
 
 ###Maximum Concurrent Queries
 
-In kube-dns deployments, dnsmasq defaults to allowing a maximum of 150 concurrent queries.  If this number is exceeded, then dnsmasq will drop queries.      This can be a problem in a large scale deployment where you might see DNS request spikes (e.g. hundreds of pods hitting the DNS at nearly exactly the same time).  This can be adjusted up for environments that see big spikes in concurrent DNS requests.  CoreDNS does not have a similar hard limit for the number of concurrent queries.  In theory, instead of dropping packets, CoreDNS should handle big spikes, but with a higher latency.
+In kube-dns deployments, dnsmasq defaults to allowing a maximum of 150 concurrent queries.  If this number is exceeded, then dnsmasq will drop queries.  This can be a problem in a large scale deployment where you might see DNS request spikes (e.g. hundreds of pods hitting the DNS at nearly exactly the same time).  This can be adjusted up for environments that see big spikes in concurrent DNS requests.  CoreDNS does not have a similar hard limit for the number of concurrent queries.  In theory, instead of dropping packets, CoreDNS should handle big spikes, but with a higher latency.
 
 ###Negative Caching
 
@@ -39,7 +48,7 @@ In a nutshell, I performed these tests using Kubernetes' DNS perf-test tool on a
 
 **Authoritative Base Kube-dns and CoreDNS Manifests**:  I have based the configurations of kube-dns and CoreDNS on their [authoritative base templates](https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/dns).  Specifically, tests use the authoritative default configurations for kube-dns (dnsmasq command flags in the Deployment) and CoreDNS (Corefile in the Configmap). A single instance of each DNS server was deployed.
 
-**Kubernetes Cluster**: The tests were performed in a three node kubernetes cluster, using the Calico network plugin.  The Nodes were hosted at bare metal provider [Packet](https://www.packet.net), using a TBD as the master, and TBD for the nodes.
+**Kubernetes Cluster**: The tests were performed in a three node kubernetes cluster, using the Calico network plugin.  The Nodes were hosted at bare metal provider [Packet](https://www.packet.net), using a t1.small (Intel Xeon E3 4 Cores @ 3.5 GHz) as the master, and m1.xlarge (Intel Xeon E5 24 Cores @ 2.2 GHz) for the nodes.
 
 **Kubernetes DNS Perf-test Tool**: I used the [kubernetes dns perf-tests tool](https://github.com/kubernetes/perf-tests/tree/master/dns) modified to [allow tests on CoreDNS](https://github.com/kubernetes/perf-tests/pull/114).  The tool by default runs the DNS server under test on the master node and the client pod on separate node (node 1).  The tests are not performed against the cluster's active cluster DNS, instead they configure, spin up and tear down an instance for each set of tests.
 
@@ -48,40 +57,44 @@ In a nutshell, I performed these tests using Kubernetes' DNS perf-test tool on a
 **DNS Server Versions**: CoreDNS 1.1.3, kube-dns 1.14.10
 
 
-## CoreDNS and Kube-dns QPS and Latency
+## The Performance Tests
 
-Each set of tests is for 3 types of `A` record queries:
+I tested three categories of queries:
 
 1. **invalid**: A name for a service that does not exist in the cluster, which prompts an `NXDOMAIN` response from the DNS service. e.g. `invalid-service.default.svc.cluster.local`
 2. **service**: A name for a service that exists in the cluster. e.g. `kubernetes.default.svc.cluster.local`
 3. **upstream**: A name outside of the cluster, which is forwarded upstream by the DNS service. e.g. `coredns.io`
 
 
-### Results
+### Comparisons on a Level Playing Field
 
-TODO
+Dnsmasq is single threaded, so when running on a multi core system, it will use at most one core. CoreDNS is multi threaded, so it could use all cores.  This presents an unfair advantage to CoreDNS when comparing single instances on a multi core system.  Scaling kube-dns instances horizontally in the test to level the playing field would be difficult to tune evenly.  So instead, I ran tests with restricted CPU allotted per container, such that the equivalent of one core at maximum would be used by the dns servers during the tests. The thinking here is that if kube-dns is deployed, it would/should be scaled appropriately such that it is not constrained by the single threaded dnsmasq. Testing multithreaded CoreDNS against an under-scaled kube-dns would be an unfair comparison.
 
-## Cluster-First DNS Policy
+Since CoreDNS operates in a single container, restricting CPU is easy.  But kube-dns contains two containers, so ensuring both its containers operate within one core without starving one is not as straight forward.  To account for this, I ran kube-dns CPU restrictions in two separate runs, one with all CPU allocated to dnsmasq (for tests of dnsmasq only tasks e.g. cache hits and upstream forwarding), and a second with kube-dns and dnsmasq sharing the CPU at it's nominal ratio (observationally, 70% kube-dns, 30% dnsmasq).
+
+
+## Client Perspective Through the Cluster-First DNS Policy
 
 Recall that in Kubernetes, queries for out-of-cluster names (e.g. google.com) result in at least 3 futile in-cluster queries, followed by the correct upstream query.
 
-Factoring in the Cluster-First DNS policy into the restricted CPU performance results, we can project performance from the client pod perspective ...
+Factoring in the Cluster-First DNS policy into the restricted CPU performance results, we can project performance from the client pod perspective using the following formulas...
 
-### Out Of Cluster Cache Miss
+Actual Out Of Cluster Cache Miss Latency = `(3 * invalid latency) + upstream latency`
 
-TODO
+Actual Out Of Cluster Cache Miss QPS = `3 / ((1 / invalid QPS) + (1 / upstream QPS))`
 
-### Out Of Cluster Cache Hit
+Actual Out Of Cluster Cache Miss Latency = `4 * cache-hit latency`
 
-In the cache hit scenario, for kube-dns we have to use the uncached metrics for negative queries since negative caching is disabled.
+Actual Out Of Cluster Cache Miss QPS = `3 / ((1 / invalid QPS) + (1 / cache-hit QPS))`
 
-TODO
-
-
-So, from a client perspective CoreDNS performs better than kube-dns for out of cluster queries for both cache hits and misses.  Kube-dns performance suffers greatly here because it disables negative caching.
+So, from a client perspective CoreDNS performs better than kube-dns for out of cluster queries for both cache hits and misses.
 
 ## Conclusion
 
-TODO
+The following chart show the relative performance of CoreDNS vs Kube-DNS running in equivalent environment. Absolute numbers are not reported here because they were tested in a low-scale CPU restricted environment.  In other words, due to the method of testing the raw numbers are low, and I don't want them being taken out of context.  Each stacked bar shows the ratio of Kube-DNS to CoreDNS for that category.  For example, for out of cluster cached queries, CoreDNS performed 2X better than Kube-DNS, whereas for in-cluster cached queries, Kube-DNS performed about 17X better than CoreDNS.  Note that in-cluster cached queries here assumes that the service lies within the first search path (the same namespace as the client).
+
+![latency chart](/images/CoreDNSvsKubeDNSPerformanceRatios.png)
+
+In short, kube-dns is better at cached hits on in-cluster services, and CoreDNS is better in all other categories.  Whether or not CoreDNS will perform better in your cluster depends on your clusters DNS's load, cache hit ratio, and in-cluster out-cluster query mix.
 
 
