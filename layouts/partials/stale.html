@@ -1,0 +1,20 @@
+
+<!-- if the post's date is 9 month (-9) in the past pop up a banner
+     that is may be stale. Only done for posts that are tagged with
+     'stale' tag -->
+{{ if (.Date) "le" (now.AddDate 0 -9 0) }}
+
+    {{ range .Params.tags }}
+       {{ if eq (lower .) "stale" }}
+
+            <div class="message focus text-center" data-component="message"> <span class="close small"></span>
+            <p>
+                This post is older than nine months.
+                Some examples may not work with the latest CoreDNS version.
+            </p>
+            </div>
+
+       {{ end }}
+    {{ end }}
+
+{{ end }}

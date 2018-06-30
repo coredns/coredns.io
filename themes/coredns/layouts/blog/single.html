@@ -17,6 +17,9 @@
 
 </div>
 <div id="post-box">
+
+    {{ partial "stale.html" . }}
+
 <div id="post" itemprop="articleBody">
 
     {{.Content | safeHTML}}
