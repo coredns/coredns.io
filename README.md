@@ -15,8 +15,8 @@ We have three types of pages.
 * Blog/News/Documentation - `content/blog/*` (depends on params, see `archetypes`)
 * Plugins - `content/plugins/*` and `content/explugins/*`
 
-Any blog post you'll tag with 'documentation' will also become visible on the "Documentation"
-link on the website.
+Any blog post you'll tag with 'stale' will pop up a warning after 9 months that the content of
+the post may not reflect the current workings of CoreDNS.
 
 Releases should be tagged with 'release = "number" and `data/coredns.toml` should be updated
 with the number.
