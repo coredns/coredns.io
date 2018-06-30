@@ -4,7 +4,7 @@ description = "*etcd* enables reading zone data from an etcd instance."
 weight = 11
 tags = [ "plugin", "etcd" ]
 categories = [ "plugin" ]
-date = "2018-05-24T08:47:52.445007"
+date = "2018-06-20T06:43:55.266156"
 +++
 
 ## Description
