@@ -77,7 +77,7 @@ a colon. This Corefile instructs CoreDNS to create a Server that listens on port
 Specifying a Server Block with a zone that is already assigned to a server *and* running it on the
 same port is an error. This Corefile will generate an error on startup:
 
-~~~ corefile
+~~~ txt
 .:1054 {
 
 }
@@ -145,7 +145,7 @@ So, this adds some Directives to the *chaos* plugin that will make CoreDNS will 
 Other plugins with more configuration options have a Plugin Block, which, just as a Server
 Block, is enclosed in an opening and closing brace:
 
-~~~ corefile
+~~~ txt
 . {
     plugin {
        # Plugin Block
