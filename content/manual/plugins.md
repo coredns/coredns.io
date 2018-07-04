@@ -58,7 +58,7 @@ client.
 
 A plugin of this kind will process a query, and will *always* call the next plugin. However, it provides
 a hint that allows it to see the response that will be written to the client. A plugin that does
-this is [*metrics*](/plugin/metrics). It times the duration ...
+this is [*prometheus*](/plugins/metrics). It times the duration ...
 
 ## Unregistered Plugins
 
