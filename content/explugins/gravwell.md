@@ -20,17 +20,17 @@ DNS Requests and responses can be encoded as text, JSON, or as a packed binary f
 
 ~~~
 gravwell {
-    Ingest-Secret=IngestSecretToken
-    Cleartext-Target=192.168.1.1:4023
-    Tag=dns
-    Encoding=json
-    Log-Level=INFO
-    #Cleartext-Target=192.168.1.2:4023 #second indexer
-    #Ciphertext-Target=192.168.1.1:4024
-    #Insecure-Novalidate-TLS=true #disable TLS certificate validation
-    #Ingest-Cache-Path=/tmp/coredns_ingest.cache #enable the local ingest cache
-    #Max-Cache-Size-MB=1024
-  }
+    Ingest-Secret IngestSecretToken
+    Cleartext-Target 192.168.1.1:4023
+    Tag dns
+    Encoding json
+    Log-Level INFO
+    #Cleartext-Target 192.168.1.2:4023 #second indexer
+    #Ciphertext-Target 192.168.1.1:4024
+    #Insecure-Novalidate-TLS true #disable TLS certificate validation
+    #Ingest-Cache-Path /tmp/coredns_ingest.cache #enable the local ingest cache
+    #Max-Cache-Size-MB 1024
+}
 ~~~
 
 * **Ingest-Secret** defines the token used to authenticate with indexers.  **Ingest-Secret** is required.
@@ -51,9 +51,9 @@ A sample Corefile which sends DNS requests to a single indexer over an unencrypt
 
 ~~~
 gravwell {
-    Ingest-Secret=IngestSecretToken
-    Cleartext-Target=192.168.1.1:4023
-    Tag=dns
+    Ingest-Secret IngestSecretToken
+    Cleartext-Target 192.168.1.1:4023
+    Tag dns
   }
 ~~~
 
@@ -64,12 +64,12 @@ IPv4 and IPv6 addresses are supported for both the Cleartext and Ciphertext targ
 
 ~~~
 gravwell {
-    Ingest-Secret=IngestSecretToken
-    Ciphertext-Target=192.168.1.1:4024
-    Ciphertext-Target=[fe80::dead:beef:feed:febe%p1p1]:4024 #connecting to link local address via device p1p1
-    Tag=dns
-    Encoding=json
-    Log-Level=INFO
+    Ingest-Secret IngestSecretToken
+    Ciphertext-Target 192.168.1.1:4024
+    Ciphertext-Target [fe80::dead:beef:feed:febe%p1p1]:4024 #connecting to link local address via device p1p1
+    Tag dns
+    Encoding json
+    Log-Level INFO
   }
 ~~~
 
@@ -79,13 +79,13 @@ A sample Corefile which sends DNS requests to two indexers over a TLS connection
 
 ~~~
 gravwell {
-    Ingest-Secret=IngestSecretToken
-    Ciphertext-Target=192.168.1.1:4024
-    Ciphertext-Target=[dead::beef]:4024
-    Insecure-Novalidate-TLS=true
-    Tag=dns
-    Encoding=json
-    Log-Level=INFO
+    Ingest-Secret IngestSecretToken
+    Ciphertext-Target 192.168.1.1:4024
+    Ciphertext-Target [dead::beef]:4024
+    Insecure-Novalidate-TLS true
+    Tag dns
+    Encoding json
+    Log-Level INFO
   }
 ~~~
 
@@ -95,15 +95,15 @@ A sample Corefile which sends DNS requests to two indexers and enables a local c
 
 ~~~
 gravwell {
-    Ingest-Secret=IngestSecretToken
-    Cleartext-Target=192.168.1.1:4023
-    Ciphertext-Target=192.168.1.2:4024
-    Insecure-Novalidate-TLS=true
-    Ingest-Cache-Path=/tmp/coredns_ingest.cache
-    Max-Cache-Size-MB=1024
-    Tag=dns
-    Encoding=json
-    Log-Level=INFO
+    Ingest-Secret IngestSecretToken
+    Cleartext-Target 192.168.1.1:4023
+    Ciphertext-Target 192.168.1.2:4024
+    Insecure-Novalidate-TLS true
+    Ingest-Cache-Path /tmp/coredns_ingest.cache
+    Max-Cache-Size-MB 1024
+    Tag dns
+    Encoding json
+    Log-Level INFO
   }
 ~~~
 
