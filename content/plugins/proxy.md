@@ -1,10 +1,10 @@
 +++
 title = "proxy"
 description = "*proxy* facilitates both a basic reverse proxy and a robust load balancer."
-weight = 23
+weight = 24
 tags = [ "plugin", "proxy" ]
 categories = [ "plugin" ]
-date = "2018-06-20T06:43:55.271471"
+date = "2018-07-06T10:27:55.915227"
 +++
 
 ## Description

@@ -1,15 +1,15 @@
 +++
 title = "etcd"
-description = "*etcd* enables reading zone data from an etcd instance."
+description = "*etcd* enables reading zone data from an etcd version 3 instance."
 weight = 11
 tags = [ "plugin", "etcd" ]
 categories = [ "plugin" ]
-date = "2018-06-20T06:43:55.266156"
+date = "2018-07-06T10:27:55.911731"
 +++
 
 ## Description
 
-The data in etcd has to be encoded as
+The data in etcd instance has to be encoded as
 a [message](https://github.com/skynetservices/skydns/blob/2fcff74cdc9f9a7dd64189a447ef27ac354b725f/msg/service.go#L26)
 like [SkyDNS](https://github.com/skynetservices/skydns). It should also work just like SkyDNS.
 
@@ -24,7 +24,7 @@ etcd [ZONES...]
 
 * **ZONES** zones etcd should be authoritative for.
 
-The path will default to `/skydns` the local etcd proxy (http://localhost:2379). If no zones are
+The path will default to `/skydns` the local etcd3 proxy (http://localhost:2379). If no zones are
 specified the block's zone will be used as the zone.
 
 If you want to `round robin` A and AAAA responses look at the `loadbalance` plugin.
@@ -61,6 +61,13 @@ etcd [ZONES...] {
     * three arguments - path to cert PEM file, path to client private key PEM file, path to CA PEM
       file - if the server certificate is not signed by a system-installed CA and client certificate
       is needed.
+
+## Special Behaviour
+CoreDNS etcd plugin leverages directory structure to look for related entries. For example an entry `/skydns/test/skydns/mx` would have entries like `/skydns/test/skydns/mx/a`, `/skydns/test/skydns/mx/b` and so on. Similarly a directory `/skydns/test/skydns/mx1` will have all `mx1` entries.
+
+With etcd3, support for [hierarchial keys are dropped](https://coreos.com/etcd/docs/latest/learning/api.html). This means there are no directories but only flat keys with prefixes in etcd3. To accomodate lookups, etcdv3 plugin now does a lookup on prefix `/skydns/test/skydns/mx/` to search for entries like `/skydns/test/skydns/mx/a` etc, and if there is nothing found on `/skydns/test/skydns/mx/`, it looks for `/skydns/test/skydns/mx` to find entries like `/skydns/test/skydns/mx1`.
+
+This causes two lookups from CoreDNS to etcdv3 in certain cases.
 
 ## Examples
 
@@ -172,7 +179,3 @@ dig +short skydns.local AAAA @localhost
 2003::8:1
 2003::8:2
 ~~~
-
-## Bugs
-
-Only the etcdv2 protocol is supported.

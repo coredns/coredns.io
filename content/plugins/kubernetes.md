@@ -4,7 +4,7 @@ description = "*kubernetes* enables the reading zone data from a Kubernetes clus
 weight = 17
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2018-06-20T06:43:55.268802"
+date = "2018-07-06T10:27:55.913350"
 +++
 
 ## Description
@@ -112,6 +112,11 @@ kubernetes [ZONES...] {
 
 This plugin implements dynamic health checking. Currently this is limited to reporting healthy when
 the API has synced.
+
+## Watch
+
+This plugin implements watch. A client that connects to CoreDNS using `coredns/client` can be notified
+of changes to A, AAAA, and SRV records for Kubernetes services and endpoints.
 
 ## Examples
 

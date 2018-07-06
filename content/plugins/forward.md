@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 14
 tags = [ "plugin", "forward" ]
 categories = [ "plugin" ]
-date = "2018-06-20T06:43:55.267443"
+date = "2018-07-06T10:27:55.912479"
 +++
 
 ## Description
@@ -86,8 +86,9 @@ Also note the TLS config is "global" for the whole forwarding proxy if you need 
 `tls-name` for different upstreams you're out of luck.
 
 On each endpoint, the timeouts of the communication are set by default and automatically tuned depending early results.
-- dialTimeout by default is 30 sec, and can decrease automatically down to 100ms
-- readTimeout by default is 2 sec, and can decrease automatically down to 10ms
+
+* dialTimeout by default is 30 sec, and can decrease automatically down to 100ms
+* readTimeout by default is 2 sec, and can decrease automatically down to 200ms
 
 ## Metrics
 
