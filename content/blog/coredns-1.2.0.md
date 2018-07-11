@@ -19,14 +19,14 @@ Enable watch functionality when CoreDNS is used as a gRPC server (documented in 
 # Plugins
 
 * A new plugin called [*metadata*](/plugins/metadata) was added. It adds metadata to a query, via the context.
-* The *etcd* plugin now supports etcd version 3 (only!). It was impossible to support v2 *and* v3 at
+* The [*etcd*](/plugins/etcd) plugin now supports etcd version 3 (only!). It was impossible to support v2 *and* v3 at
   the same time (even as separate plugins); so we decided to drop v2 support.
-* Fix a race/crash in the *cache* plugin when `prefetch` is enabled.
-* The *forward* has a `prefer_udp` option, that even when the incoming query is over TCP, the
+* Fix a race/crash in the [*cache*](/plugins/cache) plugin when `prefetch` is enabled.
+* The [*forward*](/plugins/forward) plugin has a `prefer_udp` option, that even when the incoming query is over TCP, the
   outgoing one will be tried over UDP first.
-* *secondary* plugin has a bug fix for zone expiration: don't expire zones if we can reach the
+* [*secondary*](/plugins/secondary) plugin has a bug fix for zone expiration: don't expire zones if we can reach the
   primary, but see no zone changes.
-* The *auto* plugin now works better with Kubernetes Configmaps.
+* The [*auto*](/plugins/auto) plugin now works better with Kubernetes Configmaps.
 
 ## Contributors
 
