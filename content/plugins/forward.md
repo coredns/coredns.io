@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 14
 tags = [ "plugin", "forward" ]
 categories = [ "plugin" ]
-date = "2018-07-06T10:27:55.912479"
+date = "2018-07-11T10:14:28.433274"
 +++
 
 ## Description
@@ -50,6 +50,7 @@ Extra knobs are available with an expanded syntax:
 forward FROM TO... {
     except IGNORED_NAMES...
     force_tcp
+    prefer_udp
     expire DURATION
     max_fails INTEGER
     tls CERT KEY CA
@@ -63,6 +64,9 @@ forward FROM TO... {
 * **IGNORED_NAMES** in `except` is a space-separated list of domains to exclude from forwarding.
   Requests that match none of these names will be passed through.
 * `force_tcp`, use TCP even when the request comes in over UDP.
+* `prefer_udp`, try first using UDP even when the request comes in over TCP. If response is truncated
+  (TC flag set in response) then do another attempt over TCP. In case if both `force_tcp` and
+  `prefer_udp` options specified the `force_tcp` takes precedence.
 * `max_fails` is the number of subsequent failed health checks that are needed before considering
   an upstream to be down. If 0, the upstream will never be marked as down (nor health checked).
   Default is 2.

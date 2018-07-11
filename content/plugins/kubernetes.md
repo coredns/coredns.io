@@ -4,7 +4,7 @@ description = "*kubernetes* enables the reading zone data from a Kubernetes clus
 weight = 17
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2018-07-06T10:27:55.913350"
+date = "2018-07-11T10:14:28.435188"
 +++
 
 ## Description
@@ -104,8 +104,8 @@ kubernetes [ZONES...] {
   the query. If **[ZONES...]** is omitted, then fallthrough happens for all zones for which the plugin
   is authoritative. If specific zones are listed (for example `in-addr.arpa` and `ip6.arpa`), then only
   queries for those zones will be subject to fallthrough.
-* `ignore empty_service` return NXDOMAIN for services without any ready endpoint addresses (e.g. ready pods). 
-  This allows the querying pod to continue searching for the service in the search path. 
+* `ignore empty_service` return NXDOMAIN for services without any ready endpoint addresses (e.g. ready pods).
+  This allows the querying pod to continue searching for the service in the search path.
   The search path could, for example, include another kubernetes cluster.
 
 ## Health

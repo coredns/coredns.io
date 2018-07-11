@@ -4,7 +4,7 @@ description = "*cache* enables a frontend cache."
 weight = 4
 tags = [ "plugin", "cache" ]
 categories = [ "plugin" ]
-date = "2018-07-06T10:27:55.910002"
+date = "2018-07-11T10:14:28.426487"
 +++
 
 ## Description
@@ -27,8 +27,8 @@ cache [TTL] [ZONES...]
 * **ZONES** zones it should cache for. If empty, the zones from the configuration block are used.
 
 Each element in the cache is cached according to its TTL (with **TTL** as the max).
-For the negative cache, the SOA's MinTTL value is used. A TTL of zero is not allowed. 
-A cache is divided into 256 shards, each holding up to 512 items by default - for a total size 
+For the negative cache, the SOA's MinTTL value is used. A TTL of zero is not allowed.
+A cache is divided into 256 shards, each holding up to 512 items by default - for a total size
 of 256 * 512 = 131,072 items.
 
 If you want more control:

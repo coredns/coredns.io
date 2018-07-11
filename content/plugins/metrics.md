@@ -4,7 +4,7 @@ description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics
 weight = 21
 tags = [ "plugin", "metrics" ]
 categories = [ "plugin" ]
-date = "2018-07-06T10:27:55.914415"
+date = "2018-07-11T10:14:28.437584"
 +++
 
 ## Description
@@ -74,7 +74,7 @@ then:
 
 ## Bugs
 
-When reloading, the Prometheus handler is stopped before the new server instance is started. 
-If that new server fails to start, then the initial server instance is still available and DNS queries still served, 
-but Prometheus handler stays down. 
+When reloading, the Prometheus handler is stopped before the new server instance is started.
+If that new server fails to start, then the initial server instance is still available and DNS queries still served,
+but Prometheus handler stays down.
 Prometheus will not reply HTTP request until a successful reload or a complete restart of CoreDNS.
