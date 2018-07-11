@@ -12,15 +12,13 @@ CoreDNS-1.2.0!
 
 In this release we have a new plugin, bump etcd to version 3 and bugfixes.
 
-> This release was done using our [new, automated](https://github.com/coredns/coredns/issues/1954) release process.
-
 # Core
 
-Enable watch functionality when CoreDNS is used as a gRPC server.
+Enable watch functionality when CoreDNS is used as a gRPC server (documented in the code - for now).
 
 # Plugins
 
-* New plugin called *metadata* was added. It adds metadata to a query, via the context.
+* A new plugin called [*metadata*](/plugins/metadata) was added. It adds metadata to a query, via the context.
 * The *etcd* plugin now supports etcd version 3 (only!). It was impossible to support v2 *and* v3 at
   the same time (even as separate plugins); so we decided to drop v2 support.
 * Fix a race/crash in the *cache* plugin when `prefetch` is enabled.
