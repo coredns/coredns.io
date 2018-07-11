@@ -4,7 +4,7 @@ description = "*errors* enable error logging."
 weight = 10
 tags = [ "plugin", "errors" ]
 categories = [ "plugin" ]
-date = "2018-07-06T10:27:55.911392"
+date = "2018-07-11T10:14:28.430602"
 +++
 
 ## Description
