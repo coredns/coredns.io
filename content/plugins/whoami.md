@@ -1,17 +1,17 @@
 +++
 title = "whoami"
 description = "*whoami* returns your resolver's local IP address, port and transport."
-weight = 32
+weight = 33
 tags = [ "plugin", "whoami" ]
 categories = [ "plugin" ]
-date = "2018-06-20T06:43:55.275493"
+date = "2018-07-11T10:14:28.445039"
 +++
 
 ## Description
 
 The *whoami* plugin is not really that useful, but can be used for having a simple (fast) endpoint
-to test clients against. When *whoami* returns a response it will have your client's IP address the
-additional section as either an A or AAAA record.
+to test clients against. When *whoami* returns a response it will have your client's IP address in
+the additional section as either an A or AAAA record.
 
 The reply always has an empty answer section. The port and transport are included in the additional
 section as a SRV record, transport can be "tcp" or "udp".

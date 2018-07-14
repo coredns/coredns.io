@@ -1,10 +1,10 @@
 +++
 title = "tls"
 description = "*tls* allows you to configure the server certificates for the TLS and gRPC servers."
-weight = 30
+weight = 31
 tags = [ "plugin", "tls" ]
 categories = [ "plugin" ]
-date = "2018-06-20T06:43:55.274696"
+date = "2018-07-11T10:14:28.443905"
 +++
 
 ## Description

@@ -4,7 +4,7 @@ description = "*hosts* enables serving zone data from a `/etc/hosts` style file.
 weight = 16
 tags = [ "plugin", "hosts" ]
 categories = [ "plugin" ]
-date = "2018-06-20T06:43:55.268277"
+date = "2018-07-11T10:14:28.434480"
 +++
 
 ## Description
@@ -34,7 +34,7 @@ fdfc:a744:27b5:3b0e::1  example.com example
 
 ### PTR records
 
-PTR records for reverse lookups are generated automatically by CoreDNS (based on the hosts file entries) and cannot be created manually. 
+PTR records for reverse lookups are generated automatically by CoreDNS (based on the hosts file entries) and cannot be created manually.
 
 ## Syntax
 
