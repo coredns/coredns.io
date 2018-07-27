@@ -1,6 +1,6 @@
 +++
 title = "CoreDNS Manual"
-description = "Comprehensive manual covering all aspects of getting and running CoreDNS."
+description = "Manual covering all aspects of getting and running CoreDNS."
 tags = ["Manual", "Installation", "Configuration", "Plugins"]
 author = "coredns"
 date = "2018-02-16T11:10:29+00:00"
