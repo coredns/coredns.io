@@ -7,7 +7,7 @@ See [Writing Plugins for CoreDNS](/2016/12/19/writing-plugins-for-coredns/) for 
 this subject. The [plugin.md](https://github.com/coredns/coredns/blob/master/plugin.md) documented
 in CoreDNS's source also has some background and talks about styling the README.md.
 
-The canonical example plugin is the [*example*](/plugins/example) plugin. Its [github
+The canonical example plugin is the *example* plugin. Its [github
 repository](https://github.com/coredns/example) shows the most minimal code (with tests!) that is
 needed to create a plugin.
 
