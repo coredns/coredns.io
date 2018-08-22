@@ -8,7 +8,7 @@ When a query is being processed by CoreDNS, the following steps are performed:
 
 1. If there are multiple Servers configured that listen on the queried port, it will check which one
    has the most specific zone for this query (longest suffix match). E.g. if there are two Servers,
-   one for `example.org` and one for `a.example.org`, and the query is for `www.b.example.org`, it
+   one for `example.org` and one for `a.example.org`, and the query is for `www.a.example.org`, it
    will be routed to the latter.
 2. Once a Server has been found, it will be routed through the Plugin Chain that is configured for
    this server. This always happens in the same order. That (static) ordering is defined in
