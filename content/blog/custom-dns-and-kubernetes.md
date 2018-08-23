@@ -71,7 +71,7 @@ If you don't see a command prompt, try pressing enter.
 / # host foo
 foo.default.svc.cluster.local has address 10.0.0.72
 / # host foo.example.com
-foo.default.svc.cluster.local has address 10.0.0.72
+foo.example.com has address 10.0.0.72
 / # host bar.example.com
 Host bar.example.com not found: 3(NXDOMAIN)
 / #
@@ -144,7 +144,7 @@ If you don't see a command prompt, try pressing enter.
 / # host foo
 foo.default.svc.cluster.local has address 10.0.0.72
 / # host foo.example.com
-foo.default.svc.cluster.local has address 10.0.0.72
+foo.example.com has address 10.0.0.72
 / # host example.org
 example.org has address 127.0.0.1
 / #
