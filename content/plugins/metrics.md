@@ -1,10 +1,10 @@
 +++
 title = "prometheus"
 description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics."
-weight = 21
+weight = 22
 tags = [ "plugin", "metrics" ]
 categories = [ "plugin" ]
-date = "2018-07-11T10:14:28.437584"
+date = "2018-08-28T06:15:01.557531"
 +++
 
 ## Description
@@ -63,7 +63,7 @@ Use an alternative address:
 }
 ~~~
 
-Or via an enviroment variable (this is supported throughout the Corefile): `export PORT=9253`, and
+Or via an environment variable (this is supported throughout the Corefile): `export PORT=9253`, and
 then:
 
 ~~~ corefile

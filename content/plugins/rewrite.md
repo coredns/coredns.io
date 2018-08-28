@@ -1,10 +1,10 @@
 +++
 title = "rewrite"
 description = "*rewrite* performs internal message rewriting."
-weight = 26
+weight = 27
 tags = [ "plugin", "rewrite" ]
 categories = [ "plugin" ]
-date = "2018-07-11T10:14:28.440802"
+date = "2018-08-28T06:15:01.558999"
 +++
 
 ## Description
@@ -24,7 +24,8 @@ rewrite [continue|stop] FIELD FROM TO
    * `type` - the type field of the request will be rewritten. FROM/TO must be a DNS record type (`A`, `MX`, etc);
 e.g., to rewrite ANY queries to HINFO, use `rewrite type ANY HINFO`.
    * `class` - the class of the message will be rewritten. FROM/TO must be a DNS class type (`IN`, `CH`, or `HS`) e.g., to rewrite CH queries to IN use `rewrite class CH IN`.
-   * `name` - the query name in the _request_ is rewritten; by default this is a full match of the name, e.g., `rewrite name miek.nl example.org`. Other match types are supported, see the **Name Field Rewrites** section below.
+   * `name` - the query name in the _request_ is rewritten; by default this is a full match of the
+     name, e.g., `rewrite name example.net example.org`. Other match types are supported, see the **Name Field Rewrites** section below.
    * `answer name` - the query name in the _response_ is rewritten.  This option has special restrictions and requirements, in particular it must always combined with a `name` rewrite.  See below in the **Response Rewrites** section.
    *  `edns0` - an EDNS0 option can be appended to the request as described below in the **EDNS0 Options** section.
 
@@ -41,7 +42,8 @@ for not specifying this rule processing mode is `stop`
 
 The `rewrite` plugin offers the ability to match on the name in the question section of
 a DNS request. The match could be exact, substring, or based on a prefix, suffix, or regular
-expression.
+expression. If the newly used name is not a legal domain name the plugin returns an error to the
+client.
 
 The syntax for the name re-writing is as follows:
 
@@ -220,6 +222,12 @@ Examples:
 
 ~~~
 rewrite edns0 local set 0xffee {client_ip}
+~~~
+
+The following example rewrites the `schmoogle.com` suffix to `google.com`.
+
+~~~
+rewrite name suffix .schmoogle.com. .google.com.
 ~~~
 
 The following example uses metadata and an imaginary "some-plugin" that would provide "some-label" as metadata information.
