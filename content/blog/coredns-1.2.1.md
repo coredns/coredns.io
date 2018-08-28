@@ -10,8 +10,8 @@ author = "coredns"
 We are pleased to announce the [release](https://github.com/coredns/coredns/releases/tag/v1.2.1) of
 CoreDNS-1.2.1!
 
-This release features bugfixes (mostly in the [*kubernetes*](/plugins/kubernetes) plugin,
-documentation improvements and one new plugin: [*loop*](/plugin/loop).
+This release features bugfixes (mostly in the [*kubernetes*](/plugins/kubernetes) plugin),
+documentation improvements and one new plugin: [*loop*](/plugins/loop).
 
 # Plugins
 
