@@ -1,10 +1,10 @@
 +++
 title = "nsid"
 description = "*nsid* adds an identifier of this server to each reply."
-weight = 22
+weight = 23
 tags = [ "plugin", "nsid" ]
 categories = [ "plugin" ]
-date = "2018-07-11T10:14:28.438164"
+date = "2018-08-28T06:15:01.557802"
 +++
 
 ## Description

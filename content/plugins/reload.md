@@ -1,10 +1,10 @@
 +++
 title = "reload"
 description = "*reload* allows automatic reload of a changed Corefile."
-weight = 25
+weight = 26
 tags = [ "plugin", "reload" ]
 categories = [ "plugin" ]
-date = "2018-07-11T10:14:28.439963"
+date = "2018-08-28T06:15:01.558628"
 +++
 
 ## Description
@@ -87,7 +87,7 @@ is already listening on that port. The process reloads and performs the followin
 3. fail to start a new listener on 443
 4. fail loading the new Corefile, abort and keep using the old process
 
-After the aborted attempt to reload we are left with the old proceses running, but the listener is
+After the aborted attempt to reload we are left with the old processes running, but the listener is
 closed in step 1; so the health endpoint is broken. The same can hopen in the prometheus metrics plugin.
 
 In general be careful with assigning new port and expecting reload to work fully.
