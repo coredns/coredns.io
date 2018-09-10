@@ -26,9 +26,10 @@ date = "2018-02-16T11:10:29+00:00"
 
 # Table of Contents
 
-* [What is CoreDNS](#what-is-coredns)
-* [Installation](#installation)
-* [Plugins](#plugins)
-* [Configuration](#configuration)
-* [Specific Setups](#setups)
-* [Writing Plugins](#writing-plugins)
+* [What is CoreDNS](./what)
+* [Installation](./installation)
+* [Plugins](./plugins)
+* [Configuration](./configuration)
+* [Specific Setups](./setups)
+* [Writing Plugins](plugins-dev)
+* [External plugins](./explugins)
