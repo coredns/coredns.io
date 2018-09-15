@@ -27,7 +27,7 @@ the Corefile.
 See the [*import*](https://coredns.io/explugins/import) plugin. This plugin is a bit special in that
 it may be used anywhere in the Corefile.
 
-### Reusable Snippits
+### Reusable Snippets
 
 A special case of importing files is a *snippet*. A snippet is defined by naming a block with
 a special syntax. The name has to be put in parentheses: `(name)`. After that, it can be included in
