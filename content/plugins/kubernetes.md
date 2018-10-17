@@ -4,7 +4,7 @@ description = "*kubernetes* enables the reading zone data from a Kubernetes clus
 weight = 17
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2018-08-28T06:15:01.556292"
+date = "2018-10-17T18:39:57.647941"
 +++
 
 ## Description
@@ -56,6 +56,7 @@ kubernetes [ZONES...] {
    will automatically perform a healthcheck and proxy to the healthy k8s API endpoint.
 * `tls` **CERT** **KEY** **CACERT** are the TLS cert, key and the CA cert file names for remote k8s connection.
    This option is ignored if connecting in-cluster (i.e. endpoint is not specified).
+* `kubeconfig` **KUBECONFIG** **CONTEXT** authenticates the connection to a remote k8s cluster using a kubeconfig file. It supports TLS, username and password, or token-based authentication. This option is ignored if connecting in-cluster (i.e. endpoint is not specified).
 * `namespaces` **NAMESPACE [NAMESPACE...]**, only exposes the k8s namespaces listed.
    If this option is omitted all namespaces are exposed
 * `labels` **EXPRESSION** only exposes the records for Kubernetes objects that match this label selector.
@@ -98,7 +99,7 @@ kubernetes [ZONES...] {
   (only `to` is allow). **ADDRESS** must be denoted in CIDR notation (127.0.0.1/32 etc.) or just as
   plain addresses. The special wildcard `*` means: the entire internet.
   Sending DNS notifies is not supported.
-  [Deprecated](https://github.com/kubernetes/dns/blob/master/docs/specification.md#26---deprecated-records) pod records in the sub domain `pod.cluster.local` are not transferred. 
+  [Deprecated](https://github.com/kubernetes/dns/blob/master/docs/specification.md#26---deprecated-records) pod records in the sub domain `pod.cluster.local` are not transferred.
 * `fallthrough` **[ZONES...]** If a query for a record in the zones for which the plugin is authoritative
   results in NXDOMAIN, normally that is what the response will be. However, if you specify this option,
   the query will instead be passed on down the plugin chain, which can include another plugin to handle

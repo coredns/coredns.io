@@ -4,7 +4,7 @@ description = "*auto* enables serving zone data from an RFC 1035-style master fi
 weight = 1
 tags = [ "plugin", "auto" ]
 categories = [ "plugin" ]
-date = "2018-08-28T06:15:01.551450"
+date = "2018-10-17T18:39:57.644217"
 +++
 
 ## Description
@@ -19,6 +19,7 @@ zonefile. New or changed zones are automatically picked up from disk.
 ~~~
 auto [ZONES...] {
     directory DIR [REGEXP ORIGIN_TEMPLATE [TIMEOUT]]
+    reload DURATION
     no_reload
     upstream [ADDRESS...]
 }
@@ -34,8 +35,10 @@ are used.
   name `db.example.com`, the extracted origin will be `example.com`. **TIMEOUT** specifies how often
   CoreDNS should scan the directory; the default is every 60 seconds. This value is in seconds.
   The minimum value is 1 second.
-* `no_reload` by default CoreDNS will try to reload a zone every minute and reloads if the
-  SOA's serial has changed. This option disables that behavior.
+* `reload` interval to perform reload of zone if SOA version changes. Default is one minute. 
+  Value of `0` means to not scan for changes and reload. eg. `30s` checks zonefile every 30 seconds 
+  and reloads zone when serial changes.
+* `no_reload` deprecated. Sets reload to 0.
 * `upstream` defines upstream resolvers to be used resolve external names found (think CNAMEs)
   pointing to external names. **ADDRESS** can be an IP address, an IP:port or a string pointing to
   a file that is structured as /etc/resolv.conf. If no **ADDRESS** is given, CoreDNS will resolve CNAMEs

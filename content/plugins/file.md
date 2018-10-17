@@ -4,7 +4,7 @@ description = "*file* enables serving zone data from an RFC 1035-style master fi
 weight = 13
 tags = [ "plugin", "file" ]
 categories = [ "plugin" ]
-date = "2018-08-28T06:15:01.555057"
+date = "2018-10-17T18:39:57.646930"
 +++
 
 ## Description
@@ -30,6 +30,7 @@ If you want to round robin A and AAAA responses look at the *loadbalance* plugin
 ~~~
 file DBFILE [ZONES... ] {
     transfer to ADDRESS...
+    reload DURATION
     no_reload
     upstream [ADDRESS...]
 }
@@ -39,8 +40,10 @@ file DBFILE [ZONES... ] {
   the direction. **ADDRESS** must be denoted in CIDR notation (127.0.0.1/32 etc.) or just as plain
   addresses. The special wildcard `*` means: the entire internet (only valid for 'transfer to').
   When an address is specified a notify message will be send whenever the zone is reloaded.
-* `no_reload` by default CoreDNS will try to reload a zone every minute and reloads if the
-  SOA's serial has changed. This option disables that behavior.
+* `reload` interval to perform reload of zone if SOA version changes. Default is one minute. 
+  Value of `0` means to not scan for changes and reload. eg. `30s` checks zonefile every 30 seconds 
+  and reloads zone when serial changes.
+* `no_reload` deprecated. Sets reload to 0.
 * `upstream` defines upstream resolvers to be used resolve external names found (think CNAMEs)
   pointing to external names. This is only really useful when CoreDNS is configured as a proxy, for
   normal authoritative serving you don't need *or* want to use this. **ADDRESS** can be an IP

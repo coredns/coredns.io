@@ -4,7 +4,7 @@ description = "*health* enables a health check endpoint."
 weight = 15
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2018-08-28T06:15:01.555655"
+date = "2018-10-17T18:39:57.647416"
 +++
 
 ## Description
@@ -60,7 +60,7 @@ com net {
     erratic
     health :8080
 }
-~~~~
+~~~
 
 ## Plugins
 
