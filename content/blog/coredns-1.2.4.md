@@ -18,8 +18,9 @@ that regression, nor the Kubernetes scale testing which doesn't really exercise 
 
 ## Plugins
 
-* [*cache*](/plugins/cache) use zero of the minimal negative TTL (if no suitable TTL was found in the packet)
-* [*kubernetes*](/plugins/kubernetes) fix grave bug that might be plugin unusable in Kubernetes.
+* [*cache*](/plugins/cache) use zero of the minimal negative TTL (if no suitable TTL was found in
+  the packet).
+* [*kubernetes*](/plugins/kubernetes) fix a grave bug that made plugin **unusable** in Kubernetes.
 
 ## Brought to you by:
 
