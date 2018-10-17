@@ -13,7 +13,7 @@ CoreDNS-1.2.3!
 ## Core
 
 This is a big release that spans almost 6 weeks of development, slightly longer than normal. You may
-also have noticed that CoreDNS *wasn't* made the default in Kubernetes 1.1.3 due to increased memory
+also have noticed that CoreDNS *wasn't* made the default in Kubernetes 1.1.2 due to increased memory
 used compared to kube-dns. This release contains a fix for that.
 
 The underlying DNS library has seen multiple updates to improve throughput and memory and we have
