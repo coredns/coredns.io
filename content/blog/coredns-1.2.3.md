@@ -10,6 +10,10 @@ author = "coredns"
 We are pleased to announce the [release](https://github.com/coredns/coredns/releases/tag/v1.2.3) of
 CoreDNS-1.2.3!
 
+<a id="warning-kubernetes"></a>
+**WARNING:** We advice to not use this release when kubernetes' plugin is enabled.
+[See issue found](https://github.com/coredns/coredns/issues/2204) related to the usage of this plugin in this particular release.
+
 ## Core
 
 This is a big release that spans almost 6 weeks of development, slightly longer than normal. You may
@@ -28,7 +32,7 @@ enabled REUSE_PORT on the ports CoreDNS opens on \*nix.
     * Minor improvements (`fallthrough`, `upstream` options, AWS credentials file support)
 * [*cache*](/plugin/cache) add a minttl option to set the minimal TTL for records being cached. The cache key moved to hash/fnv64.
 * [*rewrite*](/plugin/rewrite) can now also rewrite TTLs
-* [*kubernetes*](/plugin/kubernetes)
+* [*kubernetes*](/plugin/kubernetes) - [see warning above](#warning-kubernetes)
     * Uses less memory (~30% less).
     * Do not block on startup when connecting to the API server; returns SERVFAIL in the mean time.
     * Support for using a `kubeconfig` file, including various auth providers (Azure not supported due to a compilation issue with that code).
