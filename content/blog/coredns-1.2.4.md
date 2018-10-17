@@ -10,16 +10,16 @@ author = "coredns"
 We are pleased to announce the [release](https://github.com/coredns/coredns/releases/tag/v1.2.4) of
 CoreDNS-1.2.4!
 
-Remember we [said](/2018/10/16/coredns-1.2.3-release/) was a big release and took quite a while?
-Well, we've fixed that glitch; as 1.2.4 is here now.
+Remember we [said the 1.2.3 release](/2018/10/16/coredns-1.2.3-release/) was a big release and took
+quite a while? Well, we've fixed that glitch; as 1.2.4 is here now.
 
-CoreDNS' v1.2.3 kubernetes plugin *DOES NOT WORK IN KUBERNETES* and our testing that didn't catch
-that regression, nor the Kubernetes scale testing which doesn't really exercise the API.
+CoreDNS v1.2.3's *kubernetes* plugin **DOES NOT WORK IN KUBERNETES** and our testing that didn't catch
+that regression, nor the Kubernetes scale testing which doesn't really exercise the *whole* API.
 
 ## Plugins
 
-* [*cache*](/plugins/cache) use zero of the minimal negative TTL (if not found in the packet)
-* [*kubernetes*](/plugins/kubernetes) fix grave bug that might be plugin unusable in kubernetes.
+* [*cache*](/plugins/cache) use zero of the minimal negative TTL (if no suitable TTL was found in the packet)
+* [*kubernetes*](/plugins/kubernetes) fix grave bug that might be plugin unusable in Kubernetes.
 
 ## Brought to you by:
 
