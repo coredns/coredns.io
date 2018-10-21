@@ -149,23 +149,22 @@ coredns.io {
     <h3 id="hero"><a href="https://github.com/coredns/coredns/blob/master/ADOPTERS.md">Some</a> of Our Users</h3>
     <div class="row gutters logos push-center">
         <!-- 6 max (12/2) - just like bootstrap -->
-        <div class="col col-2 item"><a href="https://k8s.io/"><img src="/logos/k8s.png"/></a></div>
-        <div class="col col-2 item"><a href="https://www.mit.edu/"><img src="/logos/mit.png"/></a></div>
-        <div class="col col-2 item"><a href="https://infoblox.com/"><img src="/logos/infoblox.png"/></a></div>
-        <div class="col col-2 item"><a href="https://engineering.skybettingandgaming.com/"><img src="/logos/sky.png"/></a></div>
+        {{partial "logo" (dict "context" . "url" "k8s.io" "logo" "k8s.png") }}
+        {{partial "logo" (dict "context" . "url" "www.mit.edu" "logo" "mit.png") }}
+        {{partial "logo" (dict "context" . "url" "infoblox.com" "logo" "infoblox.png") }}
+        {{partial "logo" (dict "context" . "url" "engineering.skybettingandgaming.com" "logo" "sky.png") }}
+        {{partial "logo" (dict "context" . "url" "getadmiral.com" "logo" "admiral.png") }}
         <div class="col col-2 item"><a href="https://kismia.com/"><img
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAAyCAMAAABVq6YfAAAAjVBMVEUAAACVHiyVHiyWHiyWHiylIkKWHiyWHiyWHi2WHiyaITCdJTOWIC2cITLUamqYHy6fIzWjMj6WHiyWHi2WHiyWHiyWHi2WHiyWHyyWHi2XHy2WHi2WHiyWHiyXIC6XIC6jLjWWHyyWHiyXHi2XHy+WHy6XHy2WHi2WHi2YIi2WHyyWHy2WHiyXHy2VHiw48GduAAAALnRSTlMA88Pr1gfctPv3IRNPGAIyDgXwx7+7fs6kmWpl5ao9NwvgkEMoVkmFdy2LcZ5ekQKUrwAABJtJREFUeAHd2emSqkoWhuEPTRlkkEERRcV5dt3/5XU0O1it5iZTCKpPeZ6fQKT1IqRkAXZJJxvHjkWWu5C4eSZi29lY6QX/DqsxMWfm44U/c4iNV/h+YUYv4hxP8pheZCG+3NCkd8t1tXO9pHfm8Mt7FySb+ij5U5Itvrp4LehvNmXUcEN/I9b4XjOimmK5l83wtVZUR7iuoDorfKse1RqPqVYPDE8bFY4Twxh7+DGjZd+Z5tDZU0v7hsEplU74IXOb/usOjTO1dG4WfKyOOf7wnXmAmkUtWc2CJ9UxE3RJ7uhBzaSWzGbBRnWMgR8Rfzq+QS0ZvyK4+fgOteQ0Cx7z1I/OyeP/gm+YJy0PXWo+vqCWxC/7WeLxf8ks3fGDR/vxU2op1QT/ViNqafSlwZhSK1N8a/CBWjl8bTASaiHBB8HBAIwYnuyuycJ2zOVjjRrrx9I07H7vOnrZ4ix6pz2gG79ILdOwY3Ny2gWo7B1qzNl/EFwsZpHyD/JEPDuM9hdva/bnkXSkAUS3PlWWbrl7/rxFGRzlQpyOl1FaBm5SPqk5NZZDH/ww5spvYJDRJOQbyxy7crDfS45D/qfpxgfCSe84nBv0h+kqxh+JZIfSyi53LLxq15UaukIbHFz7O6iCI4v6IVhozaVgV5SXiMfDY53Mgud5Z1I/vmfc+CrO3pe0S2okgzY4tMQQyuAT0RKy52DLCl4ff737ny2BXW3Z1Y0/MD0wPmXVSY3G1MAk0gYPhRVCGby3iRJ1MBk+SnzXimoLn4J77QkdgKHguaf6FsIpfSxZQxe8618DqIO3RETWRRl8xVswbfEWbNYGPxtJA8A36UPChS54bvcUGS+LFrE9+LVHjqTglbT6bRhsyq8fNEwfmuBoRkQ7XbBDzLw/3L8eGUnBLgdXGgbbYJeYPrAYQhPsjsuIgT74iW158pEGpOBB+2B5b2GQVn8PTfDFpFKqCd7Qm2nx/w7GziGNeARNsGfwfKgOtuidPf+h4GCwqtnr2aRkFNAEn4lN1ME5yR5dB49us55pnveDmmA8SMXZQRNMG1taT9U+GJAk9rsM3m8X/DK7Lhg3qmd70AVv3C2xRagKxsohybm74MHWplKhvuBT3QpYcw+HC2JbZTB23MGSzoLDatFr6e7wLdV44JNgHIjZI2Uw/JlNr+LOgnl1kCuCle/H5/gsGBaxRLdA988JPbO7Ct5RZaQNDpZEshs+DR46xPLaYBYeTxP+8/tdBWdUcbXBiCySpPg4GCmx2FUFs6A4/WkadxW8oUqkD8ZgQm9OaBAcCWKZJpiF5Wfeugp2qBJ88unrhF5s0SQYO/qflSaYFXxBdBD8tD/Ufrq8PJ6hWTAyYiKqC85W0uPuDV0FJ1QpV9yRLhiuIHZH02A/JnauC74t/LdHnknQWfD89del0AbDreZqJ0XjYMyJGcOaYNzNPZi/oGmIzoKjHi/CAiAYK4JZMROOIa5DtAgOpsSsuuDgaqRhtRgXlK27XB66fFFn/tCyiOGftJoaWV7si9yyxQHdis58muL5pc/wz1ptk75tiLsXoHNr7z7t28b07OPJfwBnFyL8/o/uhQAAAABJRU5ErkJggg=="/></a></div>
-
-        <div class="col col-2 item"><a href="https://getadmiral.com/"><img src="/logos/admiral.png"/></a></div>
     </div>
 
     <br/>
 
     <div class="row gutters logos push-center">
         <div class="col col-2 item"></div>
-        <div class="col col-2 item"><a href="https://www.soundcloud.com/"><img src="/logos/soundcloud.png"/></a></div>
-        <div class="col col-2 item"><a href="https://qunar.com/"><img src="/logos/qunar.png"/></a></div>
-        <div class="col col-2 item"><a href="https://tradeshift.com/"><img src="/logos/tradeshift.png"/></a></div>
+        {{partial "logo" (dict "context" . "url" "www.soundcloud.com" "logo" "soundcloud.png") }}
+        {{partial "logo" (dict "context" . "url" "qunar.com" "logo" "qunar.png") }}
+        {{partial "logo" (dict "context" . "url" "tradeshift.com" "logo" "tradeshift.png") }}
         <div class="col col-2 item"></div>
         <div class="col col-2 item"></div>
     </div>
