@@ -13,7 +13,7 @@ CoreDNS-1.2.5!
 ## Core
 
 Correctly make a reply fit in the client's buffer, *especially* when EDNS0 is not used.
-This used to be the responsibility of the plugin, now the server will handle it.
+This used to be the responsibility of a plugin, now the server will handle it.
 
 ## Plugins
 
