@@ -20,7 +20,7 @@ This used to be the responsibility of a plugin, now the server will handle it.
 Documentation and smaller updates for various plugins, as well as:
 
 * [*cache*](/plugins/cache) - resets min TTL default back to 5 second (instead of 0).
-* [*dnssec*](/plugins/dnssec) - now allows aZSK/KSK split as well as CSK setup.
+* [*dnssec*](/plugins/dnssec) - now allows aZSK/KSK split as well as a CSK setup.
 * [*rewrite*](/plugins/rewrite) - answer rewrite is now automatic for _exact_ name rewrites.
 
 ## Brought to you by
