@@ -30,7 +30,7 @@ startup:github.com/mholt/caddy/startupshutdown
 ...
 ~~~
 
-The ordering of the plugins is specified by how the are ordered in this file. Each line consists of
+The ordering of the plugins is specified by how they are ordered in this file. Each line consists of
 a **name** and a **repository**. Just add or remove your plugin in this file.
 
 Then do a `go get <plugin-repo-path>` if you need to get the external plugin's source code. And then
@@ -39,7 +39,7 @@ plugin with `coredns -plugins`.
 
 ## Build with external golang source code
 
-Alternatively, you could assembly plugins from different places through an external golang program.
+Alternatively, you could assemble plugins from different places through an external golang program.
 It looks like this:
 
 ~~~
