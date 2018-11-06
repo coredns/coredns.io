@@ -4,7 +4,7 @@ description = "*kubernetes* enables the reading zone data from a Kubernetes clus
 weight = 17
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2018-10-17T18:39:57.647941"
+date = "2018-11-06T07:19:41.753850"
 +++
 
 ## Description
@@ -37,6 +37,7 @@ kubernetes [ZONES...] {
     resyncperiod DURATION
     endpoint URL [URL...]
     tls CERT KEY CACERT
+    kubeconfig KUBECONFIG CONTEXT
     namespaces NAMESPACE...
     labels EXPRESSION
     pods POD-MODE

@@ -4,7 +4,7 @@ description = "*route53* enables serving zone data from AWS route53."
 weight = 29
 tags = [ "plugin", "route53" ]
 categories = [ "plugin" ]
-date = "2018-10-17T18:39:57.650767"
+date = "2018-11-06T07:19:41.756740"
 +++
 
 ## Description
@@ -35,7 +35,7 @@ route53 [ZONE:HOSTED_ZONE_ID...] {
 * `upstream` [**ADDRESS**...] specifies upstream resolver(s) used for resolving services that point
    to external hosts (eg. used to resolve CNAMEs). If no **ADDRESS** is given, CoreDNS will resolve
    against itself. **ADDRESS** can be an IP, an IP:port or a path to a file structured like
-   resolv.conf (**NB**: Currently a bug (#2099) is preventing the use of self-resolver).
+   resolv.conf.
 * `credentials` used for reading the credential file and setting the profile name for a given zone.
 * **PROFILE** AWS account profile name. Defaults to `default`.
 * **FILENAME** AWS credentials filename. Defaults to `~/.aws/credentials`
