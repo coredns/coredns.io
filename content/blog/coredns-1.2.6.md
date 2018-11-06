@@ -31,7 +31,7 @@ kernels.
 
 *  [*hosts*](/plugins/hosts) will now read the `hosts` file without holding a write lock.
 
-*  [*route53*](/plugin/route53) makes the upstream optional.
+*  [*route53*](/plugins/route53) makes the upstream optional.
 
 ## Brought to you by
 

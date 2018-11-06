@@ -4,7 +4,7 @@ description = "*rewrite* performs internal message rewriting."
 weight = 27
 tags = [ "plugin", "rewrite" ]
 categories = [ "plugin" ]
-date = "2018-10-17T18:39:57.650301"
+date = "2018-11-06T07:19:41.756301"
 +++
 
 ## Description
@@ -186,6 +186,16 @@ follows:
 
 ```
 rewrite [continue|stop] name regex STRING STRING answer name STRING STRING
+```
+
+When using `exact` name rewrite rules, answer gets re-written automatically,
+and there is no need defining `answer name` instruction. The below rule
+rewrites the name in a request from `RED` to `BLUE`, and subsequently
+rewrites the name in a corresponding response from `BLUE` to `RED`. The
+client in the request would see only `RED` and no `BLUE`.
+
+```
+rewrite [continue|stop] name exact RED BLUE
 ```
 
 ### TTL Field Rewrites

@@ -4,7 +4,7 @@ description = "*file* enables serving zone data from an RFC 1035-style master fi
 weight = 13
 tags = [ "plugin", "file" ]
 categories = [ "plugin" ]
-date = "2018-10-17T18:39:57.646930"
+date = "2018-11-06T07:19:41.752730"
 +++
 
 ## Description
@@ -40,8 +40,8 @@ file DBFILE [ZONES... ] {
   the direction. **ADDRESS** must be denoted in CIDR notation (127.0.0.1/32 etc.) or just as plain
   addresses. The special wildcard `*` means: the entire internet (only valid for 'transfer to').
   When an address is specified a notify message will be send whenever the zone is reloaded.
-* `reload` interval to perform reload of zone if SOA version changes. Default is one minute. 
-  Value of `0` means to not scan for changes and reload. eg. `30s` checks zonefile every 30 seconds 
+* `reload` interval to perform reload of zone if SOA version changes. Default is one minute.
+  Value of `0` means to not scan for changes and reload. eg. `30s` checks zonefile every 30 seconds
   and reloads zone when serial changes.
 * `no_reload` deprecated. Sets reload to 0.
 * `upstream` defines upstream resolvers to be used resolve external names found (think CNAMEs)
