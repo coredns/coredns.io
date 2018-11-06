@@ -3,7 +3,7 @@ title = "CoreDNS-1.2.6 Release"
 description = "CoreDNS-1.2.6 Release Notes."
 tags = ["Release", "1.2.6", "Notes"]
 release = "1.2.6"
-date = "2018-10-24T20:40:29+01:00"
+date = "2018-11-05T20:40:29+01:00"
 author = "coredns"
 +++
 
@@ -33,7 +33,7 @@ kernels.
 
 *  [*route53*](/plugins/route53) makes the upstream optional.
 
-## Brought to you by
+## Brought to You By
 
 Carl-Magnus Björkell,
 Chris O'Haver,
