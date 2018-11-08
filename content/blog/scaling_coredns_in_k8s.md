@@ -1,6 +1,6 @@
 +++ title = "Scaling CoreDNS in Kubernetes Clusters" description = "A guide for tuning CoreDNS resources/requirements in Kubernetes clusters" tags = ["Kubernetes", "Service", "Discovery", "DNS", "Documentation", "Deployment"] date = "2018-11-06T11:12:13-00:00" author = "chris" +++
 
-I'm sharing the results of some tests I ran with CoreDNS in Kubernetes to provide some reference points for tuning CoreDNS to your cluster.
+I'm sharing the results of some tests I ran with CoreDNS (1.2.5) in Kubernetes (1.12) to provide some reference points for tuning CoreDNS to your cluster.
 In addition to testing CoreDNS in its default configuration, I tested CoreDNS with the optional *autopath* plugin enabled.
 The *autopath* plugin is an optimization that helps transparently mitigate the DNS performance penalties Pods incur due
 to Kubernetes' infamous ndots:5 issue. These tests quantify the memory/performance trade when enabling *autopath*.
