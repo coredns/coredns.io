@@ -37,7 +37,7 @@ In terms of CPU performance, CoreDNS performs much better for external names (e.
 Take aways:
 
 * Kube-dns performed about 10% better for internal names.  This is probably due to dnsmasq being more optimized than CoreDNS's built-in caching.
-* CoreDNS performed about 3X better for external names. This partly caused by negative responses not being cached in kube-dns deployments. However enabling negative cache in the kube-dns deployment did not significantly change the outcome, so the bulk of performance gain is elsewhere.
+* CoreDNS performed about 3X better for external names. This is partly caused by negative responses not being cached in kube-dns deployments. However enabling negative cache in the kube-dns deployment did not significantly change the outcome, so the bulk of performance gain is elsewhere.
 
 | DNS Server           | Query Type  | QPS    | Avg Latency (ms) |
 |----------------------|-------------|--------|------------------|
@@ -46,5 +46,6 @@ Take aways:
 
 ## More
 
+The version of kube-dns and default configuration used in these tests were those released with Kubernetes 1.12.
 
 For more details about the test environments see: [Scaling CoreDNS in Kubernetes Clusters] (https://github.com/coredns/deployment/blob/master/kubernetes/Scaling_CoreDNS.md).
