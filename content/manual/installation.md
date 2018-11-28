@@ -1,13 +1,13 @@
 # Installation
 
-CoreDNS is written in Go, but unless you want to develop plugins or compile CoreDNS yourself you
+CoreDNS is written in Go, but unless you want to develop plugins or compile CoreDNS yourself, you
 probably don't care. The following sections detail how you can get CoreDNS binaries or install from source.
 
 ## Binaries
 
 For every CoreDNS release, we provide [pre-compiled
 binaries](https://github.com/coredns/coredns/releases/latest) for various operating systems. For
-Linux, we also provide cross compiled binaries for ARM, PowerPC and other architectures.
+Linux, we also provide cross-compiled binaries for ARM, PowerPC and other architectures.
 
 ## Docker
 
@@ -22,9 +22,9 @@ to create your own Docker image.
 
 To compile CoreDNS, we assume you have a working Go setup. See various tutorials if you don't have
 that already configured. The Go version that comes with your OS is probably too old to compile
-CoreDNS as we require Go 1.9.x at the moment (Feb 2018).
+CoreDNS as we require Go 1.9.x at the moment (Feb. 2018).
 
-With CoreDNS, we try to vendor all our dependencies, but because of [various
+With CoreDNS, we try to vendor as many of our dependencies as possible, but because of [various
 reasons](https://github.com/coredns/coredns/issues/1523) (mostly making it
 possible for external plugins to compile), we can not vendor *all* our dependencies. Hence to compile
 CoreDNS, you still need to `go get` some packages. The `Makefile` we include handles all of these
@@ -67,7 +67,7 @@ $ make CHECKS= godeps all
 
 Once you have a `coredns` binary, you can use the `-plugins` flag to list all the compiled plugins.
 Without a `Corefile` (See [Configuration](#configuration)) CoreDNS will load the
-[*whoami*](/plugins/whoami) that will respond with the IP address and port of the client. So to
+[*whoami*](/plugins/whoami) plugin that will respond with the IP address and port of the client. So to
 test, we start CoreDNS to run on port 1053 and send it a query using `dig`:
 
 ~~~ sh
