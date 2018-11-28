@@ -1,6 +1,10 @@
-
-+++ title = "Cluster DNS Resource Usage: CoreDNS vs Kube-DNS" description = "Comparing CoreDNS and Kube-DNS resource requirements" tags = ["Kubernetes", "Service", "Discovery", "DNS", "Documentation", "Deployment"] date = "2018-11-27T00:00:00-00:00" author = "chris" +++
-
++++ 
+title = "Cluster DNS: CoreDNS vs Kube-DNS"
+description = "Comparing CoreDNS and Kube-DNS resource requirements"
+tags = ["Kubernetes", "Service", "Discovery", "DNS", "Documentation", "Deployment"]
+date = "2018-11-27T00:00:00-00:00"
+author = "chris" 
++++
 
 When compiling data for a [resource deployment guide for CoreDNS](https://coredns.io/2018/11/15/scaling-coredns-in-kubernetes-clusters/) a few weeks ago, I also collected the same data for kube-dns using the same test environments.  Although CoreDNS and Kube-dns ultimately perform the same task, there are some key differences in implementation that affect resource consumption and performance.  At a high level, some of these differences are:
 
