@@ -1,10 +1,10 @@
 +++
 title = "route53"
 description = "*route53* enables serving zone data from AWS route53."
-weight = 29
+weight = 30
 tags = [ "plugin", "route53" ]
 categories = [ "plugin" ]
-date = "2018-11-06T07:19:41.756740"
+date = "2018-12-15T16:09:42.313722"
 +++
 
 ## Description
@@ -52,8 +52,9 @@ Enable route53 with implicit AWS credentials and an upstream:
 
 ~~~ txt
 . {
-    route53 example.org.:Z1Z2Z3Z4DZ5Z6Z7
-    upstream 10.0.0.1
+	route53 example.org.:Z1Z2Z3Z4DZ5Z6Z7 {
+	  upstream 10.0.0.1
+	}
 }
 ~~~
 
@@ -73,16 +74,6 @@ Enable route53 with fallthrough:
 . {
     route53 example.org.:Z1Z2Z3Z4DZ5Z6Z7 example.gov.:Z654321543245 {
       fallthrough example.gov.
-    }
-}
-~~~
-
-Enable route53 with AWS credentials file:
-
-~~~ txt
-. {
-    route53 example.org.:Z1Z2Z3Z4DZ5Z6Z7 {
-      credentials_file some-user
     }
 }
 ~~~

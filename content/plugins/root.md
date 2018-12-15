@@ -1,10 +1,10 @@
 +++
 title = "root"
 description = "*root* simply specifies the root of where to find (zone) files."
-weight = 28
+weight = 29
 tags = [ "plugin", "root" ]
 categories = [ "plugin" ]
-date = "2018-11-06T07:19:41.756523"
+date = "2018-12-15T16:09:42.313603"
 +++
 
 ## Description

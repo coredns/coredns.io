@@ -1,10 +1,10 @@
 +++
 title = "log"
 description = "*log* enables query logging to standard output."
-weight = 19
+weight = 20
 tags = [ "plugin", "log" ]
 categories = [ "plugin" ]
-date = "2018-11-06T07:19:41.754302"
+date = "2018-12-15T16:09:42.312561"
 +++
 
 ## Description
@@ -64,6 +64,7 @@ The following place holders are supported:
 * `{class}`: qclass of the request
 * `{proto}`: protocol used (tcp or udp)
 * `{remote}`: client's IP address, for IPv6 addresses these are enclosed in brackets: `[::1]`
+* `{local}`: server's IP address, for IPv6 addresses these are enclosed in brackets: `[::1]`
 * `{size}`: request size in bytes
 * `{port}`: client's port
 * `{duration}`: response duration
@@ -75,6 +76,10 @@ The following place holders are supported:
 * `{>do}`: is the EDNS0 DO (DNSSEC OK) bit set in the query
 * `{>id}`: query ID
 * `{>opcode}`: query OPCODE
+* `{/[LABEL]}`: any metadata label is accepted as a place holder if it is enclosed between `{/` and  `}`.
+the place holder will be replaced by the corresponding metadata value or the default value `-` if label is not defined.
+
+
 
 The default Common Log Format is:
 

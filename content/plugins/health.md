@@ -4,13 +4,13 @@ description = "*health* enables a health check endpoint."
 weight = 15
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2018-11-06T07:19:41.753251"
+date = "2018-12-15T16:09:42.311848"
 +++
 
 ## Description
 
 By enabling *health* any plugin that implements
-[healt.Healther interface](https://godoc.org/github.com/coredns/coredns/plugin/health#Healther)
+[health.Healther interface](https://godoc.org/github.com/coredns/coredns/plugin/health#Healther)
 will be queried for it's health. The combined health is exported, by default, on port 8080/health .
 
 ## Syntax
