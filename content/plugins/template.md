@@ -1,10 +1,10 @@
 +++
 title = "template"
 description = "*template* allows for dynamic responses based on the incoming query."
-weight = 31
+weight = 32
 tags = [ "plugin", "template" ]
 categories = [ "plugin" ]
-date = "2018-11-06T07:19:41.757275"
+date = "2018-12-15T16:09:42.313990"
 +++
 
 ## Description
