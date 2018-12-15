@@ -18,7 +18,7 @@ protocol details into the server to make life easier for plugin authors.
 
 # Plugins
 
-*  [*k8s_external*](/plugin/ks8_external) a new plugin that allows external zones to point to
+*  [*k8s_external*](/plugins/k8s_external) a new plugin that allows external zones to point to
    Kubernetes in-cluster services.
 
 *  [*rewrite*](/plugins/rewrite) fixes a bug where a rule would eat the first character of a name
@@ -26,9 +26,9 @@ protocol details into the server to make life easier for plugin authors.
 *  [*log*](/plugins/log) now supported the [*metadata*](/plugins/metadata) labels. It also fixes a
    bug in the formatting of a plugin logging a info/failure/warning
 
-*  [*forward*](/plugin/forward) removes the dynamic read timeout and uses a fixed value now.
+*  [*forward*](/plugins/forward) removes the dynamic read timeout and uses a fixed value now.
 
-*  [*kubernetes*](/plugin/kubernetes) now checks if a zone transfer is allowed. Also allow a TTL of
+*  [*kubernetes*](/plugins/kubernetes) now checks if a zone transfer is allowed. Also allow a TTL of
    0 to avoid caching in the cache plugin.
 
 ## Brought to You By
