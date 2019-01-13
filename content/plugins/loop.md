@@ -4,7 +4,7 @@ description = "*loop* detect simple forwarding loops and halt the server."
 weight = 22
 tags = [ "plugin", "loop" ]
 categories = [ "plugin" ]
-date = "2019-01-06T09:07:57.740447"
+date = "2019-01-13T14:59:21.561075"
 +++
 
 ## Description

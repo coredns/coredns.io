@@ -4,7 +4,7 @@ description = "*kubernetes* enables the reading zone data from a Kubernetes clus
 weight = 19
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2019-01-06T09:07:57.740107"
+date = "2019-01-13T14:59:21.560683"
 +++
 
 ## Description
@@ -55,8 +55,9 @@ kubernetes [ZONES...] {
 * `endpoint` specifies the **URL** for a remote k8s API endpoint.
    If omitted, it will connect to k8s in-cluster using the cluster service account.
    Multiple k8s API endpoints could be specified:
-   `endpoint http://k8s-endpoint1:8080 http://k8s-endpoint2:8080`. CoreDNS
-   will automatically perform a healthcheck and proxy to the healthy k8s API endpoint.
+   `endpoint http://k8s-endpoint1:8080 http://k8s-endpoint2:8080`.
+   CoreDNS will automatically perform a healthcheck and proxy to the healthy k8s API endpoint.
+   Note that only http is supported when more than one k8s API endpoints are specified at the moment.
 * `tls` **CERT** **KEY** **CACERT** are the TLS cert, key and the CA cert file names for remote k8s connection.
    This option is ignored if connecting in-cluster (i.e. endpoint is not specified).
 * `kubeconfig` **KUBECONFIG** **CONTEXT** authenticates the connection to a remote k8s cluster using a kubeconfig file. It supports TLS, username and password, or token-based authentication. This option is ignored if connecting in-cluster (i.e., the endpoint is not specified).
