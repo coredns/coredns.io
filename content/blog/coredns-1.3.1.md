@@ -8,7 +8,7 @@ author = "coredns"
 +++
 
 We are pleased to announce the [release](https://github.com/coredns/coredns/releases/tag/v1.3.1)
-of CoreDNS-1.3.1! This is a fairly small release that allows us to announcing some backwards
+of CoreDNS-1.3.1! This is a fairly small release that allows us to announce some backwards
 incompatible changes in the *next* (1.4.0) release:
 
  *  The `upstream` directive used in various plugin will start to *default* to the coredns process
