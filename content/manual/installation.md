@@ -1,13 +1,23 @@
 # Installation
 
 CoreDNS is written in Go, but unless you want to develop plugins or compile CoreDNS yourself, you
-probably don't care. The following sections detail how you can get CoreDNS binaries or install from source.
+probably don't care. The following sections detail how you can get CoreDNS binaries, install via
+[Docker](https://docker.com) or [Homebrew](https://brew.sh) (if you're on macOS), or install from
+source.
 
 ## Binaries
 
 For every CoreDNS release, we provide [pre-compiled
 binaries](https://github.com/coredns/coredns/releases/latest) for various operating systems. For
 Linux, we also provide cross-compiled binaries for ARM, PowerPC and other architectures.
+
+## Homebrew
+
+If you want to run CoreDNS on macOS, the easiest way is via [Homebrew](https://brew.sh):
+
+~~~ sh
+brew install coredns
+~~~
 
 ## Docker
 
