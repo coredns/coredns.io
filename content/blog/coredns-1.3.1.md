@@ -26,10 +26,10 @@ Mostly documentation updates in various plugins. Plus a small fix where we stop 
 
  *  [*log*](/plugins/log) now allows multiple names to be specified.
 
- *  [*import*](/plugin/import) was added to give it a README.md to make it's documentation more
+ *  [*import*](/plugins/import) was added to give it a README.md to make it's documentation more
     discoverable.
 
- *  [*kubernetes*](/plugin/kubernetes) `TTL` is also applied to negative responses (NXDOMAIN, etc).
+ *  [*kubernetes*](/plugins/kubernetes) `TTL` is also applied to negative responses (NXDOMAIN, etc).
 
 ## Brought to You By
 
