@@ -25,7 +25,7 @@ GitHub > webhook > mbench > prometheus > grafana
 
 I.e. we configured a webhook that gets triggered on a [pull
 request](https://developer.github.com/v3/activity/events/types/#pullrequestevent) and then via some
-[Caddy](https://caddyserver.com) proxy triggery gets delivered to
+[Caddy](https://caddyserver.com) proxy trigger gets delivered to
 [webhook](https://github.com/adnanh/webhook). Webhook then kicks of a [shell
 script](https://github.com/miekg/mbench/blob/94c2d4d13a5d0ab6eaa5ed26d9bc992c1f28a10c/scripts/coredns-benchmark-pull),
 that pulls down CoreDNS' repo and the correct pull request.
