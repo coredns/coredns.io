@@ -28,7 +28,7 @@ The (unused) gRPC watch functionally was removed from the server.
 
 Note we're actively working on two (probably related) bugs
 ([2593](https://github.com/coredns/coredns/issues/2593),
-[2624](https://github.com/coredns/coredns/issues/2624)) which should hopefully result and a fix and
+[2624](https://github.com/coredns/coredns/issues/2624)) which should hopefully result in a fix and
 a new release fairly quickly.
 
 # Plugins
