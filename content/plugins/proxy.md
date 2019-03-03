@@ -4,7 +4,7 @@ description = "*proxy* facilitates both a basic reverse proxy and a robust load 
 weight = 27
 tags = [ "plugin", "proxy" ]
 categories = [ "plugin" ]
-date = "2019-01-13T14:59:21.561684"
+date = "2019-03-03T09:28:16.709180"
 +++
 
 ## Description
@@ -63,6 +63,7 @@ proxy FROM TO... {
 ## Policies
 
 There are four load-balancing policies available:
+
 * `random` (default) - Randomly select a backend
 * `least_conn` - Select the backend with the fewest active connections
 * `round_robin` - Select the backend in round-robin fashion
@@ -71,7 +72,7 @@ There are four load-balancing policies available:
 
 
 All polices implement randomly spraying packets to backend hosts when *no healthy* hosts are
-available. This is to preeempt the case where the healthchecking (as a mechanism) fails.
+available. This is to preempt the case where the healthchecking (as a mechanism) fails.
 
 ## Upstream Protocols
 

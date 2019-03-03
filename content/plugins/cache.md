@@ -4,7 +4,7 @@ description = "*cache* enables a frontend cache."
 weight = 4
 tags = [ "plugin", "cache" ]
 categories = [ "plugin" ]
-date = "2019-01-13T14:59:21.558819"
+date = "2019-03-03T09:28:16.704357"
 +++
 
 ## Description
@@ -22,7 +22,7 @@ cache [TTL] [ZONES...]
 ~~~
 
 * **TTL** max TTL in seconds. If not specified, the maximum TTL will be used, which is 3600 for
-    noerror responses and 1800 for denial of existence ones.
+    NOERROR responses and 1800 for denial of existence ones.
     Setting a TTL of 300: `cache 300` would cache records up to 300 seconds.
 * **ZONES** zones it should cache for. If empty, the zones from the configuration block are used.
 

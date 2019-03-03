@@ -4,7 +4,7 @@ description = "*rewrite* performs internal message rewriting."
 weight = 29
 tags = [ "plugin", "rewrite" ]
 categories = [ "plugin" ]
-date = "2019-01-13T14:59:21.562006"
+date = "2019-03-03T09:28:16.709611"
 +++
 
 ## Description
@@ -178,7 +178,7 @@ rewrite [continue|stop] {
 Note that the above syntax is strict.  For response rewrites only `name`
 rules are allowed to match the question section, and only by match type
 `regex`. The answer rewrite must be after the name, as ordered in the
-syntax example. There must only be two lines (a `name` follwed by an
+syntax example. There must only be two lines (a `name` followed by an
 `answer`) in the brackets, additional rules are not supported.
 
 An alternate syntax for the rewrite of DNS request and response is as
