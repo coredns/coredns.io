@@ -4,7 +4,7 @@ description = "*health* enables a health check endpoint."
 weight = 15
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2019-03-03T09:28:16.707002"
+date = "2019-03-03T14:11:50.603066"
 +++
 
 ## Description

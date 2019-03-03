@@ -4,7 +4,7 @@ description = "*proxy* facilitates both a basic reverse proxy and a robust load 
 weight = 27
 tags = [ "plugin", "proxy" ]
 categories = [ "plugin" ]
-date = "2019-03-03T09:28:16.709180"
+date = "2019-03-03T14:11:50.604581"
 +++
 
 ## Description
