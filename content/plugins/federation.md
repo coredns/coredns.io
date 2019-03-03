@@ -4,7 +4,7 @@ description = "*federation* enables federated queries to be resolved via the kub
 weight = 12
 tags = [ "plugin", "federation" ]
 categories = [ "plugin" ]
-date = "2019-01-13T14:59:21.559721"
+date = "2019-03-03T09:28:16.706382"
 +++
 
 ## Description
@@ -20,16 +20,14 @@ Enabling *federation* without also having *kubernetes* is a noop.
 ~~~
 federation [ZONES...] {
     NAME DOMAIN
-    upstream [ADDRESS...]
+    upstream
 }
 ~~~
 
 * Each **NAME** and **DOMAIN** defines federation membership. One entry for each. A duplicate
   **NAME** will silently overwrite any previous value.
-* `upstream` [**ADDRESS**...] defines the upstream resolvers used for resolving the `CNAME` target
-  produced by this plugin.  If no **ADDRESS** is given, CoreDNS
-  will resolve External Services against itself. **ADDRESS** can be an IP, an IP:port, or a path
-  to a file structured like resolv.conf.
+* `upstream` [**ADDRESS**...] resolve the `CNAME` target produced by this plugin.  CoreDNS
+  will resolve External Services against itself.
 
 ## Examples
 

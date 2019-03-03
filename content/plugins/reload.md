@@ -4,7 +4,7 @@ description = "*reload* allows automatic reload of a changed Corefile."
 weight = 28
 tags = [ "plugin", "reload" ]
 categories = [ "plugin" ]
-date = "2019-01-13T14:59:21.561809"
+date = "2019-03-03T09:28:16.709340"
 +++
 
 ## Description
@@ -91,3 +91,10 @@ After the aborted attempt to reload we are left with the old processes running, 
 closed in step 1; so the health endpoint is broken. The same can hopen in the prometheus metrics plugin.
 
 In general be careful with assigning new port and expecting reload to work fully.
+
+Also any `import` statement is not discovered by this plugin. This means if any of these imported files
+changes the *reload* plugin is ignorant of that fact.
+
+## Also See
+
+See coredns-import(7) and corefile(5).

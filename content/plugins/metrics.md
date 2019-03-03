@@ -4,7 +4,7 @@ description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics
 weight = 24
 tags = [ "plugin", "metrics" ]
 categories = [ "plugin" ]
-date = "2019-01-13T14:59:21.561294"
+date = "2019-03-03T09:28:16.708659"
 +++
 
 ## Description
@@ -50,12 +50,12 @@ prometheus [ADDRESS]
 
 For each zone that you want to see metrics for.
 
-It optionally takes an address to which the metrics are exported; the default
-is `localhost:9153`. The metrics path is fixed to `/metrics`.
+It optionally takes a bind address to which the metrics are exported; the default
+listens on `localhost:9153`. The metrics path is fixed to `/metrics`.
 
 ## Examples
 
-Use an alternative address:
+Use an alternative listening address:
 
 ~~~ corefile
 . {

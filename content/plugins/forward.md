@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 14
 tags = [ "plugin", "forward" ]
 categories = [ "plugin" ]
-date = "2019-01-13T14:59:21.559963"
+date = "2019-03-03T09:28:16.706791"
 +++
 
 ## Description
@@ -170,7 +170,7 @@ Or with multiple upstreams from the same provider
 ~~~ corefile
 . {
     forward . tls://1.1.1.1 tls://1.0.0.1 {
-       tls_servername loudflare-dns.com
+       tls_servername cloudflare-dns.com
        health_check 5s
     }
     cache 30
