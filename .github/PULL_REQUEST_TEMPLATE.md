@@ -1,9 +1,12 @@
-<!--
-
 Thank you for contributing to CoreDNS' website!
 
-Any pull request that updates a README on https://coredns.io/plugins should be
-*redirected* to the CoreDNS repository: https://github.com/coredns/coredns . The READMEs
-from that repo are periodically synced to the website.
+Note:
 
--->
+ *  All text listed in /plugins is a *copied* from
+    [https://github.com/coredns/coredns/tree/master/plugin](https://github.com/coredns/coredns/tree/master/plugin).
+
+ *  The release notes are *copied* from
+    [https://github.com/coredns/coredns/tree/master/notes](https://github.com/coredns/coredns/tree/master/notes).
+
+Any pull request that updates either of those should be *directed* to the CoreDNS repository:
+[https://github.com/coredns/coredns](https://github.com/coredns/coredns) .
