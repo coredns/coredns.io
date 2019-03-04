@@ -1,0 +1,6 @@
+<div class="text-right smaller">
+   <i class="fa fa-code"></i>
+    {{ if (isset .Params "release") }}
+        <a href="https://raw.githubusercontent.com/coredns/coredns/master/notes/{{ .File.BaseFileName }}.md"> canonical source of this file</a>
+    {{ end }}
+</div>
