@@ -4,7 +4,7 @@ description = "*cache* enables a frontend cache."
 weight = 4
 tags = [ "plugin", "cache" ]
 categories = [ "plugin" ]
-date = "2019-03-03T14:11:50.601576"
+date = "2019-03-16T09:30:30.535806"
 +++
 
 ## Description
@@ -91,13 +91,14 @@ Proxy to Google Public DNS and only cache responses for example.org (or below).
 
 ~~~ corefile
 . {
-    proxy . 8.8.8.8:53
+    forward . 8.8.8.8:53
     cache example.org
 }
 ~~~
 
 Enable caching for all zones, keep a positive cache size of 5000 and a negative cache size of 2500:
- ~~~ corefile
+
+~~~ corefile
  . {
      cache {
          success 5000

@@ -4,7 +4,7 @@ description = "*erratic* a plugin useful for testing client behavior."
 weight = 9
 tags = [ "plugin", "erratic" ]
 categories = [ "plugin" ]
-date = "2019-03-03T14:11:50.602228"
+date = "2019-03-16T09:30:30.536230"
 +++
 
 ## Description
@@ -36,9 +36,9 @@ erratic {
 
 In case of a zone transfer and truncate the final SOA record *isn't* added to the response.
 
-## Health
+## Ready
 
-This plugin implements dynamic health checking. For every dropped query it turns unhealthy.
+This plugin reports readiness to the ready plugin.
 
 ## Examples
 

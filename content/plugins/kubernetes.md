@@ -1,10 +1,10 @@
 +++
 title = "kubernetes"
 description = "*kubernetes* enables the reading zone data from a Kubernetes cluster."
-weight = 19
+weight = 20
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2019-03-03T14:11:50.603587"
+date = "2019-03-16T09:30:30.537337"
 +++
 
 ## Description
@@ -17,7 +17,7 @@ cluster.  See the [deployment](https://github.com/coredns/deployment) repository
 to deploy CoreDNS in Kubernetes](https://github.com/coredns/deployment/tree/master/kubernetes).
 
 [stubDomains and upstreamNameservers](https://kubernetes.io/blog/2017/04/configuring-private-dns-zones-upstream-nameservers-kubernetes/)
-are implemented via the *proxy* plugin and kubernetes *upstream*. See example below.
+are implemented via the *forward* plugin and kubernetes *upstream*. See the examples below.
 
 This plugin can only be used once per Server Block.
 
@@ -110,11 +110,6 @@ kubernetes [ZONES...] {
   This allows the querying pod to continue searching for the service in the search path.
   The search path could, for example, include another Kubernetes cluster.
 
-## Health
-
-This plugin implements dynamic health checking. Currently this is limited to reporting healthy when
-the API has synced.
-
 ## Examples
 
 Handle all queries in the `cluster.local` zone. Connect to Kubernetes in-cluster. Also handle all
@@ -147,31 +142,35 @@ kubernetes cluster.local {
 }
 ~~~
 
-
 ## stubDomains and upstreamNameservers
 
-Here we use the *proxy* plugin to implement a stubDomain that forwards `example.local` to the nameserver `10.100.0.10:53`.
+Here we use the *forward* plugin to implement a stubDomain that forwards `example.local` to the nameserver `10.100.0.10:53`.
 The *upstream* option in the *kubernetes* plugin means that ExternalName services (CNAMEs) will be resolved using the respective proxy.
 Also configured is an upstreamNameserver `8.8.8.8:53` that will be used for resolving names that do not fall in `cluster.local`
 or `example.local`.
 
 ~~~ txt
-.:53 {
+cluster.local:53 {
     kubernetes cluster.local {
         upstream
     }
-    proxy example.local 10.100.0.10:53
-    proxy . 8.8.8.8:53
+}
+example.local {
+    forward . 10.100.0.10:53
+}
+
+. {
+    forward . 8.8.8.8:53
 }
 ~~~
 
 The configuration above represents the following Kube-DNS stubDomains and upstreamNameservers configuration.
 
 ~~~ txt
-  stubDomains: |
-    {“example.local”: [“10.100.0.10:53”]}
-  upstreamNameservers: |
-    [“8.8.8.8:53”]
+stubDomains: |
+   {“example.local”: [“10.100.0.10:53”]}
+upstreamNameservers: |
+   [“8.8.8.8:53”]
 ~~~
 
 ## AutoPath

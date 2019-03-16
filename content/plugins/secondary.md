@@ -1,10 +1,10 @@
 +++
 title = "secondary"
 description = "*secondary* enables serving a zone retrieved from a primary server."
-weight = 32
+weight = 33
 tags = [ "plugin", "secondary" ]
 categories = [ "plugin" ]
-date = "2019-03-03T14:11:50.605236"
+date = "2019-03-16T09:30:30.538503"
 +++
 
 ## Description

@@ -1,10 +1,10 @@
 +++
 title = "tls"
 description = "*tls* allows you to configure the server certificates for the TLS and gRPC servers."
-weight = 34
+weight = 35
 tags = [ "plugin", "tls" ]
 categories = [ "plugin" ]
-date = "2019-03-03T14:11:50.605544"
+date = "2019-03-16T09:30:30.538742"
 +++
 
 ## Description
@@ -12,9 +12,6 @@ date = "2019-03-03T14:11:50.605544"
 CoreDNS supports queries that are encrypted using TLS (DNS over Transport Layer Security, RFC 7858)
 or are using gRPC (https://grpc.io/, not an IETF standard). Normally DNS traffic isn't encrypted at
 all (DNSSEC only signs resource records).
-
-The *proxy* plugin also support gRPC (`protocol gRPC`), meaning you can chain CoreDNS servers
-using this protocol.
 
 The *tls* "plugin" allows you to configure the cryptographic keys that are needed for both
 DNS-over-TLS and DNS-over-gRPC. If the `tls` directive is omitted, then no encryption takes place.
@@ -38,7 +35,7 @@ nameservers defined in `/etc/resolv.conf` to resolve the query. This proxy path 
 ~~~
 tls://.:5553 {
 	tls cert.pem key.pem ca.pem
-	proxy . /etc/resolv.conf
+	forward . /etc/resolv.conf
 }
 ~~~
 
@@ -48,7 +45,7 @@ incoming queries.
 ~~~
 grpc://. {
 	tls cert.pem key.pem ca.pem
-	proxy . /etc/resolv.conf
+	forward . /etc/resolv.conf
 }
 ~~~
 

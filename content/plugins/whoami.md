@@ -1,10 +1,10 @@
 +++
 title = "whoami"
 description = "*whoami* returns your resolver's local IP address, port and transport."
-weight = 36
+weight = 37
 tags = [ "plugin", "whoami" ]
 categories = [ "plugin" ]
-date = "2019-03-03T14:11:50.605766"
+date = "2019-03-16T09:30:30.538897"
 +++
 
 ## Description

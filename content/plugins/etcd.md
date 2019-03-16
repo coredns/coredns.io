@@ -4,7 +4,7 @@ description = "*etcd* enables reading zone data from an etcd version 3 instance.
 weight = 11
 tags = [ "plugin", "etcd" ]
 categories = [ "plugin" ]
-date = "2019-03-03T14:11:50.602538"
+date = "2019-03-16T09:30:30.536446"
 +++
 
 ## Description
@@ -13,7 +13,7 @@ The data in etcd instance has to be encoded as
 a [message](https://github.com/skynetservices/skydns/blob/2fcff74cdc9f9a7dd64189a447ef27ac354b725f/msg/service.go#L26)
 like [SkyDNS](https://github.com/skynetservices/skydns). It should also work just like SkyDNS.
 
-The etcd plugin makes extensive use of the proxy plugin to forward and query other servers in the
+The etcd plugin makes extensive use of the forward plugin to forward and query other servers in the
 network.
 
 ## Syntax
@@ -49,7 +49,7 @@ etcd [ZONES...] {
 * `credentials` is used to set the **USERNAME** and **PASSWORD** for accessing the etcd cluster.
 * `upstream` upstream resolvers to be used resolve external names found in etcd (think CNAMEs)
   pointing to external names. If you want CoreDNS to act as a proxy for clients, you'll need to add
-  the proxy plugin. If no **ADDRESS** is given, CoreDNS will resolve CNAMEs against itself.
+  the *forward* plugin. If no **ADDRESS** is given, CoreDNS will resolve CNAMEs against itself.
   **ADDRESS** can be an IP address, and IP:port or a string pointing to a file that is structured
   as /etc/resolv.conf.
 * `tls` followed by:
@@ -88,7 +88,7 @@ This is the default SkyDNS setup, with everything specified in full:
     prometheus
     cache 160 skydns.local
     loadbalance
-    proxy . 8.8.8.8:53 8.8.4.4:53
+    forward . 8.8.8.8:53 8.8.4.4:53
 }
 ~~~
 
@@ -102,7 +102,7 @@ when resolving external pointing CNAMEs.
         upstream
     }
     cache 160 skydns.local
-    proxy . /etc/resolv.conf
+    forward . /etc/resolv.conf
 }
 ~~~
 

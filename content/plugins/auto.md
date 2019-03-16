@@ -4,7 +4,7 @@ description = "*auto* enables serving zone data from an RFC 1035-style master fi
 weight = 1
 tags = [ "plugin", "auto" ]
 categories = [ "plugin" ]
-date = "2019-03-03T14:11:50.601042"
+date = "2019-03-16T09:30:30.535429"
 +++
 
 ## Description
