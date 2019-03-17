@@ -60,7 +60,7 @@ $ mkdir -p $GOPATH/src/github.com/coredns
 $ cd $GOPATH/src/github.com/coredns/
 $ git clone git@github.com:coredns/coredns
 $ cd coredns
-$ make CHECKS= godeps all
+$ make CHECKS= all
 ~~~
 
 ## Testing
