@@ -19,7 +19,7 @@ All [in-tree](https://github.com/coredns/coredns/tree/master/plugin) plugins for
 [explugin]
   content = """
 Out of tree plugins for CoreDNS. A plugin listed here is *not automatically* endorsed by
-the CoreDNS team. Issues should be reported to respective owner(s) of the plugin.
+the CoreDNS team. Issues should be reported to owner(s) of the plugin.
   """
 
 [community]
