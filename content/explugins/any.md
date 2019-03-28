@@ -11,7 +11,7 @@ home = "https://github.com/coredns/any/blob/master/README.md"
 
 ## Description
 
-*any* basically blocks ANY queries by responding to it with a short HINFO reply.
+*any* basically blocks ANY queries by responding to them with a short HINFO reply.
 See [RFC 8482](https://tools.ietf.org/html/rfc8482) for details.
 
 ## Syntax
@@ -23,10 +23,16 @@ any
 ## Examples
 
 ~~~ corefile
-. {
+example.org {
     whoami
     any
 }
+~~~
+
+A `dig +nocmd -p 1053 any example.org +noall +answer` now returns:
+
+~~~ txt
+example.org.		8482	IN	HINFO	"ANY obsoleted" "See RFC 8482"
 ~~~
 
 ## Also See
