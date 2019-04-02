@@ -16,7 +16,7 @@
       {{ range where .Site.Pages "Params.release" "eq" .Site.Data.coredns.release.version }}
       <p class="big">
         <span class="large">
-         <a href="https://github.com/coredns/coredns/releases/latest">Version {{ .Params.release }}</a>, released {{ dateFormat "January 2, 2006" .Date }}.
+         <a href="https://github.com/coredns/coredns/releases/latest">Version {{ .Params.release }}</a>. Released {{ dateFormat "January 2, 2006" .Date }}.
          <a href="{{ .URL }}">Release notes</a>.
         </span>
       </p>
@@ -24,21 +24,16 @@
  </div>
 
      <div class="text-center">
-        <p class="outline big">
+        <p>
         In <a href="https://kubernetes.io">Kubernetes</a> 1.13, CoreDNS is <a
             href="https://kubernetes.io/blog/2018/12/03/kubernetes-1-13-release-announcement/">the default</a> cluster DNS server.
-        </p>
-     </div>
-
-     <div class="text-center">
-        <p class="outline big">
+        <br/>
         Running an older version of <a href="https://kubernetes.io">Kubernetes</a> and want to use CoreDNS? Read
         <a href="https://coredns.io/2018/01/29/deploying-kubernetes-with-coredns-using-kubeadm/">this</a> on how to switch.
         </p>
      </div>
 
     <br/>
-
 
   {{ partial "popup.html" . }}
 
