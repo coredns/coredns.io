@@ -39,7 +39,7 @@ a CH class query: `dig CH txt version.bind @localhost`
 ~~~
 
 If CoreDNS can't find a `Corefile` to load is loads the following builtin one that loads the
-[*whoami* plugin](/plugin/whoami):
+[*whoami* plugin](/plugins/whoami):
 
 ~~~ corefile
 . {
