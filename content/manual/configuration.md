@@ -173,7 +173,7 @@ example.net:53 {
 
 .:53 {
     kubernetes
-    proxy . 8.8.8.8
+    forward . 8.8.8.8
     log
     errors
     cache

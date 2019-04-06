@@ -1,10 +1,10 @@
 +++
 title = "log"
 description = "*log* enables query logging to standard output."
-weight = 22
+weight = 23
 tags = [ "plugin", "log" ]
 categories = [ "plugin" ]
-date = "2019-03-16T09:30:30.537522"
+date = "2019-04-06T07:20:41.328317"
 +++
 
 ## Description

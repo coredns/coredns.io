@@ -1,10 +1,10 @@
 +++
 title = "metadata"
 description = "*metadata* enable a meta data collector."
-weight = 24
+weight = 25
 tags = [ "plugin", "metadata" ]
 categories = [ "plugin" ]
-date = "2019-03-16T09:30:30.537691"
+date = "2019-04-06T07:20:41.328488"
 +++
 
 ## Description

@@ -4,7 +4,7 @@ description = "*auto* enables serving zone data from an RFC 1035-style master fi
 weight = 1
 tags = [ "plugin", "auto" ]
 categories = [ "plugin" ]
-date = "2019-03-16T09:30:30.535429"
+date = "2019-04-06T07:20:41.325869"
 +++
 
 ## Description
@@ -18,9 +18,9 @@ zonefile. New or changed zones are automatically picked up from disk.
 
 ~~~
 auto [ZONES...] {
-    directory DIR [REGEXP ORIGIN_TEMPLATE [TIMEOUT]]
+    directory DIR [REGEXP ORIGIN_TEMPLATE]
+    transfer to ADDRESS...
     reload DURATION
-    no_reload
     upstream
 }
 ~~~
@@ -33,14 +33,13 @@ are used.
   like `{<number>}` are replaced with the respective matches in the file name, e.g. `{1}` is the
   first match, `{2}` is the second. The default is: `db\.(.*)  {1}` i.e. from a file with the
   name `db.example.com`, the extracted origin will be `example.com`.
-  **TIMEOUT** is deprecated and will be removed in a subsequent version. 
-  `reload` will be used, if not defined
-  (it specifies how often CoreDNS should scan the directory to watch for file removal and addition;
-  the default is every 60 seconds. This value is in seconds. The minimum value is 1 second.)
-* `reload` interval to perform reloads of zones if SOA version changes and zonefiles. Default is one minute.
+* `transfer` enables zone transfers. It may be specified multiples times. `To` or `from` signals
+  the direction. **ADDRESS** must be denoted in CIDR notation (e.g., 127.0.0.1/32) or just as plain
+  addresses. The special wildcard `*` means: the entire internet (only valid for 'transfer to').
+  When an address is specified a notify message will be send whenever the zone is reloaded.
+* `reload` interval to perform reloads of zones if SOA version changes and zonefiles. It specifies how often CoreDNS should scan the directory to watch for file removal and addition. Default is one minute.
   Value of `0` means to not scan for changes and reload. eg. `30s` checks zonefile every 30 seconds
   and reloads zone when serial changes.
-* `no_reload` deprecated. Sets reload to 0.
 * `upstream` defines upstream resolvers to be used resolve external names found (think CNAMEs)
   pointing to external names. CoreDNS will resolve CNAMEs against itself.
 
@@ -78,7 +77,8 @@ where `example.org` is the origin. Scan every 45 seconds.
 ~~~ corefile
 org {
     auto {
-        directory /etc/coredns/zones/org www\.db\.(.*) {1} 45
+        directory /etc/coredns/zones/org www\.db\.(.*) {1}
+        reload 45s
     }
 }
 ~~~

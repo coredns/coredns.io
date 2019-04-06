@@ -48,7 +48,7 @@ example.net:53 {
   rewrite name foo.example.com foo.default.svc.cluster.local
   kubernetes cluster.local 10.0.0.0/24
   file /etc/coredns/example.db example.org
-  proxy . /etc/resolv.conf
+  forward . /etc/resolv.conf
   cache 30
 }
 ~~~
@@ -98,7 +98,7 @@ Coming back to our original discussion of the three use cases in Kubernetes, we 
     log
     health
     kubernetes cluster.local 10.0.0.0/24
-    proxy . /etc/resolv.conf
+    forward . /etc/resolv.conf
     cache 30
 }
 ~~~
@@ -129,7 +129,7 @@ data:
           fallthrough
         }
         file /etc/coredns/cluster.db cluster.local
-        proxy . /etc/resolv.conf
+        forward . /etc/resolv.conf
         cache 30
     }
   cluster.db: |

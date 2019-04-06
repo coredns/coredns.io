@@ -1,10 +1,10 @@
 +++
 title = "forward"
 description = "*forward* facilitates proxying DNS messages to upstream resolvers."
-weight = 14
+weight = 15
 tags = [ "plugin", "forward" ]
 categories = [ "plugin" ]
-date = "2019-03-16T09:30:30.536747"
+date = "2019-04-06T07:20:41.327527"
 +++
 
 ## Description
@@ -86,6 +86,9 @@ forward FROM TO... {
   but they have to use the same `tls_servername`. E.g. mixing 9.9.9.9 (QuadDNS) with 1.1.1.1
   (Cloudflare) will not work.
 * `policy` specifies the policy to use for selecting upstream servers. The default is `random`.
+  * `random` is a policy that implements random upstream selection.
+  * `round_robin` is a policy that selects hosts based on round robin ordering.
+  * `sequential` is a policy that selects hosts based on sequential ordering.
 * `health_check`, use a different **DURATION** for health checking, the default duration is 0.5s.
 
 Also note the TLS config is "global" for the whole forwarding proxy if you need a different

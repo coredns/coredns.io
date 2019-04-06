@@ -4,7 +4,7 @@ description = "*cache* enables a frontend cache."
 weight = 4
 tags = [ "plugin", "cache" ]
 categories = [ "plugin" ]
-date = "2019-03-16T09:30:30.535806"
+date = "2019-04-06T07:20:41.326274"
 +++
 
 ## Description
