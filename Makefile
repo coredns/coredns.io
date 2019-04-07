@@ -1,4 +1,4 @@
-C:=~/go/github.com/coredns/coredns
+C:=~/go/coredns/coredns
 
 all:
 	hugo -d /var/www/coredns.io
@@ -11,7 +11,7 @@ clean:
 test:
 	hugo server
 
-# Sync CoreDNS' plugin README.md's to coredns.io. Uses $GOPATH to find them. Also sync the release notes from the notes directory.
+# Sync CoreDNS' plugin README.md's to coredns.io. Also sync the release notes from the notes directory.
 .PHONY: sync
 sync:
 	( rm -f content/plugins/* )

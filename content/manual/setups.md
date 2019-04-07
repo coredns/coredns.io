@@ -78,10 +78,9 @@ sent back, followed by the set of flags on the reply: `qr,aa,rd,ra`, the size of
 
 ## Forwarding
 
-CoreDNS can be configured to forward traffic to a recursor. We currently have two plugins that allow
-for this, [*proxy*](/plugins/proxy) and [*forward*](/plugins/forward). Here, we will use *forward*
-and focus on the most basic setup: forwarding to Google Public DNS (8.8.8.8) and Quad9 DNS
-(9.9.9.9).
+CoreDNS can be configured to forward traffic to a recursor with the [*forward*](/plugins/forward).
+Here, we will use *forward* and focus on the most basic setup: forwarding to Google Public DNS
+(8.8.8.8) and Quad9 DNS (9.9.9.9).
 
 We don't need to create anything except for a Corefile with the configuration we want. In
 this case, we want *all* queries hitting CoreDNS to be forward to either 8.8.8.8 or 9.9.9.9:
@@ -92,7 +91,7 @@ this case, we want *all* queries hitting CoreDNS to be forward to either 8.8.8.8
     log
 }
 ~~~
-Note that *forward* and *proxy* allow you to fine tune the names it will send upstream. Here, we
+Note that *forward* allows you to fine tune the names it will send upstream. Here, we
 chose all names (`.`). For instance: `forward example.com 8.8.8.8 9.9.9.9` would only forward names
 within the `example.com.` domain.
 

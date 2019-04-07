@@ -4,7 +4,7 @@ description = "*autopath* allows for server-side search path completion."
 weight = 2
 tags = [ "plugin", "autopath" ]
 categories = [ "plugin" ]
-date = "2019-03-16T09:30:30.535607"
+date = "2019-04-06T07:20:41.326032"
 +++
 
 ## Description
@@ -53,4 +53,6 @@ Use the search path dynamically retrieved from the *kubernetes* plugin.
 
 ## Known Issues
 
-Autopath is not compatible with pods running from Windows nodes.
+In Kubernetes, *autopath* is not compatible with pods running from Windows nodes.
+
+If the server side search ultimately results in a negative answer (e.g. `NXDOMAIN`), then the client will fruitlessly search all paths manually, thus negating the *autopath* optimization.

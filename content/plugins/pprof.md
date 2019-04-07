@@ -1,10 +1,10 @@
 +++
 title = "pprof"
 description = "*pprof* publishes runtime profiling data at endpoints under `/debug/pprof`."
-weight = 27
+weight = 28
 tags = [ "plugin", "pprof" ]
 categories = [ "plugin" ]
-date = "2019-03-16T09:30:30.537938"
+date = "2019-04-06T07:20:41.328733"
 +++
 
 ## Description
@@ -19,15 +19,28 @@ This plugin can only be used once per Server Block.
 
 ## Syntax
 
-~~~
+~~~ txt
 pprof [ADDRESS]
 ~~~
 
-If not specified, ADDRESS defaults to localhost:6053.
+Optionally pprof takes an address; the default is `localhost:6053`.
+
+An extra option can be set with this extended syntax:
+
+~~~ txt
+pprof [ADDRESS] {
+   block [RATE]
+}
+~~~
+
+* `block` option enables block profiling, **RATE** defaults to 1. **RATE** must be a positive value.
+  See [Diagnostics, chapter profiling](https://golang.org/doc/diagnostics.html) and
+  [runtime.SetBlockProfileRate](https://golang.org/pkg/runtime/#SetBlockProfileRate) for what block
+  profiling entails.
 
 ## Examples
 
-Enable pprof endpoints:
+Enable a pprof endpoint:
 
 ~~~
 . {
@@ -45,11 +58,13 @@ Listen on an alternate address:
 }
 ~~~
 
-Listen on an all addresses on port 6060:
+Listen on an all addresses on port 6060, and enable block profiling
 
 ~~~ txt
 . {
-    pprof :6060
+    pprof :6060 {
+       block
+    }
 }
 ~~~
 
@@ -57,3 +72,6 @@ Listen on an all addresses on port 6060:
 
 See [Go's pprof documentation](https://golang.org/pkg/net/http/pprof/) and [Profiling Go
 Programs](https://blog.golang.org/profiling-go-programs).
+
+See [runtime.SetBlockProfileRate](https://golang.org/pkg/runtime/#SetBlockProfileRate) for
+background on block profiling.

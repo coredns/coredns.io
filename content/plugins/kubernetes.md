@@ -1,10 +1,10 @@
 +++
 title = "kubernetes"
 description = "*kubernetes* enables the reading zone data from a Kubernetes cluster."
-weight = 20
+weight = 21
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2019-03-16T09:30:30.537337"
+date = "2019-04-06T07:20:41.328143"
 +++
 
 ## Description
@@ -51,7 +51,8 @@ kubernetes [ZONES...] {
 }
 ```
 
-* `resyncperiod` specifies the Kubernetes data API **DURATION** period.
+* `resyncperiod` specifies the Kubernetes data API **DURATION** period. By
+  default resync is disabled (DURATION is zero).
 * `endpoint` specifies the **URL** for a remote k8s API endpoint.
    If omitted, it will connect to k8s in-cluster using the cluster service account.
 * `tls` **CERT** **KEY** **CACERT** are the TLS cert, key and the CA cert file names for remote k8s connection.
@@ -59,6 +60,11 @@ kubernetes [ZONES...] {
 * `kubeconfig` **KUBECONFIG** **CONTEXT** authenticates the connection to a remote k8s cluster using a kubeconfig file. It supports TLS, username and password, or token-based authentication. This option is ignored if connecting in-cluster (i.e., the endpoint is not specified).
 * `namespaces` **NAMESPACE [NAMESPACE...]** only exposes the k8s namespaces listed.
    If this option is omitted all namespaces are exposed
+* `namespace_labels` **EXPRESSION** only expose the records for Kubernetes namespaces that match this label selector.
+   The label selector syntax is described in the
+   [Kubernetes User Guide - Labels](http://kubernetes.io/docs/user-guide/labels/). An example that
+   only exposes namespaces labeled as "istio-injection=enabled", would use: 
+   `labels istio-injection=enabled`.
 * `labels` **EXPRESSION** only exposes the records for Kubernetes objects that match this label selector.
    The label selector syntax is described in the
    [Kubernetes User Guide - Labels](https://kubernetes.io/docs/user-guide/labels/). An example that
@@ -109,6 +115,11 @@ kubernetes [ZONES...] {
 * `ignore empty_service` returns NXDOMAIN for services without any ready endpoint addresses (e.g., ready pods).
   This allows the querying pod to continue searching for the service in the search path.
   The search path could, for example, include another Kubernetes cluster.
+
+## Ready
+
+This plugin reports readiness to the ready plugin. This will happen after it has synced to the
+Kubernetes API.
 
 ## Examples
 
