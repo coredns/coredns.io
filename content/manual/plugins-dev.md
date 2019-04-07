@@ -64,7 +64,7 @@ a reason to consume the error but still notify the user, then logging in the plu
 
 When exporting metrics, the *Namespace* should be `plugin.Namespace` (="coredns"), and the
 *Subsystem* should be the name of the plugin. The README.md for the plugin should then also contain
-a *Metrics* section detailing the metrics. If the plugin supports dynamic [health](/plugin/health)
+a *Metrics* section detailing the metrics. If the plugin supports dynamic [health](/plugins/health)
 reporting, it should also have a *Health* section detailing some of its inner workings.
 
 ## Documentation
