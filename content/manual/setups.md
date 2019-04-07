@@ -17,7 +17,7 @@ But we shorten it in the setups below, so `dig www.example.org A` is really
 
 ## Authoritative Serving From Files
 
-This setup uses the [*file*](/plugins/file) plugin. Note the external [*redis*](/plugins/redis) plugin
+This setup uses the [*file*](/plugins/file) plugin. Note the external [*redis*](/explugins/redis) plugin
 enables authoritative serving from a Redis Database. Let's continue with the setup using *file*.
 
 The file we create here is a DNS zone file, and it can have any name (*file* plugin doesn't care). The
