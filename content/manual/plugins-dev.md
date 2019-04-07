@@ -36,7 +36,7 @@ When CoreDNS wants to use a plugin it calls the method `ServeDNS`. `ServeDNS` ha
 
 The code tells CoreDNS if a *reply has been written by the plugin chain or not*. In the latter case,
 CoreDNS will take care of that. For the code's values, we *reuse* the DNS return codes (rcodes) from
-the [dns](github.com/miekg/dns) package.
+the [dns](https://github.com/miekg/dns) package.
 
 CoreDNS treats:
 
