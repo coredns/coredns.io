@@ -7,7 +7,7 @@ author = "miek"
 +++
 
 At [step by step
-walkthrough](https://github.com/arun-gupta/kubernetes-aws-workshop/tree/master/coredns) on setting
+walkthrough](https://github.com/aws-samples/aws-workshop-for-kubernetes/tree/master/04-path-security-and-networking/406-coredns) on setting
 up CoreDNS in Kubernetes (on AWS). Published by [Arun Gupta](https://twitter.com/arungupta).
 
 Also see this [twitter thread](https://twitter.com/arungupta/status/926173817008984065).
