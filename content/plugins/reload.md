@@ -1,10 +1,10 @@
 +++
 title = "reload"
 description = "*reload* allows automatic reload of a changed Corefile."
-weight = 30
+weight = 31
 tags = [ "plugin", "reload" ]
 categories = [ "plugin" ]
-date = "2019-04-06T07:20:41.328879"
+date = "2019-06-26T12:27:21.534503"
 +++
 
 ## Description
@@ -94,6 +94,12 @@ In general be careful with assigning new port and expecting reload to work fully
 
 Also any `import` statement is not discovered by this plugin. This means if any of these imported files
 changes the *reload* plugin is ignorant of that fact.
+
+## Metrics
+
+ If monitoring is enabled (via the *prometheus* directive) then the following metric is exported:
+
+* `coredns_reload_failed_count_total{}` - counts the number of failed reload attempts.
 
 ## Also See
 

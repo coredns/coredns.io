@@ -1,10 +1,10 @@
 +++
 title = "file"
 description = "*file* enables serving zone data from an RFC 1035-style master file."
-weight = 14
+weight = 15
 tags = [ "plugin", "file" ]
 categories = [ "plugin" ]
-date = "2019-04-06T07:20:41.327387"
+date = "2019-06-26T12:27:21.533280"
 +++
 
 ## Description
@@ -38,7 +38,7 @@ file DBFILE [ZONES... ] {
 * `transfer` enables zone transfers. It may be specified multiples times. `To` or `from` signals
   the direction. **ADDRESS** must be denoted in CIDR notation (e.g., 127.0.0.1/32) or just as plain
   addresses. The special wildcard `*` means: the entire internet (only valid for 'transfer to').
-  When an address is specified a notify message will be send whenever the zone is reloaded.
+  When an address is specified a notify message will be sent whenever the zone is reloaded.
 * `reload` interval to perform a reload of the zone if the SOA version changes. Default is one minute.
   Value of `0` means to not scan for changes and reload. For example, `30s` checks the zonefile every 30 seconds
   and reloads the zone when serial changes.
@@ -68,5 +68,33 @@ Or use a single zone file for multiple zones:
         transfer to *
         transfer to 10.240.1.1
     }
+}
+~~~
+
+Note that if you have a configuration like the following you may run into a problem of the origin
+not being correctly recognized:
+
+~~~
+. {
+    file db.example.org
+}
+~~~
+
+We omit the origin for the file `db.example.org`, so this references the zone in the server block,
+which, in this case, is the root zone. Any contents of `db.example.org` will then read with that
+origin set; this may or may not do what you want.
+It's better to be explicit here and specify the correct origin. This can be done in two ways:
+
+~~~
+. {
+    file db.example.org example.org
+}
+~~~
+
+Or
+
+~~~
+example.org {
+    file db.example.org
 }
 ~~~

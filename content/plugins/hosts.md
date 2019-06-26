@@ -1,10 +1,10 @@
 +++
 title = "hosts"
 description = "*hosts* enables serving zone data from a `/etc/hosts` style file."
-weight = 18
+weight = 19
 tags = [ "plugin", "hosts" ]
 categories = [ "plugin" ]
-date = "2019-04-06T07:20:41.327851"
+date = "2019-06-26T12:27:21.533602"
 +++
 
 ## Description
@@ -21,7 +21,7 @@ This plugin can only be used once per Server Block.
 
 ## The hosts file
 
-Commonly the entries are of the from `IP_address canonical_hostname [aliases...]` as explained by the hosts(5) man page.
+Commonly the entries are of the form `IP_address canonical_hostname [aliases...]` as explained by the hosts(5) man page.
 
 Examples:
 

@@ -1,10 +1,10 @@
 +++
 title = "autopath"
 description = "*autopath* allows for server-side search path completion."
-weight = 2
+weight = 3
 tags = [ "plugin", "autopath" ]
 categories = [ "plugin" ]
-date = "2019-04-06T07:20:41.326032"
+date = "2019-06-26T12:27:21.532449"
 +++
 
 ## Description

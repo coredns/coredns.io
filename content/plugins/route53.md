@@ -1,10 +1,10 @@
 +++
 title = "route53"
 description = "*route53* enables serving zone data from AWS route53."
-weight = 33
+weight = 34
 tags = [ "plugin", "route53" ]
 categories = [ "plugin" ]
-date = "2019-04-06T07:20:41.329185"
+date = "2019-06-26T12:27:21.534756"
 +++
 
 ## Description
@@ -29,10 +29,10 @@ route53 [ZONE:HOSTED_ZONE_ID...] {
     domains (private vs. public hosted zone), CoreDNS does the lookup in the given order here.
     Therefore, for a non-existing resource record, SOA response will be from the rightmost zone.
 
-*   **HOSTED*ZONE*ID** the ID of the hosted zone that contains the resource record sets to be
+*   **HOSTED_ZONE_ID** the ID of the hosted zone that contains the resource record sets to be
     accessed.
 
-*   **AWS*ACCESS*KEY_ID** and **AWS*SECRET*ACCESS_KEY** the AWS access key ID and secret access key
+*   **AWS_ACCESS_KEY_ID** and **AWS_SECRET_ACCESS_KEY** the AWS access key ID and secret access key
     to be used when query AWS (optional). If they are not provided, then coredns tries to access
     AWS credentials the same way as AWS CLI, e.g., environmental variables, AWS credentials file,
     instance profile credentials, etc.
@@ -61,8 +61,9 @@ Enable route53 with implicit AWS credentials and an upstream:
 ~~~ txt
 . {
 	route53 example.org.:Z1Z2Z3Z4DZ5Z6Z7 {
-	  upstream 10.0.0.1
+	  upstream
 	}
+    forward . 10.0.0.1
 }
 ~~~
 

@@ -1,10 +1,10 @@
 +++
 title = "forward"
 description = "*forward* facilitates proxying DNS messages to upstream resolvers."
-weight = 15
+weight = 16
 tags = [ "plugin", "forward" ]
 categories = [ "plugin" ]
-date = "2019-04-06T07:20:41.327527"
+date = "2019-06-26T12:27:21.533377"
 +++
 
 ## Description
@@ -23,10 +23,6 @@ When *all* upstreams are down it assumes health checking as a mechanism has fail
 connect to a random upstream (which may or may not work).
 
 This plugin can only be used once per Server Block.
-
-How does *forward* relate to *proxy*? This plugin is the "new" version of *proxy* and is faster
-because it re-uses connections to the upstreams. It also does in-band health checks - using DNS
-instead of HTTP. Since it is newer it has a little less (production) mileage on it.
 
 ## Syntax
 
