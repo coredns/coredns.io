@@ -1,10 +1,10 @@
 +++
 title = "tls"
 description = "*tls* allows you to configure the server certificates for the TLS and gRPC servers."
-weight = 36
+weight = 37
 tags = [ "plugin", "tls" ]
 categories = [ "plugin" ]
-date = "2019-04-06T07:20:41.329511"
+date = "2019-06-26T12:57:30.985617"
 +++
 
 ## Description
@@ -26,6 +26,16 @@ tls CERT KEY [CA]
 ~~~
 
 Parameter CA is optional. If not set, system CAs can be used to verify the client certificate
+
+~~~ txt
+tls CERT KEY [CA] {
+    client_auth nocert|request|require|verify_if_given|require_and_verify
+}
+~~~
+
+If client_auth option is specified, it controls the client authentication policy.
+The option value corresponds to the [ClientAuthType values of the Go tls package](https://golang.org/pkg/crypto/tls/#ClientAuthType): NoClientCert, RequestClientCert, RequireAnyClientCert, VerifyClientCertIfGiven, and RequireAndVerifyClientCert, respectively.
+The default is "nocert".  Note that it makes no sense to specify parameter CA unless this option is set to verify_if_given or require_and_verify.
 
 ## Examples
 

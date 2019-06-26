@@ -1,10 +1,10 @@
 +++
 title = "grpc"
 description = "*grpc* facilitates proxying DNS messages to upstream resolvers via gRPC protocol."
-weight = 16
+weight = 17
 tags = [ "plugin", "grpc" ]
 categories = [ "plugin" ]
-date = "2019-04-06T07:20:41.327646"
+date = "2019-06-26T12:57:30.983822"
 +++
 
 ## Description
@@ -25,7 +25,7 @@ grpc FROM TO...
 * **TO...** are the destination endpoints to proxy to. The number of upstreams is
   limited to 15.
 
-Multiple upstreams are randomized (see `policy`) on first use. When a proxy returns an error 
+Multiple upstreams are randomized (see `policy`) on first use. When a proxy returns an error
 the next upstream in the list is tried.
 
 Extra knobs are available with an expanded syntax:

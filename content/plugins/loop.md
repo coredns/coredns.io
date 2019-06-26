@@ -1,10 +1,10 @@
 +++
 title = "loop"
 description = "*loop* detect simple forwarding loops and halt the server."
-weight = 24
+weight = 25
 tags = [ "plugin", "loop" ]
 categories = [ "plugin" ]
-date = "2019-04-06T07:20:41.328414"
+date = "2019-06-26T12:57:30.984541"
 +++
 
 ## Description
@@ -83,7 +83,7 @@ requests to itself.
 
 There are many ways to work around this issue, some are listed here:
 
-* Add the following to `kubelet`: `--resolv-conf <path-to-your-real-resolv-conf-file>`.  Your "real"
+* Add the following to your `kubelet` config yaml: `resolvConf: <path-to-your-real-resolv-conf-file>` (or via command line flag `--resolv-conf` deprecated in 1.10).  Your "real"
   `resolv.conf` is the one that contains the actual IPs of your upstream servers, and no local/loopback address.
   This flag tells `kubelet` to pass an alternate `resolv.conf` to Pods. For systems using `systemd-resolved`,
 `/run/systemd/resolve/resolv.conf` is typically the location of the "real" `resolv.conf`,
