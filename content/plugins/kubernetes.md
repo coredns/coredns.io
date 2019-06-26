@@ -4,7 +4,7 @@ description = "*kubernetes* enables the reading zone data from a Kubernetes clus
 weight = 22
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2019-06-26T12:27:21.533842"
+date = "2019-06-26T12:57:30.984278"
 +++
 
 ## Description

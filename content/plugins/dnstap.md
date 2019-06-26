@@ -4,7 +4,7 @@ description = "*dnstap* enable logging to dnstap."
 weight = 10
 tags = [ "plugin", "dnstap" ]
 categories = [ "plugin" ]
-date = "2019-06-26T12:27:21.532906"
+date = "2019-06-26T12:57:30.983146"
 +++
 
 ## Description
