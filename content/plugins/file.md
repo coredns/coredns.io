@@ -4,7 +4,7 @@ description = "*file* enables serving zone data from an RFC 1035-style master fi
 weight = 15
 tags = [ "plugin", "file" ]
 categories = [ "plugin" ]
-date = "2019-06-26T12:57:30.983604"
+date = "2019-07-03T18:33:28.051546"
 +++
 
 ## Description
@@ -31,7 +31,6 @@ If you want to round-robin A and AAAA responses look at the *loadbalance* plugin
 file DBFILE [ZONES... ] {
     transfer to ADDRESS...
     reload DURATION
-    upstream
 }
 ~~~
 
@@ -42,9 +41,6 @@ file DBFILE [ZONES... ] {
 * `reload` interval to perform a reload of the zone if the SOA version changes. Default is one minute.
   Value of `0` means to not scan for changes and reload. For example, `30s` checks the zonefile every 30 seconds
   and reloads the zone when serial changes.
-* `upstream` resolve external names found (think CNAMEs) pointing to external names. This is only
-  really useful when CoreDNS is configured as a proxy; for normal authoritative serving you don't
-  need *or* want to use this. CoreDNS will resolve CNAMEs against itself.
 
 ## Examples
 

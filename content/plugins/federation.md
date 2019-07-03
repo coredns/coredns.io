@@ -4,7 +4,7 @@ description = "*federation* enables federated queries to be resolved via the kub
 weight = 14
 tags = [ "plugin", "federation" ]
 categories = [ "plugin" ]
-date = "2019-06-26T12:57:30.983521"
+date = "2019-07-03T18:33:28.051476"
 +++
 
 ## Description
@@ -20,15 +20,11 @@ Enabling *federation* without also having *kubernetes* is a noop.
 ~~~
 federation [ZONES...] {
     NAME DOMAIN
-    upstream
 }
 ~~~
 
 * Each **NAME** and **DOMAIN** defines federation membership. One entry for each. A duplicate
   **NAME** will silently overwrite any previous value.
-* `upstream` resolve the `CNAME` target produced by this plugin.  CoreDNS
-  will resolve External Services against itself and needs the *forward* plugin to be active to do
-  so.
 
 ## Examples
 
@@ -40,7 +36,6 @@ Here we handle all service requests in the `prod` and `stage` federations.
     federation cluster.local {
         prod prod.feddomain.com
         staging staging.feddomain.com
-        upstream
     }
     forward . 192.168.1.12
 }

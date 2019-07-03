@@ -4,7 +4,7 @@ description = "*route53* enables serving zone data from AWS route53."
 weight = 34
 tags = [ "plugin", "route53" ]
 categories = [ "plugin" ]
-date = "2019-06-26T12:57:30.985310"
+date = "2019-07-03T18:33:28.053688"
 +++
 
 ## Description
@@ -19,7 +19,6 @@ The route53 plugin can be used when coredns is deployed on AWS or elsewhere.
 ~~~ txt
 route53 [ZONE:HOSTED_ZONE_ID...] {
     [aws_access_key AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY]
-    upstream
     credentials PROFILE [FILENAME]
     fallthrough [ZONES...]
 }
@@ -37,9 +36,6 @@ route53 [ZONE:HOSTED_ZONE_ID...] {
     AWS credentials the same way as AWS CLI, e.g., environmental variables, AWS credentials file,
     instance profile credentials, etc.
 
-*   `upstream`is used for resolving services that point to external hosts (eg. used to resolve
-    CNAMEs). CoreDNS will resolve against itself.
-
 *   `credentials` is used for reading the credential file and setting the profile name for a given
     zone.
 
@@ -56,13 +52,11 @@ route53 [ZONE:HOSTED_ZONE_ID...] {
 
 ## Examples
 
-Enable route53 with implicit AWS credentials and an upstream:
+Enable route53 with implicit AWS credentials and and resolve CNAMEs via 10.0.0.1:
 
 ~~~ txt
 . {
-	route53 example.org.:Z1Z2Z3Z4DZ5Z6Z7 {
-	  upstream
-	}
+	route53 example.org.:Z1Z2Z3Z4DZ5Z6Z7
     forward . 10.0.0.1
 }
 ~~~

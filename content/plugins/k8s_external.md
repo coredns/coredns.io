@@ -4,7 +4,7 @@ description = "*k8s_external* resolve load balancer and external IPs from outsid
 weight = 21
 tags = [ "plugin", "k8s_external" ]
 categories = [ "plugin" ]
-date = "2019-06-26T12:57:30.984140"
+date = "2019-07-03T18:33:28.052123"
 +++
 
 ## Description
@@ -70,6 +70,22 @@ Enable names under `example.org` to be resolved to in cluster DNS addresses.
    k8s_external example.org
 }
 ~~~
+
+With the Corefile above, the following Service will get an `A` record for `test.default.example.org` with IP address `192.168.200.123`.
+
+~~~
+apiVersion: v1
+kind: Service
+metadata:
+ name: test
+ namespace: default
+spec:
+ clusterIP: None
+ externalIPs:
+ - 192.168.200.123
+ type: ClusterIP
+~~~
+
 
 # Also See
 

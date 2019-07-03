@@ -4,7 +4,7 @@ description = "*loop* detect simple forwarding loops and halt the server."
 weight = 25
 tags = [ "plugin", "loop" ]
 categories = [ "plugin" ]
-date = "2019-06-26T12:57:30.984541"
+date = "2019-07-03T18:33:28.052681"
 +++
 
 ## Description
@@ -90,5 +90,5 @@ There are many ways to work around this issue, some are listed here:
 although this can be different depending on your distribution.
 * Disable the local DNS cache on host nodes, and restore `/etc/resolv.conf` to the original.
 * A quick and dirty fix is to edit your Corefile, replacing `forward . /etc/resolv.conf` with
-the ip address of your upstream DNS, for example `forward . 8.8.8.8`.  But this only fixes the issue for CoreDNS,
+the IP address of your upstream DNS, for example `forward . 8.8.8.8`.  But this only fixes the issue for CoreDNS,
 kubelet will continue to forward the invalid `resolv.conf` to all `default` dnsPolicy Pods, leaving them unable to resolve DNS.

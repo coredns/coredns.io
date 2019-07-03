@@ -4,7 +4,7 @@ description = "*template* allows for dynamic responses based on the incoming que
 weight = 36
 tags = [ "plugin", "template" ]
 categories = [ "plugin" ]
-date = "2019-06-26T12:57:30.985524"
+date = "2019-07-03T18:33:28.053910"
 +++
 
 ## Description
@@ -20,7 +20,6 @@ template CLASS TYPE [ZONE...] {
     additional RR
     authority RR
     rcode CODE
-    upstream
     fallthrough [ZONE...]
 }
 ~~~
@@ -32,7 +31,6 @@ template CLASS TYPE [ZONE...] {
 * `answer|additional|authority` **RR** A [RFC 1035](https://tools.ietf.org/html/rfc1035#section-5) style resource record fragment
   built by a [Go template](https://golang.org/pkg/text/template/) that contains the reply.
 * `rcode` **CODE** A response code (`NXDOMAIN, SERVFAIL, ...`). The default is `SUCCESS`.
-* `upstream` defines the upstream resolvers used for resolving CNAMEs. CoreDNS will resolve CNAMEs against itself.
 * `fallthrough` Continue with the next plugin if the zone matched but no regex matched.
   If specific zones are listed (for example `in-addr.arpa` and `ip6.arpa`), then only queries for
   those zones will be subject to fallthrough.
@@ -53,6 +51,8 @@ Each resource record is a full-featured [Go template](https://golang.org/pkg/tex
 * `.Group` a map of the named capture groups.
 * `.Message` the complete incoming DNS message.
 * `.Question` the matched question section.
+* `.Meta` a function that takes a metadata name and returns the value, if the
+  metadata plugin is enabled. For example, `.Meta "kubernetes/client-namespace"`
 
 The output of the template must be a [RFC 1035](https://tools.ietf.org/html/rfc1035) style resource record (commonly referred to as a "zone file").
 

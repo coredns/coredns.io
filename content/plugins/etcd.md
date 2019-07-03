@@ -4,7 +4,7 @@ description = "*etcd* enables reading zone data from an etcd version 3 instance.
 weight = 13
 tags = [ "plugin", "etcd" ]
 categories = [ "plugin" ]
-date = "2019-06-26T12:57:30.983451"
+date = "2019-07-03T18:33:28.051415"
 +++
 
 ## Description
@@ -35,7 +35,6 @@ etcd [ZONES...] {
     path PATH
     endpoint ENDPOINT...
     credentials USERNAME PASSWORD
-    upstream
     tls CERT KEY CACERT
 }
 ~~~
@@ -47,9 +46,6 @@ etcd [ZONES...] {
 * **PATH** the path inside etcd. Defaults to "/skydns".
 * **ENDPOINT** the etcd endpoints. Defaults to "http://localhost:2379".
 * `credentials` is used to set the **USERNAME** and **PASSWORD** for accessing the etcd cluster.
-* `upstream` upstream resolvers to be used resolve external names found in etcd (think CNAMEs)
-  pointing to external names. If you want CoreDNS to act as a proxy for clients, you'll need to add
-  the *forward* plugin.
 * `tls` followed by:
 
     * no arguments, if the server certificate is signed by a system-installed CA and no client cert is needed
@@ -81,7 +77,6 @@ This is the default SkyDNS setup, with everything specified in full:
     etcd skydns.local {
         path /skydns
         endpoint http://localhost:2379
-        upstream
     }
     prometheus
     cache 160 skydns.local
@@ -97,7 +92,6 @@ when resolving external pointing CNAMEs.
 . {
     etcd skydns.local {
         path /skydns
-        upstream
     }
     cache 160 skydns.local
     forward . /etc/resolv.conf
