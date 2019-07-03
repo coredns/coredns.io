@@ -4,7 +4,7 @@ description = "*auto* enables serving zone data from an RFC 1035-style master fi
 weight = 2
 tags = [ "plugin", "auto" ]
 categories = [ "plugin" ]
-date = "2019-06-26T12:57:30.982430"
+date = "2019-07-03T18:33:28.050561"
 +++
 
 ## Description
@@ -21,7 +21,6 @@ auto [ZONES...] {
     directory DIR [REGEXP ORIGIN_TEMPLATE]
     transfer to ADDRESS...
     reload DURATION
-    upstream
 }
 ~~~
 
@@ -40,8 +39,6 @@ are used.
 * `reload` interval to perform reloads of zones if SOA version changes and zonefiles. It specifies how often CoreDNS should scan the directory to watch for file removal and addition. Default is one minute.
   Value of `0` means to not scan for changes and reload. eg. `30s` checks zonefile every 30 seconds
   and reloads zone when serial changes.
-* `upstream` defines upstream resolvers to be used resolve external names found (think CNAMEs)
-  pointing to external names. CoreDNS will resolve CNAMEs against itself.
 
 All directives from the *file* plugin are supported. Note that *auto* will load all zones found,
 even though the directive might only receive queries for a specific zone. I.e:

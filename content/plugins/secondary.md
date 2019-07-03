@@ -4,7 +4,7 @@ description = "*secondary* enables serving a zone retrieved from a primary serve
 weight = 35
 tags = [ "plugin", "secondary" ]
 categories = [ "plugin" ]
-date = "2019-06-26T12:57:30.985381"
+date = "2019-07-03T18:33:28.053765"
 +++
 
 ## Description
@@ -26,16 +26,12 @@ A working syntax would be:
 secondary [zones...] {
     transfer from ADDRESS
     transfer to ADDRESS
-    upstream
 }
 ~~~
 
 * `transfer from` specifies from which address to fetch the zone. It can be specified multiple times;
     if one does not work, another will be tried.
 * `transfer to` can be enabled to allow this secondary zone to be transferred again.
-* `upstream` resolve external names found (think CNAMEs) pointing to external names. This is only
-  really useful when CoreDNS is configured as a proxy; for normal authoritative serving you don't
-  need *or* want to use this. CoreDNS will resolve CNAMEs against itself.
 
 When a zone is due to be refreshed (Refresh timer fires) a random jitter of 5 seconds is
 applied, before fetching. In the case of retry this will be 2 seconds. If there are any errors
