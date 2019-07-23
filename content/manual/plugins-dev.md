@@ -119,11 +119,12 @@ a query comes in that is not a subdomain (or equal to) `example.org` the next pl
 
 Now, the world isn't perfect, and there are good reasons to "fallthrough" to the next middleware,
 meaning a plugin is only responsible for a *subset* of names within the zone. The first of these
-to appear was the *reverse* plugin that synthesizes PTR and A/AAAA responses (useful with IPv6).
+to appear was the *reverse* plugin, now replaced with the generalized *template* plugin that can
+synthesizes various responses.
 
-The nature of the *reverse* plugin is such that it only deals with A/AAAA and PTR, and then only
-for a subset of the names. Ideally, you would want to layer *reverse* **in front of** another
-plugin such as *file* or *auto* (or even *proxy*). This means *reverse* handles some special
+The nature of the *template* plugin might only deal with specified record TYPEs, and then only
+for a subset of the names. Ideally, you would want to layer *template* **in front of** another
+plugin such as *file* or *auto*. This means *template* could handle some special
 reverse cases and **all other** requests are handled by the backing plugin. This is exactly what
 "fallthrough" does. To keep things explicit we've opted that plugins implementing such behavior
 should implement a `fallthrough` keyword.
