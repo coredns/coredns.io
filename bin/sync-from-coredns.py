@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Copy the <plugin>/README.md to plugins/<mddleware>.md, add
+# Copy the <plugin>/README.md to plugins/<middleware>.md, add
 # some Hugo meta data to let Hugo render it.
 
 import datetime
