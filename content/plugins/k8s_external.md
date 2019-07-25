@@ -4,7 +4,7 @@ description = "*k8s_external* resolve load balancer and external IPs from outsid
 weight = 21
 tags = [ "plugin", "k8s_external" ]
 categories = [ "plugin" ]
-date = "2019-07-03T18:33:28.052123"
+date = "2019-07-25T12:50:00.573514"
 +++
 
 ## Description

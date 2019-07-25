@@ -4,7 +4,7 @@ description = "*kubernetes* enables the reading zone data from a Kubernetes clus
 weight = 22
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2019-07-03T18:33:28.052309"
+date = "2019-07-25T12:50:00.573688"
 +++
 
 ## Description
@@ -34,7 +34,6 @@ all the zones the plugin should be authoritative for.
 
 ```
 kubernetes [ZONES...] {
-    resyncperiod DURATION
     endpoint URL
     tls CERT KEY CACERT
     kubeconfig KUBECONFIG CONTEXT
@@ -50,8 +49,7 @@ kubernetes [ZONES...] {
 }
 ```
 
-* `resyncperiod` specifies the Kubernetes data API **DURATION** period. By
-  default resync is disabled (DURATION is zero).
+
 * `endpoint` specifies the **URL** for a remote k8s API endpoint.
    If omitted, it will connect to k8s in-cluster using the cluster service account.
 * `tls` **CERT** **KEY** **CACERT** are the TLS cert, key and the CA cert file names for remote k8s connection.
