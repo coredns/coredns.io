@@ -10,10 +10,7 @@ clean:
 
 .PHONY: deps
 deps:
-	# ENVs shouldn't be necessary in newer go versions
-	export GOPATH=$(HOME)/go
-	export PATH=$(PATH):$(GOROOT)/bin:$(GOPATH)/bin
-	go get -u github.com/miekg/corecheck
+	go install github.com/miekg/corecheck
 	git clone https://github.com/coredns/coredns.git
 	( cd coredns; git checkout -b $$(git describe --abbrev=0 --tags); make; git stash )
 
