@@ -4,7 +4,7 @@ description = "*grpc* facilitates proxying DNS messages to upstream resolvers vi
 weight = 17
 tags = [ "plugin", "grpc" ]
 categories = [ "plugin" ]
-date = "2019-07-03T18:33:28.051731"
+date = "2019-07-28T20:04:45.451098"
 +++
 
 ## Description
@@ -67,7 +67,7 @@ If monitoring is enabled (via the *prometheus* directive) then the following met
 
 * `coredns_grpc_request_duration_seconds{to}` - duration per upstream interaction.
 * `coredns_grpc_request_count_total{to}` - query count per upstream.
-* `coredns_grpc_response_rcode_total{to, rcode}` - count of RCODEs per upstream.
+* `coredns_grpc_response_rcode_count_total{to, rcode}` - count of RCODEs per upstream.
   and we are randomly (this always uses the `random` policy) spraying to an upstream.
 
 ## Examples

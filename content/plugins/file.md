@@ -4,12 +4,12 @@ description = "*file* enables serving zone data from an RFC 1035-style master fi
 weight = 15
 tags = [ "plugin", "file" ]
 categories = [ "plugin" ]
-date = "2019-07-03T18:33:28.051546"
+date = "2019-07-28T20:04:45.450654"
 +++
 
 ## Description
 
-The file plugin is used for an "old-style" DNS server. It serves from a preloaded file that exists
+The *file* plugin is used for an "old-style" DNS server. It serves from a preloaded file that exists
 on disk. If the zone file contains signatures (i.e., is signed using DNSSEC), correct DNSSEC answers
 are returned. Only NSEC is supported! If you use this setup *you* are responsible for re-signing the
 zonefile.
@@ -58,7 +58,7 @@ example.org {
 
 Or use a single zone file for multiple zones:
 
-~~~
+~~~ corefile
 . {
     file example.org.signed example.org example.net {
         transfer to *
@@ -70,7 +70,7 @@ Or use a single zone file for multiple zones:
 Note that if you have a configuration like the following you may run into a problem of the origin
 not being correctly recognized:
 
-~~~
+~~~ corefile
 . {
     file db.example.org
 }
@@ -81,7 +81,7 @@ which, in this case, is the root zone. Any contents of `db.example.org` will the
 origin set; this may or may not do what you want.
 It's better to be explicit here and specify the correct origin. This can be done in two ways:
 
-~~~
+~~~ corefile
 . {
     file db.example.org example.org
 }
@@ -89,8 +89,12 @@ It's better to be explicit here and specify the correct origin. This can be done
 
 Or
 
-~~~
+~~~ corefile
 example.org {
     file db.example.org
 }
 ~~~
+
+## Also See
+
+See the *loadbalance* plugin if you need simple record shuffling.
