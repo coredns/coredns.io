@@ -4,7 +4,7 @@ description = "*loadbalance* randomize the order of A, AAAA and MX records."
 weight = 23
 tags = [ "plugin", "loadbalance" ]
 categories = [ "plugin" ]
-date = "2019-07-03T18:33:28.052402"
+date = "2019-07-28T20:04:45.452281"
 +++
 
 ## Description
