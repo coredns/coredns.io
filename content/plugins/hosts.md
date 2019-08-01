@@ -4,7 +4,7 @@ description = "*hosts* enables serving zone data from a `/etc/hosts` style file.
 weight = 19
 tags = [ "plugin", "hosts" ]
 categories = [ "plugin" ]
-date = "2019-07-28T20:04:45.451478"
+date = "2019-08-01T14:00:49.171790"
 +++
 
 ## Description
@@ -17,6 +17,9 @@ available hosts files that block access to advertising servers.
 The plugin reloads the content of the hosts file every 5 seconds. Upon reload, CoreDNS will use the
 new definitions. Should the file be deleted, any inlined content will continue to be served. When
 the file is restored, it will then again be used.
+
+If you want to pass the request to the rest of the plugin chain if there is no match in the *hosts*
+plugin, you must specify the `fallthrough` option.
 
 This plugin can only be used once per Server Block.
 
@@ -63,7 +66,9 @@ hosts [FILE [ZONES...]] {
    then all of them will be treated as the additional content for hosts file. The specified hosts
    file path will still be read but entries will be overridden.
 * `ttl` change the DNS TTL of the records generated (forward and reverse). The default is 3600 seconds (1 hour).
-* `reload` change the period between each hostsfile reload. A time of zero seconds disable the feature. Examples of valid durations: "300ms", "1.5h" or "2h45m" are valid duration with units "ns" (nanosecond), "us" (or "µs" for microsecond), "ms" (millisecond), "s" (second), "m" (minute), "h" (hour).
+* `reload` change the period between each hostsfile reload. A time of zero seconds disables the
+  feature. Examples of valid durations: "300ms", "1.5h" or "2h45m". See Go's
+  [time](https://godoc.org/time). package.
 * `no_reverse` disable the automatic generation of the `in-addr.arpa` or `ip6.arpa` entries for the hosts
 * `fallthrough` If zone matches and no record can be generated, pass request to the next plugin.
   If **[ZONES...]** is omitted, then fallthrough happens for all zones for which the plugin
