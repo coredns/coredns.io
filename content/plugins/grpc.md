@@ -4,7 +4,7 @@ description = "*grpc* facilitates proxying DNS messages to upstream resolvers vi
 weight = 17
 tags = [ "plugin", "grpc" ]
 categories = [ "plugin" ]
-date = "2019-07-28T20:04:45.451098"
+date = "2019-08-01T14:00:49.171642"
 +++
 
 ## Description
