@@ -8,7 +8,7 @@ author = "miek"
 
 If you want to have your external plugin listed create [a pull request](https://github.com/coredns/coredns.io).
 
-In that pull request you'll need to add a file to `content/blog/explugins/` that looks
+In that pull request you'll need to add a file to `content/explugins/` that looks
 like this:
 
 ~~~ txt
