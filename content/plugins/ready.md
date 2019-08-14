@@ -1,10 +1,10 @@
 +++
 title = "ready"
 description = "*ready* enables a readiness check HTTP endpoint."
-weight = 30
+weight = 31
 tags = [ "plugin", "ready" ]
 categories = [ "plugin" ]
-date = "2019-08-01T14:00:49.172584"
+date = "2019-08-14T08:11:42.937029"
 +++
 
 ## Description

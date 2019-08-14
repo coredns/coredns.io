@@ -1,10 +1,10 @@
 +++
 title = "debug"
 description = "*debug* disables the automatic recovery upon a crash so that you'll get a nice stack trace."
-weight = 8
+weight = 9
 tags = [ "plugin", "debug" ]
 categories = [ "plugin" ]
-date = "2019-08-01T14:00:49.170953"
+date = "2019-08-14T08:11:42.935356"
 +++
 
 ## Description
