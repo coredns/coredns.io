@@ -1,10 +1,10 @@
 +++
 title = "trace"
 description = "*trace* enables OpenTracing-based tracing of DNS requests as they go through the plugin chain."
-weight = 38
+weight = 39
 tags = [ "plugin", "trace" ]
 categories = [ "plugin" ]
-date = "2019-08-01T14:00:49.173234"
+date = "2019-08-14T08:11:42.937753"
 +++
 
 ## Description

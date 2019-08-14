@@ -1,10 +1,10 @@
 +++
 title = "federation"
 description = "*federation* enables federated queries to be resolved via the kubernetes plugin."
-weight = 14
+weight = 15
 tags = [ "plugin", "federation" ]
 categories = [ "plugin" ]
-date = "2019-08-01T14:00:49.171397"
+date = "2019-08-14T08:11:42.935810"
 +++
 
 ## Description

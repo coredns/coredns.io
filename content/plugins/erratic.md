@@ -1,10 +1,10 @@
 +++
 title = "erratic"
 description = "*erratic* a plugin useful for testing client behavior."
-weight = 11
+weight = 12
 tags = [ "plugin", "erratic" ]
 categories = [ "plugin" ]
-date = "2019-08-01T14:00:49.171171"
+date = "2019-08-14T08:11:42.935576"
 +++
 
 ## Description

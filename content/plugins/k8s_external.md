@@ -1,10 +1,10 @@
 +++
 title = "k8s_external"
 description = "*k8s_external* resolve load balancer and external IPs from outside kubernetes clusters."
-weight = 21
+weight = 22
 tags = [ "plugin", "k8s_external" ]
 categories = [ "plugin" ]
-date = "2019-08-01T14:00:49.171917"
+date = "2019-08-14T08:11:42.936318"
 +++
 
 ## Description
