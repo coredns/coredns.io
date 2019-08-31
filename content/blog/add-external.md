@@ -32,8 +32,8 @@ The *<plugin name>* plugin is a ...
 ## Example
 ~~~
 
-See [shutdown.md for an example]
-(https://raw.githubusercontent.com/coredns/coredns.io/master/content/explugins/shutdown.md)
+See [example.md for an example]
+(https://raw.githubusercontent.com/coredns/coredns.io/master/content/explugins/example.md)
 on how to do this.
 
 Note that **description** needs to be a full sentence, and that **repo** must be a Go-gettable link
