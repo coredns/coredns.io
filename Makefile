@@ -1,4 +1,4 @@
-C:=~/go/coredns/coredns
+C:=~/src/github.com/coredns/coredns
 
 all:
 	hugo -d /var/www/coredns.io

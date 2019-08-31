@@ -4,7 +4,7 @@ description = "*health* enables a health check endpoint."
 weight = 19
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2019-08-14T08:11:42.936116"
+date = "2019-08-31T08:36:24.154668"
 +++
 
 ## Description
@@ -47,7 +47,7 @@ net {
 }
 ~~~
 
-Doing this is supported but both endponts ":8080" and ":8081" will export the exact same health.
+Doing this is supported but both endpoints ":8080" and ":8081" will export the exact same health.
 
 ## Metrics
 

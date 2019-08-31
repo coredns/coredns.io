@@ -4,7 +4,7 @@ description = "*k8s_external* resolve load balancer and external IPs from outsid
 weight = 22
 tags = [ "plugin", "k8s_external" ]
 categories = [ "plugin" ]
-date = "2019-08-14T08:11:42.936318"
+date = "2019-08-31T08:36:24.155140"
 +++
 
 ## Description
@@ -13,10 +13,10 @@ This plugin allows an additional zone to resolve the external IP address(es) of 
 service. This plugin is only useful if the *kubernetes* plugin is also loaded.
 
 The plugin uses an external zone to resolve in-cluster IP addresses. It only handles queries for A,
-AAAA and SRV records, all others result in NODATA responses. To make it a proper DNS zone it handles
+AAAA and SRV records; all others result in NODATA responses. To make it a proper DNS zone, it handles
 SOA and NS queries for the apex of the zone.
 
-By default the apex of the zone will look like (assuming the zone used is `example.org`):
+By default the apex of the zone will look like the following (assuming the zone used is `example.org`):
 
 ~~~ dns
 example.org.	5 IN	SOA ns1.dns.example.org. hostmaster.example.org. (
@@ -32,11 +32,11 @@ ns1.dns.example.org.  5 IN  A    ....
 ns1.dns.example.org.  5 IN  AAAA ....
 ~~~
 
-Note we use the `dns` subdomain to place the records the DNS needs (see the `apex` directive). Also
+Note that we use the `dns` subdomain for the records DNS needs (see the `apex` directive). Also
 note the SOA's serial number is static. The IP addresses of the nameserver records are those of the
 CoreDNS service.
 
-The *k8s_external* plugin handles the subdomain `dns` and the apex of the zone by itself, all other
+The *k8s_external* plugin handles the subdomain `dns` and the apex of the zone itself; all other
 queries are resolved to addresses in the cluster.
 
 ## Syntax
@@ -47,7 +47,7 @@ k8s_external [ZONE...]
 
 * **ZONES** zones *k8s_external* should be authoritative for.
 
-If you want to change the apex domain or use a different TTL for the return records you can use
+If you want to change the apex domain or use a different TTL for the returned records you can use
 this extended syntax.
 
 ~~~
@@ -57,12 +57,12 @@ k8s_external [ZONE...] {
 }
 ~~~
 
-* **APEX** is the name (DNS label) to use the apex records, defaults to `dns`.
+* **APEX** is the name (DNS label) to use for the apex records; it defaults to `dns`.
 * `ttl` allows you to set a custom **TTL** for responses. The default is 5 (seconds).
 
 # Examples
 
-Enable names under `example.org` to be resolved to in cluster DNS addresses.
+Enable names under `example.org` to be resolved to in-cluster DNS addresses.
 
 ~~~
 . {
@@ -71,7 +71,7 @@ Enable names under `example.org` to be resolved to in cluster DNS addresses.
 }
 ~~~
 
-With the Corefile above, the following Service will get an `A` record for `test.default.example.org` with IP address `192.168.200.123`.
+With the Corefile above, the following Service will get an `A` record for `test.default.example.org` with the IP address `192.168.200.123`.
 
 ~~~
 apiVersion: v1

@@ -1,10 +1,10 @@
 +++
 title = "dnstap"
 description = "*dnstap* enable logging to dnstap."
-weight = 11
+weight = 12
 tags = [ "plugin", "dnstap" ]
 categories = [ "plugin" ]
-date = "2019-08-14T08:11:42.935504"
+date = "2019-08-31T08:36:24.153115"
 +++
 
 ## Description
