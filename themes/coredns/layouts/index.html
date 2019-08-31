@@ -23,16 +23,6 @@
       {{ end }}
  </div>
 
-     <div class="text-center">
-        <p>
-        In <a href="https://kubernetes.io">Kubernetes</a> 1.13, CoreDNS is <a
-            href="https://kubernetes.io/blog/2018/12/03/kubernetes-1-13-release-announcement/">the default</a> cluster DNS server.
-        <br/>
-        Running an older version of <a href="https://kubernetes.io">Kubernetes</a> and want to use CoreDNS? Read
-        <a href="https://coredns.io/2018/01/29/deploying-kubernetes-with-coredns-using-kubeadm/">this</a> on how to switch.
-        </p>
-     </div>
-
     <br/>
 
   {{ partial "popup.html" . }}
@@ -52,7 +42,7 @@
             CoreDNS is licensed under the
             <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License Version 2</a>, and completely open source.
             <br/>
-            Development takes place on <a href="https://github.com/coredns/coredns">Github</a>. Most devs hang
+            Development takes place on <a href="https://github.com/coredns/coredns">Github</a>. Some devs hang
             out on <a href="https://slack.cncf.io/">Slack</a> on the #coredns channel.
         </p>
       </div>
@@ -67,8 +57,9 @@
             CoreDNS chains <a href="/plugins">plugins</a>.
             Each plugin performs a DNS function, such as
             <a href="/plugins/kubernetes">Kubernetes service discovery</a>,
-            <a href="/plugins/metrics">Prometheus metrics</a> or
-            <a href="/plugins/rewrite">rewriting queries</a>.
+            <a href="/plugins/metrics">prometheus metrics</a>,
+            <a href="/plugins/rewrite">rewriting queries</a>, or <i>just</i> serving
+            from <a href="/plugins/file">zone files</a>.
             And
             <a href="/plugins/">many</a>
             <a href="/explugins/">more</a>.
@@ -82,21 +73,18 @@
         <h3>Simplicity</h3>
         <p>
         We strive to keep things as simple as possible and have sane defaults.
-        Here is the <code>Corefile</code> for coredns.io:
+        Here is the <code>Corefile</code> for <code>coredns.io</code>:
         </p>
         <pre>
 coredns.io {
-    file coredns.io.signed {
-        transfer to * 185.49.140.62
-    }
-    prometheus
-    errors
-    log
+ file db.coredns.io.signed {
+   transfer to * 185.49.140.62
+ }
+ sign zones/coredns.io {
+  key file Kcoredns.io.+013+16376
+ }
 }
         </pre>
-      </div>
-
-
     </div>
 
     <div class="row gutters">

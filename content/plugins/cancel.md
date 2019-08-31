@@ -4,7 +4,7 @@ description = "*cancel* a plugin that cancels a request's context after 5001 mil
 weight = 7
 tags = [ "plugin", "cancel" ]
 categories = [ "plugin" ]
-date = "2019-08-14T08:11:42.935238"
+date = "2019-08-31T08:17:41.625463"
 +++
 
 ## Description

@@ -4,14 +4,14 @@ description = "*metadata* enable a meta data collector."
 weight = 27
 tags = [ "plugin", "metadata" ]
 categories = [ "plugin" ]
-date = "2019-08-14T08:11:42.936722"
+date = "2019-08-31T08:17:41.628956"
 +++
 
 ## Description
 
 By enabling *metadata* any plugin that implements [metadata.Provider
 interface](https://godoc.org/github.com/coredns/coredns/plugin/metadata#Provider) will be called for
-each DNS query, at beginning of the process for that query, in order to add it's own meta data to
+each DNS query, at beginning of the process for that query, in order to add its own meta data to
 context.
 
 The meta data collected will be available for all plugins, via the Context parameter provided in the
