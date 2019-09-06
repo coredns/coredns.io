@@ -1,19 +1,28 @@
 footer a {
-    color: white;
+  color: white;
 }
 footer nav ul li a {
-    color: white;
+  color: white;
 }
 
 .external:after {
-    font-family: FontAwesome;
-    font-size: x-small;
-    content: " \f08e";
+  font-family: FontAwesome;
+  font-size: x-small;
+  content: " \f08e";
 }
 
 .logos img {
   flex: 1 1 auto;
   padding: 22px;
   max-width: 220px;
+  width:auto;
   max-height: 101px;
+  height: auto;
+}
+
+.push-logos-center {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  width: 100%;
 }
