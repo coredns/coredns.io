@@ -217,7 +217,8 @@ h1, h2, h3, h4, h5, h6 {
         color: #000;
         text-decoration: underline; }
 
-#hero {
+#hero, 
+#hero-heading {
   padding-top: 48px;
   padding-bottom: 56px;
   text-align: center; }
@@ -1080,7 +1081,8 @@ footer {
     border: none;
     display: block;
     margin: 16px 0; }
-  #hero {
+  #hero,
+  #hero-heading {
     margin-top: 32px;
     padding-top: 0;
     padding-left: 20px;
