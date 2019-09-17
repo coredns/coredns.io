@@ -12,8 +12,17 @@ footer nav ul li a {
 }
 
 .logos img {
-  flex: 1 1 auto;
-  padding: 22px;
-  max-width: 220px;
-  max-height: 101px;
-}
+    flex: 1 1 auto;
+    padding: 22px;
+    max-width: 220px;
+    width:auto;
+    max-height: 101px;
+    height: auto;
+  }
+  
+  .push-logos-center {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+  }
