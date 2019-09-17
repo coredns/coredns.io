@@ -3,7 +3,7 @@
 
 {{ define "main" }}
 
-<div id="hero" class="wrap">
+<div class="hero" class="wrap">
     {{ $last := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
 
     <h1>{{ $last | humanize }}</h1>
