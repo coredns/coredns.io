@@ -3,7 +3,7 @@
 
 {{ define "main" }}
 
-<div id="hero" class="wrap">
+<div class="hero" class="wrap">
     {{ if eq .Type "blog" }}
     <h1> Blog </h1>
         {{ .Site.Data.subtext.blog.content | markdownify }}
