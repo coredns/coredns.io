@@ -769,7 +769,7 @@ body.page-account #hero {
   max-width: 680px;
   text-align: center; }
 
-#posts li {
+#posts section li {
   margin-bottom: 40px; }
 
 #posts h2 {
