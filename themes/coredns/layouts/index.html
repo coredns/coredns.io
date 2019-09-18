@@ -3,7 +3,7 @@
 {{ define "main"}}
 
 <div id="main">
-  <div id="hero">
+  <div class="hero">
     <h1>{{.Title}}</h1>
     <p>{{.Description | markdownify }}</p>
   </div>
@@ -129,22 +129,22 @@ coredns.io {
     </div>
 
 
-    <h3 id="hero"><a href="https://github.com/coredns/coredns/blob/master/ADOPTERS.md">Some</a> of Our Users</h3>
+    <h3 class="hero"><a href="https://github.com/coredns/coredns/blob/master/ADOPTERS.md">Some</a> of Our Users</h3>
     <div class="row logos push-logos-center">
-        {{partial "logo" (dict "context" . "url" "k8s.io" "logo" "k8s.png") }}
-        {{partial "logo" (dict "context" . "url" "www.mit.edu" "logo" "mit.png") }}
-        {{partial "logo" (dict "context" . "url" "infoblox.com" "logo" "infoblox.png") }}
-        {{partial "logo" (dict "context" . "url" "engineering.skybettingandgaming.com" "logo" "sky.png") }}
-        {{partial "logo" (dict "context" . "url" "getadmiral.com" "logo" "admiral.png") }}
+        {{partial "logo" (dict "context" . "url" "k8s.io" "logo" "k8s.png" "alt" "kubernetes home") }}
+        {{partial "logo" (dict "context" . "url" "www.mit.edu" "logo" "mit.png" "alt" "mit home") }}
+        {{partial "logo" (dict "context" . "url" "infoblox.com" "logo" "infoblox.png" "alt" "infoblox home") }}
+        {{partial "logo" (dict "context" . "url" "engineering.skybettingandgaming.com" "logo" "sky.png" "alt" "sbg home") }}
+        {{partial "logo" (dict "context" . "url" "getadmiral.com" "logo" "admiral.png" "alt" "admiral home") }}
     </div>
 
     <br/>
 
     <div class="row logos push-logos-center">
-        {{partial "logo" (dict "context" . "url" "kismia.com" "logo" "kismia.png") }}
-        {{partial "logo" (dict "context" . "url" "www.soundcloud.com" "logo" "soundcloud.png") }}
-        {{partial "logo" (dict "context" . "url" "qunar.com" "logo" "qunar.png") }}
-        {{partial "logo" (dict "context" . "url" "tradeshift.com" "logo" "tradeshift.png") }}
+        {{partial "logo" (dict "context" . "url" "kismia.com" "logo" "kismia.png" "alt" "kismia home") }}
+        {{partial "logo" (dict "context" . "url" "www.soundcloud.com" "logo" "soundcloud.png" "alt" "soundcloud home") }}
+        {{partial "logo" (dict "context" . "url" "qunar.com" "logo" "qunar.png" "alt" "qunar home") }}
+        {{partial "logo" (dict "context" . "url" "tradeshift.com" "logo" "tradeshift.png" "alt" "tradeshift home") }}
     </div>
 
 </div>
