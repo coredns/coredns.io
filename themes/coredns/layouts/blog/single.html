@@ -4,7 +4,7 @@
 {{ define "main"}}
 <div class="push-center" itemscope itemtype="http://schema.org/BlogPosting">
     {{ template "_internal/schema.html" . }}
-<div id="hero">
+<div class="hero">
     <h1 itemprop="headline">  {{.Title}}</h1>
     {{ if .Description }}
 <blockquote itemprop="description">{{ .Description | markdownify }}</blockquote>

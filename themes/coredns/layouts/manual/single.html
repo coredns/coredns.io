@@ -3,7 +3,7 @@
 {{ define "main"}}
 
 <div id="main">
-  <div id="hero">
+  <div class="hero">
     <h1>{{.Title}}</h1>
     {{ .Description | markdownify }}
     <p></p>
@@ -23,22 +23,22 @@
 
     {{.Content | safeHTML}}
 
-    <div id="hero"><p>&nbsp;</p></div>
+    <div class="hero"><p>&nbsp;</p></div>
     {{ partial "lastmod" . }}
     {{ readFile "content/manual/what.md" | markdownify }}
-    <div id="hero"><p>&nbsp;</p></div>
+    <div class="hero"><p>&nbsp;</p></div>
     {{ partial "lastmod" . }}
     {{ readFile "content/manual/installation.md" | markdownify }}
-    <div id="hero"><p>&nbsp;</p></div>
+    <div class="hero"><p>&nbsp;</p></div>
     {{ partial "lastmod" . }}
     {{ readFile "content/manual/plugins.md" | markdownify }}
-    <div id="hero"><p>&nbsp;</p></div>
+    <div class="hero"><p>&nbsp;</p></div>
     {{ partial "lastmod" . }}
     {{ readFile "content/manual/configuration.md" | markdownify }}
-    <div id="hero"><p>&nbsp;</p></div>
+    <div class="hero"><p>&nbsp;</p></div>
     {{ partial "lastmod" . }}
     {{ readFile "content/manual/setups.md" | markdownify }}
-    <div id="hero"><p>&nbsp;</p></div>
+    <div class="hero"><p>&nbsp;</p></div>
     {{ partial "lastmod" . }}
     {{ readFile "content/manual/plugins-dev.md" | markdownify }}
 

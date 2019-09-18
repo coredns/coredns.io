@@ -3,7 +3,7 @@
 {{ define "main"}}
 
 <div id="main">
-  <div id="hero">
+  <div class="hero">
     <h1>{{.Title}}</h1>
     <p>{{.Description | markdownify }}</p>
   </div>
@@ -129,7 +129,7 @@ coredns.io {
     </div>
 
 
-    <h3 id="hero"><a href="https://github.com/coredns/coredns/blob/master/ADOPTERS.md">Some</a> of Our Users</h3>
+    <h3 class="hero"><a href="https://github.com/coredns/coredns/blob/master/ADOPTERS.md">Some</a> of Our Users</h3>
     <div class="row logos push-logos-center">
         {{partial "logo" (dict "context" . "url" "k8s.io" "logo" "k8s.png") }}
         {{partial "logo" (dict "context" . "url" "www.mit.edu" "logo" "mit.png") }}

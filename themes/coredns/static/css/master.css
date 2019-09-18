@@ -217,11 +217,11 @@ h1, h2, h3, h4, h5, h6 {
         color: #000;
         text-decoration: underline; }
 
-#hero {
+.hero {
   padding-top: 48px;
   padding-bottom: 56px;
   text-align: center; }
-  #hero h1 {
+  .hero h1 {
     max-width: 880px;
     margin-left: auto;
     margin-right: auto;
@@ -229,7 +229,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 64px;
     line-height: 72px;
     font-weight: 900; }
-  #hero p {
+  .hero p {
     max-width: 740px;
     margin: auto;
     font-size: 21px;
@@ -239,11 +239,11 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 28px;
     margin-bottom: 0;
     position: relative; }
-    #hero p a {
+    .hero p a {
       color: #000; }
-    #hero p a:hover {
+    .hero p a:hover {
       color: rgba(0, 0, 0, 0.6); }
-    #hero p:before {
+    .hero p:before {
       position: absolute;
       content: '';
       width: 40px;
@@ -354,9 +354,9 @@ body.page-redactor-index footer {
 body.docs #top {
   margin-bottom: 0; }
 
-body.page-account #hero {
+body.page-account .hero {
   padding: 0; }
-  body.page-account #hero h1 {
+  body.page-account .hero h1 {
     font-size: 32px;
     line-height: 32px;
     margin-bottom: 48px; }
@@ -1080,15 +1080,15 @@ footer {
     border: none;
     display: block;
     margin: 16px 0; }
-  #hero {
+  .hero {
     margin-top: 32px;
     padding-top: 0;
     padding-left: 20px;
     padding-right: 20px; }
-    #hero h1 {
+    .hero h1 {
       font-size: 40px;
       line-height: 48px; }
-    #hero p {
+    .hero p {
       font-size: 16px;
       line-height: 24px; }
   #posts,
