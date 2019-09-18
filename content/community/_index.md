@@ -34,7 +34,7 @@ CoreDNS is an independent open-source project and not controlled by any single c
 To emphasize this and clarify our governance structure, we joined the [Cloud Native Computing
 Foundation](https://cncf.io) in 2017.
 
-<a href="https://cncf.io/"><img src="/images/cncf-logo.png"></a>
+<a href="https://cncf.io/"><img src="/images/cncf-logo.png" alt="cncf home"></a>
 
 ## Code of Conduct
 To make CoreDNS a welcoming and harassment-free experience for everyone, we follow the [CNCF Code
