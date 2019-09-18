@@ -14,7 +14,9 @@
 <ul id="posts">
 
  {{ range .Paginator.Pages.ByWeight }} {{ partial "page-summary" . }} {{ end }}
-  <section>{{ partial "pagination" .}}</section>
+ <li>
+     <section>{{ partial "pagination" .}}</section>
+ </li> 
 
 </ul>
 
