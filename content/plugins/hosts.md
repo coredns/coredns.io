@@ -4,7 +4,7 @@ description = "*hosts* enables serving zone data from a `/etc/hosts` style file.
 weight = 21
 tags = [ "plugin", "hosts" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:25:36.739264"
+date = "2019-09-27T10:37:57.664316"
 +++
 
 ## Description
