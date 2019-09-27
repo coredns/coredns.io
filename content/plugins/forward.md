@@ -1,10 +1,10 @@
 +++
 title = "forward"
 description = "*forward* facilitates proxying DNS messages to upstream resolvers."
-weight = 17
+weight = 18
 tags = [ "plugin", "forward" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.154264"
+date = "2019-09-27T10:25:36.739038"
 +++
 
 ## Description
@@ -107,9 +107,8 @@ If monitoring is enabled (via the *prometheus* directive) then the following met
   and we are randomly (this always uses the `random` policy) spraying to an upstream.
 * `coredns_forward_socket_count_total{to}` - number of cached sockets per upstream.
 
-Where `to` is one of the upstream servers (**TO** from the config), `proto` is the protocol used by
-the incoming query ("tcp" or "udp"), and family the transport family ("1" for IPv4, and "2" for
-IPv6).
+Where `to` is one of the upstream servers (**TO** from the config), `rcode` is the returned RCODE
+from the upstream.
 
 ## Examples
 

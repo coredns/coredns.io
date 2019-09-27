@@ -1,10 +1,10 @@
 +++
 title = "errors"
-description = "*errors* enable error logging."
-weight = 14
+description = "*errors* enables error logging."
+weight = 15
 tags = [ "plugin", "errors" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.153460"
+date = "2019-09-27T10:25:36.738756"
 +++
 
 ## Description
@@ -41,10 +41,10 @@ For better performance, it's recommended to use the `^` or `$` metacharacters in
 
 ## Examples
 
-Use the *whoami* to respond to queries and Log errors to standard output.
+Use the *whoami* to respond to queries in the example.org domain and Log errors to standard output.
 
 ~~~ corefile
-. {
+example.org {
     whoami
     errors
 }

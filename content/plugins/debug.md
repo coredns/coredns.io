@@ -1,10 +1,10 @@
 +++
 title = "debug"
 description = "*debug* disables the automatic recovery upon a crash so that you'll get a nice stack trace."
-weight = 10
+weight = 11
 tags = [ "plugin", "debug" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.152773"
+date = "2019-09-27T10:25:36.738465"
 +++
 
 ## Description
@@ -48,4 +48,4 @@ Disable the ability to recover from crashes and show debug logging:
 
 ## Also See
 
-https://www.wireshark.org/docs/man-pages/text2pcap.html.
+<https://www.wireshark.org/docs/man-pages/text2pcap.html>.

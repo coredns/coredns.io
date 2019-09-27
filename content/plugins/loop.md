@@ -1,10 +1,10 @@
 +++
 title = "loop"
-description = "*loop* detect simple forwarding loops and halt the server."
-weight = 26
+description = "*loop* detects simple forwarding loops and halts the server."
+weight = 27
 tags = [ "plugin", "loop" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.155948"
+date = "2019-09-27T10:25:36.739737"
 +++
 
 ## Description

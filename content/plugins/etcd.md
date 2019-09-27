@@ -1,10 +1,10 @@
 +++
 title = "etcd"
-description = "*etcd* enable SkyDNS service discovery from etcd."
-weight = 15
+description = "*etcd* enables SkyDNS service discovery from etcd."
+weight = 16
 tags = [ "plugin", "etcd" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.153725"
+date = "2019-09-27T10:25:36.738865"
 +++
 
 ## Description
@@ -13,7 +13,7 @@ The *etcd* plugin implements the (older) SkyDNS service discovery service. It is
 a generic DNS zone data plugin. Only a subset of DNS record types are implemented, and subdomains
 and delegations are not handled at all.
 
-The data in etcd instance has to be encoded as
+The data in the etcd instance has to be encoded as
 a [message](https://github.com/skynetservices/skydns/blob/2fcff74cdc9f9a7dd64189a447ef27ac354b725f/msg/service.go#L26)
 like [SkyDNS](https://github.com/skynetservices/skydns). It works just like SkyDNS.
 
@@ -80,15 +80,19 @@ This causes two lookups from CoreDNS to etcdv3 in certain cases.
 This is the default SkyDNS setup, with everything specified in full:
 
 ~~~ corefile
-. {
-    etcd skydns.local {
+skydns.local {
+    etcd {
         path /skydns
         endpoint http://localhost:2379
     }
     prometheus
-    cache 160 skydns.local
+    cache
     loadbalance
+}
+
+. {
     forward . 8.8.8.8:53 8.8.4.4:53
+    cache
 }
 ~~~
 
@@ -96,12 +100,16 @@ Or a setup where we use `/etc/resolv.conf` as the basis for the proxy and the up
 when resolving external pointing CNAMEs.
 
 ~~~ corefile
-. {
-    etcd skydns.local {
+skydns.local {
+    etcd {
         path /skydns
     }
-    cache 160 skydns.local
+    cache
+}
+
+. {
     forward . /etc/resolv.conf
+    cache
 }
 ~~~
 

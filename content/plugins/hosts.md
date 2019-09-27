@@ -1,10 +1,10 @@
 +++
 title = "hosts"
 description = "*hosts* enables serving zone data from a `/etc/hosts` style file."
-weight = 20
+weight = 21
 tags = [ "plugin", "hosts" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.154846"
+date = "2019-09-27T10:25:36.739264"
 +++
 
 ## Description
@@ -75,6 +75,13 @@ hosts [FILE [ZONES...]] {
   is authoritative. If specific zones are listed (for example `in-addr.arpa` and `ip6.arpa`), then only
   queries for those zones will be subject to fallthrough.
 
+## Metrics
+
+If monitoring is enabled (via the *prometheus* directive) then the following metrics are exported:
+
+- `coredns_hosts_entries_count{}` - The combined number of entries in hosts and Corefile.
+- `coredns_hosts_reload_timestamp_seconds{}` - The timestamp of the last reload of hosts file.
+
 ## Examples
 
 Load `/etc/hosts` file.
@@ -107,11 +114,12 @@ next plugin if query doesn't match.
 Load hosts file inlined in Corefile.
 
 ~~~
-. {
-    hosts example.hosts example.org {
+example.hosts example.org {
+    hosts {
         10.0.0.1 example.org
         fallthrough
     }
+    whoami
 }
 ~~~
 

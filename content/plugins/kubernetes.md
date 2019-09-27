@@ -1,10 +1,10 @@
 +++
 title = "kubernetes"
-description = "*kubernetes* enables the reading zone data from a Kubernetes cluster."
-weight = 23
+description = "*kubernetes* enables reading zone data from a Kubernetes cluster."
+weight = 24
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.155410"
+date = "2019-09-27T10:25:36.739508"
 +++
 
 ## Description

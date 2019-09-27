@@ -1,10 +1,10 @@
 +++
 title = "clouddns"
 description = "*clouddns* enables serving zone data from GCP Cloud DNS."
-weight = 9
+weight = 10
 tags = [ "plugin", "clouddns" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.152632"
+date = "2019-09-27T10:25:36.738408"
 +++
 
 ## Description
@@ -52,7 +52,7 @@ clouddns [ZONE:PROJECT_ID:HOSTED_ZONE_NAME...] {
 Enable clouddns with implicit GCP credentials and resolve CNAMEs via 10.0.0.1:
 
 ~~~ txt
-. {
+example.org {
     clouddns example.org.:gcp-example-project:example-zone
     forward . 10.0.0.1
 }
@@ -61,7 +61,7 @@ Enable clouddns with implicit GCP credentials and resolve CNAMEs via 10.0.0.1:
 Enable clouddns with fallthrough:
 
 ~~~ txt
-. {
+example.org {
     clouddns example.org.:gcp-example-project:example-zone clouddns example.com.:gcp-example-project:example-zone-2 {
         fallthrough example.gov.
     }

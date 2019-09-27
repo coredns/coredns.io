@@ -1,10 +1,10 @@
 +++
 title = "route53"
 description = "*route53* enables serving zone data from AWS route53."
-weight = 35
+weight = 36
 tags = [ "plugin", "route53" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.157678"
+date = "2019-09-27T10:25:36.740434"
 +++
 
 ## Description
@@ -65,8 +65,11 @@ route53 [ZONE:HOSTED_ZONE_ID...] {
 Enable route53 with implicit AWS credentials and resolve CNAMEs via 10.0.0.1:
 
 ~~~ txt
-. {
+example.org {
 	route53 example.org.:Z1Z2Z3Z4DZ5Z6Z7
+}
+
+. {
     forward . 10.0.0.1
 }
 ~~~
@@ -74,7 +77,7 @@ Enable route53 with implicit AWS credentials and resolve CNAMEs via 10.0.0.1:
 Enable route53 with explicit AWS credentials:
 
 ~~~ txt
-. {
+example.org {
     route53 example.org.:Z1Z2Z3Z4DZ5Z6Z7 {
       aws_access_key AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
     }
@@ -94,14 +97,14 @@ Enable route53 with fallthrough:
 Enable route53 with multiple hosted zones with the same domain:
 
 ~~~ txt
-. {
+example.org {
     route53 example.org.:Z1Z2Z3Z4DZ5Z6Z7 example.org.:Z93A52145678156
 }
 ~~~
 
 Enable route53 and refresh records every 3 minutes
 ~~~ txt
-. {
+example.org {
     route53 example.org.:Z1Z2Z3Z4DZ5Z6Z7 {
       refresh 3m
     }

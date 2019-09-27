@@ -1,10 +1,10 @@
 +++
 title = "cancel"
-description = "*cancel* a plugin that cancels a request's context after 5001 milliseconds."
-weight = 7
+description = "*cancel* cancels a request's context after 5001 milliseconds."
+weight = 8
 tags = [ "plugin", "cancel" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.152361"
+date = "2019-09-27T10:25:36.738285"
 +++
 
 ## Description
@@ -12,7 +12,7 @@ date = "2019-08-31T08:36:24.152361"
 The *cancel* plugin creates a canceling context for each request. It adds a timeout that gets
 triggered after 5001 milliseconds.
 
-The 5001 number is chosen because the default timeout for DNS clients is 5 seconds, after that they
+The 5001 number was chosen because the default timeout for DNS clients is 5 seconds, after that they
 give up.
 
 A plugin interested in the cancellation status should call `plugin.Done()` on the context. If the
@@ -28,7 +28,7 @@ cancel [TIMEOUT]
 ## Examples
 
 ~~~ corefile
-. {
+example.org {
     cancel
     whoami
 }
@@ -37,7 +37,7 @@ cancel [TIMEOUT]
 Or with a custom timeout:
 
 ~~~ corefile
-. {
+example.org {
     cancel 1s
     whoami
 }

@@ -1,10 +1,10 @@
 +++
 title = "nsid"
 description = "*nsid* adds an identifier of this server to each reply."
-weight = 29
+weight = 30
 tags = [ "plugin", "nsid" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.156430"
+date = "2019-09-27T10:25:36.739959"
 +++
 
 ## Description
@@ -31,7 +31,7 @@ If **DATA** is not given, the host's name is used.
 Enable nsid:
 
 ~~~ corefile
-. {
+example.org {
     whoami
     nsid Use The Force
 }

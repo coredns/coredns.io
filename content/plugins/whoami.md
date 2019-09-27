@@ -1,10 +1,10 @@
 +++
 title = "whoami"
 description = "*whoami* returns your resolver's local IP address, port and transport."
-weight = 41
+weight = 42
 tags = [ "plugin", "whoami" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.158908"
+date = "2019-09-27T10:25:36.740911"
 +++
 
 ## Description
@@ -37,7 +37,7 @@ whoami
 Start a server on the default port and load the *whoami* plugin.
 
 ~~~ corefile
-. {
+example.org {
     whoami
 }
 ~~~
