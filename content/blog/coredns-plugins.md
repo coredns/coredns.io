@@ -6,48 +6,37 @@ title = "Writing Plugins for CoreDNS"
 author = "miek"
 +++
 
-As CoreDNS uses Caddy for setting up and using plugin, the process of writing plugin is
-remarkably [similar](https://github.com/mholt/caddy/wiki/Writing-a-Plugin:-Directives). This post
-slightly reworks (and simplifies in some cases) those pages.
-
-A new plugin adds new functionality to CoreDNS, i.e. *caching*, *metrics* and basic *zone* file
-serving are all plugins.
+A plugin adds functionality to CoreDNS, i.e. *caching*, *metrics* and basic *zone* file serving are
+all plugins.
 
 If you want to write a new plugin and want it to be included by default, i.e. merged in the code
-base please open an [issue](https://github.com/coredns/coredns/issues) first to discuss initial design
-and other things that may come up.
+base please open an [issue](https://github.com/coredns/coredns/issues) first to discuss initial
+design and other things that may come up. Starting with a README file to explain how things work
+from a user perspective is usually a good idea.
 
-## How to Register a CoreDNS Plugin
+See the [example plugin](https://github.com/coredns/example) for, uh, an example for how to
+structure, write and test a plugin. There are plenty of comments in the code to help you along.
 
-[Caddy](https://caddyserver.com) supports different type of plugins, CoreDNS, for instance,
-registers itself as a Caddy server type plugin. CoreDNS currently supports one type of plugins;
-a *plugin*.
+## How to Register a CoreDNS Plugin?
 
-Start a new Go package with an init function. Then register your plugin:
+When writing your plugin code you will need to register it with CoreDNS. This can be done by calling
+the following function:
 
 ```go
-import "github.com/mholt/caddy"
-
-func init() {
-  caddy.RegisterPlugin("foo", caddy.Plugin{
-    ServerType: "dns",
-    Action:     setup,
-  })
-}
+func init() { plugin.Register("foo", setup) }
 ```
 
-Every plugin must have a name, `foo`, in this case. The *ServerType* must be `dns`. The *Action*
-speficied here is to say it will call a function called `setup` whenever the *directive* `foo` is
-encountered in the Corefile.
+Every plugin must have a name, `foo`, in this case. When `foo` is encountered in the configuration
+the `setup` function will be called in this package.
 
 ### The Setup Function
 
-The *Action* field of the `caddy.Plugin` struct is what makes a directive plugin unique. This is the
-function to run when CoreDNS is parsing and executing the Corefile.
+The `setup` function (it may be called different, but pretty much every plugin just calls it
+`setup`) parses the configuration and populates internal data structures.
 
-The action is simply a function that takes a caddy.Controller and returns an error:
-(We use [plugin.Error](https://godoc.org/github.com/coredns/coredns/plugin#Error) to prefix
-returned error with `plugin/foo: ` to improve error reporting).
+The setup function a `caddy.Controller` and returns an error: (We use
+[plugin.Error](https://godoc.org/github.com/coredns/coredns/plugin#Error) to prefix returned error
+with `plugin/foo:` to improve error reporting).
 
 ``` go
 func setup(c *caddy.Controller) error {
@@ -55,50 +44,38 @@ func setup(c *caddy.Controller) error {
     return plugin.Error("foo", err)
   }
 
+  // various other code
+
   return nil
 }
 ```
 
-It is the responsibility of the setup function to parse the directive's tokens and configure itself.
-The [Controller struct](https://godoc.org/github.com/mholt/caddy#Controller)
-makes this quite easy. If we expect a line in the Corefile such as:
+If we see a line in the Corefile such as:
 
 ```
 foo gizmo
 ```
 
-We can get the value of the first argument ("foobar") like so:
+We can get the value of the first argument ("gizmo") like so:
 
 ```go
-for c.Next() {              // Skip the directive name.
+for c.Next() {              // Skip the plugin name, "foo" in this case.
     if !c.NextArg() {       // Expect at least one value.
         return c.ArgErr()   // Otherwise it's an error.
     }
     value := c.Val()        // Use the value.
 }
 ```
-You parse the tokens present for your directive by iterating over `c.Next()` which is true as long
-as there are more tokens to parse. Since a directive may appear multiple times, you must iterate
-over `c.Next()` to get all the appearances of your directive and consume the first token (which is the
-directive name).
+You parse the tokens present for your plugin by iterating over `c.Next()` which is true as long
+as there are more tokens to parse. Since a plugin may appear multiple times, you must iterate over
+`c.Next()` to get all the appearances of your plugin and consume the tokens.
 
 ### Adding to CoreDNS
 
-To plug your plugin into CoreDNS, import it. This is done in
-[core/coredns.go](https://github.com/coredns/coredns/blob/master/core/coredns.go):
+To plug your plugin into CoreDNS, put in
+[`plugin.cfg`](https://github.com/coredns/coredns/blob/master/plugin.cfg) and run `go generate`.
 
-
-```go
-import _ "your/plugin/package/path/here"
-```
-
-This makes CoreDNS compile your plugin, but it is still not available, so the second step is
-to add it to [directives.go](https://github.com/coredns/coredns/blob/master/core/dnsserver/directives.go):
-
-Add the name (`foo`) of your plugin at the end of the file in the `directives` string slice.
-Note the ordering is important, because this is determines how the plugins are chained together.
-
-## How DNS Plugin Works in CoreDNS
+## How A Plugin Works in CoreDNS
 
 Check out the [godoc for the plugin
 package](http://godoc.org/github.com/coredns/coredns/plugin). The most important type is
@@ -110,9 +87,8 @@ up an DNS server for you, but you need to implement these two types.
 ### Writing a Handler
 
 `plugin.Handler` is an interface similar to `http.Handler` except that it deals with DNS and the
-`ServeDNS` method returns `(int, error)`. The `int` is the DNS rcode, and the `error` is one that
-should be handled and/or logged. Read the
-[plugin.md](https://github.com/coredns/coredns/blob/master/plugin.md) doc for more details
+`ServeDNS` method returns `(int, error)`. The `int` is status code, and the `error` is logged (if
+not nil) See [plugin.md](https://github.com/coredns/coredns/blob/master/plugin.md) for more details
 about these return values.
 
 Handlers are usually a struct with at least one field, the next Handler in the chain:
@@ -123,9 +99,9 @@ type MyHandler struct {
 }
 ```
 
-To implement the `plugin.Handler` interface, we write a method called `ServeDNS`.
-This method is the actual handler function, and, unless it fully handles the request by itself, it
-should call the next handler in the chain:
+To implement the `plugin.Handler` interface, we write a method called `ServeDNS`. This method is the
+actual handler function, and, unless it fully handles the request by itself, it should call the next
+handler in the chain:
 
 ```go
 func (h MyHandler) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dns.Msg) (int, error) {
@@ -133,46 +109,16 @@ func (h MyHandler) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dns.Ms
 }
 ```
 
-The interface also needs a method `func Name() string`, this is mainly used to see if an plugin
-is active, i.e. the *auto* plugin used this to detect if *metrics* are active and if so, adds
-updates the zone info.
+The interface also needs a method `func Name() string`.,
 
 ```go
 func (h MyHandler) Name() string { return "foo" }
 ```
 
-That's all there is to it.
+That's all there is to it (apart from writing all code that actually does something with the DNS
+request of course).
 
-## How to Add the Handler to CoreDNS
-
-So, back in your setup function. You've just parsed the tokens and set up your plugin handler
-with all the proper configuration:
-
-```go
-func setup(c *caddy.Controller) error {
-  for c.Next() {
-    // Get configuration.
-  }
-
-  // Now what?
-}
-```
-
-To chain in your new handler, get the config for the current site from the dnsserver package.
-Then wrap your handler in a plugin function:
-
-```go
-cfg := dnsserver.GetConfig(c)
-mid := func(next plugin.Handler) plugin.Handler {
-  return MyHandler{Next: next}
-}
-cfg.AddPlugin(mid)
-```
-
-And you're done! Of course, in this example, we simply allocated a `MyHandler` with no special
-configuration. It doesn't really matter as long as you chain in the `next` handler properly!
-
-## Examples
+## Further Reading
 
 Simple examples of plugin that can be found in CoreDNS are:
 
@@ -180,6 +126,8 @@ Simple examples of plugin that can be found in CoreDNS are:
   a plugin. It simply performs some setup.
 * [chaos](https://godoc.org/github.com/coredns/coredns/plugin/chaos); a DNS plugin that
   responds to `CH txt version.bind` requests.
+* [example](https://github.com/coredns/example); an example plugin that prints "example" when
+  responding to a query.
 
 **Don't forget: the best documentation is the [godoc](https://godoc.org/github.com/coredns/coredns)
 and the [code](https://github.com/coredns/coredns) itself!**

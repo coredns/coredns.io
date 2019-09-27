@@ -10,8 +10,7 @@ author = "miek"
 CoreDNS' [plugins](/plugins) (or [external plugins](/explugins)) can be enabled or
 disabled on the fly by specifying (or not specifying) it in the
 [Corefile](/2017/07/23/corefile-explained/). But you can also compile CoreDNS with only the
-plugin you *need* and leave the rest completely out.
-
+plugins you *need* and leave the rest completely out.
 
 There are two ways to achieve that. It could be done via compile-time configuration file
 with CoreDNS code base update. It also could be achieved without modifying CoreDNS code.
@@ -26,7 +25,7 @@ to update. It looks like this:
 ...
 whoami:whoami
 erratic:erratic
-startup:github.com/mholt/caddy/startupshutdown
+federation:github.com/coredns/federation
 ...
 ~~~
 
@@ -82,5 +81,5 @@ The directives should also be updated through:
 
 The ordering of the plugins is specified by how the arey ordered in the slice `directives`.
 
-Then you can just compile CoreDNS with `go build` to have the binary generated with the
-plugins you selected.
+Then you can just compile CoreDNS with `go build` to have the binary generated with the plugins you
+selected.
