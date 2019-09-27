@@ -1,15 +1,15 @@
 +++
 title = "dnstap"
-description = "*dnstap* enable logging to dnstap."
-weight = 12
+description = "*dnstap* enables logging to dnstap."
+weight = 13
 tags = [ "plugin", "dnstap" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.153115"
+date = "2019-09-27T10:37:57.663686"
 +++
 
 ## Description
 
-dnstap is a flexible, structured binary log format for DNS software: http://dnstap.info. With this
+dnstap is a flexible, structured binary log format for DNS software; see http://dnstap.info. With this
 plugin you make CoreDNS output dnstap logging.
 
 Note that there is an internal buffer, so expect at least 13 requests before the server sends its

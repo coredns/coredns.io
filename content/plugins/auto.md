@@ -1,10 +1,10 @@
 +++
 title = "auto"
 description = "*auto* enables serving zone data from an RFC 1035-style master file, which is automatically picked up from disk."
-weight = 2
+weight = 3
 tags = [ "plugin", "auto" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.151649"
+date = "2019-09-27T10:37:57.663033"
 +++
 
 ## Description
@@ -59,8 +59,8 @@ Load `org` domains from `/etc/coredns/zones/org` and allow transfers to the inte
 notifies to 10.240.1.1
 
 ~~~ corefile
-. {
-    auto org {
+org {
+    auto {
         directory /etc/coredns/zones/org
         transfer to *
         transfer to 10.240.1.1

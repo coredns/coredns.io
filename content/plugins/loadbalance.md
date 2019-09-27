@@ -1,18 +1,18 @@
 +++
 title = "loadbalance"
-description = "*loadbalance* randomize the order of A, AAAA and MX records."
-weight = 24
+description = "*loadbalance* randomizes the order of A, AAAA and MX records."
+weight = 25
 tags = [ "plugin", "loadbalance" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.155560"
+date = "2019-09-27T10:37:57.664625"
 +++
 
 ## Description
 
-The *loadbalance* will act as a round-robin DNS loadbalancer by randomizing the order of A, AAAA,
+The *loadbalance* will act as a round-robin DNS load balancer by randomizing the order of A, AAAA,
 and MX records in the answer.
 
-See [Wikipedia](https://en.wikipedia.org/wiki/Round-robin_DNS) about the pros and cons on this
+See [Wikipedia](https://en.wikipedia.org/wiki/Round-robin_DNS) about the pros and cons of this
 setup. It will take care to sort any CNAMEs before any address records, because some stub resolver
 implementations (like glibc) are particular about that.
 
@@ -22,7 +22,7 @@ implementations (like glibc) are particular about that.
 loadbalance [POLICY]
 ~~~
 
-* **POLICY** is how to balance, the default, and only option, is "round_robin".
+* **POLICY** is how to balance. The default, and only option, is "round_robin".
 
 ## Examples
 

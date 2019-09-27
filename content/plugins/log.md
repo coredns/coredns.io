@@ -1,10 +1,10 @@
 +++
 title = "log"
 description = "*log* enables query logging to standard output."
-weight = 25
+weight = 26
 tags = [ "plugin", "log" ]
 categories = [ "plugin" ]
-date = "2019-08-31T08:36:24.155766"
+date = "2019-09-27T10:37:57.664710"
 +++
 
 ## Description
@@ -95,7 +95,7 @@ The default Common Log Format is:
 Each of these logs will be outputted with `log.Infof`, so a typical example looks like this:
 
 ~~~ txt
-2018-10-30T19:10:07.547Z [INFO] [::1]:50759 - 29008 "A IN example.org. udp 41 false 4096" NOERROR qr,rd,ra,ad 68 0.037990251s
+[INFO] [::1]:50759 - 29008 "A IN example.org. udp 41 false 4096" NOERROR qr,rd,ra,ad 68 0.037990251s
 ~~~~
 
 ## Examples
