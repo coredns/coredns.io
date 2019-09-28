@@ -5,7 +5,7 @@ a bunch of configuration in the [previous section](#setups), but how can you wri
 
 See [Writing Plugins for CoreDNS](/2016/12/19/writing-plugins-for-coredns/) for an older post on
 this subject. The [plugin.md](https://github.com/coredns/coredns/blob/master/plugin.md) documented
-in CoreDNS's source also has some background and talks about styling the README.md.
+in CoreDNS' source also has some background and talks about styling the README.md.
 
 The canonical example plugin is the *example* plugin. Its [github
 repository](https://github.com/coredns/example) shows the most minimal code (with tests!) that is
@@ -45,7 +45,7 @@ CoreDNS treats:
 * FORMERR (dns.RcodeFormatError)
 * NOTIMP (dns.RcodeNotImplemented)
 
-as special and will then assume *nothing* has been written to the client. In all other cases, it
+As special and will then assume *nothing* has been written to the client. In all other cases, it
 assumes something has been written to the client (by the plugin).
 
 See [this post](https://blog.coredns.io/2017/03/01/how-to-add-plugins-to-coredns/) on how to compile
@@ -53,9 +53,15 @@ CoreDNS with your plugin.
 
 ## Logging From a Plugin
 
-If your plugin needs to output a log line, you should use the `log` package. CoreDNS does not
-implement log levels. The standard way of outputting is: `log.Printf("[LEVEL] ...")`, and LEVEL
-can be: `INFO`, `WARNING` or `ERROR`.
+Use the [log package](https://godoc.org/github.com/coredns/coredns/plugin/pkg/log) to add logging to
+your plugin. You initialize it with:
+
+~~~ go
+var log = clog.NewWithPlugin("example")
+~~~
+
+Now you can `log.Infof("...")` to print something to standard output prefixed with level `[INFO]
+plugin/example`. Level can be: `INFO`, `WARNING` or `ERROR`.
 
 In general, logging should be left to the higher layers when returning an error. However, if there is
 a reason to consume the error but still notify the user, then logging in the plugin can be acceptable.
@@ -64,8 +70,8 @@ a reason to consume the error but still notify the user, then logging in the plu
 
 When exporting metrics, the *Namespace* should be `plugin.Namespace` (="coredns"), and the
 *Subsystem* should be the name of the plugin. The README.md for the plugin should then also contain
-a *Metrics* section detailing the metrics. If the plugin supports dynamic [health](/plugins/health)
-reporting, it should also have a *Health* section detailing some of its inner workings.
+a *Metrics* section detailing the metrics. If the plugin supports [readiness](/plugins/ready)
+reporting, it should also have a *Ready* section detailing it.
 
 ## Documentation
 
@@ -74,7 +80,7 @@ file should have the following layout:
 
 * Title: use the plugin's name
 * Subsection titled: "Named"
-    with `<plugin name> - <one line description>`, i.e. NAME DASH DESCRIPTION
+    with `<plugin name> - <one line description>.`, i.e. NAME DASH DESCRIPTION DOT.
 * Subsection titled: "Description" with a longer description and all the options the plugin supports.
 * Subsection titled: "Syntax" detailing syntax and supported directives.
 * Subsection titled: "Examples".
@@ -104,9 +110,8 @@ domain name is registered by someone and will actually serve web content (which 
 In a perfect world, the following would be true for plugins: "Either you are responsible for a zone or
 not". If the answer is "not", the plugin should call the next plugin in the chain. If "yes" it
 should handle *all* names that fall in this zone and the names below - i.e. it should handle the
-entire domain and all sub domains.
-
-TODO(miek): ref to "Query Is Proccessed with Fallthrough"
+entire domain and all sub domains, [also see here](/manual/toc#query-is-processed-with-fallthrough)
+on how a query is process with `fallthrough` enabled.
 
 ~~~ txt
 . {
@@ -134,15 +139,5 @@ in one of those zones should be allowed to fallthrough.
 
 ## Qualifying for main repo
 
-Plugins for CoreDNS can live out-of-tree. `plugin.cfg` defaults to CoreDNS's repo, but external
-repos work fine. So when do we consider the inclusion of a new plugin in the main repo?
-
-* The plugin authors should be willing to maintain the plugin, i.e. your GitHub handle will be
-  listed in its `OWNERS` file.
-* The plugin should be useful for other people. "Useful" is a subjective term, but it should
-  bring something new to CoreDNS.
-* It should be sufficiently different from other plugins to warrant inclusion.
-* Current Internet standards need be supported: IPv4 and IPv6, so A and AAAA records should be
-  handled (if your plugin is in the business of dealing with address records, that is).
-* It must have tests.
-* It must have a README.md for documentation.
+See [this document](/2017/07/23/when-should-plugins-be-external/) describing the
+requirements.

@@ -66,7 +66,7 @@ www.example.org.    3600    IN  AAAA    ::1
 It works. Because of the *log* plugin, we should also see the query being logged:
 
 ~~~ txt
-::1 - [22/Feb/2018:10:21:01 +0000] "AAAA IN www.example.org. udp 45 false 4096" NOERROR qr,aa,rd,ra 121 170.195µs
+[INFO] [::1]:44390 - 63751 "AAAA IN www.example.org. udp 45 false 4096" NOERROR qr,aa,rd,ra 121 0.000106009s
 ~~~
 
 The above logs show us the address CoreDNS replied from (`::1`) and the time and date it replied.
@@ -101,14 +101,6 @@ $ dig www.example.org AAAA
 www.example.org.	25837	IN	AAAA	2606:2800:220:1:248:1893:25c8:194
 ~~~
 
-And in the logs:
-~~~
-:1 - [22/Feb/2018:10:34:39 +0000] 36325 "AAAA IN www.example.org. udp 45 false 4096" NOERROR qr,rd,ra,ad 73 1.859369ms
-~~~
-
-See the [Authoritative Serving from Files](#authoritative-serving-from-files) section on what this log
-line conveys.
-
 ## Forwarding Domains To Different Upstreams
 
 A common scenario you may encounter is that queries for `example.org` need to go to 8.8.8.8 and
@@ -129,8 +121,7 @@ Take this Corefile as an example:
 The intent is to grab all possible queries (this Server Block is authoritative for the root domain),
 and then use the per-zone filtering of the [*forward*](/plugins/forward) plugin. Spoiler alert: this
 does not work. The reason is that the *forward* plugin can only be used once in a Server
-Block (it used to silently overwrite the previous configuration; now the above config triggers an
-error).
+Block.
 
 The above use case is a very valid one, so how do you implement this in CoreDNS? The quick
 answer is by using multiple Server Blocks, one for each of the domains you want to route
@@ -151,16 +142,6 @@ example.org {
 This leaves the domain routing to CoreDNS, which also handles special cases like DS queries. Having
 two smaller Server Blocks instead of one has no negative effects except that your Corefile will be
 slightly longer. Things like snippets and the [*import*](/plugins/import) will help there.
-
-## Kubernetes
-
-### Federation
-
-### Autopath
-
-## Metrics
-
-## Caching
 
 ## Recursive Resolver
 
@@ -185,5 +166,5 @@ Assuming this worked, you can then enable *unbound* with the following Corefile:
     log
 }
 ~~~
-*cache* has been included, because the (internal) cache from *unbound* is disabled to allow the
+[*cache*](/plugins/cache) has been included, because the (internal) cache from *unbound* is disabled to allow the
 cache's metrics to works just like normal.

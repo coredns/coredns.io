@@ -32,19 +32,19 @@ come with CoreDNS fall into one of these four groups though. Note this [blog
 post](/2017/06/08/how-queries-are-processed-in-coredns/) also provides background in the query
 routing.
 
-## Query Is Processed
+## Query is Processed
 
 The plugin processes the query. It looks up (or generates, or whatever the plugin author decided
 this plugin does) a response and sends it back to the client. The query processing stops here, no
 next plugin is called. A (simple) plugin that works like this is [*whoami*](/plugins/whoami).
 
-## Query is not processed
+## Query is Not Processed
 
 If the plugin decides it will not process a query, it simply calls the next plugin in the chain.
 If the last plugin in the chain decides to not process the query, CoreDNS will return SERVFAIL back
 to the client.
 
-## Query is processed With Fallthrough
+## Query is Processed With Fallthrough
 
 In this situation, a plugin handles the query, but the reply it got from its backend (i.e. maybe it
 got NXDOMAIN) is such that it wants other plugins in the chain to take a look as well. If *fallthrough*
@@ -54,11 +54,13 @@ First, a lookup in the host table (`/etc/hosts`) is attempted, if it finds an an
 If not, it will *fallthrough* to the next one in the hope that other plugins may return something to the
 client.
 
-## Query is processed with a hint
+## Query is Processed With a Hint
 
 A plugin of this kind will process a query, and will *always* call the next plugin. However, it provides
 a hint that allows it to see the response that will be written to the client. A plugin that does
-this is [*prometheus*](/plugins/metrics). It times the duration ...
+this is [*prometheus*](/plugins/metrics). It times the duration (among other things), but doesn't
+actually do anything with the DNS request - it only passes it on and inspects some meta data on the
+return path.
 
 ## Unregistered Plugins
 
@@ -68,7 +70,8 @@ which interfaces CoreDNS should bind. The following plugins fall into this categ
 
 * [*bind*](/plugins/bind) - as said, control to what interfaces to bind.
 * [*root*](/plugins/root) - set the root directory where CoreDNS plugins should look for files.
-* [*health*](/plugins/health) - enable http health check endpoint.
+* [*health*](/plugins/health) - enable HTTP health check endpoint.
+* [*ready*](/plugins/ready) - support readiness reporting for a plugin.
 
 ## Anatomy of Plugins
 
@@ -81,9 +84,9 @@ The Handler is the code that processes the query and implements all the logic.
 
 The Registration part registers the plugin in CoreDNS - this happens when CoreDNS is compiled. All
 of the registered plugins can be used by a Server. The decision of which plugins are configured
-in each Server happens at run time and is done in CoreDNS's configuration file, the Corefile.
+in each Server happens at run time and is done in CoreDNS' configuration file, the Corefile.
 
-## Plugin Documenation
+## Plugin Documentation
 
 Each plugin has its own README detailing how it can be configured. This README includes examples and
 other bits a user should be aware of. Each of these READMEs end up on <https://coredns.io/plugins>,

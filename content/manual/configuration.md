@@ -11,20 +11,20 @@ of one or more Server Blocks. Each Server Block lists one or more Plugins. Those
 further configured with Directives.
 
 The ordering of the Plugins in the Corefile *does not determine* the order of the plugin chain. The
-order in which the the plugins are executed is determined by the ordering in `plugin.cfg`.
+order in which the plugins are executed is determined by the ordering in `plugin.cfg`.
 
 Comments in a Corefile are started with a `#`. The rest of the line is then considered a comment.
 
 ## Environment Variables
 
-CoreDNS supports environment variables in its configuration.
+CoreDNS supports environment variables substitution in its configuration.
 They can be used anywhere in the Corefile. The syntax is `{$ENV_VAR}` (a more Windows-like syntax
 `{%ENV_VAR%}` is also supported). CoreDNS substitutes the contents of the variable while parsing
 the Corefile.
 
 ## Importing Other Files
 
-See the [*import*](https://coredns.io/explugins/import) plugin. This plugin is a bit special in that
+See the [*import*](https://coredns.io/plugins/import) plugin. This plugin is a bit special in that
 it may be used anywhere in the Corefile.
 
 ### Reusable Snippets
@@ -96,7 +96,8 @@ can specify what a server should accept in the server configuration by prefixing
 a scheme.
 
 * `dns://` for plain DNS (the default if no scheme is specified).
-* `tls://` for DNS over TLS.
+* `tls://` for DNS over TLS, called DoT, see [RFC 7858](https://tools.ietf.org/html/rfc7858).
+* `https://` for DNS over HTTPS, called DoH, see [RFC 8484](https://tools.ietf.org/html/rfc8484).
 * `grpc://` for DNS over gRPC.
 
 ## Plugins
@@ -126,12 +127,12 @@ plugin we can specify a `VERSION` and `AUTHORS` as shown in its syntax:
 
 > #### Syntax
 >
-> ```
-> chaos [VERSION] [AUTHORS...]
-> ```
+>
+>       chaos [VERSION] [AUTHORS...]
+>
 >
 > * **VERSION** is the version to return. Defaults to `CoreDNS-<version>`, if not set.
-> * **AUTHORS** is what authors to return. No default.
+> * **AUTHORS** is what authors to return. Default is all folks specified in the OWNER files.
 
 So, this adds some Directives to the *chaos* plugin that will make CoreDNS will respond with
 `CoreDNS-001` as its version:
