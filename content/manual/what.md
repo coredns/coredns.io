@@ -7,7 +7,7 @@ CoreDNS is different from other DNS servers, such as (all excellent)
 [Knot](https://www.knot-dns.cz/),
 [PowerDNS](https://www.powerdns.com/) and
 [Unbound](https://www.unbound.net/) (technically a resolver, but still worth a mention), because it
-is very flexible, and because it chains plugins.
+is very flexible, and almost all functionality is outsourced into plugins.
 
 Plugins can be stand-alone or work together to perform a "DNS function".
 
@@ -25,6 +25,6 @@ functionality.
 
 > CoreDNS is powered by plugins.
 
-Writing new [plugins](#writing-plugins) is easy enough, but requires knowing Go and having
-some insight into how DNS works. CoreDNS abstracts away all other bits, so that you can just
-focus on writing the plugin functionality you need.
+Writing new [plugins](#writing-plugins) is should be easy enough, but requires knowing Go and having
+some insight into how DNS works. CoreDNS abstracts away a lot of DNS details, so that you can just focus
+on writing the plugin functionality you need.
