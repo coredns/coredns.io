@@ -91,13 +91,13 @@ Changing the second port number to 1055 makes these Server Blocks two different 
 
 ### Specifying a Protocol
 
-Currently CoreDNS accepts three different protocols: plain DNS, DNS over TLS and DNS over gRPC. You
-can specify what a server should accept in the server configuration by prefixing a zone name with
-a scheme.
+Currently CoreDNS accepts four different protocols: DNS, DNS over TLS (DoT), DNS over HTTP/2 (DoH)
+and DNS over gRPC. You can specify what a server should accept in the server configuration by
+prefixing a zone name with a scheme.
 
 * `dns://` for plain DNS (the default if no scheme is specified).
-* `tls://` for DNS over TLS, called DoT, see [RFC 7858](https://tools.ietf.org/html/rfc7858).
-* `https://` for DNS over HTTPS, called DoH, see [RFC 8484](https://tools.ietf.org/html/rfc8484).
+* `tls://` for DNS over TLS, see [RFC 7858](https://tools.ietf.org/html/rfc7858).
+* `https://` for DNS over HTTPS, see [RFC 8484](https://tools.ietf.org/html/rfc8484).
 * `grpc://` for DNS over gRPC.
 
 ## Plugins
