@@ -4,7 +4,7 @@ description = "*health* enables a health check endpoint."
 weight = 20
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.664240"
+date = "2019-11-05T13:47:41.235925"
 +++
 
 ## Description
@@ -51,7 +51,7 @@ Doing this is supported but both endpoints ":8080" and ":8081" will export the e
 
 ## Metrics
 
-If monitoring is enabled (via the *prometheus* directive) then the following metric is exported:
+If monitoring is enabled (via the *prometheus* plugin) then the following metric is exported:
 
  *  `coredns_health_request_duration_seconds{}` - duration to process a HTTP query to the local
     `/health` endpoint. As this a local operation it should be fast. A (large) increase in this

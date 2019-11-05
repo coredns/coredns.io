@@ -4,7 +4,7 @@ description = "*autopath* allows for server-side search path completion."
 weight = 4
 tags = [ "plugin", "autopath" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.663098"
+date = "2019-11-05T13:47:41.234736"
 +++
 
 ## Description
@@ -30,7 +30,7 @@ If a plugin implements the `AutoPather` interface then it can be used.
 
 ## Metrics
 
-If monitoring is enabled (via the *prometheus* directive) then the following metric is exported:
+If monitoring is enabled (via the *prometheus* plugin) then the following metric is exported:
 
 * `coredns_autopath_success_count_total{server}` - counter of successfully autopath-ed queries.
 
@@ -42,7 +42,7 @@ The `server` label is explained in the *metrics* plugin documentation.
 autopath my-resolv.conf
 ~~~
 
-Use `my-resolv.conf` as the file to get the search path from. This file only needs so have one line:
+Use `my-resolv.conf` as the file to get the search path from. This file only needs to have one line:
 `search domain1 domain2 ...`
 
 ~~~

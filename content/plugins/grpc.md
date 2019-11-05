@@ -4,7 +4,7 @@ description = "*grpc* facilitates proxying DNS messages to upstream resolvers vi
 weight = 19
 tags = [ "plugin", "grpc" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.664178"
+date = "2019-11-05T13:47:41.235860"
 +++
 
 ## Description
@@ -63,7 +63,7 @@ Also note the TLS config is "global" for the whole grpc proxy if you need a diff
 
 ## Metrics
 
-If monitoring is enabled (via the *prometheus* directive) then the following metric are exported:
+If monitoring is enabled (via the *prometheus* plugin) then the following metric are exported:
 
 * `coredns_grpc_request_duration_seconds{to}` - duration per upstream interaction.
 * `coredns_grpc_request_count_total{to}` - query count per upstream.

@@ -4,7 +4,7 @@ description = "*debug* disables the automatic recovery upon a crash so that you'
 weight = 11
 tags = [ "plugin", "debug" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.663541"
+date = "2019-11-05T13:47:41.235167"
 +++
 
 ## Description

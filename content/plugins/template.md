@@ -4,7 +4,7 @@ description = "*template* allows for dynamic responses based on the incoming que
 weight = 39
 tags = [ "plugin", "template" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.665713"
+date = "2019-11-05T13:47:41.237463"
 +++
 
 ## Description
@@ -62,7 +62,7 @@ The output of the template must be a [RFC 1035](https://tools.ietf.org/html/rfc1
 
 ## Metrics
 
-If monitoring is enabled (via the *prometheus* directive) then the following metrics are exported:
+If monitoring is enabled (via the *prometheus* plugin) then the following metrics are exported:
 
 * `coredns_template_matches_total{server, regex}` the total number of matched requests by regex.
 * `coredns_template_template_failures_total{server, regex,section,template}` the number of times the Go templating failed. Regex, section and template label values can be used to map the error back to the config file.

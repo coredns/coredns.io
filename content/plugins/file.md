@@ -4,7 +4,7 @@ description = "*file* enables serving zone data from an RFC 1035-style master fi
 weight = 17
 tags = [ "plugin", "file" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.664000"
+date = "2019-11-05T13:47:41.235674"
 +++
 
 ## Description
@@ -21,9 +21,9 @@ file DBFILE [ZONES...]
 ~~~
 
 * **DBFILE** the database file to read and parse. If the path is relative, the path from the *root*
-  directive will be prepended to it.
+  plugin will be prepended to it.
 * **ZONES** zones it should be authoritative for. If empty, the zones from the configuration block
-    are used.
+  are used.
 
 If you want to round-robin A and AAAA responses look at the *loadbalance* plugin.
 

@@ -4,7 +4,7 @@ description = "*cache* enables a frontend cache."
 weight = 7
 tags = [ "plugin", "cache" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.663305"
+date = "2019-11-05T13:47:41.234936"
 +++
 
 ## Description
@@ -66,7 +66,7 @@ Entries with 0 TTL will remain in the cache until randomly evicted when the shar
 
 ## Metrics
 
-If monitoring is enabled (via the *prometheus* directive) then the following metrics are exported:
+If monitoring is enabled (via the *prometheus* plugin) then the following metrics are exported:
 
 * `coredns_cache_size{server, type}` - Total elements in the cache by cache type.
 * `coredns_cache_hits_total{server, type}` - Counter of cache hits by cache type.

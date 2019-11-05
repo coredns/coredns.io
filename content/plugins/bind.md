@@ -4,7 +4,7 @@ description = "*bind* overrides the host to which the server should bind."
 weight = 6
 tags = [ "plugin", "bind" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.663229"
+date = "2019-11-05T13:47:41.234863"
 +++
 
 ## Description
@@ -43,7 +43,7 @@ To allow processing DNS requests only local host on both IPv4 and IPv6 stacks, u
 }
 ~~~
 
-If the configuration comes up with several *bind* directives, all addresses are consolidated together:
+If the configuration comes up with several *bind* plugins, all addresses are consolidated together:
 The following sample is equivalent to the preceding:
 
 ~~~ corefile

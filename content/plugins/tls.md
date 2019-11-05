@@ -4,7 +4,7 @@ description = "*tls* allows you to configure the server certificates for the TLS
 weight = 40
 tags = [ "plugin", "tls" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.665791"
+date = "2019-11-05T13:47:41.237544"
 +++
 
 ## Description
@@ -14,7 +14,7 @@ or are using gRPC (https://grpc.io/, not an IETF standard). Normally DNS traffic
 all (DNSSEC only signs resource records).
 
 The *tls* "plugin" allows you to configure the cryptographic keys that are needed for both
-DNS-over-TLS and DNS-over-gRPC. If the `tls` directive is omitted, then no encryption takes place.
+DNS-over-TLS and DNS-over-gRPC. If the *tls* plugin is omitted, then no encryption takes place.
 
 The gRPC protobuffer is defined in `pb/dns.proto`. It defines the proto as a simple wrapper for the
 wire data of a DNS message.

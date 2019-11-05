@@ -4,7 +4,7 @@ description = "*import* includes files or references snippets from a Corefile."
 weight = 22
 tags = [ "plugin", "import" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.664385"
+date = "2019-11-05T13:47:41.236075"
 +++
 
 ## Description
@@ -12,7 +12,7 @@ date = "2019-09-27T10:37:57.664385"
 The *import* plugin can be used to include files into the main configuration. Another use is to
 reference predefined snippets. Both can help to avoid some duplication.
 
-This is a unique directive in that *import* can appear outside of a server block. In other words, it
+This is a unique plugin in that *import* can appear outside of a server block. In other words, it
 can appear at the top of a Corefile where an address would normally be.
 
 ## Syntax
