@@ -4,7 +4,7 @@ description = "*rewrite* performs internal message rewriting."
 weight = 34
 tags = [ "plugin", "rewrite" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.665311"
+date = "2019-11-05T13:47:41.237049"
 +++
 
 ## Description

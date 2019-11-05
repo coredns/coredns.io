@@ -4,7 +4,7 @@ description = "*hosts* enables serving zone data from a `/etc/hosts` style file.
 weight = 21
 tags = [ "plugin", "hosts" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.664316"
+date = "2019-11-05T13:47:41.236009"
 +++
 
 ## Description
@@ -58,7 +58,7 @@ hosts [FILE [ZONES...]] {
 ~~~
 
 * **FILE** the hosts file to read and parse. If the path is relative the path from the *root*
-  directive will be prepended to it. Defaults to /etc/hosts if omitted. We scan the file for changes
+  plugin will be prepended to it. Defaults to /etc/hosts if omitted. We scan the file for changes
   every 5 seconds.
 * **ZONES** zones it should be authoritative for. If empty, the zones from the configuration block
    are used.
@@ -77,7 +77,7 @@ hosts [FILE [ZONES...]] {
 
 ## Metrics
 
-If monitoring is enabled (via the *prometheus* directive) then the following metrics are exported:
+If monitoring is enabled (via the *prometheus* plugin) then the following metrics are exported:
 
 - `coredns_hosts_entries_count{}` - The combined number of entries in hosts and Corefile.
 - `coredns_hosts_reload_timestamp_seconds{}` - The timestamp of the last reload of hosts file.

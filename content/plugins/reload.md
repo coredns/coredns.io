@@ -4,7 +4,7 @@ description = "*reload* allows automatic reload of a changed Corefile."
 weight = 33
 tags = [ "plugin", "reload" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.665185"
+date = "2019-11-05T13:47:41.236920"
 +++
 
 ## Description
@@ -99,7 +99,7 @@ CoreDNS v1.7.0 and later does parse the Corefile and supports detecting changes 
 
 ## Metrics
 
- If monitoring is enabled (via the *prometheus* directive) then the following metric is exported:
+ If monitoring is enabled (via the *prometheus* plugin) then the following metric is exported:
 
 * `coredns_reload_failed_count_total{}` - counts the number of failed reload attempts.
 

@@ -4,7 +4,7 @@ description = "*kubernetes* enables reading zone data from a Kubernetes cluster.
 weight = 24
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.664566"
+date = "2019-11-05T13:47:41.236261"
 +++
 
 ## Description
@@ -27,7 +27,7 @@ This plugin can only be used once per Server Block.
 kubernetes [ZONES...]
 ~~~
 
-With only the directive specified, the *kubernetes* plugin will default to the zone specified in
+With only the plugin specified, the *kubernetes* plugin will default to the zone specified in
 the server's block. It will handle all queries in that zone and connect to Kubernetes in-cluster. It
 will not provide PTR records for services or A records for pods. If **ZONES** is used it specifies
 all the zones the plugin should be authoritative for.
@@ -48,7 +48,6 @@ kubernetes [ZONES...] {
     ignore empty_service
 }
 ```
-
 
 * `endpoint` specifies the **URL** for a remote k8s API endpoint.
    If omitted, it will connect to k8s in-cluster using the cluster service account.
@@ -213,15 +212,15 @@ or the word "any"), then that label will match all values.  The labels that acce
  * multiple wildcards are allowed in a single query, e.g., `A` Request `*.*.svc.zone.` or `SRV` request `*.*.*.*.svc.zone.`
 
  For example, wildcards can be used to resolve all Endpoints for a Service as `A` records. e.g.: `*.service.ns.svc.myzone.local` will return the Endpoint IPs in the Service `service` in namespace `default`:
- ```
+
+```
 *.service.default.svc.cluster.local. 5	IN A	192.168.10.10
 *.service.default.svc.cluster.local. 5	IN A	192.168.25.15
 ```
- This response can be randomized using the `loadbalance` plugin
 
 ## Metadata
 
-The kubernetes plugin will publish the following metadata, if the _metadata_
+The kubernetes plugin will publish the following metadata, if the *metadata*
 plugin is also enabled:
 
  * kubernetes/endpoint: the endpoint name in the query
@@ -232,3 +231,20 @@ plugin is also enabled:
  * kubernetes/service: the service name in the query
  * kubernetes/client-namespace: the client pod's namespace, if `pods verified` mode is enabled
  * kubernetes/client-pod-name: the client pod's name, if `pods verified` mode is enabled
+
+## Metrics
+
+If monitoring is enabled (via the *prometheus* plugin) then the following metrics are exported:
+
+* `coredns_kubernetes_dns_programming_duration_seconds{service_kind}` - Exports the
+  [DNS programming latency SLI](https://github.com/kubernetes/community/blob/master/sig-scalability/slos/dns_programming_latency.md).
+  The metrics has the `service_kind` label that identifies the kind of the
+  [kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service).
+  It may take one of the three values:
+    * `cluster_ip`
+    * `headless_with_selector`
+    * `headless_without_selector`
+
+## Bugs
+
+The duration metric only supports the "headless_with_selector" service currently.

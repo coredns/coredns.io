@@ -4,7 +4,7 @@ description = "*dnssec* enables on-the-fly DNSSEC signing of served data."
 weight = 12
 tags = [ "plugin", "dnssec" ]
 categories = [ "plugin" ]
-date = "2019-09-27T10:37:57.663620"
+date = "2019-11-05T13:47:41.235259"
 +++
 
 ## Description
@@ -54,7 +54,7 @@ used (See [bugs](#bugs)).
 
 ## Metrics
 
-If monitoring is enabled (via the *prometheus* directive) then the following metrics are exported:
+If monitoring is enabled (via the *prometheus* plugin) then the following metrics are exported:
 
 * `coredns_dnssec_cache_size{server, type}` - total elements in the cache, type is "signature".
 * `coredns_dnssec_cache_hits_total{server}` - Counter of cache hits.
