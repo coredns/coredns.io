@@ -1,10 +1,10 @@
 +++
 title = "clouddns"
 description = "*clouddns* enables serving zone data from GCP Cloud DNS."
-weight = 10
+weight = 11
 tags = [ "plugin", "clouddns" ]
 categories = [ "plugin" ]
-date = "2019-11-05T13:47:41.235113"
+date = "2019-12-12T16:13:55.315947"
 +++
 
 ## Description
@@ -62,7 +62,7 @@ Enable clouddns with fallthrough:
 
 ~~~ txt
 example.org {
-    clouddns example.org.:gcp-example-project:example-zone clouddns example.com.:gcp-example-project:example-zone-2 {
+    clouddns example.org.:gcp-example-project:example-zone example.com.:gcp-example-project:example-zone-2 {
         fallthrough example.gov.
     }
 }

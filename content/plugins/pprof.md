@@ -1,10 +1,10 @@
 +++
 title = "pprof"
 description = "*pprof* publishes runtime profiling data at endpoints under `/debug/pprof`."
-weight = 31
+weight = 32
 tags = [ "plugin", "pprof" ]
 categories = [ "plugin" ]
-date = "2019-11-05T13:47:41.236784"
+date = "2019-12-12T16:13:55.319532"
 +++
 
 ## Description
