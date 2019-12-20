@@ -4,7 +4,7 @@ description = "*log* enables query logging to standard output."
 weight = 27
 tags = [ "plugin", "log" ]
 categories = [ "plugin" ]
-date = "2019-12-12T16:13:55.318697"
+date = "2019-12-20T11:32:38.931452"
 +++
 
 ## Description

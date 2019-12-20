@@ -4,7 +4,7 @@ description = "*secondary* enables serving a zone retrieved from a primary serve
 weight = 38
 tags = [ "plugin", "secondary" ]
 categories = [ "plugin" ]
-date = "2019-12-12T16:13:55.320857"
+date = "2019-12-20T11:32:38.932313"
 +++
 
 ## Description
