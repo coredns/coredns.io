@@ -1,10 +1,10 @@
 +++
 title = "loadbalance"
 description = "*loadbalance* randomizes the order of A, AAAA and MX records."
-weight = 25
+weight = 26
 tags = [ "plugin", "loadbalance" ]
 categories = [ "plugin" ]
-date = "2019-11-05T13:47:41.236326"
+date = "2019-12-12T16:13:55.318492"
 +++
 
 ## Description

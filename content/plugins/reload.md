@@ -1,10 +1,10 @@
 +++
 title = "reload"
 description = "*reload* allows automatic reload of a changed Corefile."
-weight = 33
+weight = 34
 tags = [ "plugin", "reload" ]
 categories = [ "plugin" ]
-date = "2019-11-05T13:47:41.236920"
+date = "2019-12-12T16:13:55.319933"
 +++
 
 ## Description
@@ -43,7 +43,7 @@ reload [INTERVAL] [JITTER]
 
 The plugin will check for changes every **INTERVAL**, subject to +/- the **JITTER** duration.
 
-*  **INTERVAL** and **JITTER** are Golang (durations)[[https://golang.org/pkg/time/#ParseDuration](https://golang.org/pkg/time/#ParseDuration)].
+*  **INTERVAL** and **JITTER** are Golang [durations](https://golang.org/pkg/time/#ParseDuration).
    The default **INTERVAL** is 30s, default **JITTER** is 15s, the minimal value for **INTERVAL**
    is 2s, and for **JITTER** it is 1s. If **JITTER** is more than half of **INTERVAL**, it will be
    set to half of **INTERVAL**

@@ -1,10 +1,10 @@
 +++
 title = "etcd"
 description = "*etcd* enables SkyDNS service discovery from etcd."
-weight = 16
+weight = 17
 tags = [ "plugin", "etcd" ]
 categories = [ "plugin" ]
-date = "2019-11-05T13:47:41.235577"
+date = "2019-12-12T16:13:55.317033"
 +++
 
 ## Description
