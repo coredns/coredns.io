@@ -4,7 +4,7 @@ description = "*ready* enables a readiness check HTTP endpoint."
 weight = 33
 tags = [ "plugin", "ready" ]
 categories = [ "plugin" ]
-date = "2019-12-20T11:32:38.931899"
+date = "2020-01-27T16:07:09.881653"
 +++
 
 ## Description

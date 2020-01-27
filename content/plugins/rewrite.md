@@ -4,7 +4,7 @@ description = "*rewrite* performs internal message rewriting."
 weight = 35
 tags = [ "plugin", "rewrite" ]
 categories = [ "plugin" ]
-date = "2019-12-20T11:32:38.932110"
+date = "2020-01-27T16:07:09.881962"
 +++
 
 ## Description
@@ -117,13 +117,6 @@ rather from `service.us-west-1.consul`.
 ```
 $ dig @10.1.1.1 ftp-us-west-1.coredns.rocks
 
-; <<>> DiG 9.8.3-P1 <<>> @10.1.1.1 ftp-us-west-1.coredns.rocks
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 8619
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 0
-
 ;; QUESTION SECTION:
 ;ftp-us-west-1.coredns.rocks. IN A
 
@@ -149,13 +142,6 @@ Now, the `ANSWER SECTION` matches the `QUESTION SECTION`:
 
 ```
 $ dig @10.1.1.1 ftp-us-west-1.coredns.rocks
-
-; <<>> DiG 9.8.3-P1 <<>> @10.1.1.1 ftp-us-west-1.coredns.rocks
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 8619
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 0
 
 ;; QUESTION SECTION:
 ;ftp-us-west-1.coredns.rocks. IN A

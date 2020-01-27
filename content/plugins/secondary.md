@@ -4,14 +4,14 @@ description = "*secondary* enables serving a zone retrieved from a primary serve
 weight = 38
 tags = [ "plugin", "secondary" ]
 categories = [ "plugin" ]
-date = "2019-12-20T11:32:38.932313"
+date = "2020-01-27T16:07:09.882254"
 +++
 
 ## Description
 
 With *secondary* you can transfer (via AXFR) a zone from another server. The retrieved zone is
 *not committed* to disk (a violation of the RFC). This means restarting CoreDNS will cause it to
- retrieve all secondary zones.
+retrieve all secondary zones.
 
 ~~~
 secondary [ZONES...]

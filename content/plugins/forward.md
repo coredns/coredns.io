@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 19
 tags = [ "plugin", "forward" ]
 categories = [ "plugin" ]
-date = "2019-12-20T11:32:38.930795"
+date = "2020-01-27T16:07:09.880094"
 +++
 
 ## Description

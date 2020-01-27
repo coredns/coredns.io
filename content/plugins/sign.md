@@ -4,7 +4,7 @@ description = "*sign* adds DNSSEC records to zone files."
 weight = 39
 tags = [ "plugin", "sign" ]
 categories = [ "plugin" ]
-date = "2019-12-20T11:32:38.932407"
+date = "2020-01-27T16:07:09.882386"
 +++
 
 ## Description
@@ -14,13 +14,13 @@ added. The signatures that sign the resource records sets have an expiration dat
 signing process must be repeated before this expiration data is reached. Otherwise the zone's data
 will go BAD (RFC 4035, Section 5.5). The *sign* plugin takes care of this.
 
-Only NSEC is supported, *sign* does not support NSEC3.
+Only NSEC is supported, *sign* does *not* support NSEC3.
 
 *Sign* works in conjunction with the *file* and *auto* plugins; this plugin **signs** the zones
 files, *auto* and *file* **serve** the zones *data*.
 
 For this plugin to work at least one Common Signing Key, (see coredns-keygen(1)) is needed. This key
-(or keys) will be used to sign the entire zone. *Sign* does not support the ZSK/KSK split, nor will
+(or keys) will be used to sign the entire zone. *Sign* does *not* support the ZSK/KSK split, nor will
 it do key or algorithm rollovers - it just signs.
 
 *Sign* will:
@@ -35,7 +35,7 @@ it do key or algorithm rollovers - it just signs.
     Both these dates are only checked on the SOA's signature(s).
 
  *  Create RRSIGs that have an inception of -3 hours (minus a jitter between 0 and 18 hours)
-    and a expiration of +32 days for every given DNSKEY.
+    and a expiration of +32 (plus a jitter between 0 and 5 days) days for every given DNSKEY.
 
  *  Add NSEC records for all names in the zone. The TTL for these is the negative cache TTL from the
     SOA record.

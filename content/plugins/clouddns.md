@@ -4,7 +4,7 @@ description = "*clouddns* enables serving zone data from GCP Cloud DNS."
 weight = 11
 tags = [ "plugin", "clouddns" ]
 categories = [ "plugin" ]
-date = "2019-12-20T11:32:38.930149"
+date = "2020-01-27T16:07:09.879055"
 +++
 
 ## Description
@@ -31,21 +31,17 @@ clouddns [ZONE:PROJECT_ID:HOSTED_ZONE_NAME...] {
     domains (private vs. public hosted zone), CoreDNS does the lookup in the given order here.
     Therefore, for a non-existing resource record, SOA response will be from the rightmost zone.
 
-*   **PROJECT_ID** the project ID of the Google Cloud project.
+*   **PROJECT\_ID** the project ID of the Google Cloud project.
 
-*   **HOSTED_ZONE_NAME** the name of the hosted zone that contains the resource record sets to be
+*   **HOSTED\_ZONE\_NAME** the name of the hosted zone that contains the resource record sets to be
     accessed.
 
-*   `credentials` is used for reading the credential file.
-
-*   **FILENAME** GCP credentials file path (normally a .json file).
+*   `credentials` is used for reading the credential file from **FILENAME** (normally a .json file).
 
 *   `fallthrough` If zone matches and no record can be generated, pass request to the next plugin.
     If **[ZONES...]** is omitted, then fallthrough happens for all zones for which the plugin is
     authoritative. If specific zones are listed (for example `in-addr.arpa` and `ip6.arpa`), then
     only queries for those zones will be subject to fallthrough.
-
-*   **ZONES** zones it should be authoritative for. If empty, the zones from the configuration block
 
 ## Examples
 

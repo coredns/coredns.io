@@ -4,7 +4,7 @@ description = "*whoami* returns your resolver's local IP address, port and trans
 weight = 44
 tags = [ "plugin", "whoami" ]
 categories = [ "plugin" ]
-date = "2019-12-20T11:32:38.932810"
+date = "2020-01-27T16:07:09.882965"
 +++
 
 ## Description

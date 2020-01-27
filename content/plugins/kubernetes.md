@@ -4,7 +4,7 @@ description = "*kubernetes* enables reading zone data from a Kubernetes cluster.
 weight = 25
 tags = [ "plugin", "kubernetes" ]
 categories = [ "plugin" ]
-date = "2019-12-20T11:32:38.931294"
+date = "2020-01-27T16:07:09.880821"
 +++
 
 ## Description
@@ -247,4 +247,4 @@ If monitoring is enabled (via the *prometheus* plugin) then the following metric
 
 ## Bugs
 
-The duration metric only supports the "headless_with_selector" service currently.
+The duration metric only supports the "headless\_with\_selector" service currently.

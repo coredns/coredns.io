@@ -4,7 +4,7 @@ description = "*bind* overrides the host to which the server should bind."
 weight = 6
 tags = [ "plugin", "bind" ]
 categories = [ "plugin" ]
-date = "2019-12-20T11:32:38.929814"
+date = "2020-01-27T16:07:09.878463"
 +++
 
 ## Description

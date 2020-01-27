@@ -4,13 +4,13 @@ description = "*health* enables a health check endpoint."
 weight = 21
 tags = [ "plugin", "health" ]
 categories = [ "plugin" ]
-date = "2019-12-20T11:32:38.930955"
+date = "2020-01-27T16:07:09.880313"
 +++
 
 ## Description
 
 Enabled process wide health endpoint. When CoreDNS is up and running this returns a 200 OK HTTP
-status code. The health is exported, by default, on port 8080/health .
+status code. The health is exported, by default, on port 8080/health.
 
 ## Syntax
 
