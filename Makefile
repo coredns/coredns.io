@@ -2,6 +2,10 @@
 deps:
 	go get github.com/miekg/corecheck
 
+.PHONY: run
+run:
+	hugo server
+
 # Sync CoreDNS' plugin README.md's to coredns.io. Also sync the release notes from the notes directory.
 .PHONY: sync
 sync:
