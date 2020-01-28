@@ -4,7 +4,7 @@ description = "*route53* enables serving zone data from AWS route53."
 weight = 37
 tags = [ "plugin", "route53" ]
 categories = [ "plugin" ]
-date = "2020-01-27T16:07:09.882172"
+date = "2020-01-28T19:24:33.224047"
 +++
 
 ## Description
