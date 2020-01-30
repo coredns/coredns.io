@@ -9,8 +9,8 @@ run:
 # Sync CoreDNS' plugin README.md's to coredns.io. Also sync the release notes from the notes directory.
 .PHONY: sync
 sync:
-	( cd bin; python2.7 sync-from-coredns.py $(PWD)/.coredns/plugin )
-	cp .coredns/notes/coredns-* content/blog
+	@GO111MODULE=on go run bin/sync.go
+	@cp -vu .coredns/notes/coredns-* content/blog
 
 # Scan all markdown files for Corefile snippets and check validity github.com/miekg/corecheck
 .PHONY: test
