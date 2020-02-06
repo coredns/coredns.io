@@ -4,7 +4,7 @@ description = "*sign* adds DNSSEC records to zone files."
 weight = 39
 tags = ["plugin", "sign"]
 categories = ["plugin"]
-date = "2020-02-06T10:32:55.8775582"
+date = "2020-02-06T10:42:59.8775982"
 +++
 
 ## Description
