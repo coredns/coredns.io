@@ -4,7 +4,7 @@ description = "*import* includes files or references snippets from a Corefile."
 weight = 23
 tags = ["plugin", "import"]
 categories = ["plugin"]
-date = "2020-02-06T10:42:59.8775982"
+date = "2020-02-06T10:55:03.877382"
 +++
 
 ## Description
