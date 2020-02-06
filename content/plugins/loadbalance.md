@@ -2,9 +2,9 @@
 title = "loadbalance"
 description = "*loadbalance* randomizes the order of A, AAAA and MX records."
 weight = 26
-tags = [ "plugin", "loadbalance" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.223186"
+tags = ["plugin", "loadbalance"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description

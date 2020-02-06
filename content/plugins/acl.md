@@ -2,9 +2,9 @@
 title = "acl"
 description = "*acl* enforces access control policies on source ip and prevents unauthorized access to DNS servers."
 weight = 1
-tags = [ "plugin", "acl" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.220439"
+tags = ["plugin", "acl"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description

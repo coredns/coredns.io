@@ -2,9 +2,9 @@
 title = "grpc"
 description = "*grpc* facilitates proxying DNS messages to upstream resolvers via gRPC protocol."
 weight = 20
-tags = [ "plugin", "grpc" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.222675"
+tags = ["plugin", "grpc"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description

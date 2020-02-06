@@ -2,9 +2,9 @@
 title = "auto"
 description = "*auto* enables serving zone data from an RFC 1035-style master file, which is automatically picked up from disk."
 weight = 3
-tags = [ "plugin", "auto" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.221197"
+tags = ["plugin", "auto"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description

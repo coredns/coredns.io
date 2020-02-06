@@ -2,9 +2,9 @@
 title = "file"
 description = "*file* enables serving zone data from an RFC 1035-style master file."
 weight = 18
-tags = [ "plugin", "file" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.222464"
+tags = ["plugin", "file"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description

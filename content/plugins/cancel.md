@@ -2,9 +2,9 @@
 title = "cancel"
 description = "*cancel* cancels a request's context after 5001 milliseconds."
 weight = 9
-tags = [ "plugin", "cancel" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.221691"
+tags = ["plugin", "cancel"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description
@@ -18,6 +18,8 @@ give up.
 A plugin interested in the cancellation status should call `plugin.Done()` on the context. If the
 context was canceled due to a timeout the plugin should not write anything back to the client and
 return a value indicating CoreDNS should not either; a zero return value should suffice for that.
+
+## Syntax
 
 ~~~ txt
 cancel [TIMEOUT]

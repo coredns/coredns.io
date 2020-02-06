@@ -2,9 +2,9 @@
 title = "bufsize"
 description = "*bufsize* sizes EDNS0 buffer size to prevent IP fragmentation."
 weight = 7
-tags = [ "plugin", "bufsize" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.221507"
+tags = ["plugin", "bufsize"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description

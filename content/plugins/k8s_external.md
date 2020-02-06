@@ -2,9 +2,9 @@
 title = "k8s_external"
 description = "*k8s_external* resolves load balancer and external IPs from outside Kubernetes clusters."
 weight = 24
-tags = [ "plugin", "k8s_external" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.222977"
+tags = ["plugin", "k8s_external"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description
@@ -60,7 +60,7 @@ k8s_external [ZONE...] {
 * **APEX** is the name (DNS label) to use for the apex records; it defaults to `dns`.
 * `ttl` allows you to set a custom **TTL** for responses. The default is 5 (seconds).
 
-# Examples
+## Examples
 
 Enable names under `example.org` to be resolved to in-cluster DNS addresses.
 

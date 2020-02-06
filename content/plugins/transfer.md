@@ -2,9 +2,9 @@
 title = "transfer"
 description = "*transfer* perform zone transfers for other plugins."
 weight = 43
-tags = [ "plugin", "transfer" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.224532"
+tags = ["plugin", "transfer"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description
@@ -32,3 +32,7 @@ transfer [ZONE...] {
 
 * `to ` **HOST...** The hosts *transfer* will transfer to. Use `*` to permit
   transfers to all hosts.
+
+## Examples
+
+TODO

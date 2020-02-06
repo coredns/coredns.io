@@ -2,9 +2,9 @@
 title = "reload"
 description = "*reload* allows automatic reload of a changed Corefile."
 weight = 34
-tags = [ "plugin", "reload" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.223779"
+tags = ["plugin", "reload"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description

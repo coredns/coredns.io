@@ -2,9 +2,9 @@
 title = "clouddns"
 description = "*clouddns* enables serving zone data from GCP Cloud DNS."
 weight = 11
-tags = [ "plugin", "clouddns" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.221838"
+tags = ["plugin", "clouddns"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description

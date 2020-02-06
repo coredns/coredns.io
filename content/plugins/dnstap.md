@@ -2,9 +2,9 @@
 title = "dnstap"
 description = "*dnstap* enables logging to dnstap."
 weight = 14
-tags = [ "plugin", "dnstap" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.222085"
+tags = ["plugin", "dnstap"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description

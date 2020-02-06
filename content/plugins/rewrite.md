@@ -2,9 +2,9 @@
 title = "rewrite"
 description = "*rewrite* performs internal message rewriting."
 weight = 35
-tags = [ "plugin", "rewrite" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.223909"
+tags = ["plugin", "rewrite"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description
@@ -39,6 +39,8 @@ will behave as follows:
 
    * `continue` will continue applying the next rule in the rule list.
    * `stop` will consider the current rule the last rule and will not continue.  The default behaviour is `stop`
+
+## Examples
 
 ### Name Field Rewrites
 

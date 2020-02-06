@@ -2,9 +2,9 @@
 title = "forward"
 description = "*forward* facilitates proxying DNS messages to upstream resolvers."
 weight = 19
-tags = [ "plugin", "forward" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.222577"
+tags = ["plugin", "forward"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description
@@ -12,8 +12,10 @@ date = "2020-01-28T19:24:33.222577"
 The *forward* plugin re-uses already opened sockets to the upstreams. It supports UDP, TCP and
 DNS-over-TLS and uses in band health checking.
 
-When it detects an error a health check is performed. This checks runs in a loop, every *0.5s*, for
-as long as the upstream reports unhealthy. Once healthy we stop health checking (until the next
+When it detects an error a health check is performed. This checks runs in a loop,
+starting with a *0.5s* interval and exponentially backing off with randomized intervals
+up to *60s* for as long as the upstream reports unhealthy. The exponential backoff
+will reset to *0.5s* after 15 minutes. Once healthy we stop health checking (until the next
 error). The health checks use a recursive DNS query (`. IN NS`) to get upstream health. Any response
 that is not a network error (REFUSED, NOTIMPL, SERVFAIL, etc) is taken as a healthy upstream. The
 health check uses the same protocol as specified in **TO**. If `max_fails` is set to 0, no checking
@@ -53,6 +55,7 @@ forward FROM TO... {
     tls_servername NAME
     policy random|round_robin|sequential
     health_check DURATION
+    max_concurrent MAX
 }
 ~~~
 
@@ -86,6 +89,11 @@ forward FROM TO... {
   * `round_robin` is a policy that selects hosts based on round robin ordering.
   * `sequential` is a policy that selects hosts based on sequential ordering.
 * `health_check`, use a different **DURATION** for health checking, the default duration is 0.5s.
+* `max_concurrent` **MAX** will limit the number of concurrent queries to **MAX**.  Any new query that would
+  raise the number of concurrent queries above the **MAX** will result in a SERVFAIL response. This
+  response does not count as a health failure. When choosing a value for **MAX**, pick a number
+  at least greater than the expected *upstream query rate* * *latency* of the upstream servers.
+  As an upper bound for **MAX**, consider that each concurrent query will use about 2kb of memory.
 
 Also note the TLS config is "global" for the whole forwarding proxy if you need a different
 `tls-name` for different upstreams you're out of luck.
@@ -105,7 +113,8 @@ If monitoring is enabled (via the *prometheus* plugin) then the following metric
 * `coredns_forward_healthcheck_failure_count_total{to}` - number of failed health checks per upstream.
 * `coredns_forward_healthcheck_broken_count_total{}` - counter of when all upstreams are unhealthy,
   and we are randomly (this always uses the `random` policy) spraying to an upstream.
-
+* `max_concurrent_reject_count_total{}` - counter of the number of queries rejected because the
+  number of concurrent queries were at maximum.
 Where `to` is one of the upstream servers (**TO** from the config), `rcode` is the returned RCODE
 from the upstream.
 

@@ -2,9 +2,9 @@
 title = "prometheus"
 description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics."
 weight = 30
-tags = [ "plugin", "metrics" ]
-categories = [ "plugin" ]
-date = "2020-01-28T19:24:33.223487"
+tags = ["plugin", "prometheus"]
+categories = ["plugin"]
+date = "2020-02-06T10:32:55.8775582"
 +++
 
 ## Description
