@@ -1,3 +1,6 @@
+all:
+	hugo -d public/
+
 .PHONY: deps
 deps:
 	go get github.com/miekg/corecheck
