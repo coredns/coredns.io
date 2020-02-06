@@ -5,7 +5,7 @@ on:
       - master
 
 jobs:
-  sync:
+  check:
     runs-on: ubuntu-latest
     steps:
       - 
