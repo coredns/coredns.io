@@ -4,7 +4,7 @@ description = "*transfer* perform zone transfers for other plugins."
 weight = 43
 tags = ["plugin", "transfer"]
 categories = ["plugin"]
-date = "2020-02-06T11:18:57.8775782"
+date = "2020-02-06T11:30:55.8775582"
 +++
 
 ## Description
