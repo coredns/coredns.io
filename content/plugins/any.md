@@ -4,7 +4,7 @@ description = "*any* gives a minimal response to ANY queries."
 weight = 2
 tags = ["plugin", "any"]
 categories = ["plugin"]
-date = "2020-02-06T11:07:03.877382"
+date = "2020-02-06T11:18:57.8775782"
 +++
 
 ## Description
