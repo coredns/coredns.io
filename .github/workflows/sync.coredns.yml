@@ -19,7 +19,6 @@ jobs:
       -
         name: Cleanup
         run: |
-          rm -f content/plugins/*
           rm -rf public/*
       -
         name: Sync
