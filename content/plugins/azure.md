@@ -4,7 +4,7 @@ description = "*azure* enables serving zone data from Microsoft Azure DNS servic
 weight = 5
 tags = ["plugin", "azure"]
 categories = ["plugin"]
-date = "2020-02-06T11:42:56.8775682"
+date = "2020-02-06T11:54:58.8775882"
 +++
 
 ## Description

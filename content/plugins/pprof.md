@@ -4,7 +4,7 @@ description = "*pprof* publishes runtime profiling data at endpoints under `/deb
 weight = 32
 tags = ["plugin", "pprof"]
 categories = ["plugin"]
-date = "2020-02-06T11:42:56.8775682"
+date = "2020-02-06T11:54:58.8775882"
 +++
 
 ## Description

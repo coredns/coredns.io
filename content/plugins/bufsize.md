@@ -4,7 +4,7 @@ description = "*bufsize* sizes EDNS0 buffer size to prevent IP fragmentation."
 weight = 7
 tags = ["plugin", "bufsize"]
 categories = ["plugin"]
-date = "2020-02-06T11:42:56.8775682"
+date = "2020-02-06T11:54:58.8775882"
 +++
 
 ## Description
