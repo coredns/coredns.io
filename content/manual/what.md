@@ -25,6 +25,6 @@ functionality.
 
 > CoreDNS is powered by plugins.
 
-Writing new [plugins](#writing-plugins) is should be easy enough, but requires knowing Go and having
+Writing new [plugins](#writing-plugins) should be easy enough, but requires knowing Go and having
 some insight into how DNS works. CoreDNS abstracts away a lot of DNS details, so that you can just focus
 on writing the plugin functionality you need.
