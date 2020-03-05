@@ -4,7 +4,7 @@ description = "*kubernetes* enables reading zone data from a Kubernetes cluster.
 weight = 25
 tags = ["plugin", "kubernetes"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-03-05T10:18:58.8775883"
 +++
 
 ## Description
@@ -58,7 +58,7 @@ kubernetes [ZONES...] {
    If this option is omitted all namespaces are exposed
 * `namespace_labels` **EXPRESSION** only expose the records for Kubernetes namespaces that match this label selector.
    The label selector syntax is described in the
-   [Kubernetes User Guide - Labels](http://kubernetes.io/docs/user-guide/labels/). An example that
+   [Kubernetes User Guide - Labels](https://kubernetes.io/docs/user-guide/labels/). An example that
    only exposes namespaces labeled as "istio-injection=enabled", would use:
    `labels istio-injection=enabled`.
 * `labels` **EXPRESSION** only exposes the records for Kubernetes objects that match this label selector.
