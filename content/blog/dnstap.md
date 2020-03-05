@@ -6,7 +6,7 @@ date = "2017-08-03T10:25:28+02:00"
 author = "varyoo"
 +++
 
-[^dnstap]: http://dnstap.info
+[^dnstap]: https://dnstap.info
 
 **dnstap** is a flexible, structured binary log format for DNS software[^dnstap].
 It uses [Protocol Buffers](https://developers.google.com/protocol-buffers/) to encode events that

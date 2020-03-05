@@ -78,7 +78,7 @@ To plug your plugin into CoreDNS, put in
 ## How A Plugin Works in CoreDNS
 
 Check out the [godoc for the plugin
-package](http://godoc.org/github.com/coredns/coredns/plugin). The most important type is
+package](https://godoc.org/github.com/coredns/coredns/plugin). The most important type is
 [plugin.Handler](https://godoc.org/github.com/coredns/coredns/plugin#Handler).
 
 A `Handler` is a function that handles a DNS request. CoreDNS will do all the bookkeeping of setting

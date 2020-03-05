@@ -7,7 +7,7 @@ author = "miek"
 +++
 
 CoreDNS' next release is around the corner and it is going to be **1.0.0**. With this release to
-move to [semantic versioning](http://semver.org/). This will allow us to make changes, some of
+move to [semantic versioning](https://semver.org/). This will allow us to make changes, some of
 which may be backwards incompatible, in a sane manor:
 
 > Given a version number MAJOR.MINOR.PATCH, increment the:

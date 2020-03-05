@@ -6,6 +6,6 @@ title = "A first look at CoreDNS"
 author = "miek"
 +++
 
-[JP Mens](http://jpmens.net/) (author of [Alternative DNS
-servers](http://jpmens.net/2010/10/29/alternative-dns-servers-the-book-as-pdf/), takes a first look
-at CoreDNS on his blog: <http://jpmens.net/2017/09/09/coredns/>
+[JP Mens](https://jpmens.net/) (author of [Alternative DNS
+servers](https://jpmens.net/2010/10/29/alternative-dns-servers-the-book-as-pdf/), takes a first look
+at CoreDNS on his blog: <https://jpmens.net/2017/09/09/coredns/>
