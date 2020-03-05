@@ -5,7 +5,7 @@ weight = 180
 tags = [  "plugin" , "ipecho" ]
 categories = [ "ipecho", "external" ]
 date = "2017-09-29T16:18:35+01:00"
-repo = "http://github.com/Eun/coredns-ipecho"
+repo = "https://github.com/Eun/coredns-ipecho"
 home = "https://github.com/Eun/coredns-ipecho/blob/master/README.md"
 +++
 

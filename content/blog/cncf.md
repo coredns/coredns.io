@@ -17,7 +17,7 @@ a role in which CoreDNS excels.
 
 We hope this added visibility will attract more users and contributors to grow the project. And we
 will be active in promoting CoreDNS, like in the up coming
-[CloudNative/KubeCon](http://events.linuxfoundation.org/events/cloudnativecon-and-kubecon-europe).
+[CloudNative/KubeCon](https://events.linuxfoundation.org/events/cloudnativecon-and-kubecon-europe).
 
 CNCF provides a lot of support - evidence of which you can already see in our new logo, which was
 designed by the team at the Linux Foundation (of which CNCF is a part). As a CNCF project, we will
