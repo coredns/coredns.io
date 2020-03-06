@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 19
 tags = ["plugin", "forward"]
 categories = ["plugin"]
-date = "2020-02-06T18:30:53.8775382"
+date = "2020-03-06T10:54:38.8773883"
 +++
 
 ## Description
@@ -54,7 +54,7 @@ forward FROM TO... {
     tls CERT KEY CA
     tls_servername NAME
     policy random|round_robin|sequential
-    health_check DURATION
+    health_check DURATION [no_rec]
     max_concurrent MAX
 }
 ~~~
@@ -88,7 +88,10 @@ forward FROM TO... {
   * `random` is a policy that implements random upstream selection.
   * `round_robin` is a policy that selects hosts based on round robin ordering.
   * `sequential` is a policy that selects hosts based on sequential ordering.
-* `health_check`, use a different **DURATION** for health checking, the default duration is 0.5s.
+* `health_check` configure the behaviour of health checking of the upstream servers
+  * `<duration>` - use a different duration for health checking, the default duration is 0.5s.
+  * `no_rec` - optional argument that sets the RecursionDesired-flag of the dns-query used in health checking to `false`.
+    The flag is default `true`.
 * `max_concurrent` **MAX** will limit the number of concurrent queries to **MAX**.  Any new query that would
   raise the number of concurrent queries above the **MAX** will result in a SERVFAIL response. This
   response does not count as a health failure. When choosing a value for **MAX**, pick a number
