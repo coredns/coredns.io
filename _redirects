@@ -1,0 +1,4 @@
+https://coredns.io/* https://about.coredns.io/:splat 301!
+https://www.coredns.io/* https://about.coredns.io/:splat 301!
+https://coredns.netlify.com/* https://about.coredns.io/:splat 301!
+https://coredns.netlify.app/* https://about.coredns.io/:splat 301!

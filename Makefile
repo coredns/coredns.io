@@ -1,5 +1,6 @@
 all:
 	hugo -d public/
+	cp _redirects public/
 
 .PHONY: deps
 deps:
