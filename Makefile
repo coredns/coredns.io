@@ -2,6 +2,11 @@ all:
 	hugo -d public/
 	cp _redirects public/
 
+# this is the old website
+old:
+	hugo -d /var/www/coredns.io
+
+
 .PHONY: deps
 deps:
 	go get github.com/miekg/corecheck
