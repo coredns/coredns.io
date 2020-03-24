@@ -1,14 +1,18 @@
 +++
-title = "CoreDNS-1.6.8 Release"
-description = "CoreDNS-1.6.8 Release Notes."
-tags = ["Release", "1.6.8", "Notes"]
-release = "1.6.8"
+title = "CoreDNS-1.6.9 Release"
+description = "CoreDNS-1.6.9 Release Notes."
+tags = ["Release", "1.6.9", "Notes"]
+release = "1.6.9"
 date = 2020-03-24T10:00:00+00:00
 author = "coredns"
 +++
 
 The CoreDNS team has released
-[CoreDNS-1.6.8](https://github.com/coredns/coredns/releases/tag/v1.6.8).
+[CoreDNS-1.6.9](https://github.com/coredns/coredns/releases/tag/v1.6.9). This release is identical
+to 1.6.8.
+
+(Yes there was a [CoreDNS-1.6.8](https://github.com/coredns/coredns/releases/tag/v1.6.8), but our
+automation broke after tagging it in Git - hence another bump in the minor version)
 
 Again a small release with some nice improvements in the *forward* plugin, and overall polish. See
 "Noteworthy Changes" for more detail.
