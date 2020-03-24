@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"bytes"
+	"flag"
 	"io/ioutil"
 	"log"
 	"os"
@@ -14,8 +15,7 @@ import (
 )
 
 const (
-	pluginDir = ".coredns/plugin/"
-	pageDir   = "content/plugins/"
+	pageDir = "content/plugins/"
 )
 
 type page struct {
@@ -32,7 +32,12 @@ type meta struct {
 	Date        string   `toml:"date"`
 }
 
+var (
+	pluginDir = flag.String("plugindir", ".coredns/plugin", "directory where to find coredns")
+)
+
 func main() {
+	flag.Parse()
 	// Current pages
 	pages, err := getPages(pageDir)
 	if err != nil {
@@ -40,7 +45,7 @@ func main() {
 	}
 
 	// Incoming content
-	plugins, err := getContent(pluginDir)
+	plugins, err := getContent(*pluginDir)
 	if err != nil {
 		log.Fatalf("Failed getting all plugin contents: %s", err)
 	}
@@ -82,7 +87,7 @@ func main() {
 		if err != nil {
 			log.Fatalf("Error writing file: %s", err)
 		}
-		log.Printf("Wrote content changes %s to %s", path.Join(pluginDir, p, "README.md"), filePath)
+		log.Printf("Wrote content changes %s to %s", path.Join(*pluginDir, p, "README.md"), filePath)
 	}
 }
 
