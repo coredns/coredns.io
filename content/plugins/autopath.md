@@ -4,7 +4,7 @@ description = "*autopath* allows for server-side search path completion."
 weight = 4
 tags = ["plugin", "autopath"]
 categories = ["plugin"]
-date = "2020-03-26T07:42:44.8774483"
+date = "2020-03-26T08:18:51.8775183"
 +++
 
 ## Description
@@ -34,7 +34,7 @@ If a plugin implements the `AutoPather` interface then it can be used.
 
 If monitoring is enabled (via the *prometheus* plugin) then the following metric is exported:
 
-* `coredns_autopath_success_count_total{server}` - counter of successfully autopath-ed queries.
+* `coredns_autopath_success_total{server}` - counter of successfully autopath-ed queries.
 
 The `server` label is explained in the *metrics* plugin documentation.
 

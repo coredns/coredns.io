@@ -1,10 +1,10 @@
 +++
 title = "forward"
 description = "*forward* facilitates proxying DNS messages to upstream resolvers."
-weight = 19
+weight = 20
 tags = ["plugin", "forward"]
 categories = ["plugin"]
-date = "2020-03-06T10:54:38.8773883"
+date = "2020-03-26T08:18:51.8775183"
 +++
 
 ## Description
@@ -111,12 +111,12 @@ On each endpoint, the timeouts of the communication are set by default and autom
 If monitoring is enabled (via the *prometheus* plugin) then the following metric are exported:
 
 * `coredns_forward_request_duration_seconds{to}` - duration per upstream interaction.
-* `coredns_forward_request_count_total{to}` - query count per upstream.
-* `coredns_forward_response_rcode_count_total{to, rcode}` - count of RCODEs per upstream.
-* `coredns_forward_healthcheck_failure_count_total{to}` - number of failed health checks per upstream.
-* `coredns_forward_healthcheck_broken_count_total{}` - counter of when all upstreams are unhealthy,
+* `coredns_forward_requests_total{to}` - query count per upstream.
+* `coredns_forward_responses_total{to, rcode}` - count of RCODEs per upstream.
+* `coredns_forward_healthcheck_failures_total{to}` - number of failed health checks per upstream.
+* `coredns_forward_healthcheck_broken_total{}` - counter of when all upstreams are unhealthy,
   and we are randomly (this always uses the `random` policy) spraying to an upstream.
-* `max_concurrent_reject_count_total{}` - counter of the number of queries rejected because the
+* `max_concurrent_rejects_total{}` - counter of the number of queries rejected because the
   number of concurrent queries were at maximum.
 Where `to` is one of the upstream servers (**TO** from the config), `rcode` is the returned RCODE
 from the upstream.
