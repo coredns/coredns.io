@@ -4,7 +4,7 @@ description = "*dns64* enables DNS64 IPv6 transition mechanism."
 weight = 13
 tags = ["plugin", "dns64"]
 categories = ["plugin"]
-date = "2020-03-26T07:42:44.8774483"
+date = "2020-03-26T08:30:47.8774783"
 +++
 
 ## Description
@@ -16,28 +16,30 @@ From Wikipedia:
 
 The synthesis in only performed if the query came in via IPv6.
 
+This translation is for IPv6-only networks that have [NAT64](https://en.wikipedia.org/wiki/NAT64).
+
 See [RFC 6147](https://tools.ietf.org/html/rfc6147) for more information.
 
 ## Syntax
 
 ~~~
 dns64 [PREFIX] {
-  [translate\_all]
+  [translate_all]
 }
 ~~~
 
-* [PREFIX] defines a custom prefix instead of the default `64:ff9b::/96`
+* [PREFIX] defines a custom prefix instead of the default `64:ff9b::/96`.
 * `translate_all` translates all queries, including respones that have AAAA results.
 
 ## Examples
 
-Translate with the default well known prefix. Applies to all queries
+Translate with the default well known prefix. Applies to all queries.
 
 ~~~
 dns64
 ~~~
 
-Use a custom prefix
+Use a custom prefix.
 
 ~~~
 dns64 64:1337::/96
@@ -47,7 +49,7 @@ dns64 {
 }
 ~~~
 
-Enable translation even if an existing AAAA record is present
+Enable translation even if an existing AAAA record is present.
 
 ~~~
 dns64 {
