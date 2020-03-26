@@ -4,7 +4,7 @@ description = "*cache* enables a frontend cache."
 weight = 8
 tags = ["plugin", "cache"]
 categories = ["plugin"]
-date = "2020-02-29T07:08:18.8771882"
+date = "2020-03-26T14:30:37.8773783"
 +++
 
 ## Description
@@ -80,7 +80,7 @@ If monitoring is enabled (via the *prometheus* plugin) then the following metric
 * `coredns_cache_served_stale_total{server}` - Counter of requests served from stale cache entries.
 
 Cache types are either "denial" or "success". `Server` is the server handling the request, see the
-metrics plugin for documentation.
+prometheus plugin for documentation.
 
 ## Examples
 

@@ -4,7 +4,7 @@ description = "*reload* allows automatic reload of a changed Corefile."
 weight = 35
 tags = ["plugin", "reload"]
 categories = ["plugin"]
-date = "2020-03-26T08:18:51.8775183"
+date = "2020-03-26T14:30:37.8773783"
 +++
 
 ## Description
@@ -89,7 +89,7 @@ is already listening on that port. The process reloads and performs the followin
 4. fail loading the new Corefile, abort and keep using the old process
 
 After the aborted attempt to reload we are left with the old processes running, but the listener is
-closed in step 1; so the health endpoint is broken. The same can happen in the prometheus metrics plugin.
+closed in step 1; so the health endpoint is broken. The same can happen in the prometheus plugin.
 
 In general be careful with assigning new port and expecting reload to work fully.
 
