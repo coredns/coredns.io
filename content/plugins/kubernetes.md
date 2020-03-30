@@ -1,10 +1,10 @@
 +++
 title = "kubernetes"
 description = "*kubernetes* enables reading zone data from a Kubernetes cluster."
-weight = 25
+weight = 26
 tags = ["plugin", "kubernetes"]
 categories = ["plugin"]
-date = "2020-03-05T10:18:58.8775883"
+date = "2020-03-30T16:18:55.8775583"
 +++
 
 ## Description
@@ -184,20 +184,6 @@ be set to `verified` for this to function properly.
             pods verified
         }
     }
-
-## Federation
-
-The *kubernetes* plugin can be used in conjunction with the *federation* plugin.  Using this
-feature enables serving federated domains from the Kubernetes clusters.
-
-    cluster.local {
-        federation {
-            prod prod.example.org
-            staging staging.example.org
-        }
-        kubernetes
-    }
-
 
 ## Wildcards
 
