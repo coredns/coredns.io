@@ -1,10 +1,10 @@
 +++
 title = "hosts"
 description = "*hosts* enables serving zone data from a `/etc/hosts` style file."
-weight = 22
+weight = 23
 tags = ["plugin", "hosts"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-03-31T06:18:58.8775883"
 +++
 
 ## Description
@@ -79,7 +79,7 @@ hosts [FILE [ZONES...]] {
 
 If monitoring is enabled (via the *prometheus* plugin) then the following metrics are exported:
 
-- `coredns_hosts_entries_count{}` - The combined number of entries in hosts and Corefile.
+- `coredns_hosts_entries{}` - The combined number of entries in hosts and Corefile.
 - `coredns_hosts_reload_timestamp_seconds{}` - The timestamp of the last reload of hosts file.
 
 ## Examples
