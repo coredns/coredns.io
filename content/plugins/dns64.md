@@ -4,12 +4,10 @@ description = "*dns64* enables DNS64 IPv6 transition mechanism."
 weight = 13
 tags = ["plugin", "dns64"]
 categories = ["plugin"]
-date = "2020-03-26T08:30:47.8774783"
+date = "2020-03-31T18:06:38.8773883"
 +++
 
 ## Description
-
-From Wikipedia:
 
 > DNS64 describes a DNS server that when asked for a domain's AAAA records, but only finds
 > A records, synthesizes the AAAA records from the A records.
@@ -58,6 +56,15 @@ dns64 {
 ~~~
 
 * `prefix` specifies any local IPv6 prefix to use, instead of the well known prefix (64:ff9b::/96)
+
+
+## Metrics
+
+If monitoring is enabled (via the _prometheus_ plugin) then the following metrics are exported:
+
+- `coredns_dns64_requests_translated_total{server}` - counter of DNS requests translated
+
+The `server` label is explained in the _prometheus_ plugin documentation.
 
 ## Bugs
 

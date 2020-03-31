@@ -4,7 +4,7 @@ description = "*acl* enforces access control policies on source ip and prevents 
 weight = 1
 tags = ["plugin", "acl"]
 categories = ["plugin"]
-date = "2020-03-26T08:18:51.8775183"
+date = "2020-03-31T18:06:38.8773883"
 +++
 
 ## Description
@@ -76,8 +76,8 @@ example.org {
 
 If monitoring is enabled (via the _prometheus_ plugin) then the following metrics are exported:
 
-- `coredns_dns_blocked_requests_total{server, zone}` - counter of DNS requests being blocked.
+- `coredns_acl_blocked_requests_total{server, zone}` - counter of DNS requests being blocked.
 
-- `coredns_dns_allowed_requests_total{server}` - counter of DNS requests being allowed.
+- `coredns_acl_allowed_requests_total{server}` - counter of DNS requests being allowed.
 
 The `server` and `zone` labels are explained in the _metrics_ plugin documentation.
