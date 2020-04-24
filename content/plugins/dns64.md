@@ -4,7 +4,7 @@ description = "*dns64* enables DNS64 IPv6 transition mechanism."
 weight = 13
 tags = ["plugin", "dns64"]
 categories = ["plugin"]
-date = "2020-04-23T08:31:01.877184"
+date = "2020-04-24T01:06:37.8773784"
 +++
 
 ## Description
@@ -52,7 +52,7 @@ Use a custom prefix.
 . {
     dns64 64:1337::/96
 }
-~~~~
+~~~
 
 Or
 ~~~ corefile
