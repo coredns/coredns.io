@@ -1,16 +1,16 @@
 +++
 title = "transfer"
 description = "*transfer* perform zone transfers for other plugins."
-weight = 43
+weight = 44
 tags = ["plugin", "transfer"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-04-24T05:54:51.8775184"
 +++
 
 ## Description
 
 This plugin answers zone transfers for authoritative plugins that implement
-`transfer.Transferer`.
+`transfer.Transferer`.  Currently, no internal plugins implement this interface.
 
 Transfer answers full zone transfer (AXFR) requests and incremental zone transfer (IXFR) requests
 with AXFR fallback if the zone has changed.
