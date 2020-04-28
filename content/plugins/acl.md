@@ -4,7 +4,7 @@ description = "*acl* enforces access control policies on source ip and prevents 
 weight = 1
 tags = ["plugin", "acl"]
 categories = ["plugin"]
-date = "2020-03-31T18:06:38.8773883"
+date = "2020-04-28T14:54:51.8775184"
 +++
 
 ## Description
@@ -56,7 +56,7 @@ Allow only DNS queries from 192.168.0.0/24 and 192.168.1.0/24:
 ~~~ corefile
 . {
     acl {
-        allow net 192.168.0.0/16 192.168.1.0/24
+        allow net 192.168.0.0/24 192.168.1.0/24
         block
     }
 }
