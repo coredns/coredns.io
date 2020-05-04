@@ -4,12 +4,12 @@ description = "*bufsize* sizes EDNS0 buffer size to prevent IP fragmentation."
 weight = 7
 tags = ["plugin", "bufsize"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-05-04T14:06:34.8773485"
 +++
 
 ## Description
 *bufsize* limits a requester's UDP payload size.
-It prevents IP fragmentation so that to deal with DNS vulnerability.
+It prevents IP fragmentation, mitigating certain DNS vulnerabilities.
 
 ## Syntax
 ```txt
