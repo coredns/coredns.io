@@ -4,7 +4,7 @@ description = "*kubernetes* enables reading zone data from a Kubernetes cluster.
 weight = 26
 tags = ["plugin", "kubernetes"]
 categories = ["plugin"]
-date = "2020-03-30T16:18:55.8775583"
+date = "2020-05-06T16:09:31.8773185"
 +++
 
 ## Description
@@ -176,7 +176,8 @@ upstreamNameservers: |
 
 The *kubernetes* plugin can be used in conjunction with the *autopath* plugin.  Using this
 feature enables server-side domain search path completion in Kubernetes clusters.  Note: `pods` must
-be set to `verified` for this to function properly.
+be set to `verified` for this to function properly. Furthermore, the remote IP address in the DNS
+packet received by CoreDNS must be the IP address of the Pod that sent the request.
 
     cluster.local {
         autopath @kubernetes
@@ -209,14 +210,20 @@ or the word "any"), then that label will match all values.  The labels that acce
 The kubernetes plugin will publish the following metadata, if the *metadata*
 plugin is also enabled:
 
- * kubernetes/endpoint: the endpoint name in the query
- * kubernetes/kind: the resource kind (pod or svc) in the query
- * kubernetes/namespace: the namespace in the query
- * kubernetes/port-name: the port name in an SRV query
- * kubernetes/protocol: the protocol in an SRV query
- * kubernetes/service: the service name in the query
- * kubernetes/client-namespace: the client pod's namespace, if `pods verified` mode is enabled
- * kubernetes/client-pod-name: the client pod's name, if `pods verified` mode is enabled
+ * `kubernetes/endpoint`: the endpoint name in the query
+ * `kubernetes/kind`: the resource kind (pod or svc) in the query
+ * `kubernetes/namespace`: the namespace in the query
+ * `kubernetes/port-name`: the port name in an SRV query
+ * `kubernetes/protocol`: the protocol in an SRV query
+ * `kubernetes/service`: the service name in the query
+ * `kubernetes/client-namespace`: the client pod's namespace (see requirements below)
+ * `kubernetes/client-pod-name`: the client pod's name (see requirements below)
+
+The `kubernetes/client-namespace` and `kubernetes/client-pod-name` metadata work by reconciling the
+client IP address in the DNS request packet to a known pod IP address. Therefore the following is required:
+ * `pods verified` mode must be enabled
+ * the remote IP address in the DNS packet received by CoreDNS must be the IP address
+   of the Pod that sent the request.
 
 ## Metrics
 
