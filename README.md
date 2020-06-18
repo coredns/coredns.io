@@ -51,3 +51,11 @@ text. This can used for important notifications.
 
 Any Corefile snippets should be use the (fake) language `corefile`, we have a small utility that
 checks all these snippets to see if they are still valid.
+
+## New CoreDNS releases
+
+* Sync the notes from the official coredns/coredns repo into this repo by running `cd bin; go run sync.go`
+* This should update the releases notes in content/blob/coredns-\<version\>.
+* After this step you should manually (never got this to automatically to work) update
+  `date/coredns.toml` and set the latest release in that file and then run `make old` to update the
+  old(er) HUGO site.
