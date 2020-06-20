@@ -4,7 +4,7 @@ description = "*dns64* enables DNS64 IPv6 transition mechanism."
 weight = 13
 tags = ["plugin", "dns64"]
 categories = ["plugin"]
-date = "2020-04-24T01:06:37.8773784"
+date = "2020-06-20T14:19:17.8771786"
 +++
 
 ## Description
@@ -87,7 +87,6 @@ Not all features required by DNS64 are implemented, only basic AAAA synthesis.
 
 * Support "mapping of separate IPv4 ranges to separate IPv6 prefixes"
 * Resolve PTR records
-* Follow CNAME records
 * Make resolver DNSSEC aware. See: [RFC 6147 Section 3](https://tools.ietf.org/html/rfc6147#section-3)
 
 ## Also See
