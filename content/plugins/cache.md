@@ -4,7 +4,7 @@ description = "*cache* enables a frontend cache."
 weight = 8
 tags = ["plugin", "cache"]
 categories = ["plugin"]
-date = "2020-04-03T16:30:38.8773884"
+date = "2020-06-24T04:54:36.8773686"
 +++
 
 ## Description
@@ -76,6 +76,7 @@ If monitoring is enabled (via the *prometheus* plugin) then the following metric
 * `coredns_cache_entries{server, type}` - Total elements in the cache by cache type.
 * `coredns_cache_hits_total{server, type}` - Counter of cache hits by cache type.
 * `coredns_cache_misses_total{server}` - Counter of cache misses.
+* `coredns_cache_prefetch_total{server}` - Counter of cache has prefetched a cached item.
 * `coredns_cache_drops_total{server}` - Counter of responses excluded from the cache due to request/response question name mismatch.
 * `coredns_cache_served_stale_total{server}` - Counter of requests served from stale cache entries.
 

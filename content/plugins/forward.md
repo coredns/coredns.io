@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 20
 tags = ["plugin", "forward"]
 categories = ["plugin"]
-date = "2020-05-14T17:06:43.8774385"
+date = "2020-06-24T04:54:36.8773686"
 +++
 
 ## Description
@@ -110,8 +110,9 @@ On each endpoint, the timeouts for communication are set as follows:
 
 If monitoring is enabled (via the *prometheus* plugin) then the following metric are exported:
 
-* `coredns_forward_request_duration_seconds{to}` - duration per upstream interaction.
 * `coredns_forward_requests_total{to}` - query count per upstream.
+* `coredns_forward_responses_total{to}` - Counter of responses made per upstream.
+* `coredns_forward_request_duration_seconds{to}` - duration per upstream interaction.
 * `coredns_forward_responses_total{to, rcode}` - count of RCODEs per upstream.
 * `coredns_forward_healthcheck_failures_total{to}` - number of failed health checks per upstream.
 * `coredns_forward_healthcheck_broken_total{}` - counter of when all upstreams are unhealthy,
