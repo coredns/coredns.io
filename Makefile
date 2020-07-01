@@ -26,5 +26,4 @@ sync:
 # Scan all markdown files for Corefile snippets and check validity github.com/miekg/corecheck
 .PHONY: test
 test:
-	corecheck -exe $(PWD)/.coredns/coredns -dir content/blog
-	corecheck -exe $(PWD)/.coredns/coredns -dir content/manual
+	hugo server
