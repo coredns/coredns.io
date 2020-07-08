@@ -1,42 +1,38 @@
 +++
 title = "transfer"
-description = "*transfer* perform (outgoing) zone transfers for other plugins."
+description = "*transfer* perform zone transfers for other plugins."
 weight = 44
 tags = ["plugin", "transfer"]
 categories = ["plugin"]
-date = "2020-07-07T19:42:51.8775187"
+date = "2020-07-08T16:14:12.8771287"
 +++
 
 ## Description
 
-This plugin answers zone transfers for authoritative plugins that implement `transfer.Transferer`.
+This plugin answers zone transfers for authoritative plugins that implement
+`transfer.Transferer`.  Currently, no internal plugins implement this interface.
 
-*transfer* answers full zone transfer (AXFR) requests and incremental zone transfer (IXFR) requests
+Transfer answers full zone transfer (AXFR) requests and incremental zone transfer (IXFR) requests
 with AXFR fallback if the zone has changed.
 
-When a plugin wants to notify it's secondaries it will call back into the *transfer* plugin.
-
-The following plugins implement zone transfers using this plugin: *file*, *auto*, *secondary*, and
-*kubernetes*. See `transfer.go` for implementation details if you are a plugin author that wants to
-use this plugin.
+Notifies are not currently supported.
 
 ## Syntax
 
 ~~~
 transfer [ZONE...] {
-  to ADDRESS...
+  to HOST...
 }
 ~~~
 
- *  **ZONE** The zones *transfer* will answer zone transfer requests for. If left blank, the zones
-    are inherited from the enclosing server block. To answer zone transfers for a given zone,
-    there must be another plugin in the same server block that serves the same zone, and implements
-    `transfer.Transferer`.
+* **ZONES** The zones *transfer* will answer zone requests for. If left blank,
+  the zones are inherited from the enclosing server block. To answer zone
+  transfers for a given zone, there must be another plugin in the same server
+  block that serves the same zone, and implements `transfer.Transferer`.
 
- *  `to` **ADDRESS...** The hosts *transfer* will transfer to. Use `*` to permit transfers to all
-    addresses. **ADDRESS** must be denoted in CIDR notation (e.g., 127.0.0.1/32) or just as plain
-    addresses. `to` may be specified multiple times.
+* `to ` **HOST...** The hosts *transfer* will transfer to. Use `*` to permit
+  transfers to all hosts.
 
 ## Examples
 
-See the specific plugins using this plugin for examples on it's usage.
+TODO
