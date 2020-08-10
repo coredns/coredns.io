@@ -1,10 +1,10 @@
 +++
 title = "template"
 description = "*template* allows for dynamic responses based on the incoming query."
-weight = 40
+weight = 41
 tags = ["plugin", "template"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-08-10T08:43:00.877088"
 +++
 
 ## Description
@@ -51,6 +51,7 @@ Each resource record is a full-featured [Go template](https://golang.org/pkg/tex
 * `.Group` a map of the named capture groups.
 * `.Message` the complete incoming DNS message.
 * `.Question` the matched question section.
+* `.Remote` client’s IP address
 * `.Meta` a function that takes a metadata name and returns the value, if the
   metadata plugin is enabled. For example, `.Meta "kubernetes/client-namespace"`
 
