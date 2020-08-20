@@ -4,7 +4,7 @@ description = "*auto* enables serving zone data from an RFC 1035-style master fi
 weight = 3
 tags = ["plugin", "auto"]
 categories = ["plugin"]
-date = "2020-07-08T16:14:12.8771287"
+date = "2020-08-20T03:42:49.8774988"
 +++
 
 ## Description
@@ -12,7 +12,7 @@ date = "2020-07-08T16:14:12.8771287"
 The *auto* plugin is used for an "old-style" DNS server. It serves from a preloaded file that exists
 on disk. If the zone file contains signatures (i.e. is signed, i.e. using DNSSEC) correct DNSSEC answers
 are returned. Only NSEC is supported! If you use this setup *you* are responsible for re-signing the
-zonefile. New or changed zones are automatically picked up from disk.
+zonefile. New or changed zones are automatically picked up from disk only when SOA's serial changes. If the zones are not updated via a zone transfer, the serial must be manually changed.
 
 ## Syntax
 
