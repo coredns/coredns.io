@@ -4,7 +4,7 @@ description = "*debug* disables the automatic recovery upon a crash so that you'
 weight = 12
 tags = ["plugin", "debug"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-08-24T07:17:29.8772988"
 +++
 
 ## Description
@@ -14,6 +14,9 @@ to help in testing. A side effect of using *debug* is that `log.Debug` and `log.
 will be printed to standard output.
 
 Note that the *errors* plugin (if loaded) will also set a `recover`, negating this setting.
+
+Enabling this plugin is process-wide: enabling *debug* in at least one server block enables
+debug mode globally.
 
 ## Syntax
 
