@@ -4,7 +4,7 @@ description = "*cache* enables a frontend cache."
 weight = 8
 tags = ["plugin", "cache"]
 categories = ["plugin"]
-date = "2020-06-24T14:54:50.8775086"
+date = "2020-09-17T14:30:47.8774789"
 +++
 
 ## Description
@@ -12,6 +12,9 @@ date = "2020-06-24T14:54:50.8775086"
 With *cache* enabled, all records except zone transfers and metadata records will be cached for up to
 3600s. Caching is mostly useful in a scenario when fetching data from the backend (upstream,
 database, etc.) is expensive.
+
+*Cache* will change the query to enable DNSSEC (DNSSEC OK; DO) if it passes through the plugin. If
+the client didn't request any DNSSEC (records), these are filtered out when replying.
 
 This plugin can only be used once per Server Block.
 
