@@ -37,12 +37,19 @@
             <i class="fa fa-home" aria-hidden="true"></i> <a href="{{ .Params.home }} ">Home</a>
 
             {{ partial "explugin-default" . }}
+            {{ partial "explugin-coredns-org" . }}
 
         </p>
       </div>
       {{ end }}
 
     </div>
+  </div>
+  <div class="text-center">
+      <br/>
+      <i class="fa fa-link" aria-hidden="true"></i> <b>Maintained by CoreDNS</b>: CoreDNS maintainers take care of this plugin.
+      <br/>
+      <i class="fa fa-check-square-o" aria-hidden="true"></i> <b>Enabled by default</b>: CoreDNS has this plugin by default.
   </div>
 </div>
 {{ end }}
