@@ -1,5 +1,5 @@
 +++
-title = records"
+title = "records"
 description = "*records* - enables serving (basic) zone data directly from the Corefile."
 weight = 10
 tags = [  "plugin" , "records" ]
@@ -7,7 +7,6 @@ categories = [ "plugin", "external" ]
 date = "2020-09-22T07:53:19+01:00"
 repo = "https://github.com/coredns/records"
 home = "https://github.com/coredns/records"
-default = "yes"
 +++
 
 ## Description
