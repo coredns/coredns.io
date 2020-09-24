@@ -4,7 +4,7 @@ description = "*secondary* enables serving a zone retrieved from a primary serve
 weight = 39
 tags = ["plugin", "secondary"]
 categories = ["plugin"]
-date = "2020-07-08T16:14:12.8771287"
+date = "2020-09-24T18:42:39.8773989"
 +++
 
 ## Description
@@ -27,17 +27,16 @@ A working syntax would be:
 ~~~
 secondary [zones...] {
     transfer from ADDRESS
-    transfer to ADDRESS
 }
 ~~~
 
 * `transfer from` specifies from which address to fetch the zone. It can be specified multiple times;
-    if one does not work, another will be tried.
-* `transfer to` can be enabled to allow this secondary zone to be transferred again.
+    if one does not work, another will be tried. Transfering this zone outwards again can be done by
+    enableing the *transfer* plugin.
 
 When a zone is due to be refreshed (Refresh timer fires) a random jitter of 5 seconds is
 applied, before fetching. In the case of retry this will be 2 seconds. If there are any errors
-during the transfer the transfer fails; this will be logged.
+during the transfer in, the transfer fails; this will be logged.
 
 ## Examples
 
@@ -46,8 +45,7 @@ Transfer `example.org` from 10.0.1.1, and if that fails try 10.1.2.1.
 ~~~ corefile
 example.org {
     secondary {
-        transfer from 10.0.1.1
-        transfer from 10.1.2.1
+        transfer from 10.0.1.1 10.1.2.1
     }
 }
 ~~~
@@ -55,10 +53,12 @@ example.org {
 Or re-export the retrieved zone to other secondaries.
 
 ~~~ corefile
-. {
-    secondary example.net {
+example.net {
+    secondary {
         transfer from 10.1.2.1
-        transfer to *
+    }
+    transfer {
+        to *
     }
 }
 ~~~
@@ -66,3 +66,7 @@ Or re-export the retrieved zone to other secondaries.
 ## Bugs
 
 Only AXFR is supported and the retrieved zone is not committed to disk.
+
+## Also See
+
+See the *transfer* plugin to enable zone transfers _to_ other servers.

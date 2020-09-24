@@ -4,7 +4,7 @@ description = "*auto* enables serving zone data from an RFC 1035-style master fi
 weight = 3
 tags = ["plugin", "auto"]
 categories = ["plugin"]
-date = "2020-08-20T03:42:49.8774988"
+date = "2020-09-24T18:42:39.8773989"
 +++
 
 ## Description
@@ -19,7 +19,6 @@ zonefile. New or changed zones are automatically picked up from disk only when S
 ~~~
 auto [ZONES...] {
     directory DIR [REGEXP ORIGIN_TEMPLATE]
-    transfer to ADDRESS...
     reload DURATION
 }
 ~~~
@@ -32,13 +31,11 @@ are used.
   like `{<number>}` are replaced with the respective matches in the file name, e.g. `{1}` is the
   first match, `{2}` is the second. The default is: `db\.(.*)  {1}` i.e. from a file with the
   name `db.example.com`, the extracted origin will be `example.com`.
-* `transfer` enables zone transfers. It may be specified multiples times. `To` or `from` signals
-  the direction. **ADDRESS** must be denoted in CIDR notation (e.g., 127.0.0.1/32) or just as plain
-  addresses. The special wildcard `*` means: the entire internet (only valid for 'transfer to').
-  When an address is specified a notify message will be send whenever the zone is reloaded.
 * `reload` interval to perform reloads of zones if SOA version changes and zonefiles. It specifies how often CoreDNS should scan the directory to watch for file removal and addition. Default is one minute.
   Value of `0` means to not scan for changes and reload. eg. `30s` checks zonefile every 30 seconds
   and reloads zone when serial changes.
+
+For enabling zone transfers look at the *transfer* plugin.
 
 All directives from the *file* plugin are supported. Note that *auto* will load all zones found,
 even though the directive might only receive queries for a specific zone. I.e:
@@ -62,8 +59,10 @@ notifies to 10.240.1.1
 org {
     auto {
         directory /etc/coredns/zones/org
-        transfer to *
-        transfer to 10.240.1.1
+    }
+    transfer {
+        to *
+        to 10.240.1.1
     }
 }
 ~~~
@@ -79,3 +78,8 @@ org {
     }
 }
 ~~~
+
+## Also
+
+Use the *root* plugin to help you specify the location of the zone files. See the *transfer* plugin
+to enable outgoing zone transfers.
