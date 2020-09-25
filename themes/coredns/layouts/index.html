@@ -68,24 +68,16 @@
 
       <div class="col col-4 item">
         <figure>
-            <i class="fa fa-circle-thin fa-5x" aria-hidden="true"></i>
+            &nbsp;<br/>
+          <img alt="Cloud Native Computing Foundation Logo" src="/images/cncf-logo.png">
         </figure>
-        <h3>Simplicity</h3>
+        <h3>CNCF</h3>
         <p>
-        We strive to keep things as simple as possible and have sane defaults.
-        Here is the <code>Corefile</code> for <code>coredns.io</code>:
+           We are a <a href="https://cncf.io">Cloud Native Computing
+           Foundation</a> graduated project.
         </p>
-        <pre>
-coredns.io {
- file db.coredns.io.signed {
-   transfer to * 185.49.140.62
- }
- sign zones/coredns.io {
-  key file Kcoredns.io.+013+16376
- }
-}
-        </pre>
-    </div>
+      </div>
+
 
     <div class="row gutters">
 
@@ -97,8 +89,10 @@ coredns.io {
         <p>
         CoreDNS integrates with <a href="https://kubernetes.io">Kubernetes</a> via the
         <a href="/plugins/kubernetes/">Kubernetes plugin</a>,
-        or directly with <a href="https://coreos.com/etcd/">etcd</a> with the
-        <a href="/plugins/etcd/">etcd plugin</a>.
+        or with <a href="https://coreos.com/etcd/">etcd</a> with the
+        <a href="/plugins/etcd/">etcd plugin</a>. All major cloud providers have plugins too:
+        <a href="/plugins/azure">Microsoft Azure DNS</a>, <a href="/plugins/clouddns">CGP Cloud DNS</a> and
+        <a href="/plugins/route53">AWS Route53</a>.
         </p>
       </div>
 
@@ -116,16 +110,24 @@ coredns.io {
 
       <div class="col col-4 item">
         <figure>
-            &nbsp;<br/>
-          <img alt="Cloud Native Computing Foundation Logo" src="/images/cncf-logo.png">
+            <i class="fa fa-circle-thin fa-5x" aria-hidden="true"></i>
         </figure>
-        <h3>CNCF</h3>
+        <h3>Simplicity</h3>
         <p>
-           We are a <a href="https://cncf.io">Cloud Native Computing
-           Foundation</a> graduated project.
+        We strive to keep things as simple as possible and have sane defaults.
+        Here is the <code>Corefile</code> for <code>coredns.io</code>:
         </p>
-      </div>
-
+        <pre>
+coredns.io {
+ file db.coredns.io.signed
+ transfer {
+  to * 185.49.140.62
+ }
+ sign zones/coredns.io {
+  key file Kcoredns.io.+013+16376
+ }
+}</pre>
+    </div>
     </div>
 
 
