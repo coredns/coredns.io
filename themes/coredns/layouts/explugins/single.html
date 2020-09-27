@@ -4,12 +4,12 @@
   <div id="main">
     <div class="hero">
         <h1> {{ .Title}} </h1>
-            <i class="fa fa-code-fork" aria-hidden="true"></i> <a href="{{ .Params.repo }} ">Source</a>
-            <i class="fa fa-home" aria-hidden="true"></i> <a href="{{ .Params.home }} ">Home</a>
+        <i class="fa fa-code-fork" aria-hidden="true"></i> <a href="{{ .Params.repo }} ">Source</a>
+        <i class="fa fa-home" aria-hidden="true"></i> <a href="{{ .Params.home }} ">Home</a>
 
-            {{ partial "explugin-default" . }}
-            {{ partial "explugin-coredns-org" . }}
-            {{ partial "explugin-enable" . }}
+        {{ partial "explugin-default" . }}
+        {{ partial "explugin-coredns-org" . }}
+        {{ partial "explugin-enable" . }}
 
       <p class="hero-lead">
            {{ .Params.description | markdownify }}
