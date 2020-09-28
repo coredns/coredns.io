@@ -81,5 +81,5 @@ The directives should also be updated through:
 
 The ordering of the plugins is specified by how the arey ordered in the slice `directives`.
 
-Then you can just compile CoreDNS with `go build` to have the binary generated with the plugins you
+Then you can just compile CoreDNS with `go build` to have the binary generated with the plugins you
 selected.
