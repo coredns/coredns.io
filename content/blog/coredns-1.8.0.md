@@ -5,7 +5,7 @@ tags = ["Release", "1.8.0", "Notes"]
 release = "1.8.0"
 date = 2020-09-21T10:00:00+00:00
 author = "coredns"
-draft = "yes"
+draft = true
 +++
 
 The CoreDNS team has released
