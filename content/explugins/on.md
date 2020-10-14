@@ -5,8 +5,8 @@ weight = 10
 tags = [  "plugin" , "on" ]
 categories = [ "plugin", "external" ]
 date = "2018-01-22T07:53:19+01:00"
-repo = "https://github.com/mholt/caddy"
-home = "https://caddyserver.com/docs/on"
+repo = "https://github.com/coredns/caddy"
+home = "https://github.com/coredns/caddy/onevent"
 default = "yes"
 +++
 

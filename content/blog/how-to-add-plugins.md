@@ -70,7 +70,7 @@ func setupWhoami(c *caddy.Controller) error {
 ~~~
 We use the `*caddy.Controller` to receive tokens from the Corefile and act upon them. Here we only
 check if there is nothing specified after the token `whoami`. If you need to do more there are
-`c.Val()`, `c.Args()` and [friends](https://godoc.org/github.com/caddyserver/caddy/caddyfile#Dispenser).
+`c.Val()`, `c.Args()` and [friends](https://godoc.org/github.com/coredns/caddy/caddyfile#Dispenser).
 
 The full `setup.go` for *whoami* is [here](https://github.com/miekg/coredns/blob/master/plugin/whoami/setup.go).
 
@@ -207,11 +207,8 @@ The `-dns.port` will start CoreDNS on port 1053, so we don't need to run as root
 CoreDNS will output the following:
 ~~~ txt
 .:1053
-   ______                ____  _   _______
-  / ____/___  ________  / __ \/ | / / ___/	~ CoreDNS-1.6.4
- / /   / __ \/ ___/ _ \/ / / /  |/ /\__ \ 	~ linux/amd64, go1.13.1, b139ba3
-/ /___/ /_/ / /  /  __/ /_/ / /|  /___/ /
-\____/\____/_/   \___/_____/_/ |_//____/
+CoreDNS-1.6.4
+linux/amd64, go1.13.1, b139ba3
 ~~~
 The `.:1053` indicates it has parsed our Corefile and is listening on port 1053 for queries for
 the root `.` zone and below.
