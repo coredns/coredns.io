@@ -64,4 +64,5 @@ Yong Tang.
 * plugin/cache: Fix removing OPT (https://github.com/coredns/coredns/pull/4190)
 * plugin/dnstap: various cleanups (https://github.com/coredns/coredns/pull/4179)
 * plugin/ready: don't return 200 during shutdown (https://github.com/coredns/coredns/pull/4167)
+* plugin/trace: root span names no longer contain the query data (https://github.com/coredns/coredns/pull/4171)
 * plugin/transfer: Implement notifies for transfer plugin (https://github.com/coredns/coredns/pull/3972)
