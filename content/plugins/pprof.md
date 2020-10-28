@@ -1,10 +1,10 @@
 +++
 title = "pprof"
 description = "*pprof* publishes runtime profiling data at endpoints under `/debug/pprof`."
-weight = 32
+weight = 33
 tags = ["plugin", "pprof"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -68,7 +68,7 @@ Listen on an all addresses on port 6060, and enable block profiling
 }
 ~~~
 
-## Also See
+## See Also
 
 See [Go's pprof documentation](https://golang.org/pkg/net/http/pprof/) and [Profiling Go
 Programs](https://blog.golang.org/profiling-go-programs).

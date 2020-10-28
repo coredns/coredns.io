@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 20
 tags = ["plugin", "forward"]
 categories = ["plugin"]
-date = "2020-09-14T09:54:49.8774989"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -192,6 +192,6 @@ Or with multiple upstreams from the same provider
 The TLS config is global for the whole forwarding proxy if you need a different `tls_servername` for
 different upstreams you're out of luck.
 
-## Also See
+## See Also
 
 [RFC 7858](https://tools.ietf.org/html/rfc7858) for DNS over TLS.

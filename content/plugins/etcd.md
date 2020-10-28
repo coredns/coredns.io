@@ -4,7 +4,7 @@ description = "*etcd* enables SkyDNS service discovery from etcd."
 weight = 18
 tags = ["plugin", "etcd"]
 categories = ["plugin"]
-date = "2020-08-10T13:23:15.8771588"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -232,6 +232,6 @@ If you query the zone name for `TXT` now, you will get the following response:
 "this is a random text message."
 ~~~
 
-## Also See
+## See Also
 
 If you want to `round robin` A and AAAA responses look at the *loadbalance* plugin.

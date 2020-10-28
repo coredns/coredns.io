@@ -4,7 +4,7 @@ description = "*reload* allows automatic reload of a changed Corefile."
 weight = 35
 tags = ["plugin", "reload"]
 categories = ["plugin"]
-date = "2020-03-26T14:30:37.8773783"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -106,6 +106,6 @@ CoreDNS v1.7.0 and later does parse the Corefile and supports detecting changes 
 
 Currently the type of `hash` is "md5", the `value` is the returned hash value.
 
-## Also See
+## See Also
 
 See coredns-import(7) and corefile(5).

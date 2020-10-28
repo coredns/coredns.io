@@ -4,7 +4,7 @@ description = "*kubernetes* enables reading zone data from a Kubernetes cluster.
 weight = 26
 tags = ["plugin", "kubernetes"]
 categories = ["plugin"]
-date = "2020-09-24T18:42:39.8773989"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -238,7 +238,7 @@ If monitoring is enabled (via the *prometheus* plugin) then the following metric
 
 The duration metric only supports the "headless\_with\_selector" service currently.
 
-## Also See
+## See Also
 
 See the *autopath* plugin to enable search path optimizations. And use the *transfer* plugin to
 enable outgoing zone transfers.

@@ -1,10 +1,10 @@
 +++
 title = "k8s_external"
 description = "*k8s_external* resolves load balancer and external IPs from outside Kubernetes clusters."
-weight = 24
+weight = 25
 tags = ["plugin", "k8s_external"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -87,7 +87,7 @@ spec:
 ~~~
 
 
-# Also See
+# See Also
 
 For some background see [resolve external IP address](https://github.com/kubernetes/dns/issues/242).
 And [A records for services with Load Balancer IP](https://github.com/coredns/coredns/issues/1851).

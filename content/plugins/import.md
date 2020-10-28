@@ -1,10 +1,10 @@
 +++
 title = "import"
 description = "*import* includes files or references snippets from a Corefile."
-weight = 23
+weight = 24
 tags = ["plugin", "import"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -71,6 +71,6 @@ This imports files found in the zones directory:
 import ../zones/*
 ~~~
 
-## Also See
+## See Also
 
 See corefile(5).

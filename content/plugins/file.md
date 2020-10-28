@@ -4,7 +4,7 @@ description = "*file* enables serving zone data from an RFC 1035-style master fi
 weight = 19
 tags = ["plugin", "file"]
 categories = ["plugin"]
-date = "2020-09-24T18:42:39.8773989"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -92,7 +92,7 @@ example.org {
 }
 ~~~
 
-## Also See
+## See Also
 
 See the *loadbalance* plugin if you need simple record shuffling. And the *transfer* plugin for zone
 transfers. Lastly the *root* plugin can help you specificy the location of the zone files.

@@ -4,7 +4,7 @@ description = "*debug* disables the automatic recovery upon a crash so that you'
 weight = 12
 tags = ["plugin", "debug"]
 categories = ["plugin"]
-date = "2020-08-24T07:17:29.8772988"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -49,6 +49,6 @@ Disable the ability to recover from crashes and show debug logging:
 }
 ~~~
 
-## Also See
+## See Also
 
 <https://www.wireshark.org/docs/man-pages/text2pcap.html>.

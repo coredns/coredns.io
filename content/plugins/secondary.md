@@ -4,7 +4,7 @@ description = "*secondary* enables serving a zone retrieved from a primary serve
 weight = 39
 tags = ["plugin", "secondary"]
 categories = ["plugin"]
-date = "2020-09-24T18:42:39.8773989"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -67,6 +67,6 @@ example.net {
 
 Only AXFR is supported and the retrieved zone is not committed to disk.
 
-## Also See
+## See Also
 
 See the *transfer* plugin to enable zone transfers _to_ other servers.

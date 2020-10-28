@@ -4,7 +4,7 @@ description = "*cancel* cancels a request's context after 5001 milliseconds."
 weight = 9
 tags = ["plugin", "cancel"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -45,6 +45,6 @@ example.org {
 }
 ~~~
 
-## Also See
+## See Also
 
 The Go documentation for the context package.

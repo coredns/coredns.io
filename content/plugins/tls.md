@@ -1,10 +1,10 @@
 +++
 title = "tls"
 description = "*tls* allows you to configure the server certificates for the TLS and gRPC servers."
-weight = 41
+weight = 42
 tags = ["plugin", "tls"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -63,6 +63,6 @@ grpc://. {
 Only Knot DNS' `kdig` supports DNS-over-TLS queries, no command line client supports gRPC making
 debugging these transports harder than it should be.
 
-## Also See
+## See Also
 
 RFC 7858 and https://grpc.io.

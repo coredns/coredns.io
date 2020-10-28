@@ -1,10 +1,10 @@
 +++
 title = "metadata"
 description = "*metadata* enables a metadata collector."
-weight = 29
+weight = 30
 tags = ["plugin", "metadata"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -46,7 +46,7 @@ Note: this method should work quickly, because it is called for every request.
 
 The *rewrite* plugin uses meta data to rewrite requests.
 
-## Also See
+## See Also
 
 The [Provider interface](https://godoc.org/github.com/coredns/coredns/plugin/metadata#Provider) and
 the [package level](https://godoc.org/github.com/coredns/coredns/plugin/metadata) documentation.

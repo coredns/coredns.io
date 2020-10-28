@@ -4,7 +4,7 @@ description = "*any* gives a minimal response to ANY queries."
 weight = 2
 tags = ["plugin", "any"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -33,6 +33,6 @@ A `dig +nocmd ANY example.org +noall +answer` now returns:
 example.org.  8482	IN	HINFO	"ANY obsoleted" "See RFC 8482"
 ~~~
 
-## Also See
+## See Also
 
 [RFC 8482](https://tools.ietf.org/html/rfc8482).

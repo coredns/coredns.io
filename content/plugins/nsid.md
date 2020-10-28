@@ -1,10 +1,10 @@
 +++
 title = "nsid"
 description = "*nsid* adds an identifier of this server to each reply."
-weight = 31
+weight = 32
 tags = ["plugin", "nsid"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -55,6 +55,6 @@ And now a client with NSID support will see an OPT record with the NSID option:
 ;whoami.example.org.		IN	A
 ~~~
 
-## Also See
+## See Also
 
 [RFC 5001](https://tools.ietf.org/html/rfc5001)

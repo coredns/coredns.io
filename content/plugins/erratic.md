@@ -1,10 +1,10 @@
 +++
 title = "erratic"
 description = "*erratic* a plugin useful for testing client behavior."
-weight = 15
+weight = 16
 tags = ["plugin", "erratic"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2020-10-28T18:26:48.87748810"
 +++
 
 ## Description
@@ -87,6 +87,6 @@ example.org {
 }
 ~~~
 
-## Also See
+## See Also
 
 [RFC 3849](https://tools.ietf.org/html/rfc3849) and [RFC 5737](https://tools.ietf.org/html/rfc5737).
