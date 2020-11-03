@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 20
 tags = ["plugin", "forward"]
 categories = ["plugin"]
-date = "2020-10-28T18:26:48.87748810"
+date = "2020-11-03T14:42:34.87734811"
 +++
 
 ## Description
@@ -160,7 +160,7 @@ Proxy everything except `example.org` using the host's `resolv.conf`'s nameserve
 }
 ~~~
 
-Proxy all requests to 9.9.9.9 using the DNS-over-TLS protocol, and cache every answer for up to 30
+Proxy all requests to 9.9.9.9 using the DNS-over-TLS (DoT) protocol, and cache every answer for up to 30
 seconds. Note the `tls_servername` is mandatory if you want a working setup, as 9.9.9.9 can't be
 used in the TLS negotiation. Also set the health check duration to 5s to not completely swamp the
 service with health checks.
@@ -187,10 +187,25 @@ Or with multiple upstreams from the same provider
 }
 ~~~
 
-## Bugs
+Or when you have multiple DoT upstreams with different `tls_servername`s, you can do the following:
 
-The TLS config is global for the whole forwarding proxy if you need a different `tls_servername` for
-different upstreams you're out of luck.
+~~~ corefile
+. {
+    forward . 127.0.0.1:5301 127.0.0.1:5302
+}
+
+.:5301 {
+    forward . 8.8.8.8 8.8.4.4 {
+        tls_servername dns.google
+    }
+}
+
+.:5302 {
+    forward . 1.1.1.1 1.0.0.1 {
+        tls_servername cloudflare-dns.com
+    }
+}
+~~~
 
 ## See Also
 
