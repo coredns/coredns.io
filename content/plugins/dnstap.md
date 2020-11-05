@@ -4,7 +4,7 @@ description = "*dnstap* enables logging to dnstap."
 weight = 15
 tags = ["plugin", "dnstap"]
 categories = ["plugin"]
-date = "2020-11-03T14:42:34.87734811"
+date = "2020-11-05T13:42:35.87735811"
 +++
 
 ## Description
@@ -21,7 +21,7 @@ Every message is sent to the socket as soon as it comes in, the *dnstap* plugin 
 dnstap SOCKET [full]
 ~~~
 
-* **SOCKET** is the socket path supplied to the dnstap command line tool.
+* **SOCKET** is the socket (path) supplied to the dnstap command line tool.
 * `full` to include the wire-format DNS message.
 
 ## Examples
