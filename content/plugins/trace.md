@@ -1,10 +1,10 @@
 +++
 title = "trace"
 description = "*trace* enables OpenTracing-based tracing of DNS requests as they go through the plugin chain."
-weight = 43
+weight = 44
 tags = ["plugin", "trace"]
 categories = ["plugin"]
-date = "2020-10-28T18:26:48.87748810"
+date = "2020-11-10T19:13:58.87758811"
 +++
 
 ## Description
@@ -58,6 +58,8 @@ You can run Zipkin on a Docker host like this:
 ```
 docker run -d -p 9411:9411 openzipkin/zipkin
 ```
+
+:warning: The zipkin provider does not support the v1 API since coredns 1.7.1
 
 ## Examples
 
