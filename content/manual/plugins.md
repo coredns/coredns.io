@@ -75,7 +75,7 @@ which interfaces CoreDNS should bind. The following plugins fall into this categ
 
 ## Anatomy of Plugins
 
-A plugin consists out of a Setup, Registration, and Handler part.
+A plugin consists of a Setup, Registration, and Handler part.
 
 The Setup parses the configuration and the Plugin's Directives (those should be documented in the
 plugin's README).
