@@ -22,7 +22,7 @@ ZONE:[PORT] {
 
 * **ZONE** defines the zone this server. The optional **PORT** defaults to 53, or
   the value of the `-dns.port` flag.
-* **PLUGIN** defines the [plugin(s)](/plugins) we want to load. This is optional as well, but as server
+* **PLUGIN** defines the [plugin(s)](/plugins) we want to load. This is optional as well, but a server
   with no plugins will just return SERVFAIL for all queries. Each plugin can have a number of
   *properties* than can have *arguments*
 
