@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 20
 tags = ["plugin", "forward"]
 categories = ["plugin"]
-date = "2021-01-28T15:57:08.877881"
+date = "2021-03-16T13:06:33.8773383"
 +++
 
 ## Description
@@ -103,6 +103,13 @@ On each endpoint, the timeouts for communication are set as follows:
 
 * The dial timeout by default is 30s, and can decrease automatically down to 100ms based on early results.
 * The read timeout is static at 2s.
+
+## Metadata
+
+The forward plugin will publish the following metadata, if the *metadata*
+plugin is also enabled:
+
+* `forward/upstream`: the upstream used to forward the request
 
 ## Metrics
 
