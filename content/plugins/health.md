@@ -4,7 +4,7 @@ description = "*health* enables a health check endpoint."
 weight = 22
 tags = ["plugin", "health"]
 categories = ["plugin"]
-date = "2020-10-01T15:21:54.87754810"
+date = "2021-03-19T10:47:32.8773283"
 +++
 
 ## Description
@@ -30,7 +30,7 @@ health [ADDRESS] {
 ~~~
 
 * Where `lameduck` will delay shutdown for **DURATION**. /health will still answer 200 OK.
-  Note: The *ready* plugin will not answer OK while CoreDNS is in lameduck mode prior to shutdown.
+  Note: The *ready* plugin will not answer OK while CoreDNS is in lame duck mode prior to shutdown.
 
 If you have multiple Server Blocks, *health* can only be enabled in one of them (as it is process
 wide). If you really need multiple endpoints, you must run health endpoints on different ports:
@@ -70,7 +70,7 @@ Run another health endpoint on http://localhost:8091.
 }
 ~~~
 
-Set a lameduck duration of 1 second:
+Set a lame duck duration of 1 second:
 
 ~~~ corefile
 . {
