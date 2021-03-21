@@ -87,7 +87,30 @@ same port is an error. This Corefile will generate an error on startup:
 }
 ~~~
 
-Changing the second port number to 1055 makes these Server Blocks two different Servers.
+Changing the second port number to 1055 makes these Server Blocks two different Servers. Note that
+if you use the [*bind*](https://coredns.io/plugins/bind) you can have the same zone listening on the
+*same* port, provided they are binded to *different* interfaces or IP addresses. The syntax used
+ here is supported since CoreDNS 1.8.4.
+
+~~~ corefile
+.:1054 {
+    bind lo
+    whoami
+}
+
+.:1054 {
+    bind eth0
+    whoami
+}
+~~~
+
+Will print something like the following on startup:
+
+~~~ txt
+.:1054 on ::1
+.:1054 on 192.168.86.22
+.:1054 on 127.0.0.1
+~~~
 
 ### Specifying a Protocol
 
@@ -103,7 +126,7 @@ prefixing a zone name with a scheme.
 ## Plugins
 
 Each Server Block specifies a number of plugins that should be chained for this specific Server. In
-its most simple form, you can add a Plugin by just using its name in a Server Block:
+its most simple form, you can add a plugin by just using its name in a Server Block:
 
 ~~~ corefile
 . {
