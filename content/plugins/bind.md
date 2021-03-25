@@ -4,7 +4,7 @@ description = "*bind* overrides the host to which the server should bind."
 weight = 6
 tags = ["plugin", "bind"]
 categories = ["plugin"]
-date = "2021-03-18T09:56:17.8771783"
+date = "2021-03-25T15:42:33.8773383"
 +++
 
 ## Description
@@ -20,13 +20,25 @@ If the given argument is an interface name, and that interface has serveral IP a
 
 ## Syntax
 
+In its basic form, a simple bind uses this syntax:
+
 ~~~ txt
-bind ADDRESS  ...
+bind ADDRESS|IFACE  ...
 ~~~
 
-**ADDRESS** is an IP address to bind to.
-When several addresses are provided a listener will be opened on each of the addresses.
+You can also exclude some addresses with their IP address or interface name in expanded syntax:
 
+~~~
+bind ADDRESS|IFACE ... {
+    except ADDRESS|IFACE ...
+}
+~~~
+
+
+
+* **ADDRESS|IFACE** is an IP address or interface name to bind to.
+When several addresses are provided a listener will be opened on each of the addresses. Please read the *Description* for more details.
+* `except`, excludes interfaces or IP addresses to bind to. `except` option only excludes addresses for the current `bind` directive if multiple `bind` directives are used in the same server block.
 ## Examples
 
 To make your socket accessible only to that machine, bind to IP 127.0.0.1 (localhost):
@@ -60,6 +72,16 @@ The following server block, binds on localhost with its interface name (both "12
 ~~~ corefile
 . {
     bind lo
+}
+~~~
+
+You can exclude some addresses by their IP or interface name (The following will only listen on `::1` or whatever addresses have been assigned to the `lo` interface):
+
+~~~ corefile
+. {
+    bind lo {
+        except 127.0.0.1
+    }
 }
 ~~~
 
