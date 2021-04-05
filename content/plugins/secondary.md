@@ -1,10 +1,10 @@
 +++
 title = "secondary"
 description = "*secondary* enables serving a zone retrieved from a primary server."
-weight = 40
+weight = 41
 tags = ["plugin", "secondary"]
 categories = ["plugin"]
-date = "2021-01-10T10:47:42.8774281"
+date = "2021-04-05T13:38:00.877084"
 +++
 
 ## Description
@@ -31,7 +31,7 @@ secondary [zones...] {
 ~~~
 
 *  `transfer from` specifies from which **ADDRESS** to fetch the zone. It can be specified multiple
-   times; if one does not work, another will be tried. Transfering this zone outwards again can be
+   times; if one does not work, another will be tried. Transferring this zone outwards again can be
    done by enabling the *transfer* plugin.
 
 When a zone is due to be refreshed (refresh timer fires) a random jitter of 5 seconds is applied,
