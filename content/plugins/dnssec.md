@@ -4,7 +4,7 @@ description = "*dnssec* enables on-the-fly DNSSEC signing of served data."
 weight = 14
 tags = ["plugin", "dnssec"]
 categories = ["plugin"]
-date = "2020-03-31T06:18:58.8775883"
+date = "2021-04-05T13:49:45.8774584"
 +++
 
 ## Description
@@ -34,8 +34,11 @@ ZSK/KSK split. All signing operations are done online.
 Authenticated denial of existence is implemented with NSEC black lies. Using ECDSA as an algorithm
 is preferred as this leads to smaller signatures (compared to RSA). NSEC3 is *not* supported.
 
+As the *dnssec* plugin can't see the original TTL of the RRSets it signs, it will always use 3600s
+as the value.
+
 If multiple *dnssec* plugins are specified in the same zone, the last one specified will be
-used (See [bugs](#bugs)).
+used.
 
 * **ZONES** zones that should be signed. If empty, the zones from the configuration block
     are used.
