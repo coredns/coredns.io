@@ -7,6 +7,8 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
+    env:
+      ACTION_ALLOW_UNSECURE_COMMANDS: true
     steps:
       - 
         name: Checkout
