@@ -11,7 +11,7 @@ home = "https://github.com/miekg/redis/blob/master/README.md"
 
 ## Description
 
-With *redisc* responses can be cached for up to 3600s. Caching in Redis is mostly usefull in
+With *redisc* responses can be cached for up to 3600s. Caching in Redis is mostly useful in
 a setup where multiple CoreDNS instances share a VIP. E.g. multiple CoreDNS pods in a Kubernetes
 cluster.
 
