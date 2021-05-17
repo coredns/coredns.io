@@ -5,8 +5,8 @@ weight = 10
 tags = [  "plugin" , "pdsql" ]
 categories = [ "plugin", "external" ]
 date = "2017-12-09T10:26:00+08:00"
-repo = "https://github.com/wenerme/wps"
-home = "https://github.com/wenerme/wps/blob/master/coredns/plugin/pdsql/README.md"
+repo = "https://github.com/wenerme/coredns-pdsql"
+home = "https://github.com/wenerme/coredns-pdsql/blob/master/README.md"
 +++
 
 # Description
