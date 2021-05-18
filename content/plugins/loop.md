@@ -1,10 +1,10 @@
 +++
 title = "loop"
 description = "*loop* detects simple forwarding loops and halts the server."
-weight = 28
+weight = 30
 tags = ["plugin", "loop"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2021-05-18T11:50:56.8775685"
 +++
 
 ## Description
@@ -15,6 +15,8 @@ we see it. If we see it more than twice, we assume CoreDNS has seen a forwarding
 The plugin will try to send the query for up to 30 seconds. This is done to give CoreDNS enough time
 to start up. Once a query has been successfully sent, *loop* disables itself to prevent a query of
 death.
+
+Note that *loop* will _only_ send "looping queries" for the first zone given in the Server Block.
 
 The query sent is `<random number>.<random number>.zone` with type set to HINFO.
 
