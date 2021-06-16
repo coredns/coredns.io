@@ -19,7 +19,7 @@ Prohibited domains can be loaded from a local file or a URL and can be automatic
 
 Refer to the project README for more info.
 
-An unofficial `coredns` image with this plugin already compiled is hosted by [Giant Swarm](giantswarm.io) on [Quay](https://quay.io/repository/giantswarm/coredns-warnlist-plugin) and [Docker Hub](https://hub.docker.com/r/giantswarm/coredns-warnlist-plugin), as `[quay.io/]giantswarm/coredns-warnlist-plugin`.
+An unofficial `coredns` image with this plugin already compiled is hosted by [Giant Swarm](https://www.giantswarm.io/) on [Quay](https://quay.io/repository/giantswarm/coredns-warnlist-plugin) and [Docker Hub](https://hub.docker.com/r/giantswarm/coredns-warnlist-plugin), as `[quay.io/]giantswarm/coredns-warnlist-plugin`.
 
 ## Syntax
 
