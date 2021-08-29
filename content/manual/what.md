@@ -3,7 +3,7 @@
 CoreDNS is a DNS server. It is written in [Go](https://golang.org).
 
 CoreDNS is different from other DNS servers, such as (all excellent)
-[BIND](https://www.isc.org/blogs/category/bind/),
+[BIND](https://www.isc.org/bind/),
 [Knot](https://www.knot-dns.cz/),
 [PowerDNS](https://www.powerdns.com/) and
 [Unbound](https://www.unbound.net/) (technically a resolver, but still worth a mention), because it
