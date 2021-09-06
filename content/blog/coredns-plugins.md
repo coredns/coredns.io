@@ -75,6 +75,18 @@ as there are more tokens to parse. Since a plugin may appear multiple times, you
 To plug your plugin into CoreDNS, put in
 [`plugin.cfg`](https://github.com/coredns/coredns/blob/master/plugin.cfg) and run `go generate`.
 
+If you're working with an external, non core, plugin it will be easiest to make a symlink from the
+plugin directory to your plugin. I.e.
+
+~~~ sh
+cd plugin
+ln -s ../../example .
+cd ..
+vi plugin.cfg # add example:example
+go generate
+go build
+~~~
+
 ## How A Plugin Works in CoreDNS
 
 Check out the [godoc for the plugin

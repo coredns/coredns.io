@@ -25,7 +25,7 @@ to update. It looks like this:
 ...
 whoami:whoami
 erratic:erratic
-federation:github.com/coredns/federation
+example:github.com/coredns/example
 ...
 ~~~
 
