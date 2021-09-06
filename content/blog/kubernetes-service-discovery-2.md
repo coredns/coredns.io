@@ -72,7 +72,7 @@ data:
         log
         health
         kubernetes cluster.local 10.3.0.0/24
-        proxy . /etc/resolv.conf
+        forward . /etc/resolv.conf
         cache 30
     }
 ---
@@ -162,7 +162,7 @@ previous blog post.
     log
     health
     kubernetes cluster.local 10.3.0.0/24
-    proxy . /etc/resolv.conf
+    forward . /etc/resolv.conf
     cache 30
 }
 ~~~

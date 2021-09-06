@@ -37,7 +37,7 @@ used in the last blog:
     log
     health
     kubernetes cluster.local 10.0.0.0/24
-    proxy . /etc/resolv.conf
+    forward . /etc/resolv.conf
     cache 30
 }
 ~~~
@@ -51,7 +51,7 @@ To get the behavior we want, we just need to add a rewrite rule mapping `foo.exa
     health
     rewrite name foo.example.com foo.default.svc.cluster.local
     kubernetes cluster.local 10.0.0.0/24
-    proxy . /etc/resolv.conf
+    forward . /etc/resolv.conf
     cache 30
 }
 ~~~
@@ -105,7 +105,7 @@ data:
         rewrite name foo.example.com foo.default.svc.cluster.local
         kubernetes cluster.local 10.0.0.0/24
         file /etc/coredns/example.db example.org
-        proxy . /etc/resolv.conf
+        forward . /etc/resolv.conf
         cache 30
     }
   example.db: |

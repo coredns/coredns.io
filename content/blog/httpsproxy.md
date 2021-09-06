@@ -6,6 +6,8 @@ title = "DNS over HTTPS"
 author = "miek"
 +++
 
+> Note this requires the *proxy* plugin which has been deprecated.
+
 Since almost a year Google has a DNS service that can be queried over HTTPS:
 <https://dns.google.com>. This means your queries are encrypted and can only be seen by you (and
 Google(!)). Seeing all the press about the
