@@ -1,10 +1,10 @@
 +++
 title = "health"
 description = "*health* enables a health check endpoint."
-weight = 22
+weight = 24
 tags = ["plugin", "health"]
 categories = ["plugin"]
-date = "2021-03-19T10:47:32.8773283"
+date = "2021-09-21T15:01:04.877489"
 +++
 
 ## Description
@@ -53,11 +53,13 @@ Doing this is supported but both endpoints ":8080" and ":8081" will export the e
 
 If monitoring is enabled (via the *prometheus* plugin) then the following metric is exported:
 
- *  `coredns_health_request_duration_seconds{}` - duration to process a HTTP query to the local
+ * `coredns_health_request_duration_seconds{}` - duration to process a HTTP query to the local
     `/health` endpoint. As this a local operation it should be fast. A (large) increase in this
     duration indicates the CoreDNS process is having trouble keeping up with its query load.
+ * `coredns_health_request_failures_total{}` - The number of times the internal health check loop
+    failed to query `/health`.
 
-Note that this metric *does not* have a `server` label, because being overloaded is a symptom of
+Note that these metrics *do not* have a `server` label, because being overloaded is a symptom of
 the running process, *not* a specific server.
 
 ## Examples
