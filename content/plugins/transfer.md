@@ -1,10 +1,10 @@
 +++
 title = "transfer"
 description = "*transfer* perform (outgoing) zone transfers for other plugins."
-weight = 44
+weight = 48
 tags = ["plugin", "transfer"]
 categories = ["plugin"]
-date = "2020-09-24T18:42:39.8773989"
+date = "2021-09-21T15:01:04.877489"
 +++
 
 ## Description
@@ -34,9 +34,29 @@ transfer [ZONE...] {
     `transfer.Transferer`.
 
  *  `to` **ADDRESS...** The hosts *transfer* will transfer to. Use `*` to permit transfers to all
-    addresses. **ADDRESS** must be denoted in CIDR notation (e.g., 127.0.0.1/32) or just as plain
-    addresses. `to` may be specified multiple times.
+    addresses. Zone change notifications are sent to all **ADDRESS** that are an IP address or
+    an IP address and port e.g. `1.2.3.4`, `12:34::56`, `1.2.3.4:5300`, `[12:34::56]:5300`.
+    `to` may be specified multiple times.
+
+You can use the _acl_ plugin to further restrict hosts permitted to receive a zone transfer.
+See example below.
 
 ## Examples
 
-See the specific plugins using this plugin for examples on it's usage.
+Use in conjuction with the _acl_ plugin to restrict access to subnet 10.1.0.0/16.
+
+```
+...
+  acl {
+    allow type AXFR net 10.1.0.0/16
+    allow type IXFR net 10.1.0.0/16
+    block type AXFR net *
+    block type IXFR net *
+  }
+  transfer {
+    to *
+  }
+...
+```
+
+Each plugin that can use _transfer_ includes an example of use in their respective documentation.

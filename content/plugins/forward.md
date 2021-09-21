@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 20
 tags = ["plugin", "forward"]
 categories = ["plugin"]
-date = "2021-03-16T13:06:33.8773383"
+date = "2021-09-21T15:01:04.877489"
 +++
 
 ## Description
@@ -32,7 +32,8 @@ In its most basic form, a simple forwarder uses this syntax:
 forward FROM TO...
 ~~~
 
-* **FROM** is the base domain to match for the request to be forwarded.
+* **FROM** is the base domain to match for the request to be forwarded. Domains using CIDR notation
+  that expand to multiple reverse zones are not fully supported; only the first expanded zone is used.
 * **TO...** are the destination endpoints to forward to. The **TO** syntax allows you to specify
   a protocol, `tls://9.9.9.9` or `dns://` (or no protocol) for plain DNS. The number of upstreams is
   limited to 15.

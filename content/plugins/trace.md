@@ -1,10 +1,10 @@
 +++
 title = "trace"
 description = "*trace* enables OpenTracing-based tracing of DNS requests as they go through the plugin chain."
-weight = 44
+weight = 47
 tags = ["plugin", "trace"]
 categories = ["plugin"]
-date = "2020-12-11T21:21:15.87715812"
+date = "2021-09-21T15:01:04.877489"
 +++
 
 ## Description
@@ -95,6 +95,13 @@ trace tracinghost:9411 {
 	client_server
 }
 ~~~
+
+## Metadata
+
+The trace plugin will publish the following metadata, if the *metadata*
+plugin is also enabled:
+
+* `trace/traceid`: identifier of (zipkin/datadog) trace of processed request
 
 ## See Also
 
