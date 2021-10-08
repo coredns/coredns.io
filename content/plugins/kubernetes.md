@@ -1,10 +1,10 @@
 +++
 title = "kubernetes"
 description = "*kubernetes* enables reading zone data from a Kubernetes cluster."
-weight = 26
+weight = 28
 tags = ["plugin", "kubernetes"]
 categories = ["plugin"]
-date = "2021-03-26T13:03:12.8771283"
+date = "2021-10-08T17:25:26.87726810"
 +++
 
 ## Description
@@ -90,7 +90,7 @@ kubernetes [ZONES...] {
    If this directive is included, then name selection for endpoints changes as
    follows: Use the hostname of the endpoint, or if hostname is not set, use the
    pod name of the pod targeted by the endpoint. If there is no pod targeted by
-   the endpoint, use the dashed IP address form.
+   the endpoint or pod name is longer than 63, use the dashed IP address form.
 * `ttl` allows you to set a custom TTL for responses. The default is 5 seconds.  The minimum TTL allowed is
   0 seconds, and the maximum is capped at 3600 seconds. Setting TTL to 0 will prevent records from being cached.
 * `noendpoints` will turn off the serving of endpoint records by disabling the watch on endpoints.
