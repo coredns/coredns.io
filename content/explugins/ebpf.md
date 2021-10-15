@@ -5,8 +5,8 @@ weight = 10
 tags = [  "plugin" , "ebpf" ]
 categories = [ "plugin", "external" ]
 date = "2021-10-14T00:00:00+00:00"
-repo = "https://github.com/chrisohaver/ebpf"
-home = "https://github.com/chrisohaver/ebpf/blob/master/README.md"
+repo = "https://github.com/InfobloxOpen/ebpf"
+home = "https://github.com/InfobloxOpen/ebpf/blob/master/README.md"
 +++
 
 ## Description
@@ -51,7 +51,7 @@ on _all_ ingress packets to the interface - not just packets bound for CoreDNS.
 The program must be an XDP program, and main function named `xdp_prog`.
 The map must be named `xdp_map`.
 
-Some example programs written in C are included in https://github.com/chrisohaver/ebpf/tree/master/example_programs.
+Some example programs written in C are included in https://github.com/InfobloxOpen/ebpf/tree/master/example_programs.
 
 ## Examples
 
