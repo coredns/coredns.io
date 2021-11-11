@@ -48,7 +48,7 @@ The following configuration configures the `City` database.
 }
 ```
 
-## Metadatada Labels
+## Metadata Labels
 A limited set of fields will be exported as labels, all values are stored using strings **regardless of their underlying value type**, and therefore you may have to convert it back to its original type, note that numeric values are always represented in base 10.
 
 | Label                                | Type      | Example          | Description
