@@ -4,7 +4,11 @@
   <div id="main">
     <div class="hero">
       <h1> {{ .Title}} </h1>
-      <i class="fa fa-code-fork" aria-hidden="true"></i> <a href="https://github.com/coredns/coredns/tree/master/plugin/{{.Title }} ">Source</a>
+      {{ if eq .Title "Prometheus" }}
+        <i class="fa fa-code-fork" aria-hidden="true"></i> <a href="https://github.com/coredns/coredns/tree/master/plugin/metrics">Source</a>
+      {{ else }}
+        <i class="fa fa-code-fork" aria-hidden="true"></i> <a href="https://github.com/coredns/coredns/tree/master/plugin/{{.Title }} ">Source</a>
+      {{ end }}
       <p class="hero-lead">
            {{ .Params.description | markdownify }}
       </p>
