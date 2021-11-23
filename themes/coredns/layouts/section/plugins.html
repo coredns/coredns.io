@@ -31,7 +31,7 @@
         <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
         <p>{{ .Params.description | markdownify }}</p>
         <p>
-            <i class="fa fa-code-fork" aria-hidden="true"></i> <a href="https://github.com/coredns/coredns/tree/master/plugin/{{ .Title }} ">Source</a>
+            <i class="fa fa-code-fork" aria-hidden="true"></i> <a href="https://github.com/coredns/coredns/tree/master/plugin/{{ path.Base .Permalink }} ">Source</a>
         </p>
       </div>
       {{ end }}
