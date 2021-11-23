@@ -4,7 +4,7 @@
   <div id="main">
     <div class="hero">
       <h1> {{ .Title}} </h1>
-      <i class="fa fa-code-fork" aria-hidden="true"></i> <a href="https://github.com/coredns/coredns/tree/master/plugin/{{.Title }} ">Source</a>
+      <i class="fa fa-code-fork" aria-hidden="true"></i> <a href="https://github.com/coredns/coredns/tree/master/plugin/{{ path.Base .Permalink }} ">Source</a>
       <p class="hero-lead">
            {{ .Params.description | markdownify }}
       </p>
