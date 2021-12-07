@@ -1,6 +1,6 @@
 +++
 title = "pdsql"
-description = "*pdsql* - use powerdns generic sql as backend."
+description = "*pdsql* - uses powerdns generic sql as backend."
 weight = 10
 tags = [  "plugin" , "pdsql" ]
 categories = [ "plugin", "external" ]
@@ -11,9 +11,9 @@ home = "https://github.com/wenerme/coredns-pdsql/blob/master/README.md"
 
 # Description
 
-*pdsql* use PowerDNS [generic sql](https://github.com/PowerDNS/pdns/tree/master/pdns/backends/gsql) as backend.
+*pdsql* uses PowerDNS [generic sql](https://github.com/PowerDNS/pdns/tree/master/pdns/backends/gsql) as backend.
 
-Use [jinzhu/gorm](https://github.com/jinzhu/gorm) to handle database, support many database as gorm dose.
+Use [jinzhu/gorm](https://github.com/jinzhu/gorm) database drivers, supports as many databases as Gorm does.
 
 
 ## Syntax
@@ -28,18 +28,18 @@ pdsql <dialect> <arg> {
 ~~~
 
 ## Install Driver
-pdsql need db driver for dialect, to install a driver you need to add import in plugin.cfg, like
+pdsql needs db drivers for dialect, to install a driver you need to add an import in `plugin.cfg`, like
 
 ~~~ txt
 pdsql_mysql:github.com/jinzhu/gorm/dialects/mysql
 pdsql_sqlite:github.com/jinzhu/gorm/dialects/sqlite
 ~~~
 
-pdsql_mysql and pdsql_sqlite are meaningless, choose to prevent duplicated.
+pdsql_mysql and pdsql_sqlite are meaningless, specified to prevent duplicates.
 
 ## Examples
 
-Start a server on the 1053 port, use test.db as backend.
+Start a server on port `1053`, use `test.db` as backend.
 
 ~~~ corefile
 test.:1053 {
