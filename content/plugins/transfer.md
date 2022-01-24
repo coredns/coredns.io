@@ -4,7 +4,7 @@ description = "*transfer* perform (outgoing) zone transfers for other plugins."
 weight = 48
 tags = ["plugin", "transfer"]
 categories = ["plugin"]
-date = "2021-09-21T15:01:04.877489"
+date = "2022-01-24T14:51:48.8774881"
 +++
 
 ## Description
@@ -43,7 +43,7 @@ See example below.
 
 ## Examples
 
-Use in conjuction with the _acl_ plugin to restrict access to subnet 10.1.0.0/16.
+Use in conjunction with the _acl_ plugin to restrict access to subnet 10.1.0.0/16.
 
 ```
 ...

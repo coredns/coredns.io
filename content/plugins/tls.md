@@ -1,10 +1,10 @@
 +++
 title = "tls"
-description = "*tls* allows you to configure the server certificates for the TLS and gRPC servers."
-weight = 42
+description = "*tls* allows you to configure the server certificates for the TLS, gRPC, DoH servers."
+weight = 46
 tags = ["plugin", "tls"]
 categories = ["plugin"]
-date = "2020-10-28T18:26:48.87748810"
+date = "2022-01-24T14:51:48.8774881"
 +++
 
 ## Description
@@ -55,6 +55,14 @@ incoming queries.
 
 ~~~
 grpc://. {
+	tls cert.pem key.pem ca.pem
+	forward . /etc/resolv.conf
+}
+~~~
+
+Start a DoH server on port 443 that is similar to the previous example, but using DoH for incoming queries.
+~~~
+https://. {
 	tls cert.pem key.pem ca.pem
 	forward . /etc/resolv.conf
 }

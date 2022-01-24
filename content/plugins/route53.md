@@ -1,10 +1,10 @@
 +++
 title = "route53"
 description = "*route53* enables serving zone data from AWS route53."
-weight = 37
+weight = 42
 tags = ["plugin", "route53"]
 categories = ["plugin"]
-date = "2020-02-06T12:07:03.877382"
+date = "2022-01-24T14:51:48.8774881"
 +++
 
 ## Description
@@ -19,6 +19,7 @@ The route53 plugin can be used when coredns is deployed on AWS or elsewhere.
 ~~~ txt
 route53 [ZONE:HOSTED_ZONE_ID...] {
     aws_access_key [AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY]
+    aws_endpoint ENDPOINT
     credentials PROFILE [FILENAME]
     fallthrough [ZONES...]
     refresh DURATION
@@ -36,6 +37,9 @@ route53 [ZONE:HOSTED_ZONE_ID...] {
     to be used when query AWS (optional). If they are not provided, then coredns tries to access
     AWS credentials the same way as AWS CLI, e.g., environmental variables, AWS credentials file,
     instance profile credentials, etc.
+
+*   `aws_endpoint` can be used to control the endpoint to use when querying AWS (optional). **ENDPOINT** is the
+    URL of the endpoint to use. If this is not provided the default AWS endpoint resolution will occur.
 
 *   `credentials` is used for reading the credential **FILENAME** and setting the **PROFILE** name for a given
     zone. **PROFILE** is the AWS account profile name. Defaults to `default`. **FILENAME** is the
@@ -74,6 +78,16 @@ Enable route53 with explicit AWS credentials:
 example.org {
     route53 example.org.:Z1Z2Z3Z4DZ5Z6Z7 {
       aws_access_key AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
+    }
+}
+~~~
+
+Enable route53 with an explicit AWS endpoint:
+
+~~~ txt
+example.org {
+    route53 example.org.:Z1Z2Z3Z4DZ5Z6Z7 {
+      aws_endpoint https://test.us-west-2.amazonaws.com
     }
 }
 ~~~
