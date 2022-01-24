@@ -55,7 +55,7 @@ checks all these snippets to see if they are still valid.
 ## New CoreDNS releases
 
 * Sync the notes from the official coredns/coredns repo into this repo by running: `make PLUGINDIR=~coredns/plugin sync`
-* This should update the releases notes in content/blob/coredns-\<version\>.
+* This should update the releases notes in content/blog/coredns-\<version\>.
 * After this step you should manually (never got this to automatically to work) update
-  `date/coredns.toml` and set the latest release in that file and then run `make old` to update the
+  `data/coredns.toml` and set the latest release in that file and then run `make old` to update the
   old(er) HUGO site.
