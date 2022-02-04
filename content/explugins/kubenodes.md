@@ -14,8 +14,7 @@ home = "https://github.com/infobloxopen/kubenodes/blob/main/README.md"
 *kubenodes* watches the Kubernetes API and synthesizes A, AAAA, and PTR records for Node addresses.
 
 This plugin requires ...
-* the _kubeapi_ plugin to create a connection (http://github.com/coredns/kubeapi)
-  to the Kubernetes API.
+* the _kubeapi_ plugin to create a connection to the Kubernetes API. (http://github.com/coredns/kubeapi)
 * list/watch permission to the Nodes API.
 
 This plugin can only be used once per Server Block.
