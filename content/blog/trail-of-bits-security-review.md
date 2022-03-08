@@ -15,9 +15,7 @@ Quoting from the security review summary:
 > data validation, specifically from assumptions about the data processed by various functions, which we discovered by
 > running fuzzing harnesses. Most of the findings pertain to denial-of-service vulnerabilities."
 
-Security Review: https://github.com/trailofbits/publications/blob/master/reviews/coredns-securityreview.pdf
-
-Threat Model: https://github.com/trailofbits/publications/blob/master/reviews/coredns-threatmodel.pdf
+The reports can be found in Trail of Bits' publications on GitHub: https://github.com/trailofbits/publications#security-reviews
 
 At this time, the following PRs have been opened to address issues raised in the report: 
 
