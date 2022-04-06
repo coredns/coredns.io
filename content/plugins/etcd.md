@@ -4,7 +4,7 @@ description = "*etcd* enables SkyDNS service discovery from etcd."
 weight = 18
 tags = ["plugin", "etcd"]
 categories = ["plugin"]
-date = "2020-10-28T18:26:48.87748810"
+date = "2022-04-06T19:05:17.8771784"
 +++
 
 ## Description
@@ -224,12 +224,14 @@ If you query the zone name for `SRV` now, you will get the following response:
 If you would like to use `TXT` records, you can set the following:
 ~~~
 % etcdctl put /skydns/local/skydns/x6 '{"ttl":60,"text":"this is a random text message."}'
+% etcdctl put /skydns/local/skydns/x7 '{"ttl":60,"text":"this is a another random text message."}'
 ~~~
 
 If you query the zone name for `TXT` now, you will get the following response:
 ~~~ sh
 % dig +short skydns.local TXT @localhost
 "this is a random text message."
+"this is a another random text message."
 ~~~
 
 ## See Also
