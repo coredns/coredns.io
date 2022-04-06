@@ -1,10 +1,10 @@
 +++
 title = "k8s_external"
 description = "*k8s_external* resolves load balancer and external IPs from outside Kubernetes clusters."
-weight = 25
+weight = 27
 tags = ["plugin", "k8s_external"]
 categories = ["plugin"]
-date = "2020-10-28T18:26:48.87748810"
+date = "2022-04-06T19:05:17.8771784"
 +++
 
 ## Description
@@ -86,6 +86,18 @@ spec:
  type: ClusterIP
 ~~~
 
+The *k8s_external* plugin can be used in conjunction with the *transfer* plugin to enable
+zone transfers.  Notifies are not supported.
+
+ ~~~
+     . {
+         transfer example.org {
+             to *
+         }
+         kubernetes cluster.local
+         k8s_external example.org
+     }
+ ~~~
 
 # See Also
 
