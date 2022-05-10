@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 20
 tags = ["plugin", "forward"]
 categories = ["plugin"]
-date = "2022-01-24T14:51:48.8774881"
+date = "2022-05-10T17:23:06.877685"
 +++
 
 ## Description
@@ -53,7 +53,7 @@ forward FROM TO... {
     tls CERT KEY CA
     tls_servername NAME
     policy random|round_robin|sequential
-    health_check DURATION [no_rec]
+    health_check DURATION [no_rec] [domain DOMAIN]
     max_concurrent MAX
 }
 ~~~
@@ -93,6 +93,8 @@ forward FROM TO... {
   * `<duration>` - use a different duration for health checking, the default duration is 0.5s.
   * `no_rec` - optional argument that sets the RecursionDesired-flag of the dns-query used in health checking to `false`.
     The flag is default `true`.
+  * `domain DOMAIN` - optional arguments that sets the domain of the dns-query used in health checking.
+    If not configured, the requested domain name is `.`. `DOMAIN` is used to configure the domain name.
 * `max_concurrent` **MAX** will limit the number of concurrent queries to **MAX**.  Any new query that would
   raise the number of concurrent queries above the **MAX** will result in a REFUSED response. This
   response does not count as a health failure. When choosing a value for **MAX**, pick a number
@@ -180,6 +182,18 @@ service with health checks.
     forward . tls://9.9.9.9 {
        tls_servername dns.quad9.net
        health_check 5s
+    }
+    cache 30
+}
+~~~
+
+Or configure other domain name for health check requests
+
+~~~ corefile
+. {
+    forward . tls://9.9.9.9 {
+       tls_servername dns.quad9.net
+       health_check 5s domain example.org
     }
     cache 30
 }
