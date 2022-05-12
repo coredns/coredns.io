@@ -4,12 +4,18 @@ description = "*acl* enforces access control policies on source ip and prevents 
 weight = 1
 tags = ["plugin", "acl"]
 categories = ["plugin"]
-date = "2021-02-01T14:59:19.8771982"
+date = "2022-05-10T17:23:06.877685"
 +++
 
 ## Description
 
-With `acl` enabled, users are able to block or filter suspicious DNS queries by configuring IP filter rule sets, i.e. allowing authorized queries to recurse or blocking unauthorized queries.
+With `acl` enabled, users are able to block or filter suspicious DNS queries by configuring IP filter rule sets, i.e. allowing authorized queries or blocking unauthorized queries.
+
+
+When evaluating the rule sets, _acl_ uses the source IP of the TCP/UDP headers of the DNS query received by CoreDNS.
+This source IP will be different than the IP of the client originating the request in cases where the source IP of the request is changed in transit.  For example:
+* if the request passes though an intermediate forwarding DNS server or recursive DNS server before reaching CoreDNS
+* if the request traverses a Source NAT before reaching CoreDNS
 
 This plugin can be used multiple times per Server Block.
 

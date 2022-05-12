@@ -4,12 +4,13 @@ description = "*bufsize* sizes EDNS0 buffer size to prevent IP fragmentation."
 weight = 7
 tags = ["plugin", "bufsize"]
 categories = ["plugin"]
-date = "2020-05-04T14:06:34.8773485"
+date = "2022-05-10T17:23:57.8775785"
 +++
 
 ## Description
 *bufsize* limits a requester's UDP payload size.
 It prevents IP fragmentation, mitigating certain DNS vulnerabilities.
+This will only affect queries that have an OPT RR.
 
 ## Syntax
 ```txt
@@ -41,4 +42,3 @@ Enable limiting the buffer size as an authoritative nameserver:
 
 ## Considerations
 - Setting 1232 bytes to bufsize may avoid fragmentation on the majority of networks in use today, but it depends on the MTU of the physical network links.
-- For now, if a client does not use EDNS, this plugin adds OPT RR.
