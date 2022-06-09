@@ -3,11 +3,11 @@
   command = "hugo"
 
 [context.production.environment]
-  HUGO_VERSION = "0.62.2"
+  HUGO_VERSION = "0.100.2"
   HUGO_ENV = "make"
 
 [context.deploy-preview]
   command = "make"
 
 [context.deploy-preview.environment]
-  HUGO_VERSION = "0.62.2"
+  HUGO_VERSION = "0.100.2"
