@@ -32,7 +32,7 @@ But *proxy* **will not** call *file* because the query will be answered and done
 the plugin exists - the same is true for the opposite direction.
 
 To look what into what happens here we have to look the [plugins
-ordering](https://github.com/coredns/coredns/blob/master/plugins.cfg):
+ordering](https://github.com/coredns/coredns/blob/master/plugin.cfg):
 
 ~~~
 ...
