@@ -4,7 +4,7 @@ description = "*dnstap* enables logging to dnstap."
 weight = 15
 tags = ["plugin", "dnstap"]
 categories = ["plugin"]
-date = "2020-11-05T13:42:35.87735811"
+date = "2022-06-09T07:57:48.8774886"
 +++
 
 ## Description
@@ -42,6 +42,12 @@ Log to a remote endpoint.
 
 ~~~ txt
 dnstap tcp://127.0.0.1:6000 full
+~~~
+
+Log to a remote endpoint by FQDN.
+
+~~~ txt
+dnstap tcp://example.com:6000 full
 ~~~
 
 ## Command Line Tool

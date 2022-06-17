@@ -17,7 +17,7 @@
       <p class="big">
         <span class="large">
          <a href="https://github.com/coredns/coredns/releases/latest">Version {{ .Params.release }}</a>. Released {{ dateFormat "2006-01-02" .Date }}.
-         <a href="{{ .URL }}">Release notes</a>.
+         <a href="{{ .RelPermalink }}">Release notes</a>.
         </span>
       </p>
       {{ end }}

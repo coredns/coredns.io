@@ -4,7 +4,7 @@
 {{ define "main" }}
 
 <div class="hero" class="wrap">
-    {{ $last := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
+    {{ $last := index (last 1 (split (delimit (split .Params.url "/") "," "") ",")) 0 }}
 
     <h1>{{ $last | humanize }}</h1>
     Tag: {{ $last }}.

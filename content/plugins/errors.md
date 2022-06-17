@@ -4,7 +4,7 @@ description = "*errors* enables error logging."
 weight = 17
 tags = ["plugin", "errors"]
 categories = ["plugin"]
-date = "2021-09-21T15:01:04.877489"
+date = "2022-06-09T07:57:48.8774886"
 +++
 
 ## Description
@@ -25,9 +25,12 @@ Extra knobs are available with an expanded syntax:
 
 ~~~
 errors {
+	stacktrace
 	consolidate DURATION REGEXP [LEVEL]
 }
 ~~~
+
+Option `stacktrace` will log a stacktrace during panic recovery.
 
 Option `consolidate` allows collecting several error messages matching the regular expression **REGEXP** during **DURATION**. After the **DURATION** since receiving the first such message, the consolidated message will be printed to standard output with
 log level, which is configurable by optional option **LEVEL**. Supported options for **LEVEL** option are `warning`,`error`,`info` and `debug`.
