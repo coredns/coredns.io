@@ -36,12 +36,28 @@
     <nav id="top-nav-extra">
         <ul>
             <li>
-                <a href="{{ .Site.Params.twitter }}">@corednsio</a>
+                <a href="{{ .Site.Params.twitter }}"><i class="fa fa-twitter fa-3x"></i></a>
             </li>
 
             <li>
-                <a href="/index.xml">Subscribe</a>
+                <a href="{{ .Site.Params.github }}">
+                    <i class="fa fa-github fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="{{ .Site.Params.slack }}">
+                    <i class="fa fa-slack fa-3x"></i>
+                </a>
             </li>
         </ul>
     </nav>
 </div>
+
+<script>
+    $(function () {
+        $(document).scroll(function () {
+            var $nav = $("#top");
+            $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+        });
+    });
+  </script>

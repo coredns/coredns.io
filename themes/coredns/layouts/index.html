@@ -9,16 +9,16 @@
   </div>
 
   <div id="action-buttons">
-      <a class="button primary big" href="https://github.com/coredns/coredns/releases/latest"><i class="fa fa-download"></i> Download</a>
-      <a class="button outline big" href="{{ .Site.Params.github }}"><i class="fa fa-github"></i> View on Github</a>
-      <a class="button outline big" href="/manual/toc/"><i class="fa fa-file-o"></i> Manual</a>
+      <a id="hover-text" class="button primary big" href="https://github.com/coredns/coredns/releases/latest"><i class="fa fa-download"></i> Download</a>
+      <a class="button button1 big" href="{{ .Site.Params.github }}"><i class="fa fa-github"></i> View on Github</a>
+      <a class="button button2 big" href="/manual/toc/"><i class="fa fa-book"></i> Manual</a>
       <br/>
       {{ range where .Site.Pages "Params.release" "eq" .Site.Data.coredns.release.version }}
       <p class="big">
-        <span class="large">
-         <a href="https://github.com/coredns/coredns/releases/latest">Version {{ .Params.release }}</a>. Released {{ dateFormat "2006-01-02" .Date }}.
-         <a href="{{ .RelPermalink }}">Release notes</a>.
-        </span>
+        <strong class="large">
+         <a style="margin-right:15px" class="underline-bg" href="https://github.com/coredns/coredns/releases/latest">Version {{ .Params.release }}</a> | Released {{ dateFormat "2006-01-02" .Date }} |
+         <a style="margin-left:15px" class="underline-bg" href="{{ .RelPermalink }}">Release Notes</a>
+        </strong>
       </p>
       {{ end }}
  </div>
@@ -131,7 +131,7 @@ coredns.io {
     </div>
 
 
-    <h3 class="hero"><a href="https://github.com/coredns/coredns/blob/master/ADOPTERS.md">Some</a> of Our Users</h3>
+    <h3 class=""><a href="https://github.com/coredns/coredns/blob/master/ADOPTERS.md">Some</a> of Our Users</h3>
     <div class="row logos push-logos-center">
         {{partial "logo" (dict "context" . "url" "k8s.io" "logo" "k8s.png" "alt" "kubernetes home") }}
         {{partial "logo" (dict "context" . "url" "www.mit.edu" "logo" "mit.png" "alt" "mit home") }}
@@ -150,5 +150,6 @@ coredns.io {
     </div>
 
 </div>
+
 {{ end }}
 {{ define "footer"}} {{ partial "footer" .}} {{end}}
