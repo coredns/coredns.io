@@ -4,9 +4,9 @@ description = "*redis* - enables reading zone data from redis database."
 weight = 10
 tags = [  "plugin" , "redis" ]
 categories = [ "plugin", "external" ]
-date = "2017-10-18T18:01:20+03:30"
-repo = "https://github.com/hawell/redis"
-home = "https://github.com/hawell/redis/blob/master/README.md"
+date = "2022-06-27T18:00:00-04:00"
+repo = "https://github.com/codysnider/coredns-redis"
+home = "https://github.com/codysnider/coredns-redis/blob/master/README.md"
 +++
 
 ## Description
