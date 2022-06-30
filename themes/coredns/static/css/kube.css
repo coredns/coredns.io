@@ -181,6 +181,7 @@ body {
 
 a {
   color: #8246af;
+  text-decoration: none;
 }
 
 a:hover {
@@ -255,7 +256,6 @@ h5 a,
 .h5 a,
 h6 a,
 .h6 a {
-  color: inherit;
   text-decoration: none;
 }
 

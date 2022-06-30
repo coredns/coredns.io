@@ -27,111 +27,141 @@
 
   {{ partial "popup.html" . }}
 
-    <div class="row gutters">
+    <div class="row gutters" style="margin: auto 100px;">
 
-      <div class="col col-4 item">
-        <figure>
-            <i class="fa fa-question-circle fa-5x" aria-hidden="true"></i>
+      <div class="row gutters item">
+        <div class="col col-3">
+          <figure>
+            <img src="/images/question-mark.png" width="150">
         </figure>
+        </div>
 
-        <h3>What is it?</h3>
-        <p>
-            CoreDNS is a <a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS</a> server.
-            It is written in <a href="https://golang.org">Go</a>.
-            It can be used in a multitude of environments because of its flexibility.
-            CoreDNS is licensed under the
-            <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License Version 2</a>, and completely open source.
-            <br/>
-            Development takes place on <a href="https://github.com/coredns/coredns">Github</a>. Some devs hang
-            out on <a href="https://slack.cncf.io/">Slack</a> on the #coredns channel.
-        </p>
+        <div class="col col-8">
+          <h2 class="diff-font fancy-underline">What is CoreDNS?</h2>
+          <p class="p-style">
+              CoreDNS is a <a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS</a> server.
+              It is written in <a href="https://golang.org">Go</a>.
+              It can be used in a multitude of environments because of its flexibility.
+              CoreDNS is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License Version 2</a>and is entirely open-source.
+              <br/>
+              Development takes place on Github. Some devs hang
+              out on Slack on the <b>#coredns</b> channel.
+          </p>
+        </div>
       </div>
 
-      <div class="col col-4 item">
-        <figure>
-            <i class="fa fa-link fa-5x" aria-hidden="true"></i>
+      <div class="row gutters item" style="margin-top: 100px;">
+        <div class="div col col-3">
+          <figure>
+            <img src="/images/plugin.png">
         </figure>
+        </div>
 
-        <h3>Plugins</h3>
-        <p>
-            CoreDNS chains <a href="/plugins">plugins</a>.
+        <div class="col col-8">
+          <h2 class="diff-font fancy-underline">Plugins</h2>
+          <p class="p-style">
+            CoreDNS chains <a href="/plugins">Plugins</a>.
             Each plugin performs a DNS function, such as
-            <a href="/plugins/kubernetes">Kubernetes service discovery</a>,
-            <a href="/plugins/metrics">prometheus metrics</a>,
-            <a href="/plugins/rewrite">rewriting queries</a>, or <i>just</i> serving
+            <a href="/plugins/kubernetes">Kubernetes Service Discovery</a>,
+            <a href="/plugins/metrics">Prometheus Metrics</a>,
+            <a href="/plugins/rewrite">Rewriting Queries</a>, or <i>just</i> serving
             from <a href="/plugins/file">zone files</a>.
             And
             <a href="/plugins/">many</a>
             <a href="/explugins/">more</a>.
-        </p>
+            </b>
+          </p>
+        </div>
       </div>
 
-      <div class="col col-4 item">
-        <figure>
-            &nbsp;<br/>
-          <img alt="Cloud Native Computing Foundation Logo" src="/images/cncf-logo.png">
+      <div class="row gutters item" style="margin-top: 100px;">
+        <div class="col col-3">
+          <figure>
+            <img src="/images/cloud.png" alt="">
         </figure>
-        <h3>CNCF</h3>
-        <p>
-           We are a <a href="https://cncf.io">Cloud Native Computing
-           Foundation</a> graduated project.
-        </p>
+        </div>
+
+        <div class="col col-8">
+          <h2 class="diff-font fancy-underline">Service Discovery</h2>
+          <p class="p-style">
+          CoreDNS integrates with <a href="https://kubernetes.io">Kubernetes</a> via the
+          <a href="/plugins/kubernetes/">Kubernetes plugin</a>,
+          or with <a href="https://coreos.com/etcd/">etcd</a> with the
+          <a href="/plugins/etcd/">etcd plugin</a>. All major cloud providers have plugins too:
+          <a href="/plugins/azure">Microsoft Azure DNS</a>, <a href="/plugins/clouddns">GCP Cloud DNS</a> and
+          <a href="/plugins/route53">AWS Route53</a>.
+          </p>
+        </div>
       </div>
 
 
-    <div class="row gutters">
+    <div class="row gutters" style="margin: auto;">
 
-      <div class="col col-4 item">
-        <figure>
-            <i class="fa fa-cloud fa-5x" aria-hidden="true"></i>
+      <div class="row gutters item" style="margin-top: 100px;">
+        <div class="col col-3">
+          <figure>
+            <img src="/images/thunder.png" alt="">
         </figure>
-        <h3>Service Discovery</h3>
-        <p>
-        CoreDNS integrates with <a href="https://kubernetes.io">Kubernetes</a> via the
-        <a href="/plugins/kubernetes/">Kubernetes plugin</a>,
-        or with <a href="https://coreos.com/etcd/">etcd</a> with the
-        <a href="/plugins/etcd/">etcd plugin</a>. All major cloud providers have plugins too:
-        <a href="/plugins/azure">Microsoft Azure DNS</a>, <a href="/plugins/clouddns">GCP Cloud DNS</a> and
-        <a href="/plugins/route53">AWS Route53</a>.
-        </p>
+        </div>
+
+        <div class="col col-8">
+          <h2 class="diff-font fancy-underline">Fast and Flexible</h2>
+          <p class="p-style">
+          We aim to make CoreDNS fast and efficient. It is also flexible thanks to its
+          <a href="/plugins">plugins</a>.
+          You can compile CoreDNS with only <a href="/2017/07/25/compile-time-enabling-or-disabling-plugins/">the plugins you need</a>.
+          </p>
+        </div>
+
       </div>
 
-      <div class="col col-4 item">
-        <figure>
-            <i class="fa fa-bolt fa-5x" aria-hidden="true"></i>
+      <div class="row gutters item" style="margin-top: 100px;">
+
+        <div class="col col-3">
+          <figure>
+            <img src="/images/simple.png" alt="">
         </figure>
-        <h3>Fast and Flexible</h3>
-        <p>
-        We aim to make CoreDNS fast and efficient. It is also flexible thanks to its
-        <a href="/plugins">plugins</a>.
-        You can compile CoreDNS with only <a href="/2017/07/25/compile-time-enabling-or-disabling-plugins/">the plugins you need</a>.
-        </p>
+        </div>
+
+        <div class="col col-8">
+          <h2 class="diff-font fancy-underline">Simplicity</h2>
+          <p class="p-style">
+          We strive to keep things as simple as possible and have sane defaults.
+          Here is the <code>Corefile</code> for <code>coredns.io</code>:
+          </p>
+          <pre>
+            coredns.io {
+              file db.coredns.io.signed
+              transfer {
+                to * 185.49.140.62
+              }
+              sign zones/coredns.io {
+                key file Kcoredns.io.+013+16376
+              }
+            }
+          </pre>
+        </div>
+
       </div>
 
-      <div class="col col-4 item">
-        <figure>
-            <i class="fa fa-circle-thin fa-5x" aria-hidden="true"></i>
-        </figure>
-        <h3>Simplicity</h3>
-        <p>
-        We strive to keep things as simple as possible and have sane defaults.
-        Here is the <code>Corefile</code> for <code>coredns.io</code>:
-        </p>
-        <pre>
-coredns.io {
- file db.coredns.io.signed
- transfer {
-  to * 185.49.140.62
- }
- sign zones/coredns.io {
-  key file Kcoredns.io.+013+16376
- }
-}</pre>
+
+    <div class="row gutters item front-box">
+      <figure style="justify-content: center;">
+          &nbsp;<br/>
+        <img style="transform: scale(1.2);" alt="Cloud Native Computing Foundation Logo" src="/images/cncf-logo.png">
+      </figure>
+
+      <h3 class="diff-font text-center" style="font-weight: 500;">
+        We are a <a class="cncf" href="https://cncf.io">Cloud Native Computing
+        Foundation</a> <span class="fancy-underline">Graduated Project.</span>
+        </h3>
+
+        <div class="back-box"></div>
     </div>
     </div>
 
 
-    <h3 class=""><a href="https://github.com/coredns/coredns/blob/master/ADOPTERS.md">Some</a> of Our Users</h3>
+    <h1 class="diff-font fancy-underline text-center" style="margin:120px auto 40px auto;"><a class="users" href="https://github.com/coredns/coredns/blob/master/ADOPTERS.md">Some of Our Users <sup><i class="fa-solid fa-arrow-up-right-from-square fa-2x"></i></sup>  </a></h1>
     <div class="row logos push-logos-center">
         {{partial "logo" (dict "context" . "url" "k8s.io" "logo" "k8s.png" "alt" "kubernetes home") }}
         {{partial "logo" (dict "context" . "url" "www.mit.edu" "logo" "mit.png" "alt" "mit home") }}

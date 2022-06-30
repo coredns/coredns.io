@@ -32,6 +32,75 @@ h6 {
   color: #222;
 }
 
+.item figure {
+  justify-content: end;
+  display: flex;
+  padding-right: 25px;
+}
+
+.p-style {
+  font-size: 1.5rem;
+  opacity: 0.7;
+  line-height: 1.4;
+}
+
+.diff-font {
+  font-family: "Inria Sans",BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.users {
+  color: black;
+}
+
+.users:hover {
+  color: #8246AF;
+  text-decoration: none;
+}
+
+.cncf {
+  color: #8246AF;
+}
+
+.cncf:hover {
+  color: #280070;
+  text-decoration: none;
+}
+
+.front-box {
+  margin: 120px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  background-color: white;
+  padding: 40px 30px 15px 30px;
+  border-radius: 20px;
+}
+
+.back-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: conic-gradient(from 0deg at 50% 50%,rgba(36,0,255,.522) 0deg,#0087ff 56.25deg,rgba(105,30,255,.687) 131.25deg,rgba(255,83,53,.76) 196.87deg,rgba(36,0,255,.519) 213.75deg,rgba(245,56,27,.737) 223.13deg,rgba(255,29,122,.777) 264.38deg,rgba(36,0,255,.522) 1turn);
+  filter: blur(12px);
+  z-index: -1;
+}
+
+.fancy-underline {
+  background-image:linear-gradient(to right, #b6d2f4 0%, #c9bfe3 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.4em;
+  background-position: 0 95%;
+  transition: background-size 0.25s ease-in-out;
+  display: inline-block;
+}
+
 .form-centered {
   max-width: 400px;
   margin: auto;
