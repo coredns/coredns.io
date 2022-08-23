@@ -88,7 +88,7 @@ same port is an error. This Corefile will generate an error on startup:
 ~~~
 
 Changing the second port number to 1055 makes these Server Blocks two different Servers. Note that
-if you use the [*bind*](https://coredns.io/plugins/bind) you can have the same zone listening on the
+if you use the [*bind*](https://coredns.io/plugins/bind) plugin you can have the same zone listening on the
 *same* port, provided they are binded to *different* interfaces or IP addresses. The syntax used
  here is supported since CoreDNS 1.8.4.
 
