@@ -4,7 +4,7 @@ description = "*template* allows for dynamic responses based on the incoming que
 weight = 45
 tags = ["plugin", "template"]
 categories = ["plugin"]
-date = "2022-06-09T07:57:48.8774886"
+date = "2022-09-08T18:42:54.8775489"
 +++
 
 ## Description
@@ -242,6 +242,22 @@ Named capture groups can be used to template one response for multiple patterns.
       additional "ns1.example. 60 IN A 198.51.100.8"
       fallthrough
     }
+}
+~~~
+
+### Fabricate a CNAME
+
+This example responds with a CNAME to `google.com` for any DNS query made exactly for `foogle.com`.
+The answer will also contain a record for `google.com` if the upstream nameserver can return a record for it of the
+requested type.
+
+~~~ corefile
+. {
+  template IN ANY foogle.com {
+    match "^foogle\.com\.$"
+    answer "foogle.com 60 IN CNAME google.com"
+  }
+  forward . 8.8.8.8
 }
 ~~~
 

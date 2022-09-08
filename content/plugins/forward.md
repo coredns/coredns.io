@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 20
 tags = ["plugin", "forward"]
 categories = ["plugin"]
-date = "2022-06-09T07:57:48.8774886"
+date = "2022-09-08T18:42:54.8775489"
 +++
 
 ## Description
@@ -21,8 +21,6 @@ is taken as a healthy upstream. The health check uses the same protocol as speci
 
 When *all* upstreams are down it assumes health checking as a mechanism has failed and will try to
 connect to a random upstream (which may or may not work).
-
-This plugin can only be used once per Server Block.
 
 ## Syntax
 
@@ -53,7 +51,7 @@ forward FROM TO... {
     tls CERT KEY CA
     tls_servername NAME
     policy random|round_robin|sequential
-    health_check DURATION [no_rec] [domain DOMAIN]
+    health_check DURATION [no_rec] [domain FQDN]
     max_concurrent MAX
 }
 ~~~
@@ -93,8 +91,8 @@ forward FROM TO... {
   * `<duration>` - use a different duration for health checking, the default duration is 0.5s.
   * `no_rec` - optional argument that sets the RecursionDesired-flag of the dns-query used in health checking to `false`.
     The flag is default `true`.
-  * `domain DOMAIN` - optional arguments that sets the domain of the dns-query used in health checking.
-    If not configured, the requested domain name is `.`. `DOMAIN` is used to configure the domain name.
+  * `domain FQDN` - set the domain name used for health checks to **FQDN**.
+    If not configured, the domain name used for health checks is `.`.
 * `max_concurrent` **MAX** will limit the number of concurrent queries to **MAX**.  Any new query that would
   raise the number of concurrent queries above the **MAX** will result in a REFUSED response. This
   response does not count as a health failure. When choosing a value for **MAX**, pick a number
@@ -141,6 +139,40 @@ Proxy all requests within `example.org.` to a nameserver running on a different 
 ~~~ corefile
 example.org {
     forward . 127.0.0.1:9005
+}
+~~~
+
+Send all requests within `lab.example.local.` to `10.20.0.1`, all requests within `example.local.` (and not in
+`lab.example.local.`) to `10.0.0.1`, all others requests to the servers defined in `/etc/resolv.conf`, and
+caches results. Note that a CoreDNS server configured with multiple _forward_ plugins in a server block will evaluate those
+forward plugins in the order they are listed when serving a request.  Therefore, subdomains should be
+placed before parent domains otherwise subdomain requests will be forwarded to the parent domain's upstream.
+Accordingly, in this example `lab.example.local` is before `example.local`, and `example.local` is before `.`.
+
+~~~ corefile
+. {
+    cache
+    forward lab.example.local 10.20.0.1
+    forward example.local 10.0.0.1
+    forward . /etc/resolv.conf
+}
+~~~
+
+The example above is almost equivalent to the following example, except that example below defines three separate plugin
+chains (and thus 3 separate instances of _cache_).
+
+~~~ corefile
+lab.example.local {
+    cache
+    forward . 10.20.0.1
+}
+example.local {
+    cache
+    forward . 10.0.0.1
+}
+. {
+    cache
+    forward . /etc/resolv.conf
 }
 ~~~
 
