@@ -4,7 +4,7 @@ description = "*trace* enables OpenTracing-based tracing of DNS requests as they
 weight = 47
 tags = ["plugin", "trace"]
 categories = ["plugin"]
-date = "2021-09-21T15:01:04.877489"
+date = "2022-09-08T18:42:54.8775489"
 +++
 
 ## Description
@@ -35,6 +35,9 @@ trace [ENDPOINT-TYPE] [ENDPOINT] {
     service NAME
     client_server
     datadog_analytics_rate RATE
+    zipkin_max_backlog_size SIZE
+    zipkin_max_batch_size SIZE
+    zipkin_max_batch_interval DURATION
 }
 ~~~
 
@@ -46,6 +49,11 @@ trace [ENDPOINT-TYPE] [ENDPOINT] {
 * `datadog_analytics_rate` **RATE** will enable [trace analytics](https://docs.datadoghq.com/tracing/app_analytics) on the traces sent
   from *0* to *1*, *1* being every trace sent will be analyzed. This is a datadog only feature
   (**ENDPOINT-TYPE** needs to be `datadog`)
+* `zipkin_max_backlog_size` configures the maximum backlog size for Zipkin HTTP reporter. When batch size reaches this threshold,
+   spans from the beginning of the batch will be disposed. Default is 1000 backlog size.
+* `zipkin_max_batch_size` configures the maximum batch size for Zipkin HTTP reporter, after which a collect will be triggered. The default batch size is 100 traces.
+* `zipkin_max_batch_interval` configures the maximum duration we will buffer traces before emitting them to the collector using Zipkin HTTP reporter.
+   The default batch interval is 1 second.
 
 ## Zipkin
 

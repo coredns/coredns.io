@@ -1,10 +1,10 @@
 +++
 title = "rewrite"
 description = "*rewrite* performs internal message rewriting."
-weight = 38
+weight = 40
 tags = ["plugin", "rewrite"]
 categories = ["plugin"]
-date = "2021-05-04T08:30:20.8772085"
+date = "2022-09-08T18:42:54.8775489"
 +++
 
 ## Description
@@ -208,7 +208,7 @@ regular expression and a rewrite name as parameters and works in the same way as
 
 Note that names in the `AUTHORITY SECTION` and `ADDITIONAL SECTION` will also be
 rewritten following the specified rules. The names returned by the following
-record types: `CNAME`, `DNAME`, `SOA`, `SRV`, `MX`, `NAPTR`, `NS` will be rewritten
+record types: `CNAME`, `DNAME`, `SOA`, `SRV`, `MX`, `NAPTR`, `NS`, `PTR` will be rewritten
 if the `answer value` rule is specified.
 
 The syntax for the rewrite of DNS request and response is as follows:
@@ -224,6 +224,44 @@ rewrite [continue|stop] {
 Note that the above syntax is strict.  For response rewrites, only `name`
 rules are allowed to match the question section. The answer rewrite must be
 after the name, as in the syntax example.
+
+##### Example: PTR Response Value Rewrite
+
+The original response contains the domain `service.consul.` in the `VALUE` part
+of the `ANSWER SECTION`
+
+```
+$ dig @10.1.1.1 30.30.30.10.in-addr.arpa PTR
+
+;; QUESTION SECTION:
+;30.30.30.10.in-addr.arpa. IN PTR
+
+;; ANSWER SECTION:
+30.30.30.10.in-addr.arpa. 60    IN PTR    ftp-us-west-1.service.consul.
+```
+
+The following configuration snippet allows for rewriting of the value
+in the `ANSWER SECTION`:
+
+```
+    rewrite stop {
+        name suffix .arpa .arpa
+        answer name auto
+        answer value (.*)\.service\.consul\. {1}.coredns.rocks.
+    }
+```
+
+Now, the `VALUE` in the `ANSWER SECTION` has been overwritten in the domain part:
+
+```
+$ dig @10.1.1.1 30.30.30.10.in-addr.arpa PTR
+
+;; QUESTION SECTION:
+;30.30.30.10.in-addr.arpa. IN PTR
+
+;; ANSWER SECTION:
+30.30.30.10.in-addr.arpa. 60    IN PTR    ftp-us-west-1.coredns.rocks.
+```
 
 #### Multiple Response Rewrites
 
@@ -276,7 +314,27 @@ The syntax for the TTL rewrite rule is as follows. The meaning of
 An omitted type is defaulted to `exact`.
 
 ```
-rewrite [continue|stop] ttl [exact|prefix|suffix|substring|regex] STRING SECONDS
+rewrite [continue|stop] ttl [exact|prefix|suffix|substring|regex] STRING [SECONDS|MIN-MAX]
+```
+
+It is possible to supply a range of TTL values in the `SECONDS` parameters instead of a single value.
+If a range is supplied, the TTL value is set to `MIN` if it is below, or set to `MAX` if it is above.
+The TTL value is left unchanged if it is already inside the provided range.
+The ranges can be unbounded on either side.
+
+TTL examples with ranges:
+```
+# rewrite TTL to be between 30s and 300s
+rewrite ttl example.com. 30-300
+
+# cap TTL at 30s
+rewrite ttl example.com. -30 # equivalent to rewrite ttl example.com. 0-30
+
+# increase TTL to a minimum of 30s
+rewrite ttl example.com. 30-
+
+# set TTL to 30s
+rewrite ttl example.com. 30 # equivalent to rewrite ttl example.com. 30-30
 ```
 
 ## EDNS0 Options

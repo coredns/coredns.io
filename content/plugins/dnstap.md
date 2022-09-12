@@ -4,7 +4,7 @@ description = "*dnstap* enables logging to dnstap."
 weight = 15
 tags = ["plugin", "dnstap"]
 categories = ["plugin"]
-date = "2022-06-09T07:57:48.8774886"
+date = "2022-09-08T18:42:54.8775489"
 +++
 
 ## Description
@@ -18,11 +18,16 @@ Every message is sent to the socket as soon as it comes in, the *dnstap* plugin 
 ## Syntax
 
 ~~~ txt
-dnstap SOCKET [full]
+dnstap SOCKET [full] {
+  [identity IDENTITY]
+  [version VERSION]
+}
 ~~~
 
 * **SOCKET** is the socket (path) supplied to the dnstap command line tool.
 * `full` to include the wire-format DNS message.
+* **IDENTITY** to override the identity of the server. Defaults to the hostname.
+* **VERSION** to override the version field. Defaults to the CoreDNS version.
 
 ## Examples
 
@@ -48,6 +53,15 @@ Log to a remote endpoint by FQDN.
 
 ~~~ txt
 dnstap tcp://example.com:6000 full
+~~~
+
+Log to a socket, overriding the default identity and version.
+
+~~~ txt
+dnstap /tmp/dnstap.sock {
+  identity my-dns-server1
+  version MyDNSServer-1.2.3
+}
 ~~~
 
 ## Command Line Tool
