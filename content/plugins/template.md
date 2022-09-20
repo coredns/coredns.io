@@ -4,7 +4,7 @@ description = "*template* allows for dynamic responses based on the incoming que
 weight = 45
 tags = ["plugin", "template"]
 categories = ["plugin"]
-date = "2022-09-08T18:42:54.8775489"
+date = "2022-09-19T13:19:15.8771589"
 +++
 
 ## Description
@@ -57,6 +57,10 @@ Each resource record is a full-featured [Go template](https://golang.org/pkg/tex
 * `.Meta` a function that takes a metadata name and returns the value, if the
   metadata plugin is enabled. For example, `.Meta "kubernetes/client-namespace"`
 
+and the following predefined [template functions](https://golang.org/pkg/text/template#hdr-Functions)
+
+* `parseInt` interprets a string in the given base and bit size. Equivalent to [strconv.ParseUint](https://golang.org/pkg/strconv#ParseUint).
+
 The output of the template must be a [RFC 1035](https://tools.ietf.org/html/rfc1035) style resource record (commonly referred to as a "zone file").
 
 **WARNING** there is a syntactical problem with Go templates and CoreDNS config files. Expressions
@@ -67,9 +71,9 @@ The output of the template must be a [RFC 1035](https://tools.ietf.org/html/rfc1
 
 If monitoring is enabled (via the *prometheus* plugin) then the following metrics are exported:
 
-* `coredns_template_matches_total{server, regex}` the total number of matched requests by regex.
-* `coredns_template_template_failures_total{server, regex,section,template}` the number of times the Go templating failed. Regex, section and template label values can be used to map the error back to the config file.
-* `coredns_template_rr_failures_total{server, regex,section,template}` the number of times the templated resource record was invalid and could not be parsed. Regex, section and template label values can be used to map the error back to the config file.
+* `coredns_template_matches_total{server, zone, view, class, type}` the total number of matched requests by regex.
+* `coredns_template_template_failures_total{server, zone, view, class, type, section, template}` the number of times the Go templating failed. Regex, section and template label values can be used to map the error back to the config file.
+* `coredns_template_rr_failures_total{server, zone, view, class, type, section, template}` the number of times the templated resource record was invalid and could not be parsed. Regex, section and template label values can be used to map the error back to the config file.
 
 Both failure cases indicate a problem with the template configuration. The `server` label indicates
 the server incrementing the metric, see the *metrics* plugin for details.
@@ -179,6 +183,23 @@ Note that the A record is actually a wildcard: any subdomain of the IP address w
 Having templates to map certain PTR/A pairs is a common pattern.
 
 Fallthrough is needed for mixed domains where only some responses are templated.
+
+### Resolve hexadecimal ip pattern using parseInt
+
+~~~ corefile
+. {
+    forward . 8.8.8.8
+
+    template IN A example {
+      match "^ip0a(?P<b>[a-f0-9]{2})(?P<c>[a-f0-9]{2})(?P<d>[a-f0-9]{2})[.]example[.]$"
+      answer "{{ .Name }} 60 IN A 10.{{ parseInt .Group.b 16 8 }}.{{ parseInt .Group.c 16 8 }}.{{ parseInt .Group.d 16 8 }}"
+      fallthrough
+    }
+}
+~~~
+
+An IPv4 address can be expressed in a more compact form using its hexadecimal encoding.
+For example `ip-10-123-123.example.` can instead be expressed as `ip0a7b7b7b.example.`
 
 ### Resolve multiple ip patterns
 

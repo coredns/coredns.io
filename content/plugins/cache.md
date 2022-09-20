@@ -4,7 +4,7 @@ description = "*cache* enables a frontend cache."
 weight = 8
 tags = ["plugin", "cache"]
 categories = ["plugin"]
-date = "2022-09-08T18:42:54.8775489"
+date = "2022-09-19T13:19:15.8771589"
 +++
 
 ## Description
@@ -88,14 +88,14 @@ Entries with 0 TTL will remain in the cache until randomly evicted when the shar
 
 If monitoring is enabled (via the *prometheus* plugin) then the following metrics are exported:
 
-* `coredns_cache_entries{server, type, zones}` - Total elements in the cache by cache type.
-* `coredns_cache_hits_total{server, type, zones}` - Counter of cache hits by cache type.
-* `coredns_cache_misses_total{server, zones}` - Counter of cache misses. - Deprecated, derive misses from cache hits/requests counters.
-* `coredns_cache_requests_total{server, zones}` - Counter of cache requests.
-* `coredns_cache_prefetch_total{server, zones}` - Counter of times the cache has prefetched a cached item.
-* `coredns_cache_drops_total{server, zones}` - Counter of responses excluded from the cache due to request/response question name mismatch.
-* `coredns_cache_served_stale_total{server, zones}` - Counter of requests served from stale cache entries.
-* `coredns_cache_evictions_total{server, type, zones}` - Counter of cache evictions.
+* `coredns_cache_entries{server, type, zones, view}` - Total elements in the cache by cache type.
+* `coredns_cache_hits_total{server, type, zones, view}` - Counter of cache hits by cache type.
+* `coredns_cache_misses_total{server, zones, view}` - Counter of cache misses. - Deprecated, derive misses from cache hits/requests counters.
+* `coredns_cache_requests_total{server, zones, view}` - Counter of cache requests.
+* `coredns_cache_prefetch_total{server, zones, view}` - Counter of times the cache has prefetched a cached item.
+* `coredns_cache_drops_total{server, zones, view}` - Counter of responses excluded from the cache due to request/response question name mismatch.
+* `coredns_cache_served_stale_total{server, zones, view}` - Counter of requests served from stale cache entries.
+* `coredns_cache_evictions_total{server, type, zones, view}` - Counter of cache evictions.
 
 Cache types are either "denial" or "success". `Server` is the server handling the request, see the
 prometheus plugin for documentation.
