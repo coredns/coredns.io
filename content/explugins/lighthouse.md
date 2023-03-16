@@ -5,8 +5,8 @@ weight = 10
 tags = [  "plugin" , "lighthouse" ]
 categories = [ "plugin", "external" ]
 date = "2019-11-21T10:00:00+08:00"
-repo = "https://github.com/submariner-io/lighthouse/tree/master/plugin/lighthouse"
-home = "https://github.com/submariner-io/lighthouse/blob/master/plugin/lighthouse/README.md"
+repo = "https://github.com/submariner-io/lighthouse/tree/devel/coredns/plugin"
+home = "https://github.com/submariner-io/lighthouse/blob/devel/coredns/plugin/README.md"
 +++
 
 ## Description
