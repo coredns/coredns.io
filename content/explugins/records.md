@@ -13,7 +13,7 @@ home = "https://github.com/coredns/records"
 
 The *records* plugin is useful for serving zone data that is specified inline in the configuration
 file. As opposed to the *hosts* plugin, this plugin supports **all** record types. Records need to
-be specifed in text representation as specified in RFC 1035. If no TTL is specified in the records,
+be specified in text representation as specified in RFC 1035. If no TTL is specified in the records,
 a default TTL of 3600s is assumed.
 
 For negative responses a SOA record should be included in the response, this will only be done when
@@ -45,7 +45,7 @@ records [ZONES...] {
 * **ZONES** zones it should be authoritative for. If empty, the zones from the configuration block
    are used.
 * **INLINE** the resource record that are to be served. These must be specified as the text
-   representation (as specifed in RFC 1035) of the record. See the examples below. Each record must
+   representation (as specified in RFC 1035) of the record. See the examples below. Each record must
    be on a single line.
 
 If domain name in **INLINE** are not fully qualifed each of the **ZONES** are used as the origin and
