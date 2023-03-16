@@ -4,7 +4,7 @@ description = "*geoip* Lookup maxmind geoip2 databases using the client IP, then
 weight = 21
 tags = ["plugin", "geoip"]
 categories = ["plugin"]
-date = "2022-05-10T17:23:06.877685"
+date = "2023-02-07T20:00:01.877182"
 +++
 
 ## Description
@@ -66,6 +66,27 @@ The following configuration configures the `City` database, and looks up geoloca
       edns-subnet
     }
     metadata # Note that metadata plugin must be enabled as well.
+}
+```
+
+The *view* plugin can use *geoip* metadata as selection criteria to provide GSLB functionality.
+In this example, clients from the city "Exampleshire" will receive answers for `example.com` from the zone defined in 
+`example.com.exampleshire-db`. All other clients will receive answers from the zone defined in `example.com.db`.
+Note that the order of the two `example.com` server blocks below is important; the default viewless server block
+must be last.
+
+```txt
+example.com {
+    view exampleshire {
+      expr metadata('geoip/city/name') == 'Exampleshire'
+    }
+    geoip /opt/geoip2/db/GeoLite2-City.mmdb
+    metadata
+    file example.com.exampleshire-db
+}
+
+example.com {
+    file example.com.db
 }
 ```
 
