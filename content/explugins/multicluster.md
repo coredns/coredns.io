@@ -4,8 +4,8 @@ description = "*multicluster* plugin is an implementation of Multicluster DNS sp
 weight = 10
 tags = [  "plugin" , "multicluster" ]
 categories = [ "plugin", "external" ]
-date = "2021-11-09T12:37:19+01:00"
-repo = "https://github.com/coredns/multicluster/"
+date = "2023-03-03T03:51:43+00:00"
+repo = "https://github.com/coredns/multicluster"
 home = "https://github.com/coredns/multicluster#readme"
 +++
 
