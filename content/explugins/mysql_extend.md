@@ -1,4 +1,13 @@
-+++ title = "mysql_extend" description = "mysql_extend - Use mysql as backend to store dns records." weight = 10 tags = [ "plugin" , "mysql_extend" ] categories = [ "plugin", "external" ] date = "2023-03-29T19:57:00+08:00" repo = "https://github.com/snail2sky/coredns_mysql_extend" home = "https://github.com/snail2sky/coredns_mysql_extend/blob/main/README.md" +++
++++
+title = "mysql_extend"
+description = "*mysql_extend* - Use mysql as backend to store dns records."
+weight = 10
+tags = [  "plugin" , "mysql_extend" ]
+categories = [ "plugin", "external" ]
+date = "2023-03-29T19:57:00+08:00"
+repo = "https://github.com/snail2sky/coredns_mysql_extend"
+home = "https://github.com/snail2sky/coredns_mysql_extend/blob/main/README.md"
++++
 
 # mysql_extend
 
