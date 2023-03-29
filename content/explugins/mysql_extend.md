@@ -97,7 +97,6 @@ The `option` label indicated which option of this metric operate.
 The `fqdn` label indicated which dns query of fqdn.
 The `qtype` label indicated which dns query of type.
 
-
 ## Examples
 
 In this configuration, we forward all queries to 9.9.9.9 and print "example" whenever we receive
