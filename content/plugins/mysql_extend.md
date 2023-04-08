@@ -49,6 +49,7 @@ After this you can compile coredns by:
 
 ``` sh
 go generate
+go get
 go build
 ```
 
@@ -68,8 +69,6 @@ mysql {
     [db_conn_max_life_time 24h]
     [fail_heartbeat_time 10s]
     [success_heartbeat_time 60s]
-    [fail_reload_local_data_time 10s]
-    [success_reload_local_data_time 60s]
     [query_zone_sql "SELECT id, zone_name FROM %s"]
     [query_record_sql "SELECT id, zone_id, hostname, type, data, ttl FROM  %s WHERE online!=0 and zone_id=? and hostname=? and type=?"]
 }
@@ -88,8 +87,6 @@ If monitoring is enabled (via the *prometheus* directive) the following metric i
 * `make_answer_total{status}` - Counter of make answer count.
 * `db_ping_total{status}` - Counter of DB ping.
 * `db_get_zone_total{status}` - Counter of db get zone.
-* `load_local_data_total{status}` - Counter of load local data.
-* `dump_local_data_total{status}` - Counter of dump local data.
 
 The `status` label indicated which status of this metric option.
 The `table_name` label indicated which option what table.
@@ -108,7 +105,6 @@ internal.:53 {
   mysql {
     dsn db_reader:qwer123@tcp(10.0.0.1:3306)/dns
     dump_file dns.json
-    success_reload_local_data_time 120s
   }
 }
 ~~~
