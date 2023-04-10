@@ -9,12 +9,6 @@ repo = "https://github.com/snail2sky/coredns_mysql_extend"
 home = "https://github.com/snail2sky/coredns_mysql_extend/blob/main/README.md"
 +++
 
-# mysql_extend
-
-## Name
-
-*mysql_extend* - Use mysql as backend to store dns records.
-
 ## Description
 
 The mysql_extend plugin use mysql as backend to store dns records. This plug-in does not depend heavily on the stability of mysql. 
@@ -29,29 +23,6 @@ Other features of the plug-in:
 7. Rich monitoring indicator information
 8. Rich debug logs
 9. If mysql table not exist, will auto create it use `zone_tables` and `record_tables`
-
-
-## Compilation
-
-This package will always be compiled as part of CoreDNS and not in a standalone way. It will require you to use `go get` or as a dependency on [plugin.cfg](https://github.com/coredns/coredns/blob/master/plugin.cfg).
-
-The [manual](https://coredns.io/manual/toc/#what-is-coredns) will have more information about how to configure and extend the server with external plugins.
-
-A simple way to consume this plugin, is by adding the following on [plugin.cfg](https://github.com/coredns/coredns/blob/master/plugin.cfg), and recompile it as [detailed on coredns.io](https://coredns.io/2017/07/25/compile-time-enabling-or-disabling-plugins/#build-with-compile-time-configuration-file).
-
-~~~
-mysql:github.com/snail2sky/coredns_mysql_extend
-~~~
-
-Put this early in the plugin list, so that *example* is executed before any of the other plugins.
-
-After this you can compile coredns by:
-
-``` sh
-go generate
-go get
-go build
-```
 
 ## Syntax
 
