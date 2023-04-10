@@ -127,6 +127,7 @@ dig @127.0.0.1 web.internal A
 dig @127.0.0.1 -x 172.16.0.100
 ~~~
 
+
 ## Also See
 
 See the [manual](https://coredns.io/manual).
