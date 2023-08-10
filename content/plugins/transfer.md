@@ -36,7 +36,8 @@ transfer [ZONE...] {
  *  `to` **ADDRESS...** The hosts *transfer* will transfer to. Use `*` to permit transfers to all
     addresses. Zone change notifications are sent to all **ADDRESS** that are an IP address or
     an IP address and port e.g. `1.2.3.4`, `12:34::56`, `1.2.3.4:5300`, `[12:34::56]:5300`.
-    `to` may be specified multiple times.
+    `to` may be specified multiple times. (Please note that notifications is
+    currently not implemented.)
 
 You can use the _acl_ plugin to further restrict hosts permitted to receive a zone transfer.
 See example below.

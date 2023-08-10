@@ -74,7 +74,8 @@ sign DBFILE [ZONES...] {
 * `key` specifies the key(s) (there can be multiple) to sign the zone. If `file` is
    used the **KEY**'s filenames are used as is. If `directory` is used, *sign* will look in **DIR**
    for `K<name>+<alg>+<id>` files. Any metadata in these files (Activate, Publish, etc.) is
-   *ignored*. These keys must also be Key Signing Keys (KSK).
+   *ignored*. These keys must also be Key Signing Keys (KSK). (Please note that
+   `directory` is currently not implemented.)
 *  `directory` specifies the **DIR** where CoreDNS should save zones that have been signed.
    If not given this defaults to `/var/lib/coredns`. The zones are saved under the name
    `db.<name>.signed`. If the path is relative the path from the *root* plugin will be prepended
