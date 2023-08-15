@@ -4,7 +4,7 @@ description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics
 weight = 34
 tags = ["plugin", "prometheus"]
 categories = ["plugin"]
-date = "2022-09-19T13:19:15.8771589"
+date = "2023-08-15T20:06:20.8772088"
 +++
 
 ## Description
@@ -24,6 +24,7 @@ the following metrics are exported:
 * `coredns_dns_response_size_bytes{server, zone, view, proto}` - response size in bytes.
 * `coredns_dns_responses_total{server, zone, view, rcode, plugin}` - response per zone, rcode and plugin.
 * `coredns_dns_https_responses_total{server, status}` - responses per server and http status code.
+* `coredns_dns_quic_responses_total{server, status}` - responses per server and QUIC application code.
 * `coredns_plugin_enabled{server, zone, view, name}` - indicates whether a plugin is enabled on per server, zone and view basis.
 
 Almost each counter has a label `zone` which is the zonename used for the request/response.

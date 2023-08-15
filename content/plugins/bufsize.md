@@ -1,16 +1,20 @@
 +++
 title = "bufsize"
-description = "*bufsize* sizes EDNS0 buffer size to prevent IP fragmentation."
+description = "*bufsize* limits EDNS0 buffer size to prevent IP fragmentation."
 weight = 7
 tags = ["plugin", "bufsize"]
 categories = ["plugin"]
-date = "2022-05-10T17:23:57.8775785"
+date = "2023-08-15T20:06:20.8772088"
 +++
 
 ## Description
-*bufsize* limits a requester's UDP payload size.
+*bufsize* limits a requester's UDP payload size to within a maximum value.
+If a request with an OPT RR has a bufsize greater than the limit, the bufsize
+of the request will be reduced. Otherwise the request is unaffected.
 It prevents IP fragmentation, mitigating certain DNS vulnerabilities.
-This will only affect queries that have an OPT RR.
+It cannot increase UDP size requested by the client, it can be reduced only.
+This will only affect queries that have
+an OPT RR ([EDNS(0)](https://www.rfc-editor.org/rfc/rfc6891)).
 
 ## Syntax
 ```txt
@@ -18,14 +22,14 @@ bufsize [SIZE]
 ```
 
 **[SIZE]** is an int value for setting the buffer size.
-The default value is 512, and the value must be within 512 - 4096.
+The default value is 1232, and the value must be within 512 - 4096.
 Only one argument is acceptable, and it covers both IPv4 and IPv6.
 
 ## Examples
 Enable limiting the buffer size of outgoing query to the resolver (172.31.0.10):
 ```corefile
 . {
-    bufsize 512
+    bufsize 1100
     forward . 172.31.0.10
     log
 }
@@ -34,7 +38,7 @@ Enable limiting the buffer size of outgoing query to the resolver (172.31.0.10):
 Enable limiting the buffer size as an authoritative nameserver:
 ```corefile
 . {
-    bufsize 512
+    bufsize 1220
     file db.example.org
     log
 }

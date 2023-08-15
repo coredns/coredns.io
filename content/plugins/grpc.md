@@ -1,10 +1,10 @@
 +++
 title = "grpc"
 description = "*grpc* facilitates proxying DNS messages to upstream resolvers via gRPC protocol."
-weight = 21
+weight = 22
 tags = ["plugin", "grpc"]
 categories = ["plugin"]
-date = "2020-03-26T08:18:51.8775183"
+date = "2023-08-15T20:06:20.8772088"
 +++
 
 ## Description
@@ -129,6 +129,14 @@ Or with multiple upstreams from the same provider
        tls_servername cloudflare-dns.com
     }
     cache 30
+}
+~~~
+
+Forward requests to a local upstream listening on a Unix domain socket.
+
+~~~ corefile
+. {
+    grpc . unix:///path/to/grpc.sock
 }
 ~~~
 
