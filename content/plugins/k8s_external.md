@@ -4,7 +4,7 @@ description = "*k8s_external* resolves load balancer, external IPs from outside 
 weight = 27
 tags = ["plugin", "k8s_external"]
 categories = ["plugin"]
-date = "2022-09-08T18:42:54.8775489"
+date = "2023-08-15T20:06:20.8772088"
 +++
 
 ## Description
@@ -13,8 +13,7 @@ This plugin allows an additional zone to resolve the external IP address(es) of 
 service and headless services. This plugin is only useful if the *kubernetes* plugin is also loaded.
 
 The plugin uses an external zone to resolve in-cluster IP addresses. It only handles queries for A,
-AAAA, SRV, and PTR records; all others result in NODATA responses. To make it a proper DNS zone, it handles
-SOA and NS queries for the apex of the zone.
+AAAA, SRV, and PTR records; To make it a proper DNS zone, it handles SOA and NS queries for the apex of the zone.
 
 By default the apex of the zone will look like the following (assuming the zone used is `example.org`):
 
@@ -70,6 +69,14 @@ k8s_external [ZONE...] {
 
 * if there is a headless service with external IPs set, external IPs will be resolved
 
+If the queried domain does not exist, you can fall through to next plugin by adding the `fallthrough` option.
+
+~~~
+k8s_external [ZONE...] {
+    fallthrough [ZONE...]
+}
+~~~
+
 ## Examples
 
 Enable names under `example.org` to be resolved to in-cluster DNS addresses.
@@ -108,6 +115,18 @@ zone transfers.  Notifies are not supported.
          k8s_external example.org
      }
  ~~~
+
+With the `fallthrough` option, if the queried domain does not exist, it will be passed to the next plugin that matches the zone.
+
+~~~
+. {
+   kubernetes cluster.local
+   k8s_external example.org {
+     fallthrough
+   }
+   forward . 8.8.8.8
+}
+~~~
 
 # See Also
 

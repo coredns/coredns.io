@@ -4,7 +4,7 @@ description = "*dnstap* enables logging to dnstap."
 weight = 15
 tags = ["plugin", "dnstap"]
 categories = ["plugin"]
-date = "2023-02-07T20:00:01.877182"
+date = "2023-08-15T20:06:20.8772088"
 +++
 
 ## Description
@@ -21,6 +21,8 @@ Every message is sent to the socket as soon as it comes in, the *dnstap* plugin 
 dnstap SOCKET [full] {
   [identity IDENTITY]
   [version VERSION]
+  [extra EXTRA]
+  [skipverify]
 }
 ~~~
 
@@ -28,6 +30,8 @@ dnstap SOCKET [full] {
 * `full` to include the wire-format DNS message.
 * **IDENTITY** to override the identity of the server. Defaults to the hostname.
 * **VERSION** to override the version field. Defaults to the CoreDNS version.
+* **EXTRA** to define "extra" field in dnstap payload, [metadata](../metadata/) replacement available here.
+* `skipverify` to skip tls verification during connection. Default to be secure
 
 ## Examples
 
@@ -61,6 +65,24 @@ Log to a socket, overriding the default identity and version.
 dnstap /tmp/dnstap.sock {
   identity my-dns-server1
   version MyDNSServer-1.2.3
+}
+~~~
+
+Log to a socket, customize the "extra" field in dnstap payload. You may use metadata provided by other plugins in the extra field.
+
+~~~ txt
+forward . 8.8.8.8
+metadata
+dnstap /tmp/dnstap.sock {
+  extra "upstream: {/forward/upstream}"
+}
+~~~
+
+Log to a remote TLS endpoint.
+
+~~~ txt
+dnstap tls://127.0.0.1:6000 full {
+  skipverify
 }
 ~~~
 
@@ -117,7 +139,9 @@ And then in your plugin:
 
 ~~~ go
 import (
-  github.com/coredns/coredns/plugin/dnstap/msg
+  "github.com/coredns/coredns/plugin/dnstap/msg"
+  "github.com/coredns/coredns/request"
+
   tap "github.com/dnstap/golang-dnstap"
 )
 
@@ -131,7 +155,12 @@ func (x ExamplePlugin) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dn
             q.QueryMessage = buf
         }
         msg.SetType(q, tap.Message_CLIENT_QUERY)
+        
+        // if no metadata interpretation is needed, just send the message
         tapPlugin.TapMessage(q)
+
+        // OR: to interpret the metadata in "extra" field, give more context info
+        tapPlugin.TapMessageWithMetadata(ctx, q, request.Request{W: w, Req: query})
     }
     // ...
 }

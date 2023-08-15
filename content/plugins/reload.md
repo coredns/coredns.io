@@ -4,7 +4,7 @@ description = "*reload* allows automatic reload of a changed Corefile."
 weight = 39
 tags = ["plugin", "reload"]
 categories = ["plugin"]
-date = "2022-04-06T19:05:17.8771784"
+date = "2023-08-15T20:06:20.8772088"
 +++
 
 ## Description
@@ -71,7 +71,7 @@ Check every 10 seconds (jitter is automatically set to 10 / 2 = 5 in this case):
 ## Bugs
 
 The reload happens without data loss (i.e. DNS queries keep flowing), but there is a corner case
-where the reload fails, and you loose functionality. Consider the following Corefile:
+where the reload fails, and you lose functionality. Consider the following Corefile:
 
 ~~~ txt
 . {
