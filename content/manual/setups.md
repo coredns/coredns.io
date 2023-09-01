@@ -105,10 +105,9 @@ www.example.org.	25837	IN	AAAA	2606:2800:220:1:248:1893:25c8:194
 
 A common scenario you may encounter is that queries for `example.org` need to go to 8.8.8.8 and
 the rest should be resolved via the name servers in `/etc/resolv.conf`. There are two ways that
-could be implemented in a Corefile; one way that may work (depending on the plugin's implementation) and
-a way that is guaranteed to work.
+could be implemented in a Corefile:
 
-Take this Corefile as an example:
+1. Use multiple declarations of [*forward*](/plugins/forward) plugin within a single Server Block:
 
 ~~~ txt
 . {
@@ -118,14 +117,7 @@ Take this Corefile as an example:
 }
 ~~~
 
-The intent is to grab all possible queries (this Server Block is authoritative for the root domain),
-and then use the per-zone filtering of the [*forward*](/plugins/forward) plugin. Spoiler alert: this
-does not work. The reason is that the *forward* plugin can only be used once in a Server
-Block.
-
-The above use case is a very valid one, so how do you implement this in CoreDNS? The quick
-answer is by using multiple Server Blocks, one for each of the domains you want to route
-on. Doing so results in this Corefile:
+2. Use multiple Server Blocks, one for each of the domains you want to route on:
 
 ~~~ corefile
 example.org {
