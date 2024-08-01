@@ -8,10 +8,10 @@ author = "miek"
 
 First get CoreDNS, either
 
-* *Download the latest* release from [github](https://github.com/coredns/coredns/releases), unpack
+* *Download the latest* release from [GitHub](https://github.com/coredns/coredns/releases), unpack
   it. You should now have a "coredns" executable.
 
-* *Compile from git* by getting the source code from [github](https://github.com/coredns/coredns).
+* *Compile from git* by getting the source code from [GitHub](https://github.com/coredns/coredns).
   Change directory to `coredns` and:
 
   * `go get` - to get a few dependencies, the other ones are vendored
