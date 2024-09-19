@@ -23,7 +23,7 @@ redis
 redis loads authoritative zones from redis server
 
 
-address will default to local redis serrver (localhost:6379)
+address will default to local redis server (localhost:6379)
 ~~~
 redis {
     address ADDR
