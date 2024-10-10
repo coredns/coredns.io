@@ -23,7 +23,7 @@ CoreDNS 1.1.1 release):
 > inject malicious A records in the cache of the DNS server.
 > As the CoreDNS application has a different cache for each domain
 
-The other three issues found will be tracked via github issues, like
+The other three issues found will be tracked via GitHub issues, like
 [plugin/rewrite: log bypass](https://github.com/coredns/coredns/issues/1610), and
 [plugin/secondary: Denial-of-Service via endless Zone Transfer](plugin/secondary: Denial-of-Service
 via endless Zone Transfer). Third one was a generic DDoS.
