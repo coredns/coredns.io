@@ -1,10 +1,10 @@
 +++
 title = "rewrite"
 description = "*rewrite* performs internal message rewriting."
-weight = 40
+weight = 41
 tags = ["plugin", "rewrite"]
 categories = ["plugin"]
-date = "2023-08-15T20:06:20.8772088"
+date = "2024-11-22T08:09:54.87754811"
 +++
 
 ## Description
@@ -29,6 +29,7 @@ e.g., to rewrite ANY queries to HINFO, use `rewrite type ANY HINFO`.
    * `edns0` - an EDNS0 option can be appended to the request as described below in the **EDNS0 Options** section.
    * `ttl` - the TTL value in the _response_ is rewritten.
    * `cname` - the CNAME target if the response has a CNAME record
+   * `rcode` - the response code (RCODE) value in the _response_ is rewritten.
 
 * **TYPE** this optional element can be specified for a `name` or `ttl` field.
   If not given type `exact` will be assumed. If options should be specified the
@@ -53,6 +54,7 @@ will behave as follows:
 
    * `continue` will continue applying the next rule in the rule list.
    * `stop` will consider the current rule the last rule and will not continue.  The default behaviour is `stop`
+   * When multiple rules are matched, the request rewrite follows the line order in the configuration, while the response rewrite(`answer` option) is executed in reverse order.
 
 ## Examples
 
@@ -338,6 +340,61 @@ rewrite ttl example.com. 30-
 rewrite ttl example.com. 30 # equivalent to rewrite ttl example.com. 30-30
 ```
 
+### RCODE Field Rewrites
+
+At times, the need to rewrite a RCODE value could arise. For example, a DNS server
+may respond with a SERVFAIL instead of NOERROR records when AAAA records are requested.
+
+In the below example, the rcode value the answer for `coredns.rocks` the replies with SERVFAIL
+is being switched to NOERROR.
+
+This example rewrites all the *.coredns.rocks domain SERVFAIL errors to NOERROR
+```
+    rewrite continue {
+        rcode regex (.*)\.coredns\.rocks SERVFAIL NOERROR
+    }
+```
+
+The same result numeric values:
+```
+    rewrite continue {
+        rcode regex (.*)\.coredns\.rocks 2 0
+    }
+```
+
+The syntax for the RCODE rewrite rule is as follows. The meaning of
+`exact|prefix|suffix|substring|regex` is the same as with the name rewrite rules.
+An omitted type is defaulted to `exact`.
+
+```
+rewrite [continue|stop] rcode [exact|prefix|suffix|substring|regex] STRING FROM TO
+```
+
+The values of FROM and TO can be any of the following, text value or numeric:
+
+```
+  0 NOERROR
+  1 FORMERR
+  2 SERVFAIL
+  3 NXDOMAIN
+  4 NOTIMP
+  5 REFUSED
+  6 YXDOMAIN
+  7 YXRRSET
+  8 NXRRSET
+  9 NOTAUTH
+  10 NOTZONE
+  16 BADSIG
+  17 BADKEY
+  18 BADTIME
+  19 BADMODE
+  20 BADNAME
+  21 BADALG
+  22 BADTRUNC
+  23 BADCOOKIE
+```
+
+
 ## EDNS0 Options
 
 Using the FIELD edns0, you can set, append, or replace specific EDNS0 options in the request.
@@ -409,8 +466,30 @@ rewrite edns0 subnet set 24 56
 * If the query's source IP address is an IPv4 address, the first 24 bits in the IP will be the network subnet.
 * If the query's source IP address is an IPv6 address, the first 56 bits in the IP will be the network subnet.
 
+### EDNS0 Revert
 
-### CNAME Field Rewrites
+Using the `revert` flag, you can revert the changes made by this rewrite call, so the response will not contain this option.
+
+This example sets option, but response will not contain it
+~~~ corefile
+. {
+    rewrite edns0 local set 0xffee abcd revert
+}
+~~~
+
+If only some calls contain the `revert` flag, then the value in the response will be changed to the previous one. So, in this example, the response will contain `abcd` data at `0xffee` 
+~~~ corefile
+. {
+    rewrite continue {
+        edns0 local set 0xffee abcd
+    }
+    
+    rewrite edns0 local replace 0xffee bcde revert
+}
+~~~
+
+
+## CNAME Field Rewrites
 
 There might be a scenario where you want the `CNAME` target of the response to be rewritten. You can do this by using the `CNAME` field rewrite. This will generate new answer records according to the new `CNAME` target.
 

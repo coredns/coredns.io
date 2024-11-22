@@ -4,7 +4,7 @@ description = "*kubernetes* enables reading zone data from a Kubernetes cluster.
 weight = 28
 tags = ["plugin", "kubernetes"]
 categories = ["plugin"]
-date = "2023-08-15T20:06:20.8772088"
+date = "2024-11-22T08:09:54.87754811"
 +++
 
 ## Description
@@ -210,9 +210,11 @@ plugin is also enabled:
  * `kubernetes/service`: the service name in the query
  * `kubernetes/client-namespace`: the client pod's namespace (see requirements below)
  * `kubernetes/client-pod-name`: the client pod's name (see requirements below)
+ * `kubernetes/client-label/<label key>`: a label on the client pod (see requirements below)
 
-The `kubernetes/client-namespace` and `kubernetes/client-pod-name` metadata work by reconciling the
-client IP address in the DNS request packet to a known pod IP address. Therefore the following is required:
+The `kubernetes/client-namespace`, `kubernetes/client-pod-name`, and `kubernetes/client-label/<label key>`
+metadata work by reconciling the client IP address in the DNS request packet to a known pod IP address.
+Therefore the following is required:
  * `pods verified` mode must be enabled
  * the remote IP address in the DNS packet received by CoreDNS must be the IP address
    of the Pod that sent the request.
