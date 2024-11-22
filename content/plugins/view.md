@@ -1,10 +1,10 @@
 +++
 title = "view"
 description = "*view* defines conditions that must be met for a DNS request to be routed to the server block."
-weight = 51
+weight = 52
 tags = ["plugin", "view"]
 categories = ["plugin"]
-date = "2023-02-07T20:00:01.877182"
+date = "2024-11-22T08:09:54.87754811"
 +++
 
 ## Description
@@ -96,13 +96,13 @@ Note that the regex pattern is enclosed in single quotes, and backslashes are es
 
 ## Expressions
 
-To evaluate expressions, *view* uses the antonmedv/expr package (https://github.com/antonmedv/expr).
+To evaluate expressions, *view* uses the expr-lang/expr package ( https://github.com/expr-lang/expr ).
 For example, an expression could look like:
-`(type() == 'A' && name() == 'example.com') || client_ip() == '1.2.3.4'`.
+`(type() == 'A' && name() == 'example.com.') || client_ip() == '1.2.3.4'`.
 
 All expressions should be written to evaluate to a boolean value.
 
-See https://github.com/antonmedv/expr/blob/master/docs/Language-Definition.md as a detailed reference for valid syntax.
+See https://github.com/expr-lang/expr/blob/master/docs/Language-Definition.md as a detailed reference for valid syntax.
 
 ### Available Expression Functions
 
@@ -116,7 +116,7 @@ functions defined below.
 * `client_ip() string`: client's IP address, for IPv6 addresses these are enclosed in brackets: `[::1]`
 * `do() bool`: the EDNS0 DO (DNSSEC OK) bit set in the query
 * `id() int`: query ID
-* `name() string`: name of the request (the domain name requested)
+* `name() string`: name of the request (the domain name requested ending with a dot): `example.com.`
 * `opcode() int`: query OPCODE
 * `port() string`: client's port
 * `proto() string`: protocol used (tcp or udp)

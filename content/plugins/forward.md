@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 20
 tags = ["plugin", "forward"]
 categories = ["plugin"]
-date = "2023-08-15T20:06:20.8772088"
+date = "2024-11-22T08:09:54.87754811"
 +++
 
 ## Description
@@ -53,6 +53,7 @@ forward FROM TO... {
     policy random|round_robin|sequential
     health_check DURATION [no_rec] [domain FQDN]
     max_concurrent MAX
+    next RCODE_1 [RCODE_2] [RCODE_3...]
 }
 ~~~
 
@@ -98,6 +99,7 @@ forward FROM TO... {
   response does not count as a health failure. When choosing a value for **MAX**, pick a number
   at least greater than the expected *upstream query rate* * *latency* of the upstream servers.
   As an upper bound for **MAX**, consider that each concurrent query will use about 2kb of memory.
+* `next` If the `RCODE` (i.e. `NXDOMAIN`) is returned by the remote then execute the next plugin. If no next plugin is defined, or the next plugin is not a `forward` plugin, this setting is ignored
 
 Also note the TLS config is "global" for the whole forwarding proxy if you need a different
 `tls_servername` for different upstreams you're out of luck.
@@ -268,6 +270,21 @@ Or when you have multiple DoT upstreams with different `tls_servername`s, you ca
     forward . tls://1.1.1.1 tls://1.0.0.1 {
         tls_servername cloudflare-dns.com
     }
+}
+~~~
+
+The following would try 1.2.3.4 first. If the response is `NXDOMAIN`, try 5.6.7.8. If the response from 5.6.7.8 is `NXDOMAIN`, try 9.0.1.2.
+
+~~~ corefile
+. {
+  forward . 1.2.3.4 {
+    next NXDOMAIN
+  }
+  forward . 5.6.7.8 {
+    next NXDOMAIN
+  }
+  forward . 9.0.1.2 {
+  }
 }
 ~~~
 
