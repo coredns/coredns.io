@@ -16,6 +16,11 @@ We push every release as Docker images as well. You can find them in the [public
 hub](https://hub.docker.com/r/coredns/coredns/) for the CoreDNS organization. This Docker image is
 basically *scratch* + CoreDNS + TLS certificates (for DoT, DoH, and gRPC).
 
+Use `/udp` when publishing ports from your container, for example:
+```bash
+docker run --rm -p 127.0.0.1:5533:53/udp coredns/coredns:1.12.0
+```
+
 ## Source
 
 To compile CoreDNS, we assume you have a working Go setup. See various tutorials if you don't have
