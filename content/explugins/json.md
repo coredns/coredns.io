@@ -1,22 +1,21 @@
 +++
 title: "JSON"
-description: "The json plugin enables JSON-formatted DNS response output."
+description: "*json* - query a JSON-formatted DNS server"
 weight: 10
+tags = [ "plugin", "json", "external" ]
+categories = [ "external", "plugin" ]
+date = "2025-03-05T15:51:45-08:00"
+repo = "https://github.com/xinbenlv/coredns-json"
+home = "https://github.com/xinbenlv/coredns-json/blob/master/README.md"
 +++
-
-# json
 
 ## Name
 
-*json* - transforms DNS responses into JSON format
+*json* - query a JSON-formatted DNS server
 
 ## Description
 
-The *json* plugin converts DNS responses into structured JSON format, making them easier to process by JSON-based tools and pipelines. This is particularly useful for:
-
-- Logging systems that consume JSON
-- API responses
-- JSON-based analytics pipelines
+The *json* plugin queries a JSON-formatted DNS server and returns the result as a DNS response.
 
 ## Syntax
 
@@ -26,47 +25,21 @@ json <URI>
 
 * **URI** (required): The URI of the JSON-formatted DNS server.
 
-## Examples
+## Example
 
-**Basic configuration:**
-```corefile
-example.org {
-    json http://api.your-http-json-dns-server.com/api/v1/
-    forward . 8.8.8.8
+```
+. {
+    json https://your-json-dns-server.com/api/v1/dns
 }
 ```
 
-The query will be sent to the JSON-formatted DNS server at the given URI with parameters `name` and `type`.
+## Supported record types
 
-Such as `http://api.your-http-json-dns-server.com/api/v1/?name=example.org&type=A`.
+The *json* plugin supports the following DNS record types:
 
+- A
+- AAAA
+- CNAME
+- MX
+- TXT
 
-**Sample JSON output:**
-```json
-{
-  "dns": {
-    "opcode": "QUERY",
-    "rcode": "NOERROR",
-    "questions": [
-      {
-        "name": "example.org.",
-        "type": "A"
-      }
-    ],
-    "answers": [
-      {
-        "name": "example.org.",
-        "type": "A",
-        "ttl": 3600,
-        "data": "93.184.216.34"
-      }
-    ],
-    "timestamp": "2024-02-20T14:30:45Z"
-  }
-}
-```
-
-## Compatibility
-
-* CoreDNS 1.11.0 and later
-* Supports the following DNS record types: A, AAAA, CNAME, MX, TXT for now
