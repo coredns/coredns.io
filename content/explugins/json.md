@@ -1,7 +1,7 @@
 +++
-title: "JSON"
-description: "*json* - query a JSON-formatted DNS server"
-weight: 10
+title = "JSON"
+description = "*json* - query a JSON-formatted DNS server"
+weight = 10
 tags = [ "plugin", "json", "external" ]
 categories = [ "external", "plugin" ]
 date = "2025-03-05T15:51:45-08:00"
