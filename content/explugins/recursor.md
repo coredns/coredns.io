@@ -23,7 +23,6 @@ recursor {
     [external-json config-file-path]
 
     [verbose 0..2]
-    zone: zone.name
     [resolver non-default {
         urls udp://ip-1:port udp://ip-n:port
         [timeout_ms 500]
@@ -38,7 +37,6 @@ recursor {
 ~~~
 
 The `recursor` definition:
-- `zone` - DNS zone for the recursor
 - `verbose` - stdout logs level:
   - `0` - minimal
   - `1` - middle
@@ -77,7 +75,6 @@ recursor {
     [external-json config-file-path]
 
     [verbose 0..2]
-    zone: demo.svc
     resolver dns-c {
         urls udp://1.1.1.1:53 udp://1.0.0.1:53
         timeout_ms 500
@@ -118,7 +115,6 @@ recursor {
 #### External YAML
 
 ```yaml
-zone: demo.svc
 resolvers:
   dns-c:
     urls: [ udp://1.1.1.1:53, udp://1.0.0.1:53 ]
@@ -152,7 +148,6 @@ aliases:
 
 ```json
 {
-  "zone": "demo.svc",
   "resolvers": {
     "dns-c": {
       "urls": [ "udp://1.1.1.1:53", "udp://1.0.0.1:53" ],
