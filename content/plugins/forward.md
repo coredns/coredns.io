@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 20
 tags = ["plugin", "forward"]
 categories = ["plugin"]
-date = "2024-11-22T08:09:54.87754811"
+date = "2025-06-13T10:26:16.8771686"
 +++
 
 ## Description
@@ -54,6 +54,7 @@ forward FROM TO... {
     health_check DURATION [no_rec] [domain FQDN]
     max_concurrent MAX
     next RCODE_1 [RCODE_2] [RCODE_3...]
+    failfast_all_unhealthy_upstreams
 }
 ~~~
 
@@ -100,6 +101,7 @@ forward FROM TO... {
   at least greater than the expected *upstream query rate* * *latency* of the upstream servers.
   As an upper bound for **MAX**, consider that each concurrent query will use about 2kb of memory.
 * `next` If the `RCODE` (i.e. `NXDOMAIN`) is returned by the remote then execute the next plugin. If no next plugin is defined, or the next plugin is not a `forward` plugin, this setting is ignored
+* `failfast_all_unhealthy_upstreams` - determines the handling of requests when all upstream servers are unhealthy and unresponsive to health checks. Enabling this option will immediately return SERVFAIL responses for all requests. By default, requests are sent to a random upstream.
 
 Also note the TLS config is "global" for the whole forwarding proxy if you need a different
 `tls_servername` for different upstreams you're out of luck.

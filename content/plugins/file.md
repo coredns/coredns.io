@@ -4,7 +4,7 @@ description = "*file* enables serving zone data from an RFC 1035-style master fi
 weight = 19
 tags = ["plugin", "file"]
 categories = ["plugin"]
-date = "2021-03-08T11:28:22.8772283"
+date = "2025-06-13T10:26:16.8771686"
 +++
 
 ## Description
@@ -30,12 +30,17 @@ If you want to round-robin A and AAAA responses look at the *loadbalance* plugin
 ~~~
 file DBFILE [ZONES... ] {
     reload DURATION
+    fallthrough [ZONES...]
 }
 ~~~
 
 * `reload` interval to perform a reload of the zone if the SOA version changes. Default is one minute.
   Value of `0` means to not scan for changes and reload. For example, `30s` checks the zonefile every 30 seconds
   and reloads the zone when serial changes.
+* `fallthrough` If zone matches and no record can be generated, pass request to the next plugin.
+  If **[ZONES...]** is omitted, then fallthrough happens for all zones for which the plugin
+  is authoritative. If specific zones are listed (for example `in-addr.arpa` and `ip6.arpa`), then only
+  queries for those zones will be subject to fallthrough.
 
 If you need outgoing zone transfers, take a look at the *transfer* plugin.
 
