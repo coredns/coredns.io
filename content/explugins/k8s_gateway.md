@@ -25,7 +25,7 @@ Optionally, you can specify what kind of resources to watch and the default TTL 
 
 ```
 k8s_gateway example.com {
-    resources Ingress Service HTTPRoute, DNSEndpoint
+    resources Ingress Service HTTPRoute DNSEndpoint
     ttl 10
 }
 ```
