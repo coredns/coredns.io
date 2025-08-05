@@ -4,7 +4,7 @@ description = "*kubernetes* enables reading zone data from a Kubernetes cluster.
 weight = 28
 tags = ["plugin", "kubernetes"]
 categories = ["plugin"]
-date = "2024-11-22T08:09:54.87754811"
+date = "2025-06-13T10:26:16.8771686"
 +++
 
 ## Description
@@ -45,6 +45,7 @@ kubernetes [ZONES...] {
     noendpoints
     fallthrough [ZONES...]
     ignore empty_service
+    multicluster [ZONES...]
 }
 ```
 
@@ -104,6 +105,10 @@ kubernetes [ZONES...] {
 * `ignore empty_service` returns NXDOMAIN for services without any ready endpoint addresses (e.g., ready pods).
   This allows the querying pod to continue searching for the service in the search path.
   The search path could, for example, include another Kubernetes cluster.
+* `multicluster` defines the multicluster zones as defined by Multi-Cluster
+  Services API (MCS-API). Specifying this option is generally paired with the
+  installation of an MCS-API implementation and the ServiceImport and ServiceExport
+  CRDs. The plugin MUST be authoritative for the zones listed here.
 
 Enabling zone transfer is done by using the *transfer* plugin.
 
@@ -123,6 +128,11 @@ The *kubernetes* plugin watches Endpoints via the `discovery.EndpointSlices` API
 
 This plugin reports readiness to the ready plugin. This will happen after it has synced to the
 Kubernetes API.
+
+## PTR Records
+
+This plugin creates PTR records for every Pod selected by a Service. If a given Pod is selected by more than
+one Service a separate PTR record will exist for each Service selecting it.
 
 ## Examples
 
@@ -152,6 +162,14 @@ Connect to Kubernetes with CoreDNS running outside the cluster:
 kubernetes cluster.local {
     endpoint https://k8s-endpoint:8443
     tls cert key cacert
+}
+~~~
+
+Configure multicluster
+
+~~~ txt
+kubernetes cluster.local clusterset.local {
+    multicluster clusterset.local
 }
 ~~~
 
