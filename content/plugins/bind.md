@@ -4,7 +4,7 @@ description = "*bind* overrides the host to which the server should bind."
 weight = 6
 tags = ["plugin", "bind"]
 categories = ["plugin"]
-date = "2024-11-22T08:09:54.87754811"
+date = "2025-08-08T17:41:04.877488"
 +++
 
 ## Description
@@ -111,6 +111,3 @@ bad.example.com {
     forward . 5.6.7.8
 }
 ```
-
-Also on MacOS there is an (open) bug where this doesn't work properly. See
-<https://github.com/miekg/dns/issues/724> for details, but no solution.
