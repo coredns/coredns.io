@@ -4,7 +4,7 @@ description = "*etcd* enables SkyDNS service discovery from etcd."
 weight = 18
 tags = ["plugin", "etcd"]
 categories = ["plugin"]
-date = "2023-02-07T20:00:01.877182"
+date = "2025-09-09T18:54:52.8775289"
 +++
 
 ## Description
@@ -58,6 +58,8 @@ etcd [ZONES...] {
     * three arguments - path to cert PEM file, path to client private key PEM file, path to CA PEM
       file - if the server certificate is not signed by a system-installed CA and client certificate
       is needed.
+* `min-lease-ttl` the minimum TTL for DNS records based on etcd lease duration. Accepts flexible time formats like '30', '30s', '5m', '1h', '2h30m'. Default: 30 seconds.
+* `max-lease-ttl` the maximum TTL for DNS records based on etcd lease duration. Accepts flexible time formats like '30', '30s', '5m', '1h', '2h30m'. Default: 24 hours.
 
 ## Special Behaviour
 
@@ -86,6 +88,8 @@ skydns.local {
     etcd {
         path /skydns
         endpoint http://localhost:2379
+        min-lease-ttl 60     # minimum 1 minute for lease-based records
+        max-lease-ttl 1h     # maximum 1 hour for lease-based records
     }
     prometheus
     cache
