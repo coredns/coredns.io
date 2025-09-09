@@ -4,7 +4,7 @@ description = "*header* modifies the header for queries and responses."
 weight = 23
 tags = ["plugin", "header"]
 categories = ["plugin"]
-date = "2022-09-08T18:42:54.8775489"
+date = "2025-09-09T18:54:52.8775289"
 +++
 
 ## Description
@@ -16,12 +16,12 @@ The modifications are made transparently for the client and subsequent plugins.
 
 ~~~
 header {
-    [SELECTOR] ACTION FLAGS...
-    [SELECTOR] ACTION FLAGS...
+    SELECTOR ACTION FLAGS...
+    SELECTOR ACTION FLAGS...
 }
 ~~~
 
-* **SELECTOR** defines if the action should be applied on `query` or `response`. In future CoreDNS version the selector will be mandatory. For backwards compatibility the action will be applied on `response` if the selector is undefined.
+* **SELECTOR** defines if the action should be applied on `query` or `response`.
 
 * **ACTION** defines the state for DNS message header flags. Actions are evaluated in the order they are defined so last one has the
   most precedence. Allowed values are:
