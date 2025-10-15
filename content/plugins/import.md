@@ -1,10 +1,10 @@
 +++
 title = "import"
 description = "*import* includes files or references snippets from a Corefile."
-weight = 24
+weight = 26
 tags = ["plugin", "import"]
 categories = ["plugin"]
-date = "2020-10-28T18:26:48.87748810"
+date = "2025-10-13T05:58:44.87744810"
 +++
 
 ## Description
@@ -23,6 +23,8 @@ import PATTERN
 
 *   **PATTERN** is the file, glob pattern (`*`) or snippet to include. Its contents will replace
     this line, as if that file's contents appeared here to begin with.
+
+Corefile may contain at most 10000 import statements. A glob pattern counts as a single import. The limit protects the configuration from recursive imports.
 
 ## Files
 

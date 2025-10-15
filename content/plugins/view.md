@@ -1,10 +1,10 @@
 +++
 title = "view"
 description = "*view* defines conditions that must be met for a DNS request to be routed to the server block."
-weight = 53
+weight = 54
 tags = ["plugin", "view"]
 categories = ["plugin"]
-date = "2025-06-13T10:26:16.8771686"
+date = "2025-10-13T05:58:44.87744810"
 +++
 
 ## Description
@@ -114,7 +114,7 @@ For example, an expression could look like:
 
 All expressions should be written to evaluate to a boolean value.
 
-See https://github.com/expr-lang/expr/blob/master/docs/Language-Definition.md as a detailed reference for valid syntax.
+See https://github.com/expr-lang/expr/blob/master/docs/language-definition.md as a detailed reference for valid syntax.
 
 ### Available Expression Functions
 
