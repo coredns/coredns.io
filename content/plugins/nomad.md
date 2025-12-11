@@ -4,7 +4,7 @@ description = "*nomad* enables reading zone data from a Nomad cluster."
 weight = 37
 tags = ["plugin", "nomad"]
 categories = ["plugin"]
-date = "2025-10-13T05:58:44.87744810"
+date = "2025-12-11T04:36:33.87733812"
 +++
 
 ## Description
@@ -83,12 +83,15 @@ With only the plugin specified, the *nomad* plugin will default to `service.noma
 ~~~ txt
 nomad [ZONE] {
     address URL
+    filter FILTER
     token TOKEN
     ttl DURATION
 }
 ~~~
 
 * `address` The address where a Nomad agent (server) is available. **URL** defaults to `http://127.0.0.1:4646`.
+
+* `filter` allows you to filter Nomad services. **FILTER** defaults to `""`. Uses [filtering](https://developer.hashicorp.com/nomad/api-docs#filtering) syntax.
 
 * `token` The SecretID of an ACL token to use to authenticate API requests with if the Nomad cluster has ACL enabled. **TOKEN** defaults to `""`.
 
