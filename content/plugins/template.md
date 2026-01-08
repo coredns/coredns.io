@@ -1,10 +1,10 @@
 +++
 title = "template"
 description = "*template* allows for dynamic responses based on the incoming query."
-weight = 45
+weight = 51
 tags = ["plugin", "template"]
 categories = ["plugin"]
-date = "2023-02-07T20:00:01.877182"
+date = "2026-01-08T11:42:04.877481"
 +++
 
 ## Description
@@ -29,7 +29,8 @@ template CLASS TYPE [ZONE...] {
 * **TYPE** the query type (A, PTR, ... can be ANY to match all types).
 * **ZONE** the zone scope(s) for this template. Defaults to the server zones.
 * `match` **REGEX** [Go regexp](https://golang.org/pkg/regexp/) that are matched against the incoming question name.
-  Specifying no regex matches everything (default: `.*`). First matching regex wins.
+  Specifying no regex matches everything (default: `.*`). First matching regex wins. Regex patterns
+  must not exceed 10000 characters.
 * `answer|additional|authority` **RR** A [RFC 1035](https://tools.ietf.org/html/rfc1035#section-5) style resource record fragment
   built by a [Go template](https://golang.org/pkg/text/template/) that contains the reply. Specifying no answer will result
   in a response with an empty answer section.
