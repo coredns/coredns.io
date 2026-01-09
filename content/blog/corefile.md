@@ -143,7 +143,4 @@ The Corefile is parsed like a [Caddyfile](https://caddyserver.com/docs/caddyfile
 everything that is described on that page, for instance the use of [environment
 variables](https://caddyserver.com/docs/caddyfile#env).
 
-Other interesting plugins that are helpful in Corefiles are:
-[*import*](/plugins/import)
-[*startup*](/plugins/startup) and
-[*shutdown*](/plugins/shutdown).
+See [plugins](/plugins) for the full list of in-tree plugins (for example, [import](/plugins/import)). Community-maintained plugins are listed on the [external plugins](/explugins) page.
