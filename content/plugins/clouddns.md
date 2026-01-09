@@ -4,7 +4,7 @@ description = "*clouddns* enables serving zone data from GCP Cloud DNS."
 weight = 11
 tags = ["plugin", "clouddns"]
 categories = ["plugin"]
-date = "2022-04-06T19:05:17.8771784"
+date = "2026-01-08T11:42:04.877481"
 +++
 
 ## Description
@@ -38,8 +38,10 @@ clouddns [ZONE:PROJECT_ID:HOSTED_ZONE_NAME...] {
 
 *   `credentials` is used for reading the credential file from **FILENAME** (normally a .json file).
     This field is optional. If this field is not provided then authentication will be done automatically,
-    e.g., through environmental variable `GOOGLE_APPLICATION_CREDENTIALS`. Please see
-    Google Cloud's [authentication method](https://cloud.google.com/docs/authentication) for more details.
+    e.g., through environmental variable `GOOGLE_APPLICATION_CREDENTIALS`. Note that CoreDNS validates that the given
+    file has a valid credentials type, but does not validate the credentials file for malicious input. Please see
+    Google Cloud's [authentication method](https://cloud.google.com/docs/authentication) and
+    [validating credential configurations from external sources](https://docs.cloud.google.com/docs/authentication/client-libraries#external-credentials) for more details.
 
 *   `fallthrough` If zone matches and no record can be generated, pass request to the next plugin.
     If **[ZONES...]** is omitted, then fallthrough happens for all zones for which the plugin is
