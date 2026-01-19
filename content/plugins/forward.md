@@ -4,7 +4,7 @@ description = "*forward* facilitates proxying DNS messages to upstream resolvers
 weight = 20
 tags = ["plugin", "forward"]
 categories = ["plugin"]
-date = "2025-12-11T04:36:33.87733812"
+date = "2026-01-17T06:17:00.877081"
 +++
 
 ## Description
@@ -47,6 +47,7 @@ forward FROM TO... {
     force_tcp
     prefer_udp
     expire DURATION
+    max_idle_conns INTEGER
     max_fails INTEGER
     max_connect_attempts INTEGER
     tls CERT KEY CA
@@ -74,6 +75,8 @@ forward FROM TO... {
   performed for a single incoming DNS request. Default value of 0 means no per-request
   cap.
 * `expire` **DURATION**, expire (cached) connections after this time, the default is 10s.
+* `max_idle_conns` **INTEGER**, maximum number of idle connections to cache per upstream for reuse.
+  Default is 0, which means unlimited.
 * `tls` **CERT** **KEY** **CA** define the TLS properties for TLS connection. From 0 to 3 arguments can be
   provided with the meaning as described below
 
