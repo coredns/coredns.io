@@ -7,14 +7,18 @@ source.
 ## Binaries
 
 For every CoreDNS release, we provide [pre-compiled
-binaries](https://github.com/coredns/coredns/releases/latest) for various operating systems. For
+binaries](https://github.com/coredns/coredns/releases/latest)
 Linux, we also provide cross-compiled binaries for ARM, PowerPC and other architectures.
 
 ## Docker
 
 We push every release as Docker images as well. You can find them in the [public Docker
-hub](https://hub.docker.com/r/coredns/coredns/) for the CoreDNS organization. This Docker image is
+hub](https://hub.docker.com/r/coredns/core
 basically *scratch* + CoreDNS + TLS certificates (for DoT, DoH, and gRPC).
+
+## Helm
+Installation of CoreDNS on a Kubernetes cluster can be achieved via Helm package manager. You
+can find the installation details [here](https://github.com/coredns/helm)
 
 ## Source
 
