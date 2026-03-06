@@ -1,10 +1,9 @@
 [build]
   publish = "public"
-  command = "hugo"
+  command = "make"
 
-[context.production.environment]
+[build.environment]
   HUGO_VERSION = "0.100.2"
-  HUGO_ENV = "make"
 
 [context.deploy-preview]
   command = "make"
