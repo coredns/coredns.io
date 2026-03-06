@@ -1,10 +1,10 @@
 +++
 title = "log"
 description = "*log* enables query logging to standard output."
-weight = 31
+weight = 34
 tags = ["plugin", "log"]
 categories = ["plugin"]
-date = "2021-09-21T15:01:04.877489"
+date = "2026-03-06T16:27:00.877083"
 +++
 
 ## Description
@@ -95,6 +95,19 @@ Each of these logs will be outputted with `log.Infof`, so a typical example look
 
 ~~~ txt
 [INFO] [::1]:50759 - 29008 "A IN example.org. udp 41 false 4096" NOERROR qr,rd,ra,ad 68 0.037990251s
+~~~
+
+## Additional metadata
+
+The log plugin adds the following metadata to allow for granular differentiation of NOERROR denial vs success messages. These are mapped from `plugin/pkg/response/classify.go` and `plugin/pkg/response/typify.go`.
+
+* `{/log/class}`: success, denial
+* `{/log/type}`: NODATA, NXDOMAIN, NOERROR
+
+~~~ corefile
+. {
+    log . "{proto} Request: {name} {type} {/log/class} {/log/type}"
+}
 ~~~
 
 ## Examples
