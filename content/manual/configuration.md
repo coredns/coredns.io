@@ -3,7 +3,7 @@
 There are various pieces that can be configured in CoreDNS. The first is determining which
 plugins you want to compile into CoreDNS. The binaries we provide have all plugins, as listed in
 [`plugin.cfg`](https://github.com/coredns/coredns/blob/master/plugin.cfg), compiled in.
-Adding or removing is [easy](/2017/07/23/add-external-plugins/), but requires a recompile of CoreDNS.
+Adding or removing is [easy](/blog/add-external), but requires a recompile of CoreDNS.
 
 Thus most users use the *Corefile* to configure CoreDNS. When CoreDNS starts, and the `-conf` flag is
 not given, it will look for a file named `Corefile` in the current directory. That file consists
@@ -206,7 +206,7 @@ example.net:53 {
 
 When parsed by CoreDNS, this will result in the following setup:
 
-![CoreDNS: Zones, plugins and query routing](/images/CoreDNS-Corefile.png)
+![CoreDNS: Zones, plugins and query routing](../../static/images/CoreDNS-Corefile.png)
 
 ## External Plugins
 

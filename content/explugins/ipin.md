@@ -6,7 +6,7 @@ tags = [  "plugin" , "ipin" ]
 categories = [ "plugin", "external" ]
 date = "2017-12-09T02:00:00+08:00"
 repo = "https://github.com/wenerme/coredns-ipin"
-home = "https://github.com/wenerme/coredns-ipin/blob/master/README.md"
+home = "https://github.com/wenerme/coredns-ipin/blob/main/README.md"
 +++
 
 ## Description

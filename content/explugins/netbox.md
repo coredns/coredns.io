@@ -6,7 +6,7 @@ tags = [  "plugin" , "netbox" ]
 categories = [ "plugin", "external" ]
 date = "2020-06-28T15:01:20+01:00"
 repo = "https://github.com/oz123/coredns-netbox-plugin"
-home = "https://github.com/oz123/coredns-netbox-plugin/README.md"
+home = "https://github.com/oz123/coredns-netbox-plugin/blob/master/README.md"
 +++
 
 ## Description
