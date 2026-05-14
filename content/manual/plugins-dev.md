@@ -125,7 +125,7 @@ a query comes in that is not a subdomain (or equal to) `example.org` the next pl
 Now, the world isn't perfect, and there are good reasons to "fallthrough" to the next middleware,
 meaning a plugin is only responsible for a *subset* of names within the zone. The first of these
 to appear was the *reverse* plugin, now replaced with the generalized *template* plugin that can
-synthesizes various responses.
+synthesize various responses.
 
 The nature of the *template* plugin might only deal with specified record TYPEs, and then only
 for a subset of the names. Ideally, you would want to layer *template* **in front of** another
