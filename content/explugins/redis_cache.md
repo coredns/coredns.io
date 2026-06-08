@@ -220,7 +220,7 @@ implementation.
 If monitoring is enabled (via the *prometheus* directive) the following metrics are exported:
 
 * `coredns_redis_cache_hits_total{server}` - The count of cache hits from Redis.
-* `coredns_redis_cache_misses_total{server}` - The count of cache misses from Redis.
+* `coredns_redis_cache_request_duration_seconds{server}` — Histogram of the time (in seconds) each cache lookup took. The `_count` series is the total number of cache requests; derive misses from the request and hit counters.
 * `coredns_redis_cache_get_errors_total{server,reason}` - The count of errors when reading entries from Redis. See *Error reasons* below for the `reason` buckets.
 * `coredns_redis_cache_set_errors_total{server,reason}` - The count of errors when adding entries to Redis. Same `reason` buckets as `get_errors_total`.
 * `coredns_redis_cache_encode_errors_total{server}` - The count of DNS messages that could not be serialized to wire format and so were not cached.
