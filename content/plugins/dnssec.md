@@ -4,7 +4,7 @@ description = "*dnssec* enables on-the-fly DNSSEC signing of served data."
 weight = 14
 tags = ["plugin", "dnssec"]
 categories = ["plugin"]
-date = "2024-11-22T08:09:54.87754811"
+date = "2026-07-01T06:01:46.8774687"
 +++
 
 ## Description
@@ -68,7 +68,7 @@ used.
   as a new secret in AWS Secrets Manager with the specified name and description. CoreDNS will then fetch
   the key data from AWS Secrets Manager when using the `key aws_secretsmanager` directive.
 
-  [AWS SDK for Go V2](https://aws.github.io/aws-sdk-go-v2/docs/configuring-sdk/#specifying-credentials) is used
+  [AWS SDK for Go V2](https://docs.aws.amazon.com/sdk-for-go/v2/developer-guide/configure-auth.html) is used
   for authentication with AWS Secrets Manager. Make sure the provided AWS credentials have the necessary
   permissions (e.g., `secretsmanager:GetSecretValue`) to access the specified secrets in AWS Secrets Manager.
 

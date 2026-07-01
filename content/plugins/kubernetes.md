@@ -4,7 +4,7 @@ description = "*kubernetes* enables reading zone data from a Kubernetes cluster.
 weight = 31
 tags = ["plugin", "kubernetes"]
 categories = ["plugin"]
-date = "2026-03-06T16:27:00.877083"
+date = "2026-07-01T06:01:46.8774687"
 +++
 
 ## Description
@@ -72,12 +72,12 @@ kubernetes [ZONES...] {
    If this option is omitted all namespaces are exposed
 * `namespace_labels` **EXPRESSION** only expose the records for Kubernetes namespaces that match this label selector.
    The label selector syntax is described in the
-   [Kubernetes User Guide - Labels](https://kubernetes.io/docs/user-guide/labels/). An example that
+   [Kubernetes Documentation - Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/). An example that
    only exposes namespaces labeled as "istio-injection=enabled", would use:
    `labels istio-injection=enabled`.
 * `labels` **EXPRESSION** only exposes the records for Kubernetes objects that match this label selector.
    The label selector syntax is described in the
-   [Kubernetes User Guide - Labels](https://kubernetes.io/docs/user-guide/labels/). An example that
+   [Kubernetes Documentation - Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/). An example that
    only exposes objects labeled as "application=nginx" in the "staging" or "qa" environments, would
    use: `labels environment in (staging, qa),application=nginx`.
 * `pods` **POD-MODE** sets the mode for handling IP-based pod A records, e.g.
@@ -270,7 +270,7 @@ The following are client level metrics to monitor apiserver request latency & st
 
 ## Bugs
 
-The duration metric only supports the "headless\_with\_selector" service currently.
+The duration metric does not yet support the `headless_without_selector` service kind.
 
 ## See Also
 

@@ -1,10 +1,10 @@
 +++
 title = "prometheus"
 description = "*prometheus* enables [Prometheus](https://prometheus.io/) metrics."
-weight = 34
+weight = 37
 tags = ["plugin", "prometheus"]
 categories = ["plugin"]
-date = "2025-06-13T10:26:16.8771686"
+date = "2026-07-01T06:01:46.8774687"
 +++
 
 ## Description
@@ -58,13 +58,21 @@ This plugin can only be used once per Server Block.
 ## Syntax
 
 ~~~
-prometheus [ADDRESS]
+prometheus [ADDRESS] {
+    runtime_metrics
+}
 ~~~
 
 For each zone that you want to see metrics for.
 
 It optionally takes a bind address to which the metrics are exported; the default
 listens on `localhost:9153`. The metrics path is fixed to `/metrics`.
+
+* `runtime_metrics` exports the full Go [runtime/metrics](https://pkg.go.dev/runtime/metrics)
+  set — notably `go_cpu_classes_*` for CPU attribution (GC mark/assist/pause vs user code)
+  and `go_sched_latencies_seconds` for goroutine scheduling delay. Adds roughly 100 scalars
+  and 8 histograms. This is a process-wide latch: enabling it in any server block enables it
+  for all, and it stays enabled across reloads until restart.
 
 ## Examples
 
