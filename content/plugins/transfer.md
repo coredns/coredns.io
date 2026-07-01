@@ -1,10 +1,10 @@
 +++
 title = "transfer"
 description = "*transfer* perform (outgoing) zone transfers for other plugins."
-weight = 48
+weight = 56
 tags = ["plugin", "transfer"]
 categories = ["plugin"]
-date = "2022-01-24T14:51:48.8774881"
+date = "2026-07-01T06:05:45.8774587"
 +++
 
 ## Description

@@ -1,10 +1,10 @@
 +++
 title = "view"
 description = "*view* defines conditions that must be met for a DNS request to be routed to the server block."
-weight = 54
+weight = 58
 tags = ["plugin", "view"]
 categories = ["plugin"]
-date = "2025-10-13T05:58:44.87744810"
+date = "2026-07-01T06:01:46.8774687"
 +++
 
 ## Description
@@ -27,6 +27,15 @@ view NAME {
   incoming queries to the enclosing server block.
 
 For expression syntax and examples, see the Expressions and Examples sections.
+
+## Server Block Ordering
+
+Server blocks sharing the same zone and port are evaluated **top to bottom**. The first block whose
+view expression matches (or that has no view) handles the query. An unfiltered catch-all block
+declared *before* a filtered block will shadow it, because the catch-all matches every query.
+
+To get the expected split-DNS behavior, declare all filtered (view) blocks first and the unfiltered
+catch-all block last.
 
 ## Examples
 

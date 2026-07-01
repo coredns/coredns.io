@@ -1,10 +1,10 @@
 +++
 title = "tsig"
 description = "*tsig* define TSIG keys, validate incoming TSIG signed requests and sign responses."
-weight = 49
+weight = 57
 tags = ["plugin", "tsig"]
 categories = ["plugin"]
-date = "2022-09-08T18:42:54.8775489"
+date = "2026-07-01T06:01:46.8774687"
 +++
 
 ## Description
@@ -22,6 +22,7 @@ tsig [ZONE...] {
   secret NAME KEY
   secrets FILE
   require [QTYPE...]
+  require_opcode [OPCODE...]
 }
 ~~~
 
@@ -39,9 +40,14 @@ tsig [ZONE...] {
      ```
      Each key may also specify an `algorithm` e.g. `algorithm hmac-sha256;`, but this is currently ignored by the plugin.
 
-     * `require` **QTYPE...** - the query types that must be TSIG'd. Requests of the specified types
-   will be `REFUSED` if they are not signed.`require all` will require requests of all types to be
+   * `require` **QTYPE...** - the query types that must be TSIG'd. Requests of the specified types
+   will be `REFUSED` if they are not signed. `require all` will require requests of all types to be
    signed. `require none` will not require requests any types to be signed. Default behavior is to not require.
+
+   * `require_opcode` **OPCODE...** - the opcodes that must be TSIG'd. Requests with the specified opcodes
+   will be `REFUSED` if they are not signed. Valid opcodes are: `QUERY`, `IQUERY`, `STATUS`, `NOTIFY`, `UPDATE`.
+   `require_opcode all` will require requests with all opcodes to be signed. `require_opcode none` will not
+   require requests with any opcode to be signed. Default behavior is to not require.
 
 ## Examples
 
@@ -68,6 +74,17 @@ auth.zone {
     require all
   }
   forward . 10.1.0.2
+}
+```
+
+Require TSIG signed transactions for UPDATE and NOTIFY operations to `dynamic.zone`.
+
+```
+dynamic.zone {
+  tsig {
+    secret dynamic.zone.key. NoTCJU+DMqFWywaPyxSijrDEA/eC3nK0xi3AMEZuPVk=
+    require_opcode UPDATE NOTIFY
+  }
 }
 ```
 
