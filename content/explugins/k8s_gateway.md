@@ -5,8 +5,8 @@ weight = 10
 tags = [  "plugin" , "k8s" ]
 categories = [ "plugin", "external", "kubernetes" ]
 date = "2020-09-19T12:00:00-08:00"
-repo = "https://github.com/ori-edge/k8s_gateway"
-home = "https://github.com/ori-edge/k8s_gateway/blob/master/README.md"
+repo = "https://github.com/k8s-gateway/k8s_gateway"
+home = "https://github.com/k8s-gateway/k8s_gateway/blob/master/README.md"
 +++
 
 ## Description
