@@ -4,7 +4,7 @@ description = "*transfer* perform (outgoing) zone transfers for other plugins."
 weight = 56
 tags = ["plugin", "transfer"]
 categories = ["plugin"]
-date = "2026-07-01T06:05:45.8774587"
+date = "2026-07-13T15:51:55.8775587"
 +++
 
 ## Description
@@ -25,6 +25,7 @@ use this plugin.
 ~~~
 transfer [ZONE...] {
   to ADDRESS...
+  source ADDRESS
 }
 ~~~
 
@@ -37,6 +38,10 @@ transfer [ZONE...] {
     addresses. Zone change notifications are sent to all **ADDRESS** that are an IP address or
     an IP address and port e.g. `1.2.3.4`, `12:34::56`, `1.2.3.4:5300`, `[12:34::56]:5300`.
     `to` may be specified multiple times.
+
+ *  `source` **ADDRESS** is the local IP address to use when sending zone change
+    notifications to the configured `to` addresses. It does not change which
+    clients are allowed to request AXFR or IXFR transfers.
 
 You can use the _acl_ plugin to further restrict hosts permitted to receive a zone transfer.
 See example below.
@@ -55,6 +60,17 @@ Use in conjunction with the _acl_ plugin to restrict access to subnet 10.1.0.0/1
   }
   transfer {
     to *
+  }
+...
+```
+
+Send NOTIFY messages from a specific local address.
+
+```
+...
+  transfer {
+    to 2001:db8::1
+    source 2001:db8::53
   }
 ...
 ```

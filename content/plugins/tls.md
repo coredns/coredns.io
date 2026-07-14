@@ -4,7 +4,7 @@ description = "*tls* allows you to configure the server certificates for the TLS
 weight = 54
 tags = ["plugin", "tls"]
 categories = ["plugin"]
-date = "2026-07-01T06:01:46.8774687"
+date = "2026-07-13T15:51:55.8775587"
 +++
 
 ## Description
@@ -41,6 +41,9 @@ set to verify\_if\_given or require\_and\_verify.
 
 The keylog can be specified to export TLS master secrets in key log format to allow external programs
 to decrypt TLS connections. It compromises security and should only be used for debugging!
+
+CoreDNS sets the minimum TLS version to TLS 1.2. The maximum TLS version, TLS 1.2 cipher suites, and
+key exchange mechanisms use the Go `crypto/tls` defaults.
 
 ## Examples
 

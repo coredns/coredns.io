@@ -4,7 +4,7 @@ description = "*grpc* facilitates proxying DNS messages to upstream resolvers vi
 weight = 22
 tags = ["plugin", "grpc"]
 categories = ["plugin"]
-date = "2025-08-08T17:41:04.877488"
+date = "2026-07-13T15:51:55.8775587"
 +++
 
 ## Description
@@ -52,6 +52,9 @@ grpc FROM TO... {
     The server certificate is verified with the system CAs
   * `tls` **CERT** **KEY**  **CA** - client authentication is used with the specified cert/key pair.
     The server certificate is verified using the specified CA file
+
+CoreDNS sets the minimum TLS version to TLS 1.2. The maximum TLS version, TLS 1.2 cipher suites, and
+key exchange mechanisms use the Go `crypto/tls` defaults.
 
 * `tls_servername` **NAME** allows you to set a server name in the TLS configuration; for instance 9.9.9.9
   needs this to be set to `dns.quad9.net`. Multiple upstreams are still allowed in this scenario,
