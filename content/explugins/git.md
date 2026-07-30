@@ -5,8 +5,8 @@ weight = 10
 tags = [  "plugin" , "git" ]
 categories = [ "plugin", "external" ]
 date = "2021-01-07T00:12:00+08:00"
-repo = "https://github.com/miekg/coredns-git"
-home = "https://github.com/miekg/coredns-git/blob/master/README.md"
+repo = "https://github.com/ganawaj/coredns-git"
+home = "https://github.com/ganawaj/coredns-git/blob/master/README.md"
 +++
 
 ## Description
