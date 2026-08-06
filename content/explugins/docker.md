@@ -6,7 +6,7 @@ tags = [  "plugin" , "docker" ]
 categories = [ "plugin", "external" ]
 date = "2025-12-18T18:39:00+04:00"
 repo = "https://github.com/dokku/coredns-docker"
-home = "https://github.com/dokku/coredns-docker/blob/master/README.md"
+home = "https://github.com/dokku/coredns-docker/blob/main/README.md"
 +++
 
 ## Description

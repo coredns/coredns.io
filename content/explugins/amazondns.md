@@ -13,7 +13,7 @@ home = "https://github.com/wadahiro/coredns-amazondns/blob/master/README.md"
 
 The *amazondns* plugin behaves **Authoritative name server** using [Amazon DNS Server](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html#AmazonDNS) as the backend.
 
-The Amazon DNS server is used to resolve the DNS domain names that you specify in a private hosted zone in Route 53. However, the server acts as **Caching name server**. Although CoreDNS has [proxy plugin](https://github.com/coredns/coredns/tree/master/plugin/proxy) and we can configure Amazon DNS server as the backend, it can't be Authoritative name server. In my case, Authoritative name server is required to handle delegated responsibility for the subdomain. That's why I created this plugin. 
+The Amazon DNS server is used to resolve the DNS domain names that you specify in a private hosted zone in Route 53. However, the server acts as **Caching name server**. Although CoreDNS has [forward plugin](https://github.com/coredns/coredns/blob/master/plugin/forward/README.md) and we can configure Amazon DNS server as the backend, it can't be Authoritative name server. In my case, Authoritative name server is required to handle delegated responsibility for the subdomain. That's why I created this plugin.
 
 ## Syntax
 
