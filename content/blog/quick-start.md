@@ -87,16 +87,14 @@ see [the deployment repo](https://github.com/coredns/deployment) for example scr
 Read more about the [*file*](/plugins/file/), [*metrics*](/plugins/metrics) and
 [*errors*](/plugins/errors) plugin.
 
-## CoreDNS as proxy
+## CoreDNS as forwarding proxy
 
-Another plugin is the [*proxy*](/plugins/proxy) plugin. We can for instance send DNS request to
+Another plugin is the [*forward*](/plugins/forward) plugin. We can for instance send DNS request to
 Google over HTTPS. Create a Corefile with:
 
 ~~~ txt
 . {
-    proxy . 8.8.8.8:53 {
-        protocol https_google
-    }
+    forward . tls://8.8.8.8
     prometheus
     errors
     log
