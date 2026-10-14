@@ -111,4 +111,3 @@ gravwell {
 
 [Getting started](https://dev.gravwell.io/docs/#!quickstart/community-edition.md) with Gravwell Community Edition
 [Community Edition Licenses](https://www.gravwell.io/activate-community-edition)
-[Ingest API and code](https://github.com/gravwell/ingest)

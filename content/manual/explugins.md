@@ -5,4 +5,4 @@ default install. You can find [external plugins on our website](/explugins), or 
 yourself.
 
 Enabling plugins is a compile time affair in CoreDNS, so you'll need to have [CoreDNS' source
-code](/installation.md#source).
+code](/manual/installation.md#source).

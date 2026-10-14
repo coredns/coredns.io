@@ -50,7 +50,7 @@ Only `[ZONES...]`, `chaos` and `grpcport` is different with plugin with *[kubern
 
 * `[ZONES...]` defines which zones of the host will be treated as internal hosts in the Kubernetes cluster.
 
-* `chaos` **ACTION** **SCOPE** **[PODS...]** set the behavior and scope of chaos. 
+* `chaos` **ACTION** **SCOPE** **[PODS...]** set the behavior and scope of chaos.
 
   Valid value for **Action**:
 
@@ -58,14 +58,14 @@ Only `[ZONES...]`, `chaos` and `grpcport` is different with plugin with *[kubern
   * `error`:  return error for DNS request.
 
   Valid value for **SCOPE**:
-    
+
   * `inner`: chaos only works on the inner host of the Kubernetes cluster.
   * `outer`: chaos only works on the outer host of the Kubernetes cluster.
   * `all`:   chaos works on all the hosts.
 
   **[PODS...]** defines which Pods will take effect, the format is `Namespace`.`PodName`.
 
-* `grpcport` **PORT** sets the port of GRPC service, which is used for the hot update of the chaos rules. The default value is `9288`. The interface of the GRPC service is defined in [dns.proto](pb/dns.proto).
+* `grpcport` **PORT** sets the port of GRPC service, which is used for the hot update of the chaos rules. The default value is `9288`. The interface of the GRPC service is defined in [dns.proto](https://github.com/chaos-mesh/k8s_dns_chaos/blob/master/pb/dns.proto).
 
 ## Examples
 
@@ -81,7 +81,7 @@ All DNS requests in Pod `busybox.busybox-0` will get error:
 ```
 
 The shell command below will execute failed:
-  
+
 ```shell
     kubectl exec busybox-0 -it -n busybox -- ping -c 1 google.com
     ping: bad address 'google.com'

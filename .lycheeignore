@@ -1,0 +1,9 @@
+// This file contains urls to ignore during scan
+
+// Gets 429 error (too many redirects)
+// There is nothing that can be done, so ignore
+https://www.hashicorp.com/en/blog/nomad-service-discovery
+
+// Ignore this because it is in plugins. Plugins are copied from coredns repo
+// and the link works there.
+../metadata

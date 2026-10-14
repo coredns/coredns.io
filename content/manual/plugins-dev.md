@@ -3,7 +3,7 @@
 As mentioned before in this manual, plugins are the thing that make CoreDNS tick. We've seen
 a bunch of configuration in the [previous section](#setups), but how can you write your own plugin?
 
-See [Writing Plugins for CoreDNS](/2016/12/19/writing-plugins-for-coredns/) for an older post on
+See [Writing Plugins for CoreDNS](/blog/coredns-plugins) for an older post on
 this subject. The [plugin.md](https://github.com/coredns/coredns/blob/master/plugin.md) documented
 in CoreDNS' source also has some background and talks about styling the README.md.
 
@@ -48,7 +48,7 @@ CoreDNS treats:
 As special and will then assume *nothing* has been written to the client. In all other cases, it
 assumes something has been written to the client (by the plugin).
 
-See [this post](https://blog.coredns.io/2017/03/01/how-to-add-plugins-to-coredns/) on how to compile
+See [this post](/blog/how-to-add-plugins) on how to compile
 CoreDNS with your plugin.
 
 ## Logging From a Plugin
@@ -139,5 +139,5 @@ in one of those zones should be allowed to fallthrough.
 
 ## Qualifying for main repo
 
-See [this document](/2017/07/23/when-should-plugins-be-external/) describing the
+See [this document](/blog/when-external) describing the
 requirements.

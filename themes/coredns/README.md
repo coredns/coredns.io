@@ -3,7 +3,7 @@
 `kube` Kube is a professional  and a responsive Hugo theme for developers and designers that offers
 a documentation section mixed with a landing page and a blog.
 
-I create this theme  based on the `Version 6.5.2` [Kube Framework](https://imperavi.com/kube/). 
+I create this theme  based on the `Version 6.5.2` [Kube Framework](https://imperavi.com/kube/).
 
 ![kube hugo landingPage](https://cldup.com/RjWtdJZNae.png)
 
@@ -38,7 +38,7 @@ Inside the folder of your Hugo site run:
     $ cd themes
     $ git clone https://github.com/jeblister/kube.git
 
-For more information read the official [setup guide](//gohugo.io/overview/installing/) for Hugo.
+For more information read the official [setup guide](https://gohugo.io/installation/) for Hugo.
 
 
 Copy custom archetypes to your site:
@@ -48,9 +48,9 @@ cp themes/kube/archetypes/* archetypes
 ```
 
 
-Next, take a look in the `exampleSite` folder at. This directory contains an example config file and the content for the demo. It serves as an example setup for your blog. 
+Next, take a look in the `exampleSite` folder at. This directory contains an example config file and the content for the demo. It serves as an example setup for your blog.
 
-Copy at least the `config.toml` in the root directory of your website. Overwrite the existing config file if necessary. 
+Copy at least the `config.toml` in the root directory of your website. Overwrite the existing config file if necessary.
 
 Hugo includes a development server, so you can view your changes as you go :
 
@@ -166,7 +166,7 @@ There's only one rule...there are no rules.
 
 MIT
 
-## Credit 
+## Credit
 [kube framework]: https://imperavi.com/kube/
 [after dark]: https://github.com/comfusion/after-dark
 

@@ -6,7 +6,7 @@ tags = [  "plugin" , "fanout" ]
 categories = [ "plugin", "external" ]
 date = "2024-09-03T22:00:00+08:00"
 repo = "https://github.com/networkservicemesh/fanout"
-home = "https://github.com/networkservicemesh/fanout/README.md"
+home = "https://github.com/networkservicemesh/fanout/blob/main/README.md"
 +++
 
 ## Description
